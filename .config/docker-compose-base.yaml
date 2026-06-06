@@ -5,9 +5,10 @@ services:
 
     build:
       context: .
+      dockerfile: Dockerfile
       args:
         grafana_image: ${GRAFANA_IMAGE:-grafana-enterprise}
-        grafana_version: ${GRAFANA_VERSION:-12.4.0}
+        grafana_version: ${GRAFANA_VERSION:-13.1.0-25893932881}
         development: ${DEVELOPMENT:-false}
         anonymous_auth_enabled: ${ANONYMOUS_AUTH_ENABLED:-true}
     ports:

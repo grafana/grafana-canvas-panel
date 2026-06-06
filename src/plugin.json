@@ -4,7 +4,9 @@
   "name": "Canvas",
   "id": "grafana-canvas-panel",
   "info": {
-    "keywords": ["panel"],
+    "keywords": [
+      "panel"
+    ],
     "description": "",
     "author": {
       "name": "Grafana"
@@ -19,7 +21,7 @@
     "updated": "%TODAY%"
   },
   "dependencies": {
-    "grafanaDependency": ">=12.3.0",
+    "grafanaDependency": ">=13.1.0",
     "plugins": []
   }
 }
