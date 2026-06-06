@@ -14,13 +14,13 @@ services:
     ports:
       - 3000:3000/tcp
     volumes:
-      - ../dist:/var/lib/grafana/plugins/grafana-canvas-panel
+      - ../dist:/var/lib/grafana/plugins/canvas
       - ../provisioning:/etc/grafana/provisioning
       - ..:/root/grafana-canvas-panel
 
     environment:
       NODE_ENV: development
-      GF_LOG_FILTERS: plugin.grafana-canvas-panel:debug
+      GF_LOG_FILTERS: plugin.canvas:debug
       GF_LOG_LEVEL: debug
       GF_DATAPROXY_LOGGING: 1
-      GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: grafana-canvas-panel
+      GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: canvas

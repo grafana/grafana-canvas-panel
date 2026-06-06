@@ -51,7 +51,7 @@
         }
       ],
       "title": "Sample Panel Title",
-      "type": "grafana-canvas-panel"
+      "type": "canvas"
     },
     {
       "datasource": {
@@ -82,7 +82,7 @@
         }
       ],
       "title": "Sample Panel Title",
-      "type": "grafana-canvas-panel"
+      "type": "canvas"
     }
   ],
   "refresh": "",

@@ -2,11 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
   "name": "Canvas",
-  "id": "grafana-canvas-panel",
+  "id": "canvas",
   "info": {
-    "keywords": [
-      "panel"
-    ],
+    "keywords": ["panel"],
     "description": "",
     "author": {
       "name": "Grafana"
