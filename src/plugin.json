@@ -4,8 +4,11 @@
   "name": "Canvas",
   "id": "canvas",
   "info": {
-    "keywords": ["panel"],
-    "description": "",
+    "keywords": [
+      "canvas",
+      "drawing"
+    ],
+    "description": "Draw pictures with the Canvas visualization panel plugin, then paint by numbers with your Grafana metrics data!",
     "author": {
       "name": "Grafana"
     },
@@ -13,7 +16,12 @@
       "small": "img/logo.svg",
       "large": "img/logo.svg"
     },
-    "links": [],
+    "links": [
+      {
+        "name": "Repository",
+        "url": "https://github.com/grafana/grafana-canvas-panel"
+      }
+    ],
     "screenshots": [],
     "version": "%VERSION%",
     "updated": "%TODAY%"
