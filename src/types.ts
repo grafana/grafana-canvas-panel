@@ -1,5 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/types.ts
-import { type ElementState } from '../../../features/canvas/runtime/element';
+import { type ElementState } from './features/canvas/runtime/element';
 
 import { type CanvasConnection, type ConnectionCoordinates } from './panelcfg.gen';
 

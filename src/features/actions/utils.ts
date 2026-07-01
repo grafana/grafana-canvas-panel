@@ -21,9 +21,9 @@ import { type BackendSrvRequest, config as grafanaConfig, getBackendSrv } from '
 import { appEvents } from '../../core/app_events';
 
 import { HttpRequestMethod } from '../../panelcfg.gen';
-import { createAbsoluteUrl, type RelativeUrl } from '../alerting/unified/utils/url';
-import { getTimeSrv } from '../dashboard/services/TimeSrv';
-import { getNextRequestId } from '../query/state/PanelQueryRunner';
+import { createAbsoluteUrl, type RelativeUrl } from '../../core/url';
+import { getTimeSrv } from '../../core/timeSrv';
+import { getNextRequestId } from '../../core/panelQueryRunner';
 
 import { reportActionTrigger } from './analytics';
 

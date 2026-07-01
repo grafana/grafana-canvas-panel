@@ -37,7 +37,7 @@ import { type AnchorPoint, type CanvasTooltipPayload } from '../../../types';
 import { appEvents } from '../../../core/app_events';
 import { type CanvasPanel } from '../../../CanvasPanel';
 import { isInfinityActionWithAuth } from '../../actions/utils';
-import { getDashboardSrv } from '../../dashboard/services/DashboardSrv';
+import { getDashboardSrv } from '../../../core/dashboardSrv';
 import { type CanvasFrameOptions } from '../frame';
 import { DEFAULT_CANVAS_ELEMENT_CONFIG } from '../registry';
 
