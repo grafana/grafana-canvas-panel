@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/runtime/ables.tsx
+import * as React from 'react';
 import { type MoveableManagerInterface, type Renderer } from 'moveable';
 
 import { VerticalConstraint, HorizontalConstraint } from '../../../panelcfg.gen';

@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/utils.ts
+import * as React from 'react';
 import { isNumber, isString } from 'lodash';
 
 import {
