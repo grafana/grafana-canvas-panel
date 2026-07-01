@@ -1,7 +1,69 @@
-type SeriesSize = 'sm' | 'md' | 'lg';
+// SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/types.ts
+import { type ElementState } from '../../../features/canvas/runtime/element';
 
-export interface SimpleOptions {
-  text: string;
-  showSeriesCount: boolean;
-  seriesCountSize: SeriesSize;
+import { type CanvasConnection, type ConnectionCoordinates } from './panelcfg.gen';
+
+export enum LayerActionID {
+  Delete = 'delete',
+  Duplicate = 'duplicate',
+  MoveTop = 'move-top',
+  MoveBottom = 'move-bottom',
+}
+
+export interface DragNode {
+  key: number;
+  dataRef: ElementState;
+}
+
+export interface DropNode extends DragNode {
+  pos: string;
+}
+
+export enum InlineEditTabs {
+  ElementManagement = 'element-management',
+  SelectedElement = 'selected-element',
+  SelectedConnection = 'selected-connection',
+}
+
+export type AnchorPoint = {
+  x: number;
+  y: number;
+};
+
+export interface CanvasTooltipPayload {
+  anchorPoint: AnchorPoint | undefined;
+  element: ElementState | undefined;
+  isOpen?: boolean;
+}
+
+export interface ConnectionState {
+  index: number; // array index from the source
+  source: ElementState;
+  target: ElementState;
+  info: CanvasConnection;
+  vertices?: ConnectionCoordinates[];
+  sourceOriginal?: ConnectionCoordinates;
+  targetOriginal?: ConnectionCoordinates;
+}
+
+export enum LineStyle {
+  Solid = 'solid',
+  Dashed = 'dashed',
+  Dotted = 'dotted',
+}
+
+export enum StrokeDasharray {
+  Solid = '0',
+  Dashed = '8 8',
+  Dotted = '3',
+}
+
+export interface ElementTransformAndDimensions {
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+  x: number;
+  y: number;
+  rotation: number;
 }
