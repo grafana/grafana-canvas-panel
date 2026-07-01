@@ -1,5 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/core/components/SVG/SanitizedSVG.tsx
 // TODO: Publish SanitizedSVG from @grafana/ui and delete this duplicate file
+import * as React from 'react';
 import SVG, { type Props } from 'react-inlinesvg';
 
 import { textUtil } from '@grafana/data';
