@@ -16,14 +16,13 @@ import {
   type ScopedVars,
   textUtil,
   type ValueLinkConfig,
+  type TimeRange,
 } from '@grafana/data';
 import { type BackendSrvRequest, config as grafanaConfig, getBackendSrv } from '@grafana/runtime';
-import { appEvents } from '../../core/app_events';
+import { getAppEvents } from '@grafana/runtime';
 
 import { HttpRequestMethod } from '../../panelcfg.gen';
 import { createAbsoluteUrl, type RelativeUrl } from '../../core/url';
-import { getTimeSrv } from '../../core/timeSrv';
-import { getNextRequestId } from '../../core/panelQueryRunner';
 
 import { reportActionTrigger } from './analytics';
 
@@ -55,6 +54,11 @@ export const genReplaceActionVars = (
   };
 };
 
+let _requestCounter = 0;
+const getNextRequestId = () => 'Q' + _requestCounter++;
+
+// NOTE: `timeRange` parameter added here (not in source) because `getTimeSrv()`
+// is not available outside Grafana core. Callers pass `scene.data?.timeRange` instead.
 /** @internal */
 export const getActions = (
   frame: DataFrame,
@@ -63,7 +67,8 @@ export const getActions = (
   replaceVariables: InterpolateFunction,
   actions: Action[],
   config: ValueLinkConfig,
-  visualizationType?: string
+  visualizationType?: string,
+  timeRange?: TimeRange
 ): Array<ActionModel<Field>> => {
   if (!actions || actions.length === 0) {
     return [];
@@ -118,17 +123,17 @@ export const getActions = (
               .fetch(request)
               .subscribe({
                 error: (error) => {
-                  appEvents.emit(AppEvents.alertError, [
+                  getAppEvents().emit(AppEvents.alertError, [
                     'An error has occurred. Check console output for more details.',
                   ]);
                   console.error(error);
                 },
                 complete: () => {
-                  appEvents.emit(AppEvents.alertSuccess, ['API call was successful']);
+                  getAppEvents().emit(AppEvents.alertSuccess, ['API call was successful']);
                 },
               });
           } catch (error) {
-            appEvents.emit(AppEvents.alertError, ['An error has occurred. Check console output for more details.']);
+            getAppEvents().emit(AppEvents.alertError, ['An error has occurred. Check console output for more details.']);
             console.error(error);
             return;
           }
@@ -256,7 +261,6 @@ class InfinityRequestBuilder {
   ): BackendSrvRequest {
     const requestId = getNextRequestId();
     const infinityUrl = `api/ds/query?ds_type=${INFINITY_DATASOURCE_TYPE}&requestId=${requestId}`;
-    const timeRange = getTimeSrv().timeRange();
 
     const requestHeaders: KeyValuePair[] = [];
     headers.forEach(([name, value]) => {
@@ -296,8 +300,8 @@ class InfinityRequestBuilder {
             url_options: infinityUrlOptions,
           },
         ],
-        from: timeRange.from.valueOf().toString(),
-        to: timeRange.to.valueOf().toString(),
+        from: (timeRange?.from.valueOf() ?? (Date.now() - 6 * 3600000)).toString(),
+        to: (timeRange?.to.valueOf() ?? Date.now()).toString(),
       },
     };
   }

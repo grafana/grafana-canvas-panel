@@ -4,7 +4,7 @@ import { css } from '@emotion/css';
 import { type GrafanaTheme2, type LinkModel } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { type ColorDimensionConfig, type ScalarDimensionConfig } from '@grafana/schema';
-import config from '../../../../core/config';
+import { config } from '@grafana/runtime';
 import { type DimensionContext } from '../../../dimensions/context';
 import { ColorDimensionEditor } from '../../../dimensions/editors/ColorDimensionEditor';
 import { ScalarDimensionEditor } from '../../../dimensions/editors/ScalarDimensionEditor';

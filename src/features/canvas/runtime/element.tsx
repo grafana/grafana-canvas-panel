@@ -943,7 +943,9 @@ export class ElementState implements LayerElement {
         scopedVars,
         scene?.panel.props.replaceVariables!,
         actionsDefaultFieldConfig.actions,
-        config
+        config,
+        undefined,
+        scene?.data?.timeRange
       );
       return actions.find((action) => action.oneClick === true);
     }

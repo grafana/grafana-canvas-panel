@@ -1,9 +1,8 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/utils.ts
 import { AppEvents, textUtil } from '@grafana/data';
 import { type BackendSrvRequest, getBackendSrv, getTemplateSrv } from '@grafana/runtime';
-import { appEvents } from '../../core/app_events';
+import { getAppEvents } from '@grafana/runtime';
 import { createAbsoluteUrl, type RelativeUrl } from '../../core/url';
-import { getDashboardSrv } from '../../core/dashboardSrv';
 
 import { HttpRequestMethod } from '../../panelcfg.gen';
 
@@ -13,7 +12,7 @@ type IsLoadingCallback = (loading: boolean) => void;
 
 export const callApi = (api: APIEditorConfig, updateLoadingStateCallback?: IsLoadingCallback) => {
   if (!api.endpoint) {
-    appEvents.emit(AppEvents.alertError, ['API endpoint is not defined.']);
+    getAppEvents().emit(AppEvents.alertError, ['API endpoint is not defined.']);
     return;
   }
 
@@ -23,21 +22,22 @@ export const callApi = (api: APIEditorConfig, updateLoadingStateCallback?: IsLoa
     .fetch(request)
     .subscribe({
       error: (error) => {
-        appEvents.emit(AppEvents.alertError, ['An error has occurred. Check console output for more details.']);
+        getAppEvents().emit(AppEvents.alertError, ['An error has occurred. Check console output for more details.']);
         console.error('API call error: ', error);
         updateLoadingStateCallback && updateLoadingStateCallback(false);
       },
       complete: () => {
         const message = api.successMessage || 'API call was successful';
-        appEvents.emit(AppEvents.alertSuccess, [message]);
+        getAppEvents().emit(AppEvents.alertSuccess, [message]);
         updateLoadingStateCallback && updateLoadingStateCallback(false);
       },
     });
 };
 
+// NOTE: `scopedVars` omitted here (not in source) because `panelInEdit` is not
+// accessible outside Grafana core. Variable interpolation is less specific as a result.
 export const interpolateVariables = (text: string) => {
-  const panel = getDashboardSrv().getCurrent()?.panelInEdit;
-  return getTemplateSrv().replace(text, panel?.scopedVars);
+  return getTemplateSrv().replace(text);
 };
 
 export const getRequest = (api: APIEditorConfig) => {

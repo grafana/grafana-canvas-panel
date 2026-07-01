@@ -129,7 +129,8 @@ export const CanvasTooltip = ({ scene }: Props) => {
       scene.panel.props.replaceVariables!,
       element.options.actions ?? [],
       config,
-      'canvas'
+      'canvas',
+      scene.data?.timeRange
     );
 
     actionsModel.forEach((action) => {

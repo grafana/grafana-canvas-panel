@@ -11,8 +11,8 @@ import {
 } from '@grafana/data';
 import { config } from '@grafana/runtime';
 import { type ConnectionDirection } from '@grafana/schema';
-import { appEvents } from './core/app_events';
-import { hasAlphaPanels } from './core/config';
+import { getAppEvents } from '@grafana/runtime';
+
 import { type CanvasConnection, type CanvasElementItem, type CanvasElementOptions } from './features/canvas/element';
 import { notFoundItem } from './features/canvas/elements/notFound';
 import { advancedElementItems, canvasElementRegistry, defaultElementItems } from './features/canvas/registry';
@@ -43,7 +43,7 @@ export function doSelect(scene: Scene, element: ElementState | FrameState) {
       scene.select(selection);
     }
   } catch (error) {
-    appEvents.emit(AppEvents.alertError, ['Unable to select element, try selecting element in panel instead']);
+    getAppEvents().emit(AppEvents.alertError, ['Unable to select element, try selecting element in panel instead']);
   }
 }
 
@@ -67,7 +67,7 @@ export function getElementTypesOptions(items: CanvasElementItem[], current: stri
   for (const item of items) {
     const option: SelectableValue<string> = { label: item.name, value: item.id, description: item.description };
     if (item.state === PluginState.alpha) {
-      if (!hasAlphaPanels) {
+      if (!Boolean(config?.panels?.debug?.state === PluginState.alpha)) {
         continue;
       }
       option.label = `${item.name} (Alpha)`;

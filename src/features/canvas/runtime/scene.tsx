@@ -34,10 +34,10 @@ import { Connections2 } from '../../../components/connections/Connections2';
 import { type Options } from '../../../panelcfg.gen';
 import { type AnchorPoint, type CanvasTooltipPayload } from '../../../types';
 
-import { appEvents } from '../../../core/app_events';
+import { getAppEvents } from '@grafana/runtime';
 import { type CanvasPanel } from '../../../CanvasPanel';
 import { isInfinityActionWithAuth } from '../../actions/utils';
-import { getDashboardSrv } from '../../../core/dashboardSrv';
+
 import { type CanvasFrameOptions } from '../frame';
 import { DEFAULT_CANVAS_ELEMENT_CONFIG } from '../registry';
 
@@ -114,10 +114,9 @@ export class Scene {
     public onSave: (cfg: CanvasFrameOptions) => void,
     panel: CanvasPanel
   ) {
-    // TODO: Will need to update this approach for dashboard scenes
-    // migration (new dashboard edit experience)
-    const dashboard = getDashboardSrv().getCurrent();
-    const enableEditing = options.inlineEditing && dashboard?.editable;
+    // NOTE: `dashboard?.editable` check removed here (not in source). The panel option
+    // toggle (`options.inlineEditing`) is the sole gate for inline editing in the external plugin.
+    const enableEditing = options.inlineEditing;
 
     this.root = this.load(options, enableEditing);
 
@@ -356,7 +355,7 @@ export class Scene {
       selection.targets = [...this.targetsToSelect];
       this.select(selection);
     } catch (error) {
-      appEvents.emit(AppEvents.alertError, ['Unable to add to selection']);
+      getAppEvents().emit(AppEvents.alertError, ['Unable to add to selection']);
     }
   };
 
