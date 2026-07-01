@@ -16,6 +16,7 @@
   "author": "Grafana",
   "license": "AGPL-3.0-only",
   "devDependencies": {
+    "@types/react-resizable": "3.0.8",
     "@grafana/eslint-config": "^9.0.0",
     "@grafana/plugin-e2e": "^3.9.0",
     "@grafana/sign-plugin": "^3.2.2",
@@ -70,11 +71,22 @@
     "@emotion/css": "11.10.6",
     "@grafana/data": "^13.1.0",
     "@grafana/i18n": "12.4.2",
-    "@grafana/runtime": "12.4.2",
+    "@grafana/runtime": "13.1.0",
     "@grafana/schema": "12.4.2",
     "@grafana/ui": "^13.1.0",
+    "@rc-component/tree": "1.1.0",
+    "@react-aria/dialog": "3.5.31",
+    "@react-aria/focus": "3.21.2",
+    "@react-aria/overlays": "3.30.0",
+    "infinite-viewer": "^0.29.1",
+    "moveable": "0.53.0",
     "react": "^18.3.0",
-    "react-dom": "^18.3.0"
+    "react-dom": "^18.3.0",
+    "react-draggable": "4.5.0",
+    "react-inlinesvg": "4.3.0",
+    "react-moveable": "0.56.0",
+    "react-resizable": "3.0.5",
+    "selecto": "1.26.3"
   },
   "packageManager": "npm@11.6.1"
 }
