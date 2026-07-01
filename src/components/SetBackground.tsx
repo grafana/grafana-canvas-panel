@@ -5,9 +5,9 @@ import { useState } from 'react';
 import { type GrafanaTheme2 } from '@grafana/data';
 import { ResourceDimensionMode } from '@grafana/schema';
 import { Portal, useTheme2 } from '@grafana/ui';
-import { type Scene } from 'app/features/canvas/runtime/scene';
-import { ResourcePickerPopover } from 'app/features/dimensions/editors/ResourcePickerPopover';
-import { MediaType, ResourceFolderName } from 'app/features/dimensions/types';
+import { type Scene } from '../features/canvas/runtime/scene';
+import { ResourcePickerPopover } from '../features/dimensions/editors/ResourcePickerPopover';
+import { MediaType, ResourceFolderName } from '../features/dimensions/types';
 
 import { type AnchorPoint } from '../types';
 

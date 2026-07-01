@@ -1,7 +1,7 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/types.ts
 import { type LinkModel } from '@grafana/data';
 import { type ColorDimensionConfig, type ResourceDimensionConfig, type TextDimensionConfig } from '@grafana/schema';
-import { type BackgroundImageSize } from 'app/plugins/panel/canvas/panelcfg.gen';
+import { type BackgroundImageSize } from '../../panelcfg.gen';
 
 export enum QuickPlacement {
   Top = 'top',

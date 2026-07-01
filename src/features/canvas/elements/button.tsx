@@ -6,13 +6,13 @@ import { type GrafanaTheme2, PluginState } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { TextDimensionMode } from '@grafana/schema';
 import { Button, Spinner, useStyles2 } from '@grafana/ui';
-import { type DimensionContext } from 'app/features/dimensions/context';
-import { ColorDimensionEditor } from 'app/features/dimensions/editors/ColorDimensionEditor';
-import { TextDimensionEditor } from 'app/features/dimensions/editors/TextDimensionEditor';
-import { APIEditor, type APIEditorConfig } from 'app/plugins/panel/canvas/editor/element/APIEditor';
-import { type ButtonStyleConfig, ButtonStyleEditor } from 'app/plugins/panel/canvas/editor/element/ButtonStyleEditor';
-import { callApi } from 'app/plugins/panel/canvas/editor/element/utils';
-import { HttpRequestMethod } from 'app/plugins/panel/canvas/panelcfg.gen';
+import { type DimensionContext } from '../../dimensions/context';
+import { ColorDimensionEditor } from '../../dimensions/editors/ColorDimensionEditor';
+import { TextDimensionEditor } from '../../dimensions/editors/TextDimensionEditor';
+import { APIEditor, type APIEditorConfig } from '../../../editor/element/APIEditor';
+import { type ButtonStyleConfig, ButtonStyleEditor } from '../../../editor/element/ButtonStyleEditor';
+import { callApi } from '../../../editor/element/utils';
+import { HttpRequestMethod } from '../../../panelcfg.gen';
 
 import {
   type CanvasElementItem,

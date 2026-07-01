@@ -11,14 +11,14 @@ import {
 } from '@grafana/data';
 import { config } from '@grafana/runtime';
 import { type ConnectionDirection } from '@grafana/schema';
-import { appEvents } from 'app/core/app_events';
-import { hasAlphaPanels } from 'app/core/config';
-import { type CanvasConnection, type CanvasElementItem, type CanvasElementOptions } from 'app/features/canvas/element';
-import { notFoundItem } from 'app/features/canvas/elements/notFound';
-import { advancedElementItems, canvasElementRegistry, defaultElementItems } from 'app/features/canvas/registry';
-import { ElementState } from 'app/features/canvas/runtime/element';
-import { FrameState } from 'app/features/canvas/runtime/frame';
-import { type Scene, type SelectionParams } from 'app/features/canvas/runtime/scene';
+import { appEvents } from './core/app_events';
+import { hasAlphaPanels } from './core/config';
+import { type CanvasConnection, type CanvasElementItem, type CanvasElementOptions } from './features/canvas/element';
+import { notFoundItem } from './features/canvas/elements/notFound';
+import { advancedElementItems, canvasElementRegistry, defaultElementItems } from './features/canvas/registry';
+import { ElementState } from './features/canvas/runtime/element';
+import { FrameState } from './features/canvas/runtime/frame';
+import { type Scene, type SelectionParams } from './features/canvas/runtime/scene';
 
 import {
   type AnchorPoint,

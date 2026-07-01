@@ -3,12 +3,12 @@ import { FieldType } from '@grafana/data';
 import { type PanelOptionsSupplier } from '@grafana/data/internal';
 import { t } from '@grafana/i18n';
 import { ConnectionDirection, DirectionDimensionMode } from '@grafana/schema';
-import { SVGElements } from 'app/features/canvas/runtime/element';
-import { BackgroundSizeEditor } from 'app/features/dimensions/editors/BackgroundSizeEditor';
-import { ColorDimensionEditor } from 'app/features/dimensions/editors/ColorDimensionEditor';
-import { DirectionDimensionEditor } from 'app/features/dimensions/editors/DirectionDimensionEditor';
-import { ResourceDimensionEditor } from 'app/features/dimensions/editors/ResourceDimensionEditor';
-import { ScaleDimensionEditor } from 'app/features/dimensions/editors/ScaleDimensionEditor';
+import { SVGElements } from '../features/canvas/runtime/element';
+import { BackgroundSizeEditor } from '../features/dimensions/editors/BackgroundSizeEditor';
+import { ColorDimensionEditor } from '../features/dimensions/editors/ColorDimensionEditor';
+import { DirectionDimensionEditor } from '../features/dimensions/editors/DirectionDimensionEditor';
+import { ResourceDimensionEditor } from '../features/dimensions/editors/ResourceDimensionEditor';
+import { ScaleDimensionEditor } from '../features/dimensions/editors/ScaleDimensionEditor';
 
 import { type CanvasConnection, type CanvasElementOptions } from '../panelcfg.gen';
 import { LineStyle } from '../types';

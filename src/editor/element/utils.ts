@@ -1,9 +1,9 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/utils.ts
 import { AppEvents, textUtil } from '@grafana/data';
 import { type BackendSrvRequest, getBackendSrv, getTemplateSrv } from '@grafana/runtime';
-import { appEvents } from 'app/core/app_events';
-import { createAbsoluteUrl, type RelativeUrl } from 'app/features/alerting/unified/utils/url';
-import { getDashboardSrv } from 'app/features/dashboard/services/DashboardSrv';
+import { appEvents } from '../../core/app_events';
+import { createAbsoluteUrl, type RelativeUrl } from '../../core/url';
+import { getDashboardSrv } from '../../core/dashboardSrv';
 
 import { HttpRequestMethod } from '../../panelcfg.gen';
 

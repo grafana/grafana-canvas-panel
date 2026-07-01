@@ -8,9 +8,9 @@ import { type GrafanaTheme2, type StandardEditorProps } from '@grafana/data';
 import { Trans, t } from '@grafana/i18n';
 import { config } from '@grafana/runtime';
 import { Button, Icon, Stack, useStyles2, useTheme2 } from '@grafana/ui';
-import { AddLayerButton } from 'app/core/components/Layers/AddLayerButton';
-import { type ElementState } from 'app/features/canvas/runtime/element';
-import { frameSelection, reorderElements } from 'app/features/canvas/runtime/sceneElementManagement';
+import { AddLayerButton } from '../../core/Layers/AddLayerButton';
+import { type ElementState } from '../../features/canvas/runtime/element';
+import { frameSelection, reorderElements } from '../../features/canvas/runtime/sceneElementManagement';
 
 import { getGlobalStyles } from '../../globalStyles';
 import { type Options } from '../../panelcfg.gen';

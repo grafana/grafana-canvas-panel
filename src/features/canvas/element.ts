@@ -10,9 +10,9 @@ import {
   type Constraint,
   type LineConfig,
   type Placement,
-} from 'app/plugins/panel/canvas/panelcfg.gen';
+} from '../../panelcfg.gen';
 
-import { type LineStyleConfig } from '../../plugins/panel/canvas/editor/LineStyleEditor';
+import { type LineStyleConfig } from '../../editor/LineStyleEditor';
 import { type DimensionContext } from '../dimensions/context';
 
 import { type StandardEditorConfig } from './types';

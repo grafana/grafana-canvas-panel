@@ -1,5 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/components/connections/connectionMovementUtils.ts
-import type { ElementState } from 'app/features/canvas/runtime/element';
+import type { ElementState } from '../../features/canvas/runtime/element';
 
 import type { ConnectionState } from '../../types';
 

@@ -18,23 +18,23 @@ import { t } from '@grafana/i18n';
 import { config } from '@grafana/runtime';
 import { TooltipDisplayMode } from '@grafana/schema';
 import { ConfirmModal, VariablesInputModal } from '@grafana/ui';
-import { type LayerElement } from 'app/core/components/Layers/types';
-import { notFoundItem } from 'app/features/canvas/elements/notFound';
-import { type DimensionContext } from 'app/features/dimensions/context';
+import { type LayerElement } from '../../../core/Layers/types';
+import { notFoundItem } from '../elements/notFound';
+import { type DimensionContext } from '../../dimensions/context';
 import {
   BackgroundImageSize,
   type Constraint,
   HorizontalConstraint,
   type Placement,
   VerticalConstraint,
-} from 'app/plugins/panel/canvas/panelcfg.gen';
+} from '../../../panelcfg.gen';
 import {
   applyStyles,
   getConnectionsByTarget,
   getRowIndex,
   isConnectionTarget,
   removeStyles,
-} from 'app/plugins/panel/canvas/utils';
+} from '../../../utils';
 
 import { reportActionTrigger } from '../../actions/analytics';
 import { getActions, getActionsDefaultField, isInfinityActionWithAuth } from '../../actions/utils';

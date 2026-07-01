@@ -6,12 +6,12 @@ import { type CSSProperties } from 'react';
 import { type LinkModel } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { type ColorDimensionConfig, type ResourceDimensionConfig, ResourceDimensionMode } from '@grafana/schema';
-import { SanitizedSVG } from 'app/core/components/SVG/SanitizedSVG';
-import { type DimensionContext } from 'app/features/dimensions/context';
-import { ColorDimensionEditor } from 'app/features/dimensions/editors/ColorDimensionEditor';
-import { ResourceDimensionEditor } from 'app/features/dimensions/editors/ResourceDimensionEditor';
-import { getPublicOrAbsoluteUrl } from 'app/features/dimensions/resource';
-import { type LineConfig } from 'app/plugins/panel/canvas/panelcfg.gen';
+import { SanitizedSVG } from '../../../core/SVG/SanitizedSVG';
+import { type DimensionContext } from '../../dimensions/context';
+import { ColorDimensionEditor } from '../../dimensions/editors/ColorDimensionEditor';
+import { ResourceDimensionEditor } from '../../dimensions/editors/ResourceDimensionEditor';
+import { getPublicOrAbsoluteUrl } from '../../dimensions/resource';
+import { type LineConfig } from '../../../panelcfg.gen';
 
 import { type CanvasElementItem, type CanvasElementOptions, type CanvasElementProps, defaultBgColor } from '../element';
 

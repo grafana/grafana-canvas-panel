@@ -23,10 +23,10 @@ import {
   type VizTooltipItem,
   CloseButton,
 } from '@grafana/ui/internal';
-import { getActions, getActionsDefaultField } from 'app/features/actions/utils';
-import { type Scene } from 'app/features/canvas/runtime/scene';
+import { getActions, getActionsDefaultField } from '../features/actions/utils';
+import { type Scene } from '../features/canvas/runtime/scene';
 
-import { getDataLinks } from '../../status-history/utils';
+import { getDataLinks } from '../core/statusHistoryUtils';
 import { getElementFields, getRowIndex } from '../utils';
 
 interface Props {

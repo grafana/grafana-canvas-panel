@@ -6,10 +6,10 @@ import { ReplaySubject, Subscription } from 'rxjs';
 import { type PanelProps } from '@grafana/data';
 import { locationService } from '@grafana/runtime';
 import { type PanelContext, PanelContextRoot } from '@grafana/ui';
-import { type CanvasFrameOptions } from 'app/features/canvas/frame';
-import { type ElementState } from 'app/features/canvas/runtime/element';
-import { Scene } from 'app/features/canvas/runtime/scene';
-import { PanelEditEnteredEvent, PanelEditExitedEvent } from 'app/types/events';
+import { type CanvasFrameOptions } from './features/canvas/frame';
+import { type ElementState } from './features/canvas/runtime/element';
+import { Scene } from './features/canvas/runtime/scene';
+import { PanelEditEnteredEvent, PanelEditExitedEvent } from './core/events';
 
 import { SetBackground } from './components/SetBackground';
 import { InlineEdit } from './editor/inline/InlineEdit';

@@ -1,9 +1,9 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/layer/tree.ts
 import { type CSSProperties } from 'react';
 
-import { type ElementState } from 'app/features/canvas/runtime/element';
-import { FrameState } from 'app/features/canvas/runtime/frame';
-import { type RootElement } from 'app/features/canvas/runtime/root';
+import { type ElementState } from '../../features/canvas/runtime/element';
+import { FrameState } from '../../features/canvas/runtime/frame';
+import { type RootElement } from '../../features/canvas/runtime/root';
 
 import { type DragNode, type DropNode } from '../../types';
 

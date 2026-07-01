@@ -3,16 +3,16 @@ import { get as lodashGet } from 'lodash';
 
 import { type NestedPanelOptions, type NestedValueAccess } from '@grafana/data/internal';
 import { t } from '@grafana/i18n';
-import { type CanvasElementOptions } from 'app/features/canvas/element';
+import { type CanvasElementOptions } from '../../features/canvas/element';
 import {
   canvasElementRegistry,
   DEFAULT_CANVAS_ELEMENT_CONFIG,
   defaultElementItems,
-} from 'app/features/canvas/registry';
-import { type ElementState } from 'app/features/canvas/runtime/element';
-import { type FrameState } from 'app/features/canvas/runtime/frame';
-import { type Scene } from 'app/features/canvas/runtime/scene';
-import { setOptionImmutably } from 'app/features/dashboard/components/PanelEditor/utils';
+} from '../../features/canvas/registry';
+import { type ElementState } from '../../features/canvas/runtime/element';
+import { type FrameState } from '../../features/canvas/runtime/frame';
+import { type Scene } from '../../features/canvas/runtime/scene';
+import { setOptionImmutably } from '../../core/PanelEditor/utils';
 
 import { getElementTypes } from '../../utils';
 import { optionBuilder } from '../options';

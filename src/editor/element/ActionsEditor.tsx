@@ -1,7 +1,7 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/ActionsEditor.tsx
 import { type StandardEditorProps, type Action, VariableSuggestionsScope } from '@grafana/data';
-import { ActionsInlineEditor } from 'app/features/actions/ActionsInlineEditor';
-import { type CanvasElementOptions } from 'app/features/canvas/element';
+import { ActionsInlineEditor } from '../../features/actions/ActionsInlineEditor';
+import { type CanvasElementOptions } from '../../features/canvas/element';
 
 type Props = StandardEditorProps<Action[], CanvasElementOptions>;
 

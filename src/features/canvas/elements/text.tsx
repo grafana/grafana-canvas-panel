@@ -8,9 +8,9 @@ import { of } from 'rxjs';
 import { type DataFrame, type GrafanaTheme2 } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { Input, usePanelContext, useStyles2 } from '@grafana/ui';
-import { type DimensionContext } from 'app/features/dimensions/context';
-import { ColorDimensionEditor } from 'app/features/dimensions/editors/ColorDimensionEditor';
-import { TextDimensionEditor } from 'app/features/dimensions/editors/TextDimensionEditor';
+import { type DimensionContext } from '../../dimensions/context';
+import { ColorDimensionEditor } from '../../dimensions/editors/ColorDimensionEditor';
+import { TextDimensionEditor } from '../../dimensions/editors/TextDimensionEditor';
 
 import {
   type CanvasElementItem,

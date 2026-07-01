@@ -3,10 +3,10 @@ import * as React from 'react';
 import { BehaviorSubject } from 'rxjs';
 
 import { config } from '@grafana/runtime';
-import { type CanvasConnection, type ConnectionCoordinates, ConnectionPath } from 'app/features/canvas/element';
-import { type ElementState } from 'app/features/canvas/runtime/element';
-import { type Scene } from 'app/features/canvas/runtime/scene';
-import { findElementByTarget } from 'app/features/canvas/runtime/sceneElementManagement';
+import { type CanvasConnection, type ConnectionCoordinates, ConnectionPath } from '../../features/canvas/element';
+import { type ElementState } from '../../features/canvas/runtime/element';
+import { type Scene } from '../../features/canvas/runtime/scene';
+import { findElementByTarget } from '../../features/canvas/runtime/sceneElementManagement';
 
 import { type ConnectionState } from '../../types';
 import {

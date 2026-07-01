@@ -8,10 +8,10 @@ import { type SelectableValue } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { config } from '@grafana/runtime';
 import { ContextMenu, MenuItem, type MenuItemProps } from '@grafana/ui';
-import { type ElementState } from 'app/features/canvas/runtime/element';
-import { type FrameState } from 'app/features/canvas/runtime/frame';
-import { type Scene } from 'app/features/canvas/runtime/scene';
-import { findElementByTarget } from 'app/features/canvas/runtime/sceneElementManagement';
+import { type ElementState } from '../features/canvas/runtime/element';
+import { type FrameState } from '../features/canvas/runtime/frame';
+import { type Scene } from '../features/canvas/runtime/scene';
+import { findElementByTarget } from '../features/canvas/runtime/sceneElementManagement';
 
 import { type CanvasPanel } from '../CanvasPanel';
 import { type AnchorPoint, LayerActionID } from '../types';

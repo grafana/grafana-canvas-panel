@@ -18,7 +18,7 @@ import {
   type DirectionDimensionConfig,
 } from '@grafana/schema';
 import { Portal } from '@grafana/ui';
-import { type DimensionContext } from 'app/features/dimensions/context';
+import { type DimensionContext } from '../../dimensions/context';
 import {
   getColorDimensionFromData,
   getResourceDimensionFromData,
@@ -26,16 +26,16 @@ import {
   getScaleDimensionFromData,
   getTextDimensionFromData,
   getDirectionDimensionFromData,
-} from 'app/features/dimensions/utils';
-import { CanvasContextMenu } from 'app/plugins/panel/canvas/components/CanvasContextMenu';
-import { CanvasTooltip } from 'app/plugins/panel/canvas/components/CanvasTooltip';
-import { Connections } from 'app/plugins/panel/canvas/components/connections/Connections';
-import { Connections2 } from 'app/plugins/panel/canvas/components/connections/Connections2';
-import { type Options } from 'app/plugins/panel/canvas/panelcfg.gen';
-import { type AnchorPoint, type CanvasTooltipPayload } from 'app/plugins/panel/canvas/types';
+} from '../../dimensions/utils';
+import { CanvasContextMenu } from '../../../components/CanvasContextMenu';
+import { CanvasTooltip } from '../../../components/CanvasTooltip';
+import { Connections } from '../../../components/connections/Connections';
+import { Connections2 } from '../../../components/connections/Connections2';
+import { type Options } from '../../../panelcfg.gen';
+import { type AnchorPoint, type CanvasTooltipPayload } from '../../../types';
 
 import { appEvents } from '../../../core/app_events';
-import { type CanvasPanel } from '../../../plugins/panel/canvas/CanvasPanel';
+import { type CanvasPanel } from '../../../CanvasPanel';
 import { isInfinityActionWithAuth } from '../../actions/utils';
 import { getDashboardSrv } from '../../dashboard/services/DashboardSrv';
 import { type CanvasFrameOptions } from '../frame';

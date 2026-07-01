@@ -4,8 +4,8 @@ import { css } from '@emotion/css';
 import { type GrafanaTheme2 } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { IconButton, useStyles2 } from '@grafana/ui';
-import { LayerName } from 'app/core/components/Layers/LayerName';
-import { type ElementState } from 'app/features/canvas/runtime/element';
+import { LayerName } from '../../core/Layers/LayerName';
+import { type ElementState } from '../../features/canvas/runtime/element';
 
 import { LayerActionID } from '../../types';
 import { type TreeViewEditorProps } from '../element/elementEditor';

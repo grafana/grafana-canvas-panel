@@ -3,7 +3,7 @@ import { FieldConfigProperty, type PanelOptionsEditorBuilder, PanelPlugin } from
 import { t } from '@grafana/i18n';
 import { config } from '@grafana/runtime';
 import { TooltipDisplayMode } from '@grafana/schema';
-import { FrameState } from 'app/features/canvas/runtime/frame';
+import { FrameState } from './features/canvas/runtime/frame';
 
 import { CanvasPanel, type InstanceState } from './CanvasPanel';
 import { getConnectionEditor } from './editor/connectionEditor';

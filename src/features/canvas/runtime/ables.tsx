@@ -1,7 +1,7 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/runtime/ables.tsx
 import { type MoveableManagerInterface, type Renderer } from 'moveable';
 
-import { VerticalConstraint, HorizontalConstraint } from 'app/plugins/panel/canvas/panelcfg.gen';
+import { VerticalConstraint, HorizontalConstraint } from '../../../panelcfg.gen';
 
 import { type Scene } from './scene';
 import { findElementByTarget } from './sceneElementManagement';

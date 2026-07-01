@@ -13,12 +13,12 @@ import {
 import { type NestedValueAccess, type PanelOptionsSupplier } from '@grafana/data/internal';
 import { Trans, t } from '@grafana/i18n';
 import { useStyles2 } from '@grafana/ui';
-import { AddLayerButton } from 'app/core/components/Layers/AddLayerButton';
-import { FrameState } from 'app/features/canvas/runtime/frame';
-import { OptionsPaneCategory } from 'app/features/dashboard/components/PanelEditor/OptionsPaneCategory';
-import { OptionsPaneCategoryDescriptor } from 'app/features/dashboard/components/PanelEditor/OptionsPaneCategoryDescriptor';
-import { fillOptionsPaneItems } from 'app/features/dashboard/components/PanelEditor/getVisualizationOptions';
-import { setOptionImmutably } from 'app/features/dashboard/components/PanelEditor/utils';
+import { AddLayerButton } from '../../core/Layers/AddLayerButton';
+import { FrameState } from '../../features/canvas/runtime/frame';
+import { OptionsPaneCategory } from '../../core/PanelEditor/OptionsPaneCategory';
+import { OptionsPaneCategoryDescriptor } from '../../core/PanelEditor/OptionsPaneCategoryDescriptor';
+import { fillOptionsPaneItems } from '../../core/PanelEditor/fillOptionsPaneItems';
+import { setOptionImmutably } from '../../core/PanelEditor/utils';
 
 import { activePanelSubject, type InstanceState } from '../../CanvasPanel';
 import { addStandardCanvasEditorOptions } from '../../module';

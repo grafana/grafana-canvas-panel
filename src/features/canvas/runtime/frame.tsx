@@ -1,12 +1,12 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/runtime/frame.tsx
 import { cloneDeep } from 'lodash';
 
-import { notFoundItem } from 'app/features/canvas/elements/notFound';
-import { type DimensionContext } from 'app/features/dimensions/context';
-import { HorizontalConstraint, type Placement, VerticalConstraint } from 'app/plugins/panel/canvas/panelcfg.gen';
-import { LayerActionID } from 'app/plugins/panel/canvas/types';
+import { notFoundItem } from '../elements/notFound';
+import { type DimensionContext } from '../../dimensions/context';
+import { HorizontalConstraint, type Placement, VerticalConstraint } from '../../../panelcfg.gen';
+import { LayerActionID } from '../../../types';
 
-import { updateConnectionsForSource } from '../../../plugins/panel/canvas/utils';
+import { updateConnectionsForSource } from '../../../utils';
 import { type CanvasElementItem } from '../element';
 import { type CanvasFrameOptions } from '../frame';
 import { canvasElementRegistry } from '../registry';

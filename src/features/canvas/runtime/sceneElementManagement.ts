@@ -1,8 +1,8 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/runtime/sceneElementManagement.ts
 import { first } from 'rxjs/operators';
 
-import { type Placement } from 'app/plugins/panel/canvas/panelcfg.gen';
-import { LayerActionID } from 'app/plugins/panel/canvas/types';
+import { type Placement } from '../../../panelcfg.gen';
+import { LayerActionID } from '../../../types';
 
 import { type ElementState } from './element';
 import { FrameState } from './frame';

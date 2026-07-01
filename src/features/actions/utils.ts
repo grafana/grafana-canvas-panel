@@ -18,9 +18,9 @@ import {
   type ValueLinkConfig,
 } from '@grafana/data';
 import { type BackendSrvRequest, config as grafanaConfig, getBackendSrv } from '@grafana/runtime';
-import { appEvents } from 'app/core/app_events';
+import { appEvents } from '../../core/app_events';
 
-import { HttpRequestMethod } from '../../plugins/panel/canvas/panelcfg.gen';
+import { HttpRequestMethod } from '../../panelcfg.gen';
 import { createAbsoluteUrl, type RelativeUrl } from '../alerting/unified/utils/url';
 import { getTimeSrv } from '../dashboard/services/TimeSrv';
 import { getNextRequestId } from '../query/state/PanelQueryRunner';

@@ -5,8 +5,8 @@ import { type GrafanaTheme2 } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { type ScalarDimensionConfig } from '@grafana/schema';
 import { useStyles2 } from '@grafana/ui';
-import { type DimensionContext } from 'app/features/dimensions/context';
-import { ScalarDimensionEditor } from 'app/features/dimensions/editors/ScalarDimensionEditor';
+import { type DimensionContext } from '../../dimensions/context';
+import { ScalarDimensionEditor } from '../../dimensions/editors/ScalarDimensionEditor';
 
 import { type CanvasElementItem, type CanvasElementOptions, type CanvasElementProps, defaultBgColor } from '../element';
 

@@ -4,12 +4,12 @@ import Moveable from 'moveable';
 import Selecto from 'selecto';
 
 import { config } from '@grafana/runtime';
-import { CONNECTION_ANCHOR_DIV_ID } from 'app/plugins/panel/canvas/components/connections/ConnectionAnchors';
+import { CONNECTION_ANCHOR_DIV_ID } from '../../../components/connections/ConnectionAnchors';
 import {
   CONNECTION_VERTEX_ID,
   CONNECTION_VERTEX_ADD_ID,
-} from 'app/plugins/panel/canvas/components/connections/Connections';
-import { VerticalConstraint, HorizontalConstraint } from 'app/plugins/panel/canvas/panelcfg.gen';
+} from '../../../components/connections/Connections';
+import { VerticalConstraint, HorizontalConstraint } from '../../../panelcfg.gen';
 
 import { dimensionViewable, constraintViewable, settingsViewable } from './ables';
 import { type ElementState } from './element';

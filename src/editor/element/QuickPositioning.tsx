@@ -4,8 +4,8 @@ import { css } from '@emotion/css';
 import { type GrafanaTheme2 } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { IconButton, useStyles2 } from '@grafana/ui';
-import { type ElementState } from 'app/features/canvas/runtime/element';
-import { QuickPlacement } from 'app/features/canvas/types';
+import { type ElementState } from '../../features/canvas/runtime/element';
+import { QuickPlacement } from '../../features/canvas/types';
 
 import { HorizontalConstraint, VerticalConstraint, type Placement } from '../../panelcfg.gen';
 
