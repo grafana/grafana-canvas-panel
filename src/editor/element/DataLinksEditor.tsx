@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/DataLinksEditor.tsx
+import * as React from 'react';
 import { type StandardEditorProps, type DataLink, VariableSuggestionsScope } from '@grafana/data';
 import { DataLinksInlineEditor } from '@grafana/ui';
 import { type CanvasElementOptions } from '../../features/canvas/element';

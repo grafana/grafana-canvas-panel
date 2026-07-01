@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/runtime/frame.tsx
+import * as React from 'react';
 import { cloneDeep } from 'lodash';
 
 import { notFoundItem } from '../elements/notFound';

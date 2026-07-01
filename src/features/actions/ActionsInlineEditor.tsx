@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/actions/ActionsInlineEditor.tsx
+import * as React from 'react';
 import { type Action, defaultActionConfig, type VariableSuggestion } from '@grafana/data';
 import { DataLinksInlineEditorBase, type DataLinksInlineEditorBaseProps } from '@grafana/ui';
 

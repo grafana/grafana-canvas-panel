@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/dimensions/editors/ResourcePickerPopover.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { useDialog } from '@react-aria/dialog';
 import { FocusScope } from '@react-aria/focus';

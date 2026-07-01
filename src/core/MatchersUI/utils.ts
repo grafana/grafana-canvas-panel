@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 
 import { type DataFrame, type Field, getFieldDisplayName, FieldNamePickerBaseNameMode, FieldType } from '@grafana/data';
 import { t } from '@grafana/i18n';
-import { type MatcherScope } from '@grafana/schema';
+type MatcherScope = 'series' | 'nested' | 'annotation' | 'exemplar';
 
 import { getFieldTypeIcon } from '@grafana/ui';
 import { type ComboboxOption } from '@grafana/ui';
@@ -234,3 +234,18 @@ export function useMatcherSelectOptions(
 export function getUniqueMatcherScopes(data: DataFrame[]): Set<MatcherScope> {
   return new Set([...getFrameFieldsDisplayNames(data).scopes.values()]);
 }
+
+// SOURCE: https://github.com/grafana/grafana/blob/main/packages/grafana-ui/src/utils/closePopover.ts
+// TODO: Publish closePopover from @grafana/ui and delete this duplicate
+import * as React from 'react';
+
+export const closePopover = (event: React.KeyboardEvent, hidePopper: () => void) => {
+  if (event.key === 'Tab' || event.altKey || event.ctrlKey || event.metaKey) {
+    return;
+  }
+  event.stopPropagation();
+  if (event.key === 'Escape') {
+    hidePopper();
+  }
+  return;
+};

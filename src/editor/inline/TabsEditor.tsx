@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/inline/TabsEditor.tsx
+import * as React from 'react';
 import { useState } from 'react';
 
 import { Tab, TabsBar } from '@grafana/ui';

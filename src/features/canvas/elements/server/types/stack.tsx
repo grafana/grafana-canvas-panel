@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/elements/server/types/stack.tsx
+import * as React from 'react';
 import { useStyles2 } from '@grafana/ui';
 
 import { getServerStyles, type ServerData } from '../server';

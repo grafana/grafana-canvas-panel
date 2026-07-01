@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/runtime/root.tsx
+import * as React from 'react';
 import { Fragment } from 'react';
 
 import { type CanvasFrameOptions } from '../frame';

@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/elements/rectangle.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { memo } from 'react';
 

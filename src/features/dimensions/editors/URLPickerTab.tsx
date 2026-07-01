@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/dimensions/editors/URLPickerTab.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { type Dispatch, type SetStateAction } from 'react';
 

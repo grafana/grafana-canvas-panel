@@ -17,6 +17,7 @@
   "license": "AGPL-3.0-only",
   "devDependencies": {
     "@types/react-resizable": "3.0.8",
+    "@types/react-window": "1.8.8",
     "@grafana/eslint-config": "^9.0.0",
     "@grafana/plugin-e2e": "^3.9.0",
     "@grafana/sign-plugin": "^3.2.2",
@@ -86,6 +87,8 @@
     "react-inlinesvg": "4.3.0",
     "react-moveable": "0.56.0",
     "react-resizable": "3.0.5",
+    "react-virtualized-auto-sizer": "1.0.26",
+    "react-window": "1.8.11",
     "selecto": "1.26.3"
   },
   "packageManager": "npm@11.6.1"

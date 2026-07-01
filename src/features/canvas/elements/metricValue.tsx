@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/elements/metricValue.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { useCallback } from 'react';
 import { useObservable } from 'react-use';

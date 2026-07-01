@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/PlacementEditor.tsx
+import * as React from 'react';
 import { useObservable } from 'react-use';
 import { Subject } from 'rxjs';
 

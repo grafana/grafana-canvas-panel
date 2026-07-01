@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/ActionsEditor.tsx
+import * as React from 'react';
 import { type StandardEditorProps, type Action, VariableSuggestionsScope } from '@grafana/data';
 import { ActionsInlineEditor } from '../../features/actions/ActionsInlineEditor';
 import { type CanvasElementOptions } from '../../features/canvas/element';

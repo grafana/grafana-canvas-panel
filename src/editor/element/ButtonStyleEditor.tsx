@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/ButtonStyleEditor.tsx
+import * as React from 'react';
 import { useCallback } from 'react';
 
 import { type SelectableValue, type StandardEditorProps } from '@grafana/data';

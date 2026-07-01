@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/dimensions/editors/FileUploader.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { type Dispatch, type SetStateAction, useState } from 'react';
 

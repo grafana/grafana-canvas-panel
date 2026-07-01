@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/panZoomHelp.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 
 import { type StandardEditorProps, type GrafanaTheme2 } from '@grafana/data';

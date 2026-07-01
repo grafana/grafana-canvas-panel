@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/inline/InlineEdit.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { type SyntheticEvent, useEffect, useRef, useState } from 'react';
 import Draggable, { type DraggableEventHandler } from 'react-draggable';

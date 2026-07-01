@@ -1,5 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/packages/grafana-ui/src/components/MatchersUI/FieldNamePicker.tsx
 // TODO: Publish FieldNamePicker from @grafana/ui and delete this duplicate file
+import * as React from 'react';
 import { useCallback } from 'react';
 
 import { type FieldNamePickerConfigSettings, type SelectableValue, type StandardEditorProps } from '@grafana/data';

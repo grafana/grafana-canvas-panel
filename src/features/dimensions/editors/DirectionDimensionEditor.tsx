@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/dimensions/editors/DirectionDimensionEditor.tsx
+import * as React from 'react';
 import { useCallback } from 'react';
 
 import {

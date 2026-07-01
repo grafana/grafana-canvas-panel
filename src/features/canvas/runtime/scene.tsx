@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/runtime/scene.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import type InfiniteViewer from 'infinite-viewer';
 import type Moveable from 'moveable';
@@ -6,7 +7,9 @@ import { type CSSProperties } from 'react';
 import { BehaviorSubject, ReplaySubject, Subject, type Subscription } from 'rxjs';
 import type Selecto from 'selecto';
 
-import { AppEvents, type PanelData, OneClickMode, ActionType } from '@grafana/data';
+import { AppEvents, type PanelData, OneClickMode, ActionType,
+  type LegacyEmitter,
+} from '@grafana/data';
 import { config, locationService } from '@grafana/runtime';
 import {
   type ColorDimensionConfig,
@@ -355,7 +358,7 @@ export class Scene {
       selection.targets = [...this.targetsToSelect];
       this.select(selection);
     } catch (error) {
-      getAppEvents().emit(AppEvents.alertError, ['Unable to add to selection']);
+      (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, ['Unable to add to selection']);
     }
   };
 

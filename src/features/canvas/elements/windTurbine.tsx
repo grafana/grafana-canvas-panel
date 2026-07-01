@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/elements/windTurbine.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 
 import { type GrafanaTheme2, type LinkModel } from '@grafana/data';

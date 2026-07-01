@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/dimensions/editors/FolderPickerTab.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 
@@ -9,6 +10,7 @@ import { getDatasourceSrv } from '../../../core/datasourceSrv';
 import { type FileElement, type GrafanaDatasource } from '../../../core/grafanaDatasource';
 
 import { MediaType, ResourceFolderName } from '../types';
+import { getPublicOrAbsoluteUrl } from '../resource';
 
 import { ResourceCards } from './ResourceCards';
 
@@ -88,7 +90,7 @@ export const FolderPickerTab = (props: Props) => {
                     value: `${folder}/${item.name}`,
                     label: item.name,
                     search: (idx ? item.name.substring(0, idx) : item.name).toLowerCase(),
-                    imgUrl: `${window.__grafana_public_path__}build/${folder}/${item.name}`,
+                    imgUrl: getPublicOrAbsoluteUrl(`${folder}/${item.name}`),
                   });
                 }
               });

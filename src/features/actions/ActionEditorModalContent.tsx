@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/actions/ActionEditorModalContent.tsx
+import * as React from 'react';
 import { useState } from 'react';
 
 import { type Action, ActionType, type DataFrame, type VariableSuggestion } from '@grafana/data';

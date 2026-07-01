@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/actions/ActionVariablesEditor.tsx
+import * as React from 'react';
 import { useState } from 'react';
 
 import { type ActionVariable, ActionVariableType } from '@grafana/data';

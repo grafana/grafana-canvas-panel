@@ -8,6 +8,7 @@ import {
   getFieldDisplayName,
   PluginState,
   type SelectableValue,
+  type LegacyEmitter,
 } from '@grafana/data';
 import { config } from '@grafana/runtime';
 import { type ConnectionDirection } from '@grafana/schema';
@@ -43,7 +44,7 @@ export function doSelect(scene: Scene, element: ElementState | FrameState) {
       scene.select(selection);
     }
   } catch (error) {
-    getAppEvents().emit(AppEvents.alertError, ['Unable to select element, try selecting element in panel instead']);
+    (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, ['Unable to select element, try selecting element in panel instead']);
   }
 }
 

@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/layer/TreeNavigationEditor.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { Global } from '@emotion/react';
 import Tree, { type TreeNodeProps } from '@rc-component/tree';

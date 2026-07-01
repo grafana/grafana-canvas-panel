@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/elements/icon.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { isString } from 'lodash';
 import { type CSSProperties } from 'react';

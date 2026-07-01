@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/dimensions/editors/TextDimensionEditor.tsx
+import * as React from 'react';
 import { useCallback, useId } from 'react';
 
 import {

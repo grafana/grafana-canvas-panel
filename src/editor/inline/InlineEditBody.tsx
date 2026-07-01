@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/inline/InlineEditBody.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { get as lodashGet } from 'lodash';
 import { useMemo, useState } from 'react';

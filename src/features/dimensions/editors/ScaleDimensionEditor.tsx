@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/dimensions/editors/ScaleDimensionEditor.tsx
+import * as React from 'react';
 import { css } from '@emotion/css';
 import { useCallback, useId, useMemo } from 'react';
 

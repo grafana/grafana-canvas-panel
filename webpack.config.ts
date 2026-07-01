@@ -12,7 +12,7 @@ const config = async (env: Env): Promise<Configuration> => {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: 'src/img',
+            from: 'img',
             to: 'img',
           },
         ],

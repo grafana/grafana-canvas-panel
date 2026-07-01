@@ -17,6 +17,7 @@ import {
   textUtil,
   type ValueLinkConfig,
   type TimeRange,
+  type LegacyEmitter,
 } from '@grafana/data';
 import { type BackendSrvRequest, config as grafanaConfig, getBackendSrv } from '@grafana/runtime';
 import { getAppEvents } from '@grafana/runtime';
@@ -113,7 +114,7 @@ export const getActions = (
           // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
           let request = {} as BackendSrvRequest;
           if (isInfinityActionWithAuth(action)) {
-            request = buildActionProxyRequest(action, genReplaceActionVars(boundReplaceVariables, action, actionVars));
+            request = buildActionProxyRequest(action, genReplaceActionVars(boundReplaceVariables, action, actionVars), timeRange);
           } else if (action.type === ActionType.Fetch) {
             request = buildActionRequest(action, genReplaceActionVars(boundReplaceVariables, action, actionVars));
           }
@@ -123,17 +124,17 @@ export const getActions = (
               .fetch(request)
               .subscribe({
                 error: (error) => {
-                  getAppEvents().emit(AppEvents.alertError, [
+                  (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, [
                     'An error has occurred. Check console output for more details.',
                   ]);
                   console.error(error);
                 },
                 complete: () => {
-                  getAppEvents().emit(AppEvents.alertSuccess, ['API call was successful']);
+                  (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertSuccess, ['API call was successful']);
                 },
               });
           } catch (error) {
-            getAppEvents().emit(AppEvents.alertError, ['An error has occurred. Check console output for more details.']);
+            (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, ['An error has occurred. Check console output for more details.']);
             console.error(error);
             return;
           }
@@ -257,7 +258,8 @@ class InfinityRequestBuilder {
     data: string | undefined,
     headers: Array<[string, string]>,
     queryParams: Array<[string, string]>,
-    contentType: string
+    contentType: string,
+    timeRange?: TimeRange
   ): BackendSrvRequest {
     const requestId = getNextRequestId();
     const infinityUrl = `api/ds/query?ds_type=${INFINITY_DATASOURCE_TYPE}&requestId=${requestId}`;
@@ -308,7 +310,7 @@ class InfinityRequestBuilder {
 }
 
 /** @internal */
-export const buildActionProxyRequest = (action: Action, replaceVariables: InterpolateFunction) => {
+export const buildActionProxyRequest = (action: Action, replaceVariables: InterpolateFunction, timeRange?: TimeRange) => {
   const { config, url, data, processedHeaders, processedQueryParams, contentType } = processActionConfig(
     action,
     replaceVariables
@@ -321,5 +323,5 @@ export const buildActionProxyRequest = (action: Action, replaceVariables: Interp
   }
 
   const requestBuilder = new InfinityRequestBuilder();
-  return requestBuilder.buildRequest(infinityConfig, url, data, processedHeaders, processedQueryParams, contentType);
+  return requestBuilder.buildRequest(infinityConfig, url, data, processedHeaders, processedQueryParams, contentType, timeRange);
 };

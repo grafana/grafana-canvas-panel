@@ -1,5 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/core/components/Layers/AddLayerButton.tsx
 // TODO: Publish AddLayerButton from @grafana/ui and delete this duplicate file
+import * as React from 'react';
 import { type SelectableValue } from '@grafana/data';
 import { ValuePicker } from '@grafana/ui';
 

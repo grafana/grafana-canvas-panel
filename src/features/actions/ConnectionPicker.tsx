@@ -1,4 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/actions/ConnectionPicker.tsx
+import * as React from 'react';
 import { useMemo } from 'react';
 
 import { ActionType, type DataSourceInstanceSettings } from '@grafana/data';
