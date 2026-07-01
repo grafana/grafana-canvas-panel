@@ -1,5 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/dimensions/resource.ts
 import { type DataFrame } from '@grafana/data';
+import { config } from '@grafana/runtime';
 import { type ResourceDimensionConfig, ResourceDimensionMode } from '@grafana/schema';
 
 import { type DimensionSupplier } from './types';
@@ -13,12 +14,13 @@ export function getPublicOrAbsoluteUrl(path: unknown): string {
     return '';
   }
 
-  // NOTE: The value of `path` could be either an URL string or a relative
-  //       path to a Grafana CDN asset served from the CDN.
   const isUrl = path.indexOf(':/') > 0;
-  const publicPath = window.__grafana_public_path__ || '/';
+  if (isUrl) {
+    return path;
+  }
 
-  return isUrl ? path : `${publicPath}build/${path}`;
+  const pluginBaseUrl = config.panels?.['canvas']?.baseUrl ?? '';
+  return `${pluginBaseUrl}/${path}`;
 }
 
 export function getResourceDimension(
