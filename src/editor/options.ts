@@ -1,6 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/options.ts
 import { FieldType } from '@grafana/data';
-import { type PanelOptionsSupplier } from '@grafana/data/internal';
+import { type PanelOptionsSupplier } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { ConnectionDirection, DirectionDimensionMode } from '@grafana/schema';
 import { SVGElements } from '../features/canvas/runtime/element';

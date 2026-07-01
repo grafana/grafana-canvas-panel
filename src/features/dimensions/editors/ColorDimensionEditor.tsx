@@ -11,7 +11,7 @@ import {
 import { t } from '@grafana/i18n';
 import { type ColorDimensionConfig } from '@grafana/schema';
 import { Combobox, ColorPicker, useStyles2 } from '@grafana/ui';
-import { useFieldDisplayNames, useMatcherSelectOptions } from '@grafana/ui/internal';
+import { useFieldDisplayNames, useMatcherSelectOptions } from '../../../core/MatchersUI/utils';
 
 interface ColorDimensionSettings {
   isClearable?: boolean;

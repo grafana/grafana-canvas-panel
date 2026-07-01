@@ -10,7 +10,7 @@ import {
   type PanelOptionsEditorBuilder,
   type StandardEditorContext,
 } from '@grafana/data';
-import { type NestedValueAccess, type PanelOptionsSupplier } from '@grafana/data/internal';
+import { type NestedValueAccess, type PanelOptionsSupplier } from '@grafana/data';
 import { Trans, t } from '@grafana/i18n';
 import { useStyles2 } from '@grafana/ui';
 import { AddLayerButton } from '../../core/Layers/AddLayerButton';

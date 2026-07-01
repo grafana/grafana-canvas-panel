@@ -1,7 +1,7 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/elementEditor.tsx
 import { get as lodashGet } from 'lodash';
 
-import { type NestedPanelOptions, type NestedValueAccess } from '@grafana/data/internal';
+import { type NestedPanelOptions, type NestedValueAccess } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { type CanvasElementOptions } from '../../features/canvas/element';
 import {

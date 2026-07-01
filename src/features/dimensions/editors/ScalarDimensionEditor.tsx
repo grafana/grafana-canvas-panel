@@ -6,7 +6,7 @@ import { FieldType, type GrafanaTheme2, type SelectableValue, type StandardEdito
 import { t } from '@grafana/i18n';
 import { ScalarDimensionMode, type ScalarDimensionConfig } from '@grafana/schema';
 import { InlineField, InlineFieldRow, RadioButtonGroup, Combobox, useStyles2 } from '@grafana/ui';
-import { useFieldDisplayNames, useMatcherSelectOptions } from '@grafana/ui/internal';
+import { useFieldDisplayNames, useMatcherSelectOptions } from '../../../core/MatchersUI/utils';
 import { NumberInput } from '../../../core/OptionsUI/NumberInput';
 
 import { type ScalarDimensionOptions } from '../types';

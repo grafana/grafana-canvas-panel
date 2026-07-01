@@ -1,7 +1,7 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/layer/layerEditor.tsx
 import { get as lodashGet } from 'lodash';
 
-import { type NestedPanelOptions, type NestedValueAccess } from '@grafana/data/internal';
+import { type NestedPanelOptions, type NestedValueAccess } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { type ElementState } from '../../features/canvas/runtime/element';
 import { FrameState } from '../../features/canvas/runtime/frame';

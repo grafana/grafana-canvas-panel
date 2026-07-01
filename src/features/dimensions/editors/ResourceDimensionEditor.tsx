@@ -10,7 +10,7 @@ import {
 import { t } from '@grafana/i18n';
 import { type ResourceDimensionConfig, ResourceDimensionMode } from '@grafana/schema';
 import { InlineField, InlineFieldRow, RadioButtonGroup } from '@grafana/ui';
-import { FieldNamePicker } from '@grafana/ui/internal';
+import { FieldNamePicker } from '../../../core/MatchersUI/FieldNamePicker';
 
 import { getPublicOrAbsoluteUrl } from '../resource';
 import { MediaType, type ResourceDimensionOptions, ResourceFolderName, ResourcePickerSize } from '../types';

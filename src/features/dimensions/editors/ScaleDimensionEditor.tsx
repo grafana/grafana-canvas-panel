@@ -6,7 +6,7 @@ import { type GrafanaTheme2, type SelectableValue, type StandardEditorProps } fr
 import { t } from '@grafana/i18n';
 import { type ScaleDimensionConfig } from '@grafana/schema';
 import { Combobox, InlineField, InlineFieldRow, useStyles2 } from '@grafana/ui';
-import { useFieldDisplayNames, useMatcherSelectOptions } from '@grafana/ui/internal';
+import { useFieldDisplayNames, useMatcherSelectOptions } from '../../../core/MatchersUI/utils';
 import { NumberInput } from '../../../core/OptionsUI/NumberInput';
 
 import { validateScaleOptions, validateScaleConfig } from '../scale';

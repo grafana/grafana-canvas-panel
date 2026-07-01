@@ -16,7 +16,7 @@ import {
   useStyles2,
   useTheme2,
 } from '@grafana/ui';
-import { closePopover } from '@grafana/ui/internal';
+import { closePopover } from '../../../core/MatchersUI/utils';
 import { SanitizedSVG } from '../../../core/SVG/SanitizedSVG';
 
 import { getPublicOrAbsoluteUrl } from '../resource';

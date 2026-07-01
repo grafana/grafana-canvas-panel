@@ -13,7 +13,8 @@ import {
 import { t } from '@grafana/i18n';
 import { TextDimensionMode } from '@grafana/schema';
 import { usePanelContext, useStyles2 } from '@grafana/ui';
-import { FieldNamePicker, frameHasName, getFrameFieldsDisplayNames } from '@grafana/ui/internal';
+import { FieldNamePicker } from '../../../core/MatchersUI/FieldNamePicker';
+import { frameHasName, getFrameFieldsDisplayNames } from '../../../core/MatchersUI/utils';
 import { type DimensionContext } from '../../dimensions/context';
 import { ColorDimensionEditor } from '../../dimensions/editors/ColorDimensionEditor';
 import { TextDimensionEditor } from '../../dimensions/editors/TextDimensionEditor';

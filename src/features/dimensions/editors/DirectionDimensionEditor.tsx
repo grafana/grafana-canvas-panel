@@ -10,7 +10,7 @@ import {
 import { t } from '@grafana/i18n';
 import { DirectionDimensionMode, type DirectionDimensionConfig, ConnectionDirection } from '@grafana/schema';
 import { InlineField, InlineFieldRow, RadioButtonGroup, Select } from '@grafana/ui';
-import { FieldNamePicker } from '@grafana/ui/internal';
+import { FieldNamePicker } from '../../../core/MatchersUI/FieldNamePicker';
 
 import { type DirectionDimensionOptions } from '../types';
 

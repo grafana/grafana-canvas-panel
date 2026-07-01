@@ -22,7 +22,7 @@ import {
   VizTooltipHeader,
   type VizTooltipItem,
   CloseButton,
-} from '@grafana/ui/internal';
+} from '@grafana/ui';
 import { getActions, getActionsDefaultField } from '../features/actions/utils';
 import { type Scene } from '../features/canvas/runtime/scene';
 
