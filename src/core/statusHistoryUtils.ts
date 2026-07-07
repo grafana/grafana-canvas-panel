@@ -1,5 +1,7 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/status-history/utils.ts
-// TODO: Publish getDataLinks from @grafana/ui and delete this duplicate file
+// TODO: `getFieldDisplayLinks` in @grafana/ui has a different signature to `getDataLinks` here
+// (it takes different args and returns a different shape). These are NOT interchangeable.
+// To remove this file, CanvasTooltip.tsx must be refactored to use the @grafana/ui API directly.
 import { type Field, type LinkModel } from '@grafana/data';
 
 export const getDataLinks = (field: Field, rowIdx: number) => {
