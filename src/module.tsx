@@ -1,6 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/module.tsx
 import { FieldConfigProperty, type PanelOptionsEditorBuilder, PanelPlugin } from '@grafana/data';
-import { t } from '@grafana/i18n';
+import { initPluginTranslations, t } from '@grafana/i18n';
 import { config } from '@grafana/runtime';
 import { TooltipDisplayMode } from '@grafana/schema';
 import { FrameState } from './features/canvas/runtime/frame';
@@ -12,6 +12,10 @@ import { getLayerEditor } from './editor/layer/layerEditor';
 import { PanZoomHelp } from './editor/panZoomHelp';
 import { canvasMigrationHandler } from './migrations';
 import { type Options } from './panelcfg.gen';
+
+if (process.env.NODE_ENV !== 'test') {
+  await initPluginTranslations('canvas');
+}
 
 export const addStandardCanvasEditorOptions = (builder: PanelOptionsEditorBuilder<Options>) => {
   let category = [t('canvas.category-canvas', 'Canvas')];
