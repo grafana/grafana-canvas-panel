@@ -1,0 +1,7 @@
+FROM mcr.microsoft.com/playwright:v1.56.1-noble
+
+WORKDIR /app
+
+RUN npm install "@playwright/test@1.56.1" "@grafana/plugin-e2e"
+
+CMD ["sh", "-c", "npx playwright test -c playwright.config.ts ${PW_REPORTER:+--reporter=$PW_REPORTER} ${PW_WORKERS:+--workers=$PW_WORKERS}"]
