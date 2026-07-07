@@ -1,16 +1,16 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/dimensions/editors/FolderPickerTab.tsx
 import * as React from 'react';
 import { css } from '@emotion/css';
-import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction, useMemo, useState } from 'react';
 
 import { type GrafanaTheme2 } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { Field, FilterInput, Combobox, useStyles2, type ComboboxOption } from '@grafana/ui';
-import { getDataSourceSrv as getDatasourceSrv } from '@grafana/runtime';
-import { type FileElement, type GrafanaDatasource } from '../../../core/grafanaDatasource';
 
 import { MediaType, ResourceFolderName } from '../types';
 import { getPublicOrAbsoluteUrl } from '../resource';
+import { ICON_MANIFEST } from '../../../img/icons/manifest';
+import { BG_MANIFEST } from '../../../img/bg/manifest';
 
 import { ResourceCards } from './ResourceCards';
 
@@ -42,8 +42,10 @@ interface Props {
   maxFiles?: number;
 }
 
+const MANIFEST: Record<string, Record<string, true>> = { ...ICON_MANIFEST, ...BG_MANIFEST };
+
 export const FolderPickerTab = (props: Props) => {
-  const { value, mediaType, folderName, newValue, setNewValue, maxFiles } = props;
+  const { value, mediaType, folderName, newValue, setNewValue } = props;
   const styles = useStyles2(getStyles);
 
   const folders = getFolders(mediaType).map((v) => ({
@@ -56,51 +58,30 @@ export const FolderPickerTab = (props: Props) => {
   const [currentFolder, setCurrentFolder] = useState<ComboboxOption<string>>(
     getFolderIfExists(folders, value?.length ? value : folderName)
   );
-  const [directoryIndex, setDirectoryIndex] = useState<ResourceItem[]>([]);
-  const [filteredIndex, setFilteredIndex] = useState<ResourceItem[]>([]);
 
-  const onChangeSearch = (query: string) => {
-    if (query) {
-      query = query.toLowerCase();
-      setFilteredIndex(directoryIndex.filter((card) => card.search.includes(query)));
-    } else {
-      setFilteredIndex(directoryIndex);
-    }
-  };
-
-  useEffect(() => {
-    // we don't want to load everything before picking a folder
+  const directoryIndex = useMemo<ResourceItem[]>(() => {
     const folder = currentFolder?.value;
-    if (folder) {
-      const filter =
-        mediaType === MediaType.Icon
-          ? (item: FileElement) => item.name.endsWith('.svg')
-          : (item: FileElement) => item.name.endsWith('.png') || item.name.endsWith('.gif');
-
-      getDatasourceSrv()
-        .get('-- Grafana --')
-        .then((ds) => {
-          (ds as GrafanaDatasource).listFiles(folder, maxFiles).subscribe({
-            next: (frame) => {
-              const cards: ResourceItem[] = [];
-              frame.forEach((item) => {
-                if (filter(item)) {
-                  const idx = item.name.lastIndexOf('.');
-                  cards.push({
-                    value: `${folder}/${item.name}`,
-                    label: item.name,
-                    search: (idx ? item.name.substring(0, idx) : item.name).toLowerCase(),
-                    imgUrl: getPublicOrAbsoluteUrl(`${folder}/${item.name}`),
-                  });
-                }
-              });
-              setDirectoryIndex(cards);
-              setFilteredIndex(cards);
-            },
-          });
-        });
+    if (!folder) {
+      return [];
     }
-  }, [mediaType, currentFolder, maxFiles]);
+    return Object.keys(MANIFEST[folder] ?? {}).map((filename) => {
+      const idx = filename.lastIndexOf('.');
+      return {
+        value: `${folder}/${filename}`,
+        label: filename,
+        search: (idx > 0 ? filename.substring(0, idx) : filename).toLowerCase(),
+        imgUrl: getPublicOrAbsoluteUrl(`${folder}/${filename}`),
+      };
+    });
+  }, [currentFolder]);
+
+  const filteredIndex = useMemo<ResourceItem[]>(() => {
+    if (!searchQuery) {
+      return directoryIndex;
+    }
+    const q = searchQuery.toLowerCase();
+    return directoryIndex.filter((card) => card.search.includes(q));
+  }, [directoryIndex, searchQuery]);
 
   return (
     <>
@@ -118,7 +99,6 @@ export const FolderPickerTab = (props: Props) => {
           placeholder={t('dimensions.folder-picker-tab.placeholder-search', 'Search')}
           escapeRegex={false}
           onChange={(v) => {
-            onChangeSearch(v);
             setSearchQuery(v);
           }}
         />
@@ -132,7 +112,7 @@ export const FolderPickerTab = (props: Props) => {
   );
 };
 
-const getStyles = (theme: GrafanaTheme2) => ({
+const getStyles = (_theme: GrafanaTheme2) => ({
   cardsWrapper: css({
     height: '30vh',
     minHeight: '50px',
