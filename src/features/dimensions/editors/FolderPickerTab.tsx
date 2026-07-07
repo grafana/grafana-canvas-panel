@@ -6,7 +6,7 @@ import { type Dispatch, type SetStateAction, useEffect, useState } from 'react';
 import { type GrafanaTheme2 } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { Field, FilterInput, Combobox, useStyles2, type ComboboxOption } from '@grafana/ui';
-import { getDatasourceSrv } from '../../../core/datasourceSrv';
+import { getDataSourceSrv as getDatasourceSrv } from '@grafana/runtime';
 import { type FileElement, type GrafanaDatasource } from '../../../core/grafanaDatasource';
 
 import { MediaType, ResourceFolderName } from '../types';
