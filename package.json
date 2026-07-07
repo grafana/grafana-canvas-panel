@@ -4,8 +4,11 @@
   "scripts": {
     "build": "webpack -c ./webpack.config.ts --env production",
     "dev": "webpack -w -c ./webpack.config.ts --env development",
-    "test": "jest --watch --onlyChanged",
-    "test:ci": "jest --passWithNoTests --maxWorkers 4",
+    "generate-img-manifests": "node scripts/generate-img-manifests.mjs",
+    "prebuild": "npm run generate-img-manifests",
+    "test": "jest --watch --onlyChanged && npm run test:scripts",
+    "test:ci": "jest --passWithNoTests --maxWorkers 4 && npm run test:scripts",
+    "test:scripts": "node --test scripts/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --cache .",
     "lint:fix": "npm run lint -- --fix && prettier --write --list-different .",
