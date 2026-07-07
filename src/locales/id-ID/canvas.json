@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "Titik Akhir",
+      "label-header-parameters": "Parameter header",
+      "label-method": "Metode",
+      "label-payload": "Payload",
+      "label-query-parameters": "Parameter kueri",
+      "label-successmessage": "Pesan sukses",
+      "render-test-apibutton": {
+        "test-api": "Tes API",
+        "title-test-api": "Tes API"
+      }
+    },
+    "button-item": {
+      "category-button": "Tombol",
+      "label": {
+        "center": "Tengah",
+        "left": "Kiri",
+        "right": "Kanan"
+      },
+      "name-align-text": "Ratakan teks",
+      "name-api": "API",
+      "name-style": "Gaya tampilan",
+      "name-text": "Teks",
+      "name-text-color": "Warna teks",
+      "name-text-size": "Ukuran teks",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "Varian"
+    },
+    "canvas-context-menu": {
+      "close-editor": "Tutup Editor",
+      "open-editor": "Buka Editor",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "Tambahkan item"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "Edit"
+        },
+        "label-bring-to-front": "Bawa ke depan",
+        "label-delete": "Hapus",
+        "label-duplicate": "Duplikasikan",
+        "label-send-to-back": "Kirim ke belakang",
+        "set-background-menu-item": {
+          "label-set-background": "Atur latar belakang"
+        }
+      }
+    },
+    "category-arrow-direction": "Arah",
+    "category-background": "Latar Belakang",
+    "category-border": "Bingkai",
+    "category-canvas": "Kanvas",
+    "category-color": "Warna",
+    "category-data-links": "Tautan data dan tindakan",
+    "category-line-style": "Gaya tampilan garis",
+    "category-metric-value": "Nilai metrik",
+    "category-radius": "Radius",
+    "category-selected-connection": "Koneksi yang dipilih",
+    "category-selected-element": "Elemen yang dipilih ({{element}})",
+    "category-size": "Ukuran",
+    "category-tooltip": "Tooltip",
+    "cloud-item": {
+      "category-cloud": "Cloud",
+      "label": {
+        "bottom": "Bawah",
+        "center": "Tengah",
+        "left": "Kiri",
+        "middle": "Tengah",
+        "right": "Kanan",
+        "top": "Atas"
+      },
+      "name-align-text": "Ratakan teks",
+      "name-text": "Teks",
+      "name-text-color": "Warna teks",
+      "name-text-size": "Ukuran teks",
+      "name-vertical-align": "Rata vertikal",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "Keduanya",
+        "label-forward": "Teruskan",
+        "label-none": "Tidak ada",
+        "label-reverse": "Balik"
+      }
+    },
+    "description-experimental-types": "Aktifkan pemilihan jenis elemen eksperimental",
+    "description-inline-editing": "Aktifkan pengeditan panel secara langsung",
+    "description-pan-zoom": "Aktifkan geser dan zoom",
+    "drone-front-item": {
+      "category-drone-front": "Bagian Depan Drone",
+      "name-roll-angle": "Sudut Putar"
+    },
+    "drone-side-item": {
+      "category-drone-side": "Bagian Samping Drone",
+      "name-pitch-angle": "Sudut Pitch"
+    },
+    "drone-top-item": {
+      "category-drone-top": "Bagian Atas Drone",
+      "name-back-left-rotor-rpm": "RPM Rotor Belakang Kiri",
+      "name-back-right-rotor-rpm": "RPM Rotor Belakang Kanan",
+      "name-front-left-rotor-rpm": "RPM Rotor Depan Kiri",
+      "name-front-right-rotor-rpm": "RPM Rotor Depan Kanan",
+      "name-yaw-angle": "Sudut Yaw"
+    },
+    "element-editor": {
+      "category-layout": "Tata Letak",
+      "description-unsupported": "Jenis elemen yang dipilih tidak didukung oleh pengaturan saat ini. Aktifkan jenis elemen lanjutan.",
+      "name-quick-placement": "Penempatan cepat"
+    },
+    "ellipse-item": {
+      "category-ellipse": "Elips",
+      "label": {
+        "bottom": "Bawah",
+        "center": "Tengah",
+        "left": "Kiri",
+        "middle": "Tengah",
+        "right": "Kanan",
+        "top": "Atas"
+      },
+      "name-align-text": "Ratakan teks",
+      "name-text": "Teks",
+      "name-text-color": "Warna teks",
+      "name-text-size": "Ukuran teks",
+      "name-vertical-align": "Rata vertikal",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "icon-item": {
+      "category-icon": "Ikon",
+      "name-fill-color": "Warna isian",
+      "name-svg-path": "Jalur SVG"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Editor Inline Canvas",
+      "tooltip-close-inline-editor": "Tutup editor inline"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "Elemen yang dipilih ({{element}})",
+      "label-add-item": "Tambahkan item",
+      "please-select-an-element": "Pilih elemen"
+    },
+    "label-actions": "Tindakan",
+    "label-color": "Warna",
+    "label-direction": "Arah",
+    "label-image": "Gambar",
+    "label-image-size": "Ukuran gambar",
+    "label-line-style": "Gaya tampilan garis",
+    "label-links": "Tautan",
+    "label-radius": "Radius",
+    "label-size": "Ukuran",
+    "label-width": "Lebar",
+    "layer-editor": {
+      "category-layer": "Layer",
+      "category-layout": "Tata Letak",
+      "name-constraints": "Kendala",
+      "name-elements": "Elemen"
+    },
+    "line-style-editor": {
+      "label-animate": "Animasikan"
+    },
+    "line-style-options": {
+      "label-solid": "Solid"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "Bawah",
+        "center": "Tengah",
+        "left": "Kiri",
+        "middle": "Tengah",
+        "right": "Kanan",
+        "top": "Atas"
+      },
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "name-align-text": "Ratakan teks",
+    "name-color": "Warna teks",
+    "name-experimental-types": "Jenis elemen eksperimental",
+    "name-inline-editing": "Pengeditan inline",
+    "name-pan-zoom": "Geser dan zoom",
+    "name-text": "Teks",
+    "name-text-size": "Ukuran teks",
+    "name-vertical-align": "Rata vertikal",
+    "not-found-display": {
+      "not-found": "<0>Tidak ditemukan: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + mouse kanan",
+      "middle-mouse": "Tombol tengah mouse",
+      "pan-title": "Geser:",
+      "reset-double-click": "Atur ulang: Klik dua kali",
+      "title-pan-and-zoom-controls": "Kontrol geser dan zoom",
+      "zoom-scroll-wheel": "Zoom: Roda gulir"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "Jajaran genjang",
+      "label": {
+        "bottom": "Bawah",
+        "center": "Tengah",
+        "left": "Kiri",
+        "middle": "Tengah",
+        "right": "Kanan",
+        "top": "Atas"
+      },
+      "name-align-text": "Ratakan teks",
+      "name-text": "Teks",
+      "name-text-color": "Warna teks",
+      "name-text-size": "Ukuran teks",
+      "name-vertical-align": "Rata vertikal",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "Tambahkan",
+      "aria-label-delete": "Hapus",
+      "placeholder-key": "Kunci",
+      "placeholder-value": "Nilai"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "Tengah",
+        "label-left": "Kiri",
+        "label-left-and-right": "Kiri & kanan",
+        "label-right": "Kanan",
+        "label-scale": "Skala"
+      },
+      "label-constraints": "Kendala",
+      "label-position": "Jabatan",
+      "loading": "Memuat...",
+      "vertical-options": {
+        "label-bottom": "Bawah",
+        "label-center": "Tengah",
+        "label-scale": "Skala",
+        "label-top": "Atas",
+        "label-top-and-bottom": "Atas & bawah"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "Ratakan ke bawah",
+      "tooltip-align-horizontal-centers": "Ratakan ke tengah horizontal",
+      "tooltip-align-left": "Ratakan ke kiri",
+      "tooltip-align-right": "Ratakan ke kanan",
+      "tooltip-align-top": "Ratakan ke atas",
+      "tooltip-align-vertical-centers": "Ratakan ke tengah vertikal"
+    },
+    "rectangle-item": {
+      "category-rectangle": "Persegi panjang",
+      "label": {
+        "bottom": "Bawah",
+        "center": "Tengah",
+        "left": "Kiri",
+        "middle": "Tengah",
+        "right": "Kanan",
+        "top": "Atas"
+      },
+      "name-align-text": "Ratakan teks",
+      "name-text": "Teks",
+      "name-text-color": "Warna teks",
+      "name-text-size": "Ukuran teks",
+      "name-vertical-align": "Rata vertikal",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "server-item": {
+      "category-server": "Server",
+      "name-blink-rate": "Frekuensi kedipan [hz] (0 = mati)",
+      "name-bulb-color": "Warna bohlam",
+      "name-status-color": "Warna status",
+      "name-type": "Jenis",
+      "type-options": {
+        "label-database": "Database",
+        "label-single": "Tunggal",
+        "label-stack": "Tumpukan",
+        "label-terminal": "Terminal"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "Klik dua kali untuk mengatur teks"
+    },
+    "text-item": {
+      "category-text": "Teks",
+      "label": {
+        "bottom": "Bawah",
+        "center": "Tengah",
+        "left": "Kiri",
+        "middle": "Tengah",
+        "right": "Kanan",
+        "top": "Atas"
+      },
+      "name-align-text": "Ratakan teks",
+      "name-text": "Teks",
+      "name-text-color": "Warna teks",
+      "name-text-size": "Ukuran teks",
+      "name-vertical-align": "Rata vertikal",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "Nonaktifkan untuk elemen satu klik",
+      "name-tooltip-mode": "Mode tooltip",
+      "tooltip-mode-options": {
+        "label-disabled": "Dinonaktifkan",
+        "label-enabled": "Diaktifkan"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "Hapus pilihan",
+      "frame-selection": "Pilihan frame",
+      "label-add-item": "Tambahkan item",
+      "missing-layer": "Layer tidak ada?",
+      "no-settings": "Tidak ada pengaturan",
+      "switcher-icon": {
+        "title-node-icon": "Ikon Node"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "Duplikasikan",
+      "title-remove": "Hapus",
+      "tooltip-duplicate": "Duplikasikan",
+      "tooltip-remove": "Hapus"
+    },
+    "triangle-item": {
+      "category-triangle": "Segitiga",
+      "label": {
+        "bottom": "Bawah",
+        "center": "Tengah",
+        "left": "Kiri",
+        "middle": "Tengah",
+        "right": "Kanan",
+        "top": "Atas"
+      },
+      "name-align-text": "Ratakan teks",
+      "name-text": "Teks",
+      "name-text-color": "Warna teks",
+      "name-text-size": "Ukuran teks",
+      "name-vertical-align": "Rata vertikal",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "Turbin Angin",
+      "name-rpm": "RPM"
+    }
+  }
+}

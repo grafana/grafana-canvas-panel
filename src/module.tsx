@@ -14,7 +14,9 @@ import { canvasMigrationHandler } from './migrations';
 import { type Options } from './panelcfg.gen';
 
 if (process.env.NODE_ENV !== 'test') {
-  await initPluginTranslations('canvas');
+  await initPluginTranslations('canvas', [
+    (lang) => import(`./locales/${lang}/canvas.json`).catch(() => import('./locales/en-US/canvas.json')),
+  ]);
 }
 
 export const addStandardCanvasEditorOptions = (builder: PanelOptionsEditorBuilder<Options>) => {

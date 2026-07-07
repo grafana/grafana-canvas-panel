@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "Endpunkt",
+      "label-header-parameters": "Header-Parameter",
+      "label-method": "Methode",
+      "label-payload": "Payload",
+      "label-query-parameters": "Abfrageparameter",
+      "label-successmessage": "Erfolgsmeldung",
+      "render-test-apibutton": {
+        "test-api": "Test-API",
+        "title-test-api": "Test-API"
+      }
+    },
+    "button-item": {
+      "category-button": "Schaltfläche",
+      "label": {
+        "center": "Mitte",
+        "left": "Links",
+        "right": "Rechts"
+      },
+      "name-align-text": "Text ausrichten",
+      "name-api": "API",
+      "name-style": "Stil",
+      "name-text": "Text",
+      "name-text-color": "Textfarbe",
+      "name-text-size": "Textgröße",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "Variante"
+    },
+    "canvas-context-menu": {
+      "close-editor": "Editor schließen",
+      "open-editor": "Editor öffnen",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "Element hinzufügen"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "Bearbeiten"
+        },
+        "label-bring-to-front": "In den Vordergrund",
+        "label-delete": "Löschen",
+        "label-duplicate": "Duplikat",
+        "label-send-to-back": "Nach hinten",
+        "set-background-menu-item": {
+          "label-set-background": "Hintergrund festlegen"
+        }
+      }
+    },
+    "category-arrow-direction": "Richtung",
+    "category-background": "Hintergrund",
+    "category-border": "Rahmen",
+    "category-canvas": "Leinwand",
+    "category-color": "Farbe",
+    "category-data-links": "Datenlinks und Aktionen",
+    "category-line-style": "Linienstil",
+    "category-metric-value": "Metrikwert",
+    "category-radius": "Radius",
+    "category-selected-connection": "Ausgewählte Verbindung",
+    "category-selected-element": "Ausgewähltes Element ({{element}})",
+    "category-size": "Größe",
+    "category-tooltip": "Tooltip",
+    "cloud-item": {
+      "category-cloud": "Cloud",
+      "label": {
+        "bottom": "Unten",
+        "center": "Mitte",
+        "left": "Links",
+        "middle": "Mittlere",
+        "right": "Rechts",
+        "top": "Oben"
+      },
+      "name-align-text": "Text ausrichten",
+      "name-text": "Text",
+      "name-text-color": "Textfarbe",
+      "name-text-size": "Textgröße",
+      "name-vertical-align": "Vertikale Ausrichtung",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "Beide",
+        "label-forward": "Vorwärts",
+        "label-none": "Keine",
+        "label-reverse": "Rückwärts"
+      }
+    },
+    "description-experimental-types": "Auswahl experimenteller Elementtypen aktivieren",
+    "description-inline-editing": "Direkte Bearbeitung des Panels aktivieren",
+    "description-pan-zoom": "Schwenken und Zoomen aktivieren",
+    "drone-front-item": {
+      "category-drone-front": "Drohne vorne",
+      "name-roll-angle": "Rollwinkel"
+    },
+    "drone-side-item": {
+      "category-drone-side": "Drohne Seite",
+      "name-pitch-angle": "Steigungswinkel"
+    },
+    "drone-top-item": {
+      "category-drone-top": "Drohne oben",
+      "name-back-left-rotor-rpm": "Drehzahl des linken hinteren Rotors",
+      "name-back-right-rotor-rpm": "Drehzahl des rechten hinteren Rotors",
+      "name-front-left-rotor-rpm": "Drehzahl des linken vorderen Rotors",
+      "name-front-right-rotor-rpm": "Drehzahl des rechten vorderen Rotors",
+      "name-yaw-angle": "Gierwinkel"
+    },
+    "element-editor": {
+      "category-layout": "Layout",
+      "description-unsupported": "Der ausgewählte Elementtyp wird von den aktuellen Einstellungen nicht unterstützt. Bitte aktivieren Sie erweiterte Elementtypen.",
+      "name-quick-placement": "Schnelle Platzierung"
+    },
+    "ellipse-item": {
+      "category-ellipse": "Ellipse",
+      "label": {
+        "bottom": "Unten",
+        "center": "Mitte",
+        "left": "Links",
+        "middle": "Mittlere",
+        "right": "Rechts",
+        "top": "Oben"
+      },
+      "name-align-text": "Text ausrichten",
+      "name-text": "Text",
+      "name-text-color": "Textfarbe",
+      "name-text-size": "Textgröße",
+      "name-vertical-align": "Vertikale Ausrichtung",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "icon-item": {
+      "category-icon": "Symbol",
+      "name-fill-color": "Füllfarbe",
+      "name-svg-path": "SVG Path"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Canvas-Inline-Editor",
+      "tooltip-close-inline-editor": "Inline-Editor schließen"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "Ausgewähltes Element ({{element}})",
+      "label-add-item": "Element hinzufügen",
+      "please-select-an-element": "Bitte wählen Sie ein Element"
+    },
+    "label-actions": "Aktionen",
+    "label-color": "Farbe",
+    "label-direction": "Richtung",
+    "label-image": "Bild",
+    "label-image-size": "Bildgröße",
+    "label-line-style": "Linienstil",
+    "label-links": "Links",
+    "label-radius": "Radius",
+    "label-size": "Größe",
+    "label-width": "Breite",
+    "layer-editor": {
+      "category-layer": "Layer",
+      "category-layout": "Layout",
+      "name-constraints": "Beschränkungen",
+      "name-elements": "Elemente"
+    },
+    "line-style-editor": {
+      "label-animate": "Animieren"
+    },
+    "line-style-options": {
+      "label-solid": "Durchgezogen"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "Unten",
+        "center": "Mitte",
+        "left": "Links",
+        "middle": "Mittlere",
+        "right": "Rechts",
+        "top": "Oben"
+      },
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "name-align-text": "Text ausrichten",
+    "name-color": "Textfarbe",
+    "name-experimental-types": "Experimentelle Elementtypen",
+    "name-inline-editing": "Inline-Bearbeitung",
+    "name-pan-zoom": "Schwenken und Zoomen",
+    "name-text": "Text",
+    "name-text-size": "Textgröße",
+    "name-vertical-align": "Vertikale Ausrichtung",
+    "not-found-display": {
+      "not-found": "<0>Nicht gefunden: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "STRG + rechte Maustaste",
+      "middle-mouse": "Mittlere Maustaste",
+      "pan-title": "Schwenken:",
+      "reset-double-click": "Zurücksetzen: Doppelklick",
+      "title-pan-and-zoom-controls": "Schwenk- und Zoomsteuerung",
+      "zoom-scroll-wheel": "Zoomen: Scrollrad"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "Parallelogramm",
+      "label": {
+        "bottom": "Unten",
+        "center": "Mitte",
+        "left": "Links",
+        "middle": "Mittlere",
+        "right": "Rechts",
+        "top": "Oben"
+      },
+      "name-align-text": "Text ausrichten",
+      "name-text": "Text",
+      "name-text-color": "Textfarbe",
+      "name-text-size": "Textgröße",
+      "name-vertical-align": "Vertikale Ausrichtung",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "Hinzufügen",
+      "aria-label-delete": "Löschen",
+      "placeholder-key": "Key",
+      "placeholder-value": "Wert"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "Mitte",
+        "label-left": "Links",
+        "label-left-and-right": "Links und rechts",
+        "label-right": "Rechts",
+        "label-scale": "Skalieren"
+      },
+      "label-constraints": "Beschränkungen",
+      "label-position": "Position",
+      "loading": "Wird geladen ...",
+      "vertical-options": {
+        "label-bottom": "Unten",
+        "label-center": "Mitte",
+        "label-scale": "Skalieren",
+        "label-top": "Oben",
+        "label-top-and-bottom": "Oben und unten"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "Unten ausrichten",
+      "tooltip-align-horizontal-centers": "Horizontale mittig ausrichten",
+      "tooltip-align-left": "Links ausrichten",
+      "tooltip-align-right": "Rechts ausrichten",
+      "tooltip-align-top": "Oben ausrichten",
+      "tooltip-align-vertical-centers": "Vertikale mittig ausrichten"
+    },
+    "rectangle-item": {
+      "category-rectangle": "Rechteck",
+      "label": {
+        "bottom": "Unten",
+        "center": "Mitte",
+        "left": "Links",
+        "middle": "Mittlere",
+        "right": "Rechts",
+        "top": "Oben"
+      },
+      "name-align-text": "Text ausrichten",
+      "name-text": "Text",
+      "name-text-color": "Textfarbe",
+      "name-text-size": "Textgröße",
+      "name-vertical-align": "Vertikale Ausrichtung",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "server-item": {
+      "category-server": "Server",
+      "name-blink-rate": "Blinkfrequenz [hz] (0 = aus)",
+      "name-bulb-color": "Birnen-Farbe",
+      "name-status-color": "Status-Farbe",
+      "name-type": "Typ",
+      "type-options": {
+        "label-database": "Datenbank",
+        "label-single": "Einzeln",
+        "label-stack": "Stapel",
+        "label-terminal": "Terminal"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "Klicken Sie doppelt, um Text festzulegen"
+    },
+    "text-item": {
+      "category-text": "Text",
+      "label": {
+        "bottom": "Unten",
+        "center": "Mitte",
+        "left": "Links",
+        "middle": "Mittlere",
+        "right": "Rechts",
+        "top": "Oben"
+      },
+      "name-align-text": "Text ausrichten",
+      "name-text": "Text",
+      "name-text-color": "Textfarbe",
+      "name-text-size": "Textgröße",
+      "name-vertical-align": "Vertikale Ausrichtung",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "",
+      "name-tooltip-mode": "Tooltip-Modus",
+      "tooltip-mode-options": {
+        "label-disabled": "Deaktiviert",
+        "label-enabled": "Aktiviert"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "Auswahl löschen",
+      "frame-selection": "Frame-Auswahl",
+      "label-add-item": "Element hinzufügen",
+      "missing-layer": "Fehlender Layer?",
+      "no-settings": "Keine Einstellungen",
+      "switcher-icon": {
+        "title-node-icon": "Knotensymbol"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "Duplikat",
+      "title-remove": "Entfernen",
+      "tooltip-duplicate": "Duplikat",
+      "tooltip-remove": "Entfernen"
+    },
+    "triangle-item": {
+      "category-triangle": "Dreieck",
+      "label": {
+        "bottom": "Unten",
+        "center": "Mitte",
+        "left": "Links",
+        "middle": "Mittlere",
+        "right": "Rechts",
+        "top": "Oben"
+      },
+      "name-align-text": "Text ausrichten",
+      "name-text": "Text",
+      "name-text-color": "Textfarbe",
+      "name-text-size": "Textgröße",
+      "name-vertical-align": "Vertikale Ausrichtung",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "Windturbine",
+      "name-rpm": "Drehzahl"
+    }
+  }
+}

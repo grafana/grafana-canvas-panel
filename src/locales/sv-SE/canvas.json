@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "Slutpunkt",
+      "label-header-parameters": "Rubrikparametrar",
+      "label-method": "Metod",
+      "label-payload": "Nyttolast",
+      "label-query-parameters": "Frågeparametrar",
+      "label-successmessage": "Meddelande om framgång",
+      "render-test-apibutton": {
+        "test-api": "Test-API",
+        "title-test-api": "Test-API"
+      }
+    },
+    "button-item": {
+      "category-button": "Knapp",
+      "label": {
+        "center": "Centrera",
+        "left": "Vänster",
+        "right": "Höger"
+      },
+      "name-align-text": "Justera text",
+      "name-api": "API",
+      "name-style": "Stil",
+      "name-text": "Text",
+      "name-text-color": "Textfärg",
+      "name-text-size": "Textstorlek",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "Variant"
+    },
+    "canvas-context-menu": {
+      "close-editor": "Stäng redigeraren",
+      "open-editor": "Öppna redigeraren",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "Lägg till post"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "Redigera"
+        },
+        "label-bring-to-front": "Flytta längst fram",
+        "label-delete": "Radera",
+        "label-duplicate": "Dubblett",
+        "label-send-to-back": "Skicka längst bak",
+        "set-background-menu-item": {
+          "label-set-background": "Ange bakgrund"
+        }
+      }
+    },
+    "category-arrow-direction": "Riktning",
+    "category-background": "Bakgrund",
+    "category-border": "Ram",
+    "category-canvas": "Rityta",
+    "category-color": "Färg",
+    "category-data-links": "Datalänkar och åtgärder",
+    "category-line-style": "Linjestil",
+    "category-metric-value": "Mätvärde",
+    "category-radius": "Radie",
+    "category-selected-connection": "Vald anslutning",
+    "category-selected-element": "Valt element ({{element}})",
+    "category-size": "Storlek",
+    "category-tooltip": "Verktygstips",
+    "cloud-item": {
+      "category-cloud": "Moln",
+      "label": {
+        "bottom": "Underst",
+        "center": "Centrera",
+        "left": "Vänster",
+        "middle": "Mitten",
+        "right": "Höger",
+        "top": "Överst"
+      },
+      "name-align-text": "Justera text",
+      "name-text": "Text",
+      "name-text-color": "Textfärg",
+      "name-text-size": "Textstorlek",
+      "name-vertical-align": "Vertikal justering",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "Båda",
+        "label-forward": "Framåt",
+        "label-none": "Inget",
+        "label-reverse": "Omvänt"
+      }
+    },
+    "description-experimental-types": "Aktivera val av experimentella elementtyper",
+    "description-inline-editing": "Aktivera direkt redigering av panelen",
+    "description-pan-zoom": "Aktivera panorering och zoom",
+    "drone-front-item": {
+      "category-drone-front": "Drönare (front)",
+      "name-roll-angle": "Rullvinkel"
+    },
+    "drone-side-item": {
+      "category-drone-side": "Drönare (sida)",
+      "name-pitch-angle": "Anfallsvinkel"
+    },
+    "drone-top-item": {
+      "category-drone-top": "Drönare (topp)",
+      "name-back-left-rotor-rpm": "Bakre vänstra rotorns varvtal",
+      "name-back-right-rotor-rpm": "Bakre högra rotorns varvtal",
+      "name-front-left-rotor-rpm": "Främre vänstra rotorns varvtal",
+      "name-front-right-rotor-rpm": "Främre högra rotorns varvtal",
+      "name-yaw-angle": "Girvinkel"
+    },
+    "element-editor": {
+      "category-layout": "Layout",
+      "description-unsupported": "Vald elementtyp stöds inte av de aktuella inställningarna. Aktivera avancerade elementtyper.",
+      "name-quick-placement": "Snabb placering"
+    },
+    "ellipse-item": {
+      "category-ellipse": "Ellips",
+      "label": {
+        "bottom": "Underst",
+        "center": "Centrera",
+        "left": "Vänster",
+        "middle": "Mitten",
+        "right": "Höger",
+        "top": "Överst"
+      },
+      "name-align-text": "Justera text",
+      "name-text": "Text",
+      "name-text-color": "Textfärg",
+      "name-text-size": "Textstorlek",
+      "name-vertical-align": "Vertikal justering",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "icon-item": {
+      "category-icon": "Ikon",
+      "name-fill-color": "Fyllningsfärg",
+      "name-svg-path": "SVG-sökväg"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Canvas Inline-redigerare",
+      "tooltip-close-inline-editor": "Stäng inline-redigeraren"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "Valt element ({{element}})",
+      "label-add-item": "Lägg till post",
+      "please-select-an-element": "Välj ett element"
+    },
+    "label-actions": "Åtgärder",
+    "label-color": "Färg",
+    "label-direction": "Riktning",
+    "label-image": "Image",
+    "label-image-size": "Bildstorlek",
+    "label-line-style": "Linjestil",
+    "label-links": "Länkar",
+    "label-radius": "Radie",
+    "label-size": "Storlek",
+    "label-width": "Bredd",
+    "layer-editor": {
+      "category-layer": "Lager",
+      "category-layout": "Layout",
+      "name-constraints": "Begränsningar",
+      "name-elements": "Element"
+    },
+    "line-style-editor": {
+      "label-animate": "Animera"
+    },
+    "line-style-options": {
+      "label-solid": "Solid"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "Underst",
+        "center": "Centrera",
+        "left": "Vänster",
+        "middle": "Mitten",
+        "right": "Höger",
+        "top": "Överst"
+      },
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "name-align-text": "Justera text",
+    "name-color": "Textfärg",
+    "name-experimental-types": "Typer av experimentella element",
+    "name-inline-editing": "Redigerar inline",
+    "name-pan-zoom": "Panorering och zoomning",
+    "name-text": "Text",
+    "name-text-size": "Textstorlek",
+    "name-vertical-align": "Vertikal justering",
+    "not-found-display": {
+      "not-found": "<0>Hittades inte: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + höger mus",
+      "middle-mouse": "Mellanhjul",
+      "pan-title": "Panorera:",
+      "reset-double-click": "Återställ: dubbelklicka",
+      "title-pan-and-zoom-controls": "Kontroller för panorering och zoom",
+      "zoom-scroll-wheel": "Zoom: skrollhjul"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "Parallellogram",
+      "label": {
+        "bottom": "Underst",
+        "center": "Centrera",
+        "left": "Vänster",
+        "middle": "Mitten",
+        "right": "Höger",
+        "top": "Överst"
+      },
+      "name-align-text": "Justera text",
+      "name-text": "Text",
+      "name-text-color": "Textfärg",
+      "name-text-size": "Textstorlek",
+      "name-vertical-align": "Vertikal justering",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "Lägg till",
+      "aria-label-delete": "Radera",
+      "placeholder-key": "Nyckel",
+      "placeholder-value": "Värde"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "Centrera",
+        "label-left": "Vänster",
+        "label-left-and-right": "Vänster och höger",
+        "label-right": "Höger",
+        "label-scale": "Skala"
+      },
+      "label-constraints": "Begränsningar",
+      "label-position": "Position",
+      "loading": "Laddar …",
+      "vertical-options": {
+        "label-bottom": "Underst",
+        "label-center": "Centrera",
+        "label-scale": "Skala",
+        "label-top": "Överst",
+        "label-top-and-bottom": "Överst och nederst"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "Justera botten",
+      "tooltip-align-horizontal-centers": "Justera centrerat horisontellt",
+      "tooltip-align-left": "Vänsterjusterat",
+      "tooltip-align-right": "Högerjusterad",
+      "tooltip-align-top": "Justera överkant",
+      "tooltip-align-vertical-centers": "Justera centrerat vertikalt"
+    },
+    "rectangle-item": {
+      "category-rectangle": "Rektangel",
+      "label": {
+        "bottom": "Underst",
+        "center": "Centrera",
+        "left": "Vänster",
+        "middle": "Mitten",
+        "right": "Höger",
+        "top": "Överst"
+      },
+      "name-align-text": "Justera text",
+      "name-text": "Text",
+      "name-text-color": "Textfärg",
+      "name-text-size": "Textstorlek",
+      "name-vertical-align": "Vertikal justering",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "server-item": {
+      "category-server": "Server",
+      "name-blink-rate": "Blinkfrekvens [Hz] (0 = av)",
+      "name-bulb-color": "Lampfärg",
+      "name-status-color": "Statusfärg",
+      "name-type": "Typ",
+      "type-options": {
+        "label-database": "Databas",
+        "label-single": "Singel",
+        "label-stack": "Stack",
+        "label-terminal": "Plint"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "Dubbelklicka för att ställa in text"
+    },
+    "text-item": {
+      "category-text": "Text",
+      "label": {
+        "bottom": "Underst",
+        "center": "Centrera",
+        "left": "Vänster",
+        "middle": "Mitten",
+        "right": "Höger",
+        "top": "Överst"
+      },
+      "name-align-text": "Justera text",
+      "name-text": "Text",
+      "name-text-color": "Textfärg",
+      "name-text-size": "Textstorlek",
+      "name-vertical-align": "Vertikal justering",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "",
+      "name-tooltip-mode": "Verktygstipsläge",
+      "tooltip-mode-options": {
+        "label-disabled": "Inaktiverad",
+        "label-enabled": "Aktiverad"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "Rensa val",
+      "frame-selection": "Ramval",
+      "label-add-item": "Lägg till post",
+      "missing-layer": "Saknas ett lager?",
+      "no-settings": "Inga inställningar",
+      "switcher-icon": {
+        "title-node-icon": "Nodikon"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "Dubblett",
+      "title-remove": "Ta bort",
+      "tooltip-duplicate": "Dubblett",
+      "tooltip-remove": "Ta bort"
+    },
+    "triangle-item": {
+      "category-triangle": "Triangel",
+      "label": {
+        "bottom": "Underst",
+        "center": "Centrera",
+        "left": "Vänster",
+        "middle": "Mitten",
+        "right": "Höger",
+        "top": "Överst"
+      },
+      "name-align-text": "Justera text",
+      "name-text": "Text",
+      "name-text-color": "Textfärg",
+      "name-text-size": "Textstorlek",
+      "name-vertical-align": "Vertikal justering",
+      "placeholder": {
+        "auto": "Auto"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "Vindkraftverk",
+      "name-rpm": "RPM"
+    }
+  }
+}

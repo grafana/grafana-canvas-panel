@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "エンドポイント",
+      "label-header-parameters": "ヘッダーパラメーター",
+      "label-method": "メソッド",
+      "label-payload": "ペイロード",
+      "label-query-parameters": "クエリのパラメータ",
+      "label-successmessage": "成功メッセージ",
+      "render-test-apibutton": {
+        "test-api": "APIをテストする",
+        "title-test-api": "APIをテストする"
+      }
+    },
+    "button-item": {
+      "category-button": "ボタン",
+      "label": {
+        "center": "中央",
+        "left": "左",
+        "right": "右"
+      },
+      "name-align-text": "テキストの配置",
+      "name-api": "API",
+      "name-style": "スタイル",
+      "name-text": "テキスト",
+      "name-text-color": "文字色",
+      "name-text-size": "文字サイズ",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "バリアント"
+    },
+    "canvas-context-menu": {
+      "close-editor": "エディターを閉じる",
+      "open-editor": "エディターを開く",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "アイテムを追加"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "編集"
+        },
+        "label-bring-to-front": "最前面に移動",
+        "label-delete": "削除",
+        "label-duplicate": "複製",
+        "label-send-to-back": "最背面に移動",
+        "set-background-menu-item": {
+          "label-set-background": "背景を設定"
+        }
+      }
+    },
+    "category-arrow-direction": "方向",
+    "category-background": "背景",
+    "category-border": "境界線",
+    "category-canvas": "キャンバス",
+    "category-color": "色",
+    "category-data-links": "データリンクとアクション",
+    "category-line-style": "線のスタイル",
+    "category-metric-value": "指標の値",
+    "category-radius": "半径",
+    "category-selected-connection": "選択した接続",
+    "category-selected-element": "選択した要素（{{element}}）",
+    "category-size": "サイズ",
+    "category-tooltip": "ツールチップ",
+    "cloud-item": {
+      "category-cloud": "クラウド",
+      "label": {
+        "bottom": "下",
+        "center": "中央",
+        "left": "左",
+        "middle": "中央",
+        "right": "右",
+        "top": "上"
+      },
+      "name-align-text": "テキストの配置",
+      "name-text": "テキスト",
+      "name-text-color": "文字色",
+      "name-text-size": "文字サイズ",
+      "name-vertical-align": "垂直方向の配置",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "両方",
+        "label-forward": "前進",
+        "label-none": "なし",
+        "label-reverse": "反転"
+      }
+    },
+    "description-experimental-types": "実験的な要素タイプの選択を有効化",
+    "description-inline-editing": "パネルの直接編集を有効化",
+    "description-pan-zoom": "パンとズームを有効化",
+    "drone-front-item": {
+      "category-drone-front": "ドローン正面",
+      "name-roll-angle": "回転角度"
+    },
+    "drone-side-item": {
+      "category-drone-side": "ドローン側面",
+      "name-pitch-angle": "ピッチ角"
+    },
+    "drone-top-item": {
+      "category-drone-top": "ドローン上面",
+      "name-back-left-rotor-rpm": "左後部ローターRPM",
+      "name-back-right-rotor-rpm": "右後部ローターRPM",
+      "name-front-left-rotor-rpm": "左正面ローターRPM",
+      "name-front-right-rotor-rpm": "右正面ローターRPM",
+      "name-yaw-angle": "ヨー角"
+    },
+    "element-editor": {
+      "category-layout": "レイアウト",
+      "description-unsupported": "選択した要素タイプは現在の設定でサポートされていません。高度な要素タイプを有効にしてください。",
+      "name-quick-placement": "クイック配置"
+    },
+    "ellipse-item": {
+      "category-ellipse": "楕円",
+      "label": {
+        "bottom": "下",
+        "center": "中央",
+        "left": "左",
+        "middle": "中央",
+        "right": "右",
+        "top": "上"
+      },
+      "name-align-text": "テキストの配置",
+      "name-text": "テキスト",
+      "name-text-color": "文字色",
+      "name-text-size": "文字サイズ",
+      "name-vertical-align": "垂直方向の配置",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "icon-item": {
+      "category-icon": "アイコン",
+      "name-fill-color": "塗りつぶし色",
+      "name-svg-path": "SVGパス"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "キャンバスインラインエディター",
+      "tooltip-close-inline-editor": "インラインエディターを閉じる"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "選択した要素（{{element}}）",
+      "label-add-item": "アイテムを追加",
+      "please-select-an-element": "要素を選択してください"
+    },
+    "label-actions": "アクション",
+    "label-color": "色",
+    "label-direction": "方向",
+    "label-image": "画像",
+    "label-image-size": "画像サイズ",
+    "label-line-style": "線のスタイル",
+    "label-links": "リンク",
+    "label-radius": "半径",
+    "label-size": "サイズ",
+    "label-width": "幅",
+    "layer-editor": {
+      "category-layer": "レイヤー",
+      "category-layout": "レイアウト",
+      "name-constraints": "制約",
+      "name-elements": "要素"
+    },
+    "line-style-editor": {
+      "label-animate": "アニメーション"
+    },
+    "line-style-options": {
+      "label-solid": "実線"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "下",
+        "center": "中央",
+        "left": "左",
+        "middle": "中央",
+        "right": "右",
+        "top": "上"
+      },
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "name-align-text": "テキストの配置",
+    "name-color": "文字色",
+    "name-experimental-types": "実験的な要素タイプ",
+    "name-inline-editing": "インライン編集",
+    "name-pan-zoom": "パンとズーム",
+    "name-text": "テキスト",
+    "name-text-size": "文字サイズ",
+    "name-vertical-align": "垂直方向の配置",
+    "not-found-display": {
+      "not-found": "<0>見つかりません：</0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "Ctrl + 右マウス",
+      "middle-mouse": "マウス中央ボタン",
+      "pan-title": "パン：",
+      "reset-double-click": "リセット：ダブルクリック",
+      "title-pan-and-zoom-controls": "パンとズーム操作",
+      "zoom-scroll-wheel": "ズーム：スクロールホイール"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "平行四辺形",
+      "label": {
+        "bottom": "下",
+        "center": "中央",
+        "left": "左",
+        "middle": "中央",
+        "right": "右",
+        "top": "上"
+      },
+      "name-align-text": "テキストの配置",
+      "name-text": "テキスト",
+      "name-text-color": "文字色",
+      "name-text-size": "文字サイズ",
+      "name-vertical-align": "垂直方向の配置",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "追加",
+      "aria-label-delete": "削除",
+      "placeholder-key": "キー",
+      "placeholder-value": "値"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "中央",
+        "label-left": "左",
+        "label-left-and-right": "左と右",
+        "label-right": "右",
+        "label-scale": "スケール"
+      },
+      "label-constraints": "制約",
+      "label-position": "位置",
+      "loading": "読み込み中...",
+      "vertical-options": {
+        "label-bottom": "下",
+        "label-center": "中央",
+        "label-scale": "スケール",
+        "label-top": "上",
+        "label-top-and-bottom": "上と下"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "下揃え",
+      "tooltip-align-horizontal-centers": "水平中央揃え",
+      "tooltip-align-left": "左揃え",
+      "tooltip-align-right": "右揃え",
+      "tooltip-align-top": "上揃え",
+      "tooltip-align-vertical-centers": "垂直中央揃え"
+    },
+    "rectangle-item": {
+      "category-rectangle": "長方形",
+      "label": {
+        "bottom": "下",
+        "center": "中央",
+        "left": "左",
+        "middle": "中央",
+        "right": "右",
+        "top": "上"
+      },
+      "name-align-text": "テキストの配置",
+      "name-text": "テキスト",
+      "name-text-color": "文字色",
+      "name-text-size": "文字サイズ",
+      "name-vertical-align": "垂直方向の配置",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "server-item": {
+      "category-server": "サーバー",
+      "name-blink-rate": "点滅レート[hz]（0 =オフ）",
+      "name-bulb-color": "電球の色",
+      "name-status-color": "ステータスの色",
+      "name-type": "タイプ",
+      "type-options": {
+        "label-database": "データベース",
+        "label-single": "単体",
+        "label-stack": "スタック",
+        "label-terminal": "ターミナル"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "ダブルクリックしてテキストを設定"
+    },
+    "text-item": {
+      "category-text": "テキスト",
+      "label": {
+        "bottom": "下",
+        "center": "中央",
+        "left": "左",
+        "middle": "中央",
+        "right": "右",
+        "top": "上"
+      },
+      "name-align-text": "テキストの配置",
+      "name-text": "テキスト",
+      "name-text-color": "文字色",
+      "name-text-size": "文字サイズ",
+      "name-vertical-align": "垂直方向の配置",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "ワンクリック要素では無効",
+      "name-tooltip-mode": "ツールチップモード",
+      "tooltip-mode-options": {
+        "label-disabled": "無効",
+        "label-enabled": "有効"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "選択をクリア",
+      "frame-selection": "フレームの選択",
+      "label-add-item": "アイテムを追加",
+      "missing-layer": "レイヤーが見つかりませんか？",
+      "no-settings": "設定なし",
+      "switcher-icon": {
+        "title-node-icon": "ノードアイコン"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "複製",
+      "title-remove": "削除",
+      "tooltip-duplicate": "複製",
+      "tooltip-remove": "削除"
+    },
+    "triangle-item": {
+      "category-triangle": "三角形",
+      "label": {
+        "bottom": "下",
+        "center": "中央",
+        "left": "左",
+        "middle": "中央",
+        "right": "右",
+        "top": "上"
+      },
+      "name-align-text": "テキストの配置",
+      "name-text": "テキスト",
+      "name-text-color": "文字色",
+      "name-text-size": "文字サイズ",
+      "name-vertical-align": "垂直方向の配置",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "風力原動機",
+      "name-rpm": "RPM"
+    }
+  }
+}
