@@ -3,6 +3,8 @@ import { type DataFrame } from '@grafana/data';
 import { config } from '@grafana/runtime';
 import { type ResourceDimensionConfig, ResourceDimensionMode } from '@grafana/schema';
 
+import pluginJson from '../../plugin.json';
+
 import { type DimensionSupplier } from './types';
 import { findField, getLastNotNullFieldValue } from './utils';
 
@@ -19,7 +21,7 @@ export function getPublicOrAbsoluteUrl(path: unknown): string {
     return path;
   }
 
-  const pluginBaseUrl = config.panels?.['canvas']?.baseUrl ?? '';
+  const pluginBaseUrl = config.panels?.[pluginJson.id]?.baseUrl ?? '';
   return `${pluginBaseUrl}/${path}`;
 }
 
