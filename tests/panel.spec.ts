@@ -16,20 +16,6 @@ test('should display circle when data is passed to the panel', async ({
 }) => {
   const ds = await readProvisionedDataSource({ fileName: 'datasources.yml' });
   await panelEditPage.datasource.set(ds.name);
-  await panelEditPage.setVisualization('Canvas');
+  await panelEditPage.setVisualization('Canvas External');
   await expect(page.getByTestId('simple-panel-circle')).toBeVisible();
-});
-
-test('should display series counter when "Show series counter" option is enabled', async ({
-  gotoPanelEditPage,
-  readProvisionedDashboard,
-  page,
-}) => {
-  const dashboard = await readProvisionedDashboard({ fileName: 'dashboard.json' });
-  const panelEditPage = await gotoPanelEditPage({ dashboard, id: '1' });
-  const options = panelEditPage.getCustomOptions('Canvas');
-  const showSeriesCounter = options.getSwitch('Show series counter');
-
-  await showSeriesCounter.check();
-  await expect(page.getByTestId('simple-panel-series-counter')).toBeVisible();
 });

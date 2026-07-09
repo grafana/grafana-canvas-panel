@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
-  "name": "Canvas",
+  "name": "Canvas External",
   "id": "grafana-canvas-panel",
   "info": {
     "keywords": ["canvas", "drawing"],
