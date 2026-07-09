@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "panel",
+  "name": "Canvas External",
+  "id": "grafana-canvas-panel",
+  "info": {
+    "keywords": ["canvas", "drawing"],
+    "description": "Draw pictures with the Canvas visualization panel plugin, then paint by numbers with your Grafana metrics data!",
+    "author": {
+      "name": "Grafana"
+    },
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Repository",
+        "url": "https://github.com/grafana/grafana-canvas-panel"
+      }
+    ],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaDependency": ">=13.2.0",
+    "plugins": []
+  }
+}
