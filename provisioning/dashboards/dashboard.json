@@ -82,7 +82,7 @@
         }
       ],
       "title": "Sample Panel Title",
-      "type": "canvas"
+      "type": "grafana-canvas-panel"
     }
   ],
   "refresh": "",
