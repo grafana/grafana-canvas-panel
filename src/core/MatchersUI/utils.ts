@@ -5,8 +5,7 @@ import { useMemo } from 'react';
 import { type DataFrame, type Field, getFieldDisplayName, FieldNamePickerBaseNameMode, FieldType } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { type MatcherScope } from '@grafana/schema';
-import { getFieldTypeIcon } from '@grafana/ui';
-import { type ComboboxOption } from '@grafana/ui';
+import { getFieldTypeIcon, type ComboboxOption } from '@grafana/ui';
 
 /**
  * @internal

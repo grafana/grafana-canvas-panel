@@ -7,10 +7,8 @@ import { type CSSProperties } from 'react';
 import { BehaviorSubject, ReplaySubject, Subject, type Subscription } from 'rxjs';
 import type Selecto from 'selecto';
 
-import { AppEvents, type PanelData, OneClickMode, ActionType,
-  type LegacyEmitter,
-} from '@grafana/data';
-import { config, locationService } from '@grafana/runtime';
+import { AppEvents, type PanelData, OneClickMode, ActionType, type LegacyEmitter } from '@grafana/data';
+import { config, locationService, getAppEvents } from '@grafana/runtime';
 import {
   type ColorDimensionConfig,
   type ResourceDimensionConfig,
@@ -37,7 +35,6 @@ import { Connections2 } from '../../../components/connections/Connections2';
 import { type Options } from '../../../panelcfg.gen';
 import { type AnchorPoint, type CanvasTooltipPayload } from '../../../types';
 
-import { getAppEvents } from '@grafana/runtime';
 import { type CanvasPanel } from '../../../CanvasPanel';
 import { isInfinityActionWithAuth } from '../../actions/utils';
 

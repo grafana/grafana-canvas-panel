@@ -19,8 +19,7 @@ import {
   type TimeRange,
   type LegacyEmitter,
 } from '@grafana/data';
-import { type BackendSrvRequest, config as grafanaConfig, getBackendSrv } from '@grafana/runtime';
-import { getAppEvents } from '@grafana/runtime';
+import { type BackendSrvRequest, config as grafanaConfig, getBackendSrv, getAppEvents } from '@grafana/runtime';
 
 import { HttpRequestMethod } from '../../panelcfg.gen';
 import { createAbsoluteUrl, type RelativeUrl } from '../../core/url';
@@ -114,7 +113,11 @@ export const getActions = (
           // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
           let request = {} as BackendSrvRequest;
           if (isInfinityActionWithAuth(action)) {
-            request = buildActionProxyRequest(action, genReplaceActionVars(boundReplaceVariables, action, actionVars), timeRange);
+            request = buildActionProxyRequest(
+              action,
+              genReplaceActionVars(boundReplaceVariables, action, actionVars),
+              timeRange
+            );
           } else if (action.type === ActionType.Fetch) {
             request = buildActionRequest(action, genReplaceActionVars(boundReplaceVariables, action, actionVars));
           }
@@ -130,11 +133,15 @@ export const getActions = (
                   console.error(error);
                 },
                 complete: () => {
-                  (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertSuccess, ['API call was successful']);
+                  (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertSuccess, [
+                    'API call was successful',
+                  ]);
                 },
               });
           } catch (error) {
-            (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, ['An error has occurred. Check console output for more details.']);
+            (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, [
+              'An error has occurred. Check console output for more details.',
+            ]);
             console.error(error);
             return;
           }
@@ -302,7 +309,7 @@ class InfinityRequestBuilder {
             url_options: infinityUrlOptions,
           },
         ],
-        from: (timeRange?.from.valueOf() ?? (Date.now() - 6 * 3600000)).toString(),
+        from: (timeRange?.from.valueOf() ?? Date.now() - 6 * 3600000).toString(),
         to: (timeRange?.to.valueOf() ?? Date.now()).toString(),
       },
     };
@@ -310,7 +317,11 @@ class InfinityRequestBuilder {
 }
 
 /** @internal */
-export const buildActionProxyRequest = (action: Action, replaceVariables: InterpolateFunction, timeRange?: TimeRange) => {
+export const buildActionProxyRequest = (
+  action: Action,
+  replaceVariables: InterpolateFunction,
+  timeRange?: TimeRange
+) => {
   const { config, url, data, processedHeaders, processedQueryParams, contentType } = processActionConfig(
     action,
     replaceVariables
@@ -323,5 +334,13 @@ export const buildActionProxyRequest = (action: Action, replaceVariables: Interp
   }
 
   const requestBuilder = new InfinityRequestBuilder();
-  return requestBuilder.buildRequest(infinityConfig, url, data, processedHeaders, processedQueryParams, contentType, timeRange);
+  return requestBuilder.buildRequest(
+    infinityConfig,
+    url,
+    data,
+    processedHeaders,
+    processedQueryParams,
+    contentType,
+    timeRange
+  );
 };

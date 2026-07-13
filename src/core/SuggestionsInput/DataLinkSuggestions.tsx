@@ -8,8 +8,7 @@ import { useClickAway } from 'react-use';
 
 import { type VariableSuggestion, type GrafanaTheme2 } from '@grafana/data';
 
-import { useStyles2 } from '@grafana/ui';
-import { List } from '@grafana/ui';
+import { useStyles2, List } from '@grafana/ui';
 
 interface DataLinkSuggestionsProps {
   activeRef?: React.RefObject<HTMLDivElement>;

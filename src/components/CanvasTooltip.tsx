@@ -16,8 +16,12 @@ import {
   type ValueLinkConfig,
   type ActionModel,
 } from '@grafana/data';
-import { Portal, useStyles2, useTheme2, VizTooltipContainer, usePanelContext } from '@grafana/ui';
 import {
+  Portal,
+  useStyles2,
+  useTheme2,
+  VizTooltipContainer,
+  usePanelContext,
   VizTooltipContent,
   VizTooltipFooter,
   VizTooltipHeader,

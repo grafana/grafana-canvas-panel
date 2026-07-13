@@ -11,9 +11,8 @@ import {
   type SelectableValue,
   type LegacyEmitter,
 } from '@grafana/data';
-import { config } from '@grafana/runtime';
+import { config, getAppEvents } from '@grafana/runtime';
 import { type ConnectionDirection } from '@grafana/schema';
-import { getAppEvents } from '@grafana/runtime';
 
 import { type CanvasConnection, type CanvasElementItem, type CanvasElementOptions } from './features/canvas/element';
 import { notFoundItem } from './features/canvas/elements/notFound';
@@ -45,7 +44,9 @@ export function doSelect(scene: Scene, element: ElementState | FrameState) {
       scene.select(selection);
     }
   } catch (error) {
-    (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, ['Unable to select element, try selecting element in panel instead']);
+    (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, [
+      'Unable to select element, try selecting element in panel instead',
+    ]);
   }
 }
 

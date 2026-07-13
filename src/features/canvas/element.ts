@@ -1,16 +1,10 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/canvas/element.ts
 import { type ComponentType } from 'react';
 
-import { type DataLink, type RegistryItem, type Action } from '@grafana/data';
-import { type PanelOptionsSupplier } from '@grafana/data';
+import { type DataLink, type RegistryItem, type Action, type PanelOptionsSupplier } from '@grafana/data';
 import { config } from '@grafana/runtime';
 import { type ColorDimensionConfig, type ScaleDimensionConfig, type DirectionDimensionConfig } from '@grafana/schema';
-import {
-  type BackgroundConfig,
-  type Constraint,
-  type LineConfig,
-  type Placement,
-} from '../../panelcfg.gen';
+import { type BackgroundConfig, type Constraint, type LineConfig, type Placement } from '../../panelcfg.gen';
 
 import { type LineStyleConfig } from '../../editor/LineStyleEditor';
 import { type DimensionContext } from '../dimensions/context';

@@ -1,9 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/utils.ts
-import { AppEvents, textUtil,
-  type LegacyEmitter,
-} from '@grafana/data';
-import { type BackendSrvRequest, getBackendSrv, getTemplateSrv } from '@grafana/runtime';
-import { getAppEvents } from '@grafana/runtime';
+import { AppEvents, textUtil, type LegacyEmitter } from '@grafana/data';
+import { type BackendSrvRequest, getBackendSrv, getTemplateSrv, getAppEvents } from '@grafana/runtime';
 import { createAbsoluteUrl, type RelativeUrl } from '../../core/url';
 
 import { HttpRequestMethod } from '../../panelcfg.gen';
@@ -24,7 +21,9 @@ export const callApi = (api: APIEditorConfig, updateLoadingStateCallback?: IsLoa
     .fetch(request)
     .subscribe({
       error: (error) => {
-        (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, ['An error has occurred. Check console output for more details.']);
+        (getAppEvents() as unknown as LegacyEmitter).emit(AppEvents.alertError, [
+          'An error has occurred. Check console output for more details.',
+        ]);
         console.error('API call error: ', error);
         updateLoadingStateCallback && updateLoadingStateCallback(false);
       },
