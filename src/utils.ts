@@ -430,7 +430,7 @@ export function applyStyles(styles: React.CSSProperties, target: HTMLDivElement)
 export function removeStyles(styles: React.CSSProperties, target: HTMLDivElement) {
   for (const key in styles) {
     // TypeScript can't verify key is valid CSSStyleDeclaration property at compile time
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/consistent-type-assertions
+     
     target.style[key as any] = '';
   }
 }

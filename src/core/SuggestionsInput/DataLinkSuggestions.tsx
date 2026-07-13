@@ -128,7 +128,7 @@ const DataLinkSuggestionsList = React.memo(
             const isActive = index + activeIndexOffset === activeIndex;
             return (
               // key events are handled by DataLinkInput
-              // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+               
               <div
                 role="menuitem"
                 tabIndex={0}

@@ -86,7 +86,7 @@ export const ActionEditor = memo(({ index, value, onChange, suggestions, showOne
       ...baseConfig,
       ...updates,
       ...(value.type === ActionType.Infinity && {
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+         
         datasourceUid: (baseConfig as InfinityOptions).datasourceUid || '',
       }),
     };

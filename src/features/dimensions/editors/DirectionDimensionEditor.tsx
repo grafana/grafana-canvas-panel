@@ -15,7 +15,7 @@ import { FieldNamePicker } from '../../../core/MatchersUI/FieldNamePicker';
 
 import { type DirectionDimensionOptions } from '../types';
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+ 
 const dummyFieldSettings = {
   settings: {},
 } as StandardEditorsRegistryItem<string, FieldNamePickerConfigSettings>;

@@ -179,7 +179,7 @@ export function APIEditor({ value: valueProp, context, onChange }: Props) {
       {value?.method !== HttpRequestMethod.GET && (
         <InlineFieldRow>
           <InlineField
-            // eslint-disable-next-line @grafana/i18n/no-untranslated-strings
+             
             label="Content-Type"
             labelWidth={LABEL_WIDTH}
             grow={true}

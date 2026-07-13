@@ -55,7 +55,7 @@ export const TreeNavigationEditor = ({ item }: StandardEditorProps<unknown, Tree
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setTreeData(getTreeData(item?.settings?.scene.root, selection, selectedBgColor));
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+     
     setSelectedKeys(selectionByUID);
     setAllowSelection();
   }, [item?.settings?.scene.root, selectedBgColor, selection, selectionByUID]);

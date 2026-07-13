@@ -30,7 +30,7 @@ import {
 import { type ElementState } from '../runtime/element';
 import { Align, type TextConfig, type TextData, VAlign } from '../types';
 
-// eslint-disable-next-line
+ 
 const dummyFieldSettings: StandardEditorsRegistryItem<string, FieldNamePickerConfigSettings> = {
   settings: {},
 } as StandardEditorsRegistryItem<string, FieldNamePickerConfigSettings>;

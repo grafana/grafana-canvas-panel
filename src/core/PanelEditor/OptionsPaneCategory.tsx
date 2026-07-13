@@ -136,7 +136,7 @@ export const OptionsPaneCategory = React.memo(
       >
         {/* disabling a11y rules here because there's a Button that handles keyboard interaction */}
         {/* this just provides a better experience for mouse users */}
-        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
+        { }
         <div className={headerStyles} onClick={onToggle}>
           <h3 id={`button-${id}`} className={cx(styles.title, isExpanded && styles.titleExpanded)}>
             {renderTitle(isExpanded)}

@@ -152,7 +152,7 @@ export class Connections {
 
     const customElementAnchors = element?.item.customConnectionAnchors || ANCHORS;
     // This type cast is necessary as TS doesn't understand that `Element` is an `HTMLElement`
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+     
     const anchors = Array.from(this.anchorsDiv?.children as HTMLCollectionOf<HTMLElement>);
     const anchorsAmount = customElementAnchors.length;
 

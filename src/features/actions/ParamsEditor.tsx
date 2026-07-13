@@ -30,7 +30,7 @@ export const ParamsEditor = ({ value, onChange, suggestions, contentTypeHeader =
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setContentTypeParamValue(contentTypeParamValue);
     } else if (headersContentType) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+       
       setContentTypeParamValue(headersContentType[1]);
     }
   }, [contentTypeParamValue, headersContentType]);

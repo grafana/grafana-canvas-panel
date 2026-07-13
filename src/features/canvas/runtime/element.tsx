@@ -63,7 +63,7 @@ export class ElementState implements LayerElement {
   div?: HTMLDivElement;
 
   // Calculated
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   
   data?: any; // depends on the type
 
   getLinks?: (config: ValueLinkConfig) => LinkModel[];

@@ -139,7 +139,7 @@ export const CanvasTooltip = ({ scene }: Props) => {
     );
 
     actionsModel.forEach((action, i) => {
-      // eslint-disable-next-line react-hooks/purity
+       
       const key = `${action.title}/${i}`;
       if (!actionLookup.has(key)) {
         actions.push(action);

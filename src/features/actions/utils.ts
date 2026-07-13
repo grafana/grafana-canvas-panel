@@ -110,7 +110,7 @@ export const getActions = (
             reportActionTrigger(action.type, action.oneClick ?? false, visualizationType);
           }
 
-          // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+           
           let request = {} as BackendSrvRequest;
           if (isInfinityActionWithAuth(action)) {
             request = buildActionProxyRequest(
@@ -241,7 +241,7 @@ export const getActionsDefaultField = (dataLinks: DataLink[] = [], actions: Acti
 const getUrl = (endpoint: string) => {
   const isRelativeUrl = endpoint.startsWith('/');
   if (isRelativeUrl) {
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+     
     const sanitizedRelativeURL = textUtil.sanitizeUrl(endpoint) as RelativeUrl;
     endpoint = createAbsoluteUrl(sanitizedRelativeURL, []);
   }
@@ -327,7 +327,7 @@ export const buildActionProxyRequest = (
     replaceVariables
   );
 
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+   
   const infinityConfig = config as InfinityOptions;
   if (!infinityConfig.datasourceUid) {
     throw new Error('Datasource not configured for Infinity action');

@@ -124,7 +124,7 @@ export const SuggestionsInput = ({
         // eslint-disable-next-line react-hooks/immutability
         inputEl.value = x.slice(0, startPos) + item.value + x.slice(curPos);
       } else {
-        // eslint-disable-next-line react-hooks/immutability
+         
         inputEl.value = x.slice(0, startPos) + '$' + `{${item.value}}` + x.slice(curPos);
       }
 

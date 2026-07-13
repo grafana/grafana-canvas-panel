@@ -31,7 +31,7 @@ const frameItemDummy: CanvasElementItem = {
 
   display: () => {
     // never shown to end user
-    // eslint-disable-next-line @grafana/i18n/no-untranslated-strings
+     
     return <div>FRAME!</div>;
   },
 };
@@ -57,7 +57,7 @@ export class FrameState extends ElementState {
 
     for (const element of elements) {
       if (element.type === 'frame') {
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+         
         this.elements.push(new FrameState(element as CanvasFrameOptions, scene, this));
       } else {
         const item = canvasElementRegistry.getIfExists(element.type) ?? notFoundItem;

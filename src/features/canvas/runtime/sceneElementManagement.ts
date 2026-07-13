@@ -114,13 +114,13 @@ export const frameSelection = (scene: Scene) => {
     currentSelectedElements.forEach((element: ElementState) => {
       const elementContainer = element.div?.getBoundingClientRect();
 
-      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+       
       element.setPlacementFromConstraint(elementContainer, framePlacement as DOMRect);
       currentLayer.doAction(LayerActionID.Delete, element);
       newLayer.doAction(LayerActionID.Duplicate, element, false, false);
     });
 
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+     
     newLayer.setPlacementFromConstraint(framePlacement as DOMRect, currentLayer.div?.getBoundingClientRect());
 
     currentLayer.elements.push(newLayer);

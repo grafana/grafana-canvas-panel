@@ -18,7 +18,7 @@ import { type StandardEditorConfig } from './types';
  *
  * @alpha
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export interface CanvasElementOptions<TConfig = any> {
   name: string; // configured unique display name
   type: string;
@@ -79,7 +79,7 @@ export interface CanvasElementProps<TConfig = unknown, TData = unknown> {
  *
  * @alpha
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export interface CanvasElementItem<TConfig = any, TData = any> extends RegistryItem {
   /** The default width/height to use when adding  */
   defaultSize?: Placement;
