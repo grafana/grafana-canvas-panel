@@ -35,14 +35,16 @@ export const CanvasContextMenu = ({ scene, panel, onVisibilityChange }: Props) =
 
   useEffect(() => {
     if (config.featureToggles.canvasPanelPanZoom) {
-      scene.openContextMenu = (position: AnchorPoint) => {
+      const sceneRef = scene;
+      // eslint-disable-next-line react-hooks/immutability
+      sceneRef.openContextMenu = (position: AnchorPoint) => {
         setAnchorPoint(position);
         setIsMenuVisible(true);
         onVisibilityChange(true);
       };
 
       // Clean up the openContextMenu on unmount
-      return () => (scene.openContextMenu = undefined);
+      return () => (sceneRef.openContextMenu = undefined);
     }
     return undefined;
   }, [scene, onVisibilityChange]);

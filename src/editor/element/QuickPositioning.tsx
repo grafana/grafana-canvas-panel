@@ -20,37 +20,39 @@ type Props = {
 
 export const QuickPositioning = ({ onPositionChange, element, settings }: Props) => {
   const styles = useStyles2(getStyles);
+  const elementRef = element;
 
   const onQuickPositioningChange = (position: QuickPlacement) => {
     const defaultConstraint = { vertical: VerticalConstraint.Top, horizontal: HorizontalConstraint.Left };
-    const originalConstraint = { ...element.options.constraint };
+    const originalConstraint = { ...elementRef.options.constraint };
 
-    element.options.constraint = defaultConstraint;
-    element.setPlacementFromConstraint();
+    // eslint-disable-next-line react-hooks/immutability
+    elementRef.options.constraint = defaultConstraint;
+    elementRef.setPlacementFromConstraint();
 
     switch (position) {
       case QuickPlacement.Top:
         onPositionChange(0, 'top');
         break;
       case QuickPlacement.Bottom:
-        onPositionChange(getRightBottomPosition(element.options.placement?.height ?? 0, 'bottom'), 'top');
+        onPositionChange(getRightBottomPosition(elementRef.options.placement?.height ?? 0, 'bottom'), 'top');
         break;
       case QuickPlacement.VerticalCenter:
-        onPositionChange(getCenterPosition(element.options.placement?.height ?? 0, 'v'), 'top');
+        onPositionChange(getCenterPosition(elementRef.options.placement?.height ?? 0, 'v'), 'top');
         break;
       case QuickPlacement.Left:
         onPositionChange(0, 'left');
         break;
       case QuickPlacement.Right:
-        onPositionChange(getRightBottomPosition(element.options.placement?.width ?? 0, 'right'), 'left');
+        onPositionChange(getRightBottomPosition(elementRef.options.placement?.width ?? 0, 'right'), 'left');
         break;
       case QuickPlacement.HorizontalCenter:
-        onPositionChange(getCenterPosition(element.options.placement?.width ?? 0, 'h'), 'left');
+        onPositionChange(getCenterPosition(elementRef.options.placement?.width ?? 0, 'h'), 'left');
         break;
     }
 
-    element.options.constraint = originalConstraint;
-    element.setPlacementFromConstraint();
+    elementRef.options.constraint = originalConstraint;
+    elementRef.setPlacementFromConstraint();
   };
 
   // Basing this on scene will mean that center is based on root for the time being
@@ -70,6 +72,7 @@ export const QuickPositioning = ({ onPositionChange, element, settings }: Props)
     <div className={styles.buttonGroup}>
       <IconButton
         name="horizontal-align-left"
+        // eslint-disable-next-line react-hooks/immutability
         onClick={() => onQuickPositioningChange(QuickPlacement.Left)}
         className={styles.button}
         size="lg"

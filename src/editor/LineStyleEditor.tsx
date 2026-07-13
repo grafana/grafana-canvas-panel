@@ -26,14 +26,17 @@ const defaultLineStyleConfig: LineStyleConfig = {
   animate: false,
 };
 
-export const LineStyleEditor = ({ value, onChange }: Props) => {
-  if (!value) {
+export const LineStyleEditor = ({ value: valueProp, onChange }: Props) => {
+  let value: LineStyleConfig;
+  if (!valueProp) {
     value = defaultLineStyleConfig;
-  } else if (typeof value !== 'object') {
+  } else if (typeof valueProp !== 'object') {
     value = {
-      style: value,
+      style: valueProp,
       animate: false,
     };
+  } else {
+    value = valueProp;
   }
 
   const onLineStyleChange = useCallback(

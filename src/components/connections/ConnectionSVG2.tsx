@@ -35,7 +35,7 @@ const htmlElementTypes = ['input', 'textarea'];
 export const ConnectionSVG = ({ setLineRef, setVertexPathRef, setVertexRef, setConnectionsSVGRef, scene }: Props) => {
   const styles = useStyles2(getStyles);
 
-  const headId = Date.now() + '_' + idCounter++;
+  const [headId] = useState<string>(() => `${Date.now()}_${idCounter++}`);
   const CONNECTION_LINE_ID = useMemo(() => `connectionLineId-${headId}`, [headId]);
   const EDITOR_HEAD_ID = useMemo(() => `editorHead-${headId}`, [headId]);
   const defaultArrowColor = config.theme2.colors.text.primary;
@@ -56,6 +56,7 @@ export const ConnectionSVG = ({ setLineRef, setVertexPathRef, setVertexRef, setC
 
   useEffect(() => {
     if (scene.panel.context.instanceState?.selectedConnection) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedConnection(scene.panel.context.instanceState?.selectedConnection);
     }
   }, [scene.panel.context.instanceState?.selectedConnection]);

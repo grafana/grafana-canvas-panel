@@ -36,6 +36,7 @@ export const TreeNavigationEditor = ({ item }: StandardEditorProps<unknown, Tree
 
   const selectedBgColor = theme.colors.primary.border;
   const { settings } = item;
+  /* eslint-disable react-hooks/preserve-manual-memoization */
   const selection = useMemo(
     () => (settings?.selected ? settings.selected.map((v) => v?.getName()) : []),
     [settings?.selected]
@@ -45,9 +46,16 @@ export const TreeNavigationEditor = ({ item }: StandardEditorProps<unknown, Tree
     () => (settings?.selected ? settings.selected.map((v) => v?.UID) : []),
     [settings?.selected]
   );
+  /* eslint-enable react-hooks/preserve-manual-memoization */
+
+  const setAllowSelection = (allow = true) => {
+    allowSelection = allow;
+  };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTreeData(getTreeData(item?.settings?.scene.root, selection, selectedBgColor));
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedKeys(selectionByUID);
     setAllowSelection();
   }, [item?.settings?.scene.root, selectedBgColor, selection, selectionByUID]);
@@ -113,10 +121,6 @@ export const TreeNavigationEditor = ({ item }: StandardEditorProps<unknown, Tree
         }}
       />
     );
-  };
-
-  const setAllowSelection = (allow = true) => {
-    allowSelection = allow;
   };
 
   const onClearSelection = () => {

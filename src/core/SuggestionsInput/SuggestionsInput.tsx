@@ -118,18 +118,21 @@ export const SuggestionsInput = ({
     (item: VariableSuggestion, input = inputRef.current!) => {
       const curPos = input.selectionStart!;
       const x = input.value;
+      const inputEl = input;
 
       if (x[startPos - 1] === '$') {
-        input.value = x.slice(0, startPos) + item.value + x.slice(curPos);
+        // eslint-disable-next-line react-hooks/immutability
+        inputEl.value = x.slice(0, startPos) + item.value + x.slice(curPos);
       } else {
-        input.value = x.slice(0, startPos) + '$' + `{${item.value}}` + x.slice(curPos);
+        // eslint-disable-next-line react-hooks/immutability
+        inputEl.value = x.slice(0, startPos) + '$' + `{${item.value}}` + x.slice(curPos);
       }
 
-      setVariableValue(input.value);
+      setVariableValue(inputEl.value);
       setShowingSuggestions(false);
 
       setSuggestionsIndex(0);
-      onChange(input.value);
+      onChange(inputEl.value);
     },
     [onChange, startPos]
   );
@@ -198,6 +201,7 @@ export const SuggestionsInput = ({
     <div className={styles.inputWrapper} style={style ?? {}}>
       {showingSuggestions && (
         <Portal>
+          {/* eslint-disable-next-line react-hooks/refs */}
           <div ref={refs.setFloating} style={floatingStyles} className={styles.suggestionsWrapper}>
             <ScrollContainer
               maxHeight="300px"

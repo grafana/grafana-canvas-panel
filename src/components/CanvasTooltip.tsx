@@ -138,8 +138,9 @@ export const CanvasTooltip = ({ scene }: Props) => {
       scene.data?.timeRange
     );
 
-    actionsModel.forEach((action) => {
-      const key = `${action.title}/${Math.random()}`;
+    actionsModel.forEach((action, i) => {
+      // eslint-disable-next-line react-hooks/purity
+      const key = `${action.title}/${i}`;
       if (!actionLookup.has(key)) {
         actions.push(action);
         actionLookup.add(key);

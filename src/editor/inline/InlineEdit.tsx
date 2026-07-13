@@ -48,6 +48,7 @@ export function InlineEdit({ onClose, id, scene }: Props) {
     const minX = windowWidth - measurements.width - OFFSET_X;
     const minY = windowHeight - measurements.height - OFFSET_Y;
     if (minX < placement.x && minX > 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPlacement({ ...placement, x: minX });
     }
     if (minY < placement.y && minY > 0) {

@@ -63,13 +63,17 @@ export function PlacementEditor({ item }: Props) {
   const { options } = element;
   const { placement, constraint: layout } = options;
 
+  const elementRef = element;
+  const settingsRef = settings;
+
   if (placement) {
+    // eslint-disable-next-line react-hooks/immutability
     placement.rotation = placement?.rotation ?? 0;
   }
 
   const reselectElementAfterChange = () => {
     setTimeout(() => {
-      settings.scene.select({ targets: [element.div!] });
+      settingsRef.scene.select({ targets: [elementRef.div!] });
     });
   };
 
@@ -78,10 +82,12 @@ export function PlacementEditor({ item }: Props) {
   };
 
   const onHorizontalConstraintChange = (h: HorizontalConstraint) => {
-    element.options.constraint!.horizontal = h;
-    element.setPlacementFromConstraint(undefined, undefined, settings.scene.scale);
-    settings.scene.revId++;
-    settings.scene.save(true);
+    // eslint-disable-next-line react-hooks/immutability
+    elementRef.options.constraint!.horizontal = h;
+    elementRef.setPlacementFromConstraint(undefined, undefined, settingsRef.scene.scale);
+    // eslint-disable-next-line react-hooks/immutability
+    settingsRef.scene.revId++;
+    settingsRef.scene.save(true);
     reselectElementAfterChange();
   };
 
@@ -90,17 +96,20 @@ export function PlacementEditor({ item }: Props) {
   };
 
   const onVerticalConstraintChange = (v: VerticalConstraint) => {
-    element.options.constraint!.vertical = v;
-    element.setPlacementFromConstraint(undefined, undefined, settings.scene.scale);
-    settings.scene.revId++;
-    settings.scene.save(true);
+    // eslint-disable-next-line react-hooks/immutability
+    elementRef.options.constraint!.vertical = v;
+    elementRef.setPlacementFromConstraint(undefined, undefined, settingsRef.scene.scale);
+    // eslint-disable-next-line react-hooks/immutability
+    settingsRef.scene.revId++;
+    settingsRef.scene.save(true);
     reselectElementAfterChange();
   };
 
   const onPositionChange = (value: number | undefined, placement: keyof Placement) => {
-    element.options.placement![placement] = value ?? element.options.placement![placement];
-    element.applyLayoutStylesToDiv();
-    settings.scene.clearCurrentSelection(true);
+    // eslint-disable-next-line react-hooks/immutability
+    elementRef.options.placement![placement] = value ?? elementRef.options.placement![placement];
+    elementRef.applyLayoutStylesToDiv();
+    settingsRef.scene.clearCurrentSelection(true);
     reselectElementAfterChange();
   };
 

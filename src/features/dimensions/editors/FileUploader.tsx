@@ -32,19 +32,25 @@ function FileDropzoneCustomChildren({ secondaryText = 'Drag and drop here or bro
     </div>
   );
 }
+interface PreviewProps {
+  mediaType: MediaType;
+  file: string;
+  styles: ReturnType<typeof getStyles>;
+}
+
+const Preview = ({ mediaType, file, styles }: PreviewProps) => (
+  <Field label={t('dimensions.file-uploader.preview.label-preview', 'Preview')}>
+    <div className={styles.iconPreview}>
+      {mediaType === MediaType.Icon && <SanitizedSVG src={file} className={styles.img} />}
+      {mediaType === MediaType.Image && <img src={file} alt="Preview of the uploaded file" className={styles.img} />}
+    </div>
+  </Field>
+);
+
 export const FileUploader = ({ mediaType, setFormData, setUpload, error }: Props) => {
   const styles = useStyles2(getStyles);
   const [dropped, setDropped] = useState<boolean>(false);
   const [file, setFile] = useState<string>('');
-
-  const Preview = () => (
-    <Field label={t('dimensions.file-uploader.preview.label-preview', 'Preview')}>
-      <div className={styles.iconPreview}>
-        {mediaType === MediaType.Icon && <SanitizedSVG src={file} className={styles.img} />}
-        {mediaType === MediaType.Image && <img src={file} alt="Preview of the uploaded file" className={styles.img} />}
-      </div>
-    </Field>
-  );
 
   const onFileRemove = (file: DropzoneFile) => {
     fetch(`/api/storage/delete/upload/${file.file.name}`, {
@@ -74,7 +80,7 @@ export const FileUploader = ({ mediaType, setFormData, setUpload, error }: Props
       {error.message !== '' && dropped ? (
         <p>{error.message}</p>
       ) : dropped ? (
-        <Preview />
+        <Preview mediaType={mediaType} file={file} styles={styles} />
       ) : (
         <FileDropzoneCustomChildren />
       )}

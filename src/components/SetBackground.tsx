@@ -26,22 +26,25 @@ export function SetBackground({ onClose, scene, anchorPoint }: Props) {
   const styles = getStyles(theme, anchorPoint);
 
   const onChange = (value: string | undefined) => {
+    const sceneRef = scene;
     if (value) {
       setBgImage(value);
-      if (scene.root) {
-        scene.root.options.background = {
-          ...scene.root.options.background,
+      if (sceneRef.root) {
+        // eslint-disable-next-line react-hooks/immutability
+        sceneRef.root.options.background = {
+          ...sceneRef.root.options.background,
           image: { mode: ResourceDimensionMode.Fixed, fixed: value },
         };
-        scene.revId++;
-        scene.save();
+        // eslint-disable-next-line react-hooks/immutability
+        sceneRef.revId++;
+        sceneRef.save();
 
-        scene.root.reinitializeMoveable();
+        sceneRef.root.reinitializeMoveable();
       }
 
       // Force a re-render (update scene data after config update)
-      if (scene) {
-        scene.updateData(scene.data!);
+      if (sceneRef) {
+        sceneRef.updateData(sceneRef.data!);
       }
     }
 

@@ -27,13 +27,16 @@ export const ParamsEditor = ({ value, onChange, suggestions, contentTypeHeader =
 
   useEffect(() => {
     if (contentTypeParamValue !== '') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setContentTypeParamValue(contentTypeParamValue);
     } else if (headersContentType) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setContentTypeParamValue(headersContentType[1]);
     }
   }, [contentTypeParamValue, headersContentType]);
 
   // forces re-init of first SuggestionsInput(s), since they are stateful and don't respond to 'value' prop changes to be able to clear them :(
+  // eslint-disable-next-line react-hooks/purity
   const [entryKey, setEntryKey] = useState(Math.random().toString());
 
   const changeParamValue = (paramValue: string) => {
