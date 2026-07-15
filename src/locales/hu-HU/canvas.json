@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "Végpont",
+      "label-header-parameters": "Fejléc paraméterei",
+      "label-method": "Metódus",
+      "label-payload": "Hasznos tartalom",
+      "label-query-parameters": "Lekérdezési paraméterek",
+      "label-successmessage": "Sikerességet jelző üzenet",
+      "render-test-apibutton": {
+        "test-api": "API tesztelése",
+        "title-test-api": "API tesztelése"
+      }
+    },
+    "button-item": {
+      "category-button": "Gomb",
+      "label": {
+        "center": "Középre",
+        "left": "Balra",
+        "right": "Jobbra"
+      },
+      "name-align-text": "Szöveg igazítása",
+      "name-api": "API",
+      "name-style": "Stílus",
+      "name-text": "Szöveg",
+      "name-text-color": "Szöveg színe",
+      "name-text-size": "Szöveg mérete",
+      "placeholder": {
+        "auto": "Automatikus"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "Változat"
+    },
+    "canvas-context-menu": {
+      "close-editor": "Szerkesztő bezárása",
+      "open-editor": "Szerkesztő megnyitása",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "Elem hozzáadása"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "Szerkesztés"
+        },
+        "label-bring-to-front": "Előrehozás",
+        "label-delete": "Törlés",
+        "label-duplicate": "Duplikálás",
+        "label-send-to-back": "Hátraküldés",
+        "set-background-menu-item": {
+          "label-set-background": "Háttér beállítása"
+        }
+      }
+    },
+    "category-arrow-direction": "Irány",
+    "category-background": "Háttér",
+    "category-border": "Szegély",
+    "category-canvas": "Vászon",
+    "category-color": "Szín",
+    "category-data-links": "Adathivatkozások és műveletek",
+    "category-line-style": "Vonal stílusa",
+    "category-metric-value": "Metrikaérték",
+    "category-radius": "Sugár",
+    "category-selected-connection": "Kiválasztott kapcsolat",
+    "category-selected-element": "Kiválasztott elem ({{element}})",
+    "category-size": "Méret",
+    "category-tooltip": "Elemleírás",
+    "cloud-item": {
+      "category-cloud": "Felhő",
+      "label": {
+        "bottom": "Lent",
+        "center": "Középre",
+        "left": "Balra",
+        "middle": "Középső",
+        "right": "Jobbra",
+        "top": "Felül"
+      },
+      "name-align-text": "Szöveg igazítása",
+      "name-text": "Szöveg",
+      "name-text-color": "Szöveg színe",
+      "name-text-size": "Szöveg mérete",
+      "name-vertical-align": "Függőleges igazítás",
+      "placeholder": {
+        "auto": "Automatikus"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "Mindkettő",
+        "label-forward": "Előre",
+        "label-none": "Nincs",
+        "label-reverse": "Fordított"
+      }
+    },
+    "description-experimental-types": "Kísérleti elemtípusok kiválasztásának engedélyezése",
+    "description-inline-editing": "A panel közvetlen szerkesztésének engedélyezése",
+    "description-pan-zoom": "Pásztázás és nagyítás engedélyezése",
+    "drone-front-item": {
+      "category-drone-front": "Drón eleje",
+      "name-roll-angle": "Billentési szög"
+    },
+    "drone-side-item": {
+      "category-drone-side": "Drón oldala",
+      "name-pitch-angle": "Bólintási szög"
+    },
+    "drone-top-item": {
+      "category-drone-top": "Drón teteje",
+      "name-back-left-rotor-rpm": "Bal hátsó rotor fordulatszáma",
+      "name-back-right-rotor-rpm": "Jobb hátsó rotor fordulatszáma",
+      "name-front-left-rotor-rpm": "Bal elülső rotor fordulatszáma",
+      "name-front-right-rotor-rpm": "Jobb elülső rotor fordulatszáma",
+      "name-yaw-angle": "Elfordulási szög"
+    },
+    "element-editor": {
+      "category-layout": "Elrendezés",
+      "description-unsupported": "A kiválasztott elemtípust a jelenlegi beállítások nem támogatják. Engedélyezze a speciális elemtípusokat.",
+      "name-quick-placement": "Gyors elhelyezés"
+    },
+    "ellipse-item": {
+      "category-ellipse": "Ellipszis",
+      "label": {
+        "bottom": "Lent",
+        "center": "Középre",
+        "left": "Balra",
+        "middle": "Középső",
+        "right": "Jobbra",
+        "top": "Felül"
+      },
+      "name-align-text": "Szöveg igazítása",
+      "name-text": "Szöveg",
+      "name-text-color": "Szöveg színe",
+      "name-text-size": "Szöveg mérete",
+      "name-vertical-align": "Függőleges igazítás",
+      "placeholder": {
+        "auto": "Automatikus"
+      }
+    },
+    "icon-item": {
+      "category-icon": "Ikon",
+      "name-fill-color": "Kitöltőszín",
+      "name-svg-path": "SVG-útvonal"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Beágyazott vászonszerkesztő",
+      "tooltip-close-inline-editor": "Beágyazott szerkesztő bezárása"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "Kiválasztott elem ({{element}})",
+      "label-add-item": "Elem hozzáadása",
+      "please-select-an-element": "Válasszon egy elemet"
+    },
+    "label-actions": "Műveletek",
+    "label-color": "Szín",
+    "label-direction": "Irány",
+    "label-image": "Kép",
+    "label-image-size": "Kép mérete",
+    "label-line-style": "Vonal stílusa",
+    "label-links": "Hivatkozások",
+    "label-radius": "Sugár",
+    "label-size": "Méret",
+    "label-width": "Szélesség",
+    "layer-editor": {
+      "category-layer": "Réteg",
+      "category-layout": "Elrendezés",
+      "name-constraints": "Korlátozások",
+      "name-elements": "Elemek"
+    },
+    "line-style-editor": {
+      "label-animate": "Animálás"
+    },
+    "line-style-options": {
+      "label-solid": "Folytonos"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "Lent",
+        "center": "Középre",
+        "left": "Balra",
+        "middle": "Középső",
+        "right": "Jobbra",
+        "top": "Felül"
+      },
+      "placeholder": {
+        "auto": "Automatikus"
+      }
+    },
+    "name-align-text": "Szöveg igazítása",
+    "name-color": "Szöveg színe",
+    "name-experimental-types": "Kísérleti elemtípusok",
+    "name-inline-editing": "Beágyazott szerkesztés",
+    "name-pan-zoom": "Pásztázás és nagyítás",
+    "name-text": "Szöveg",
+    "name-text-size": "Szöveg mérete",
+    "name-vertical-align": "Függőleges igazítás",
+    "not-found-display": {
+      "not-found": "<0>Nem található: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + jobb egérgomb",
+      "middle-mouse": "Középső egérgomb",
+      "pan-title": "Pásztázás:",
+      "reset-double-click": "Visszaállítás: dupla kattintás",
+      "title-pan-and-zoom-controls": "Pásztázás és nagyítás vezérlése",
+      "zoom-scroll-wheel": "Nagyítás: egérgörgő"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "Paralelogramma",
+      "label": {
+        "bottom": "Lent",
+        "center": "Középre",
+        "left": "Balra",
+        "middle": "Középső",
+        "right": "Jobbra",
+        "top": "Felül"
+      },
+      "name-align-text": "Szöveg igazítása",
+      "name-text": "Szöveg",
+      "name-text-color": "Szöveg színe",
+      "name-text-size": "Szöveg mérete",
+      "name-vertical-align": "Függőleges igazítás",
+      "placeholder": {
+        "auto": "Automatikus"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "Hozzáadás",
+      "aria-label-delete": "Törlés",
+      "placeholder-key": "Kulcs",
+      "placeholder-value": "Érték"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "Középre",
+        "label-left": "Balra",
+        "label-left-and-right": "Bal és jobb",
+        "label-right": "Jobbra",
+        "label-scale": "Skála"
+      },
+      "label-constraints": "Korlátozások",
+      "label-position": "Helyzet",
+      "loading": "Betöltés…",
+      "vertical-options": {
+        "label-bottom": "Lent",
+        "label-center": "Középre",
+        "label-scale": "Skála",
+        "label-top": "Felül",
+        "label-top-and-bottom": "Felül és alul"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "Alulra igazítás",
+      "tooltip-align-horizontal-centers": "Igazítás vízszintes középre",
+      "tooltip-align-left": "Balra igazítás",
+      "tooltip-align-right": "Jobbra igazítás",
+      "tooltip-align-top": "Felülre igazítás",
+      "tooltip-align-vertical-centers": "Igazítás függőleges középre"
+    },
+    "rectangle-item": {
+      "category-rectangle": "Téglalap",
+      "label": {
+        "bottom": "Lent",
+        "center": "Középre",
+        "left": "Balra",
+        "middle": "Középső",
+        "right": "Jobbra",
+        "top": "Felül"
+      },
+      "name-align-text": "Szöveg igazítása",
+      "name-text": "Szöveg",
+      "name-text-color": "Szöveg színe",
+      "name-text-size": "Szöveg mérete",
+      "name-vertical-align": "Függőleges igazítás",
+      "placeholder": {
+        "auto": "Automatikus"
+      }
+    },
+    "server-item": {
+      "category-server": "Kiszolgáló",
+      "name-blink-rate": "Villogási sebesség [hz] (0 = ki)",
+      "name-bulb-color": "Lámpa színe",
+      "name-status-color": "Állapot színe",
+      "name-type": "Típus",
+      "type-options": {
+        "label-database": "Adatbázis",
+        "label-single": "Különálló",
+        "label-stack": "Stack",
+        "label-terminal": "Terminál"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "Kattintson duplán a szöveg beállításához"
+    },
+    "text-item": {
+      "category-text": "Szöveg",
+      "label": {
+        "bottom": "Lent",
+        "center": "Középre",
+        "left": "Balra",
+        "middle": "Középső",
+        "right": "Jobbra",
+        "top": "Felül"
+      },
+      "name-align-text": "Szöveg igazítása",
+      "name-text": "Szöveg",
+      "name-text-color": "Szöveg színe",
+      "name-text-size": "Szöveg mérete",
+      "name-vertical-align": "Függőleges igazítás",
+      "placeholder": {
+        "auto": "Automatikus"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "",
+      "name-tooltip-mode": "Elemleírási mód",
+      "tooltip-mode-options": {
+        "label-disabled": "Letiltva",
+        "label-enabled": "Engedélyezve"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "Kijelölés törlése",
+      "frame-selection": "Keret kiválasztása",
+      "label-add-item": "Elem hozzáadása",
+      "missing-layer": "Hiányzó réteg?",
+      "no-settings": "Nincs beállítás",
+      "switcher-icon": {
+        "title-node-icon": "Csomópont ikonja"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "Duplikálás",
+      "title-remove": "Eltávolítás",
+      "tooltip-duplicate": "Duplikálás",
+      "tooltip-remove": "Eltávolítás"
+    },
+    "triangle-item": {
+      "category-triangle": "Háromszög",
+      "label": {
+        "bottom": "Lent",
+        "center": "Középre",
+        "left": "Balra",
+        "middle": "Középső",
+        "right": "Jobbra",
+        "top": "Felül"
+      },
+      "name-align-text": "Szöveg igazítása",
+      "name-text": "Szöveg",
+      "name-text-color": "Szöveg színe",
+      "name-text-size": "Szöveg mérete",
+      "name-vertical-align": "Függőleges igazítás",
+      "placeholder": {
+        "auto": "Automatikus"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "Szélturbina",
+      "name-rpm": "Fordulatszám"
+    }
+  }
+}

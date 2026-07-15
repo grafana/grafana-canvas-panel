@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "端點",
+      "label-header-parameters": "標頭參數",
+      "label-method": "方法",
+      "label-payload": "裝載",
+      "label-query-parameters": "查詢參數",
+      "label-successmessage": "成功訊息",
+      "render-test-apibutton": {
+        "test-api": "測試 API",
+        "title-test-api": "測試 API"
+      }
+    },
+    "button-item": {
+      "category-button": "按鈕",
+      "label": {
+        "center": "置中",
+        "left": "靠左",
+        "right": "靠右"
+      },
+      "name-align-text": "對齊文字",
+      "name-api": "API",
+      "name-style": "樣式",
+      "name-text": "文字",
+      "name-text-color": "文字色彩",
+      "name-text-size": "文字大小",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "變數"
+    },
+    "canvas-context-menu": {
+      "close-editor": "關閉編輯器",
+      "open-editor": "開啟編輯器",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "新增項目"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "編輯"
+        },
+        "label-bring-to-front": "移至上層",
+        "label-delete": "刪除",
+        "label-duplicate": "重複",
+        "label-send-to-back": "移至下層",
+        "set-background-menu-item": {
+          "label-set-background": "設定背景"
+        }
+      }
+    },
+    "category-arrow-direction": "方向",
+    "category-background": "背景",
+    "category-border": "邊框",
+    "category-canvas": "畫布",
+    "category-color": "色彩",
+    "category-data-links": "資料連結和動作",
+    "category-line-style": "線條樣式",
+    "category-metric-value": "指標值",
+    "category-radius": "半徑",
+    "category-selected-connection": "所選連線",
+    "category-selected-element": "所選元素 ({{element}})",
+    "category-size": "大小",
+    "category-tooltip": "工具提示",
+    "cloud-item": {
+      "category-cloud": "雲端",
+      "label": {
+        "bottom": "底部",
+        "center": "置中",
+        "left": "靠左",
+        "middle": "中間",
+        "right": "靠右",
+        "top": "頂端"
+      },
+      "name-align-text": "對齊文字",
+      "name-text": "文字",
+      "name-text-color": "文字色彩",
+      "name-text-size": "文字大小",
+      "name-vertical-align": "垂直對齊",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "兩者",
+        "label-forward": "正向",
+        "label-none": "無",
+        "label-reverse": "反向"
+      }
+    },
+    "description-experimental-types": "啟用實驗元素類型的選擇",
+    "description-inline-editing": "啟用直接編輯面板",
+    "description-pan-zoom": "啟用平移和縮放",
+    "drone-front-item": {
+      "category-drone-front": "無人機前面",
+      "name-roll-angle": "滾動角度"
+    },
+    "drone-side-item": {
+      "category-drone-side": "無人機側面",
+      "name-pitch-angle": "傾斜角度"
+    },
+    "drone-top-item": {
+      "category-drone-top": "無人機頂端",
+      "name-back-left-rotor-rpm": "左後轉子 RPM",
+      "name-back-right-rotor-rpm": "右後轉子 RPM",
+      "name-front-left-rotor-rpm": "左前轉子 RPM",
+      "name-front-right-rotor-rpm": "右前轉子 RPM",
+      "name-yaw-angle": "偏轉角度"
+    },
+    "element-editor": {
+      "category-layout": "版面配置",
+      "description-unsupported": "目前設定不支援所選元素類型。請啟用進階元素類型。",
+      "name-quick-placement": "快速放置"
+    },
+    "ellipse-item": {
+      "category-ellipse": "橢圓形",
+      "label": {
+        "bottom": "底部",
+        "center": "置中",
+        "left": "靠左",
+        "middle": "中間",
+        "right": "靠右",
+        "top": "頂端"
+      },
+      "name-align-text": "對齊文字",
+      "name-text": "文字",
+      "name-text-color": "文字色彩",
+      "name-text-size": "文字大小",
+      "name-vertical-align": "垂直對齊",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "icon-item": {
+      "category-icon": "圖示",
+      "name-fill-color": "填充色彩",
+      "name-svg-path": "SVG 路徑"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Canvas 內嵌編輯器",
+      "tooltip-close-inline-editor": "關閉內嵌編輯器"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "所選元素 ({{element}})",
+      "label-add-item": "新增項目",
+      "please-select-an-element": "請選取一個元件"
+    },
+    "label-actions": "動作",
+    "label-color": "色彩",
+    "label-direction": "方向",
+    "label-image": "影像",
+    "label-image-size": "影像大小",
+    "label-line-style": "線條樣式",
+    "label-links": "連結",
+    "label-radius": "半徑",
+    "label-size": "大小",
+    "label-width": "寬度",
+    "layer-editor": {
+      "category-layer": "圖層",
+      "category-layout": "版面配置",
+      "name-constraints": "限制條件",
+      "name-elements": "元素"
+    },
+    "line-style-editor": {
+      "label-animate": "動畫"
+    },
+    "line-style-options": {
+      "label-solid": "實體"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "底部",
+        "center": "置中",
+        "left": "靠左",
+        "middle": "中間",
+        "right": "靠右",
+        "top": "頂端"
+      },
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "name-align-text": "對齊文字",
+    "name-color": "文字色彩",
+    "name-experimental-types": "實驗性元素類型",
+    "name-inline-editing": "直接編輯",
+    "name-pan-zoom": "平移和縮放",
+    "name-text": "文字",
+    "name-text-size": "文字大小",
+    "name-vertical-align": "垂直對齊",
+    "not-found-display": {
+      "not-found": "<0>未找到：<config /></0>"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + 滑鼠右鍵",
+      "middle-mouse": "滑鼠中鍵",
+      "pan-title": "平移：",
+      "reset-double-click": "重置：連按兩下",
+      "title-pan-and-zoom-controls": "平移和縮放控制",
+      "zoom-scroll-wheel": "縮放：使用滑鼠滾輪"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "平行四邊形",
+      "label": {
+        "bottom": "底部",
+        "center": "置中",
+        "left": "靠左",
+        "middle": "中間",
+        "right": "靠右",
+        "top": "頂端"
+      },
+      "name-align-text": "對齊文字",
+      "name-text": "文字",
+      "name-text-color": "文字色彩",
+      "name-text-size": "文字大小",
+      "name-vertical-align": "垂直對齊",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "新增",
+      "aria-label-delete": "刪除",
+      "placeholder-key": "鍵",
+      "placeholder-value": "數值"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "置中",
+        "label-left": "靠左",
+        "label-left-and-right": "左與右",
+        "label-right": "靠右",
+        "label-scale": "縮放"
+      },
+      "label-constraints": "限制條件",
+      "label-position": "位置",
+      "loading": "正在載入…",
+      "vertical-options": {
+        "label-bottom": "底部",
+        "label-center": "置中",
+        "label-scale": "縮放",
+        "label-top": "頂端",
+        "label-top-and-bottom": "頂端與底部"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "對齊底部",
+      "tooltip-align-horizontal-centers": "水平居中對齊",
+      "tooltip-align-left": "靠左對齊",
+      "tooltip-align-right": "靠右對齊",
+      "tooltip-align-top": "對齊頂端",
+      "tooltip-align-vertical-centers": "垂直居中對齊"
+    },
+    "rectangle-item": {
+      "category-rectangle": "長方形",
+      "label": {
+        "bottom": "底部",
+        "center": "置中",
+        "left": "靠左",
+        "middle": "中間",
+        "right": "靠右",
+        "top": "頂端"
+      },
+      "name-align-text": "對齊文字",
+      "name-text": "文字",
+      "name-text-color": "文字色彩",
+      "name-text-size": "文字大小",
+      "name-vertical-align": "垂直對齊",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "server-item": {
+      "category-server": "伺服器",
+      "name-blink-rate": "閃爍速率 [hz]（0 = 關閉）",
+      "name-bulb-color": "燈泡色彩",
+      "name-status-color": "狀態色彩",
+      "name-type": "類型",
+      "type-options": {
+        "label-database": "資料庫",
+        "label-single": "單一",
+        "label-stack": "堆疊",
+        "label-terminal": "終端"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "按兩下以設定文字"
+    },
+    "text-item": {
+      "category-text": "文字",
+      "label": {
+        "bottom": "底部",
+        "center": "置中",
+        "left": "靠左",
+        "middle": "中間",
+        "right": "靠右",
+        "top": "頂端"
+      },
+      "name-align-text": "對齊文字",
+      "name-text": "文字",
+      "name-text-color": "文字色彩",
+      "name-text-size": "文字大小",
+      "name-vertical-align": "垂直對齊",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "",
+      "name-tooltip-mode": "工具提示模式",
+      "tooltip-mode-options": {
+        "label-disabled": "已停用",
+        "label-enabled": "已啟用"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "清空選項",
+      "frame-selection": "框選項目",
+      "label-add-item": "新增項目",
+      "missing-layer": "缺少圖層嗎？",
+      "no-settings": "尚無設定",
+      "switcher-icon": {
+        "title-node-icon": "節點圖示"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "重複",
+      "title-remove": "移除",
+      "tooltip-duplicate": "重複",
+      "tooltip-remove": "移除"
+    },
+    "triangle-item": {
+      "category-triangle": "三角形",
+      "label": {
+        "bottom": "底部",
+        "center": "置中",
+        "left": "靠左",
+        "middle": "中間",
+        "right": "靠右",
+        "top": "頂端"
+      },
+      "name-align-text": "對齊文字",
+      "name-text": "文字",
+      "name-text-color": "文字色彩",
+      "name-text-size": "文字大小",
+      "name-vertical-align": "垂直對齊",
+      "placeholder": {
+        "auto": "自動"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "風力發動機",
+      "name-rpm": "RPM"
+    }
+  }
+}

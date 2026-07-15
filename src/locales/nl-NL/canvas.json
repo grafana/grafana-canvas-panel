@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "Endpoint",
+      "label-header-parameters": "Parameters van de header",
+      "label-method": "Methode",
+      "label-payload": "Laadvermogen",
+      "label-query-parameters": "Query-parameters",
+      "label-successmessage": "Succesbericht",
+      "render-test-apibutton": {
+        "test-api": "Test-API",
+        "title-test-api": "Test-API"
+      }
+    },
+    "button-item": {
+      "category-button": "Toets",
+      "label": {
+        "center": "Midden",
+        "left": "Links",
+        "right": "Rechts"
+      },
+      "name-align-text": "Tekst uitlijnen",
+      "name-api": "API",
+      "name-style": "Stijl",
+      "name-text": "Tekst",
+      "name-text-color": "Tekstkleur",
+      "name-text-size": "Tekstgrootte",
+      "placeholder": {
+        "auto": "Automatisch"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "Variant"
+    },
+    "canvas-context-menu": {
+      "close-editor": "Editor Sluiten",
+      "open-editor": "Editor openen",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "Artikelen toevoegen"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "Bewerken"
+        },
+        "label-bring-to-front": "Naar voren brengen",
+        "label-delete": "Verwijderen",
+        "label-duplicate": "Dupliceren",
+        "label-send-to-back": "Naar achteren verplaatsen",
+        "set-background-menu-item": {
+          "label-set-background": "Achtergrond instellen"
+        }
+      }
+    },
+    "category-arrow-direction": "Richting",
+    "category-background": "Achtergrond",
+    "category-border": "Rand",
+    "category-canvas": "Canvas",
+    "category-color": "Kleur",
+    "category-data-links": "Gegevenslinks en acties",
+    "category-line-style": "Lijnstijl",
+    "category-metric-value": "Metrische waarde",
+    "category-radius": "Radius",
+    "category-selected-connection": "Geselecteerde verbinding",
+    "category-selected-element": "Geselecteerd element ({{element}})",
+    "category-size": "Grootte",
+    "category-tooltip": "Tooltip",
+    "cloud-item": {
+      "category-cloud": "Cloud",
+      "label": {
+        "bottom": "Onder",
+        "center": "Midden",
+        "left": "Links",
+        "middle": "Midden",
+        "right": "Rechts",
+        "top": "Boven"
+      },
+      "name-align-text": "Tekst uitlijnen",
+      "name-text": "Tekst",
+      "name-text-color": "Tekstkleur",
+      "name-text-size": "Tekstgrootte",
+      "name-vertical-align": "Verticaal uitlijnen",
+      "placeholder": {
+        "auto": "Automatisch"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "Allebei",
+        "label-forward": "Vooruit",
+        "label-none": "Geen",
+        "label-reverse": "Omkeren"
+      }
+    },
+    "description-experimental-types": "Selectie van experimentele elementtypes inschakelen",
+    "description-inline-editing": "Rechtstreekse bewerking van het paneel inschakelen",
+    "description-pan-zoom": "Pan en zoom inschakelen",
+    "drone-front-item": {
+      "category-drone-front": "Drone voorkant",
+      "name-roll-angle": "Slingerhoek"
+    },
+    "drone-side-item": {
+      "category-drone-side": "Drone zijkant",
+      "name-pitch-angle": "Instelhoek"
+    },
+    "drone-top-item": {
+      "category-drone-top": "Drone bovenkant",
+      "name-back-left-rotor-rpm": "Toerental linkerachterrotor",
+      "name-back-right-rotor-rpm": "Toerental rechterachterrotor",
+      "name-front-left-rotor-rpm": "Toerental linkerrotor",
+      "name-front-right-rotor-rpm": "Toerental rechtervoorrotor",
+      "name-yaw-angle": "Gierhoek"
+    },
+    "element-editor": {
+      "category-layout": "Indeling",
+      "description-unsupported": "Het geselecteerde elementtype wordt niet ondersteund door de huidige instellingen. Schakel geavanceerde elementtypes in.",
+      "name-quick-placement": "Snelle plaatsing"
+    },
+    "ellipse-item": {
+      "category-ellipse": "Ellips",
+      "label": {
+        "bottom": "Onder",
+        "center": "Midden",
+        "left": "Links",
+        "middle": "Midden",
+        "right": "Rechts",
+        "top": "Boven"
+      },
+      "name-align-text": "Tekst uitlijnen",
+      "name-text": "Tekst",
+      "name-text-color": "Tekstkleur",
+      "name-text-size": "Tekstgrootte",
+      "name-vertical-align": "Verticaal uitlijnen",
+      "placeholder": {
+        "auto": "Automatisch"
+      }
+    },
+    "icon-item": {
+      "category-icon": "Pictogram",
+      "name-fill-color": "Opvulkleur",
+      "name-svg-path": "SVG-pad"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Canvas Inline-editor",
+      "tooltip-close-inline-editor": "Inline-editor sluiten"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "Geselecteerd element ({{element}})",
+      "label-add-item": "Artikelen toevoegen",
+      "please-select-an-element": "Selecteer een element"
+    },
+    "label-actions": "Acties",
+    "label-color": "Kleur",
+    "label-direction": "Richting",
+    "label-image": "Afbeelding",
+    "label-image-size": "Afbeeldingsgrootte",
+    "label-line-style": "Lijnstijl",
+    "label-links": "Links",
+    "label-radius": "Radius",
+    "label-size": "Grootte",
+    "label-width": "Breedte",
+    "layer-editor": {
+      "category-layer": "Laag",
+      "category-layout": "Indeling",
+      "name-constraints": "Beperkende factoren",
+      "name-elements": "Elementen"
+    },
+    "line-style-editor": {
+      "label-animate": "Animatie"
+    },
+    "line-style-options": {
+      "label-solid": "Stevig"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "Onder",
+        "center": "Midden",
+        "left": "Links",
+        "middle": "Midden",
+        "right": "Rechts",
+        "top": "Boven"
+      },
+      "placeholder": {
+        "auto": "Automatisch"
+      }
+    },
+    "name-align-text": "Tekst uitlijnen",
+    "name-color": "Tekstkleur",
+    "name-experimental-types": "Experimentele elementtypes",
+    "name-inline-editing": "Inline bewerken",
+    "name-pan-zoom": "Pennen en zoomen",
+    "name-text": "Tekst",
+    "name-text-size": "Tekstgrootte",
+    "name-vertical-align": "Verticaal uitlijnen",
+    "not-found-display": {
+      "not-found": "<0>Niet gevonden: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + rechtermuisknop",
+      "middle-mouse": "Middelste muisknop",
+      "pan-title": "Pan:",
+      "reset-double-click": "Resetten: dubbelklikken",
+      "title-pan-and-zoom-controls": "Bediening voor pan en zoom",
+      "zoom-scroll-wheel": "Zoom: scrollwiel"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "Parallellogram",
+      "label": {
+        "bottom": "Onder",
+        "center": "Midden",
+        "left": "Links",
+        "middle": "Midden",
+        "right": "Rechts",
+        "top": "Boven"
+      },
+      "name-align-text": "Tekst uitlijnen",
+      "name-text": "Tekst",
+      "name-text-color": "Tekstkleur",
+      "name-text-size": "Tekstgrootte",
+      "name-vertical-align": "Verticaal uitlijnen",
+      "placeholder": {
+        "auto": "Automatisch"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "Toevoegen",
+      "aria-label-delete": "Verwijderen",
+      "placeholder-key": "Sleutel",
+      "placeholder-value": "Waarde"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "Midden",
+        "label-left": "Links",
+        "label-left-and-right": "(links & rechts)",
+        "label-right": "Rechts",
+        "label-scale": "Schaal"
+      },
+      "label-constraints": "Beperkende factoren",
+      "label-position": "Positie",
+      "loading": "Laden...",
+      "vertical-options": {
+        "label-bottom": "Onder",
+        "label-center": "Midden",
+        "label-scale": "Schaal",
+        "label-top": "Boven",
+        "label-top-and-bottom": "Bovenkant en onderkant"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "Onder uitlijnen",
+      "tooltip-align-horizontal-centers": "Horizontaal centreren",
+      "tooltip-align-left": "Links uitlijnen",
+      "tooltip-align-right": "Rechts uitlijnen",
+      "tooltip-align-top": "Boven uitlijnen",
+      "tooltip-align-vertical-centers": "Verticale middens uitlijnen"
+    },
+    "rectangle-item": {
+      "category-rectangle": "Rechthoek",
+      "label": {
+        "bottom": "Onder",
+        "center": "Midden",
+        "left": "Links",
+        "middle": "Midden",
+        "right": "Rechts",
+        "top": "Boven"
+      },
+      "name-align-text": "Tekst uitlijnen",
+      "name-text": "Tekst",
+      "name-text-color": "Tekstkleur",
+      "name-text-size": "Tekstgrootte",
+      "name-vertical-align": "Verticaal uitlijnen",
+      "placeholder": {
+        "auto": "Automatisch"
+      }
+    },
+    "server-item": {
+      "category-server": "Server",
+      "name-blink-rate": "Knippersnelheid [hz] (0 = uit)",
+      "name-bulb-color": "Kleur lamp",
+      "name-status-color": "Statuskleur",
+      "name-type": "Type",
+      "type-options": {
+        "label-database": "Database",
+        "label-single": "Enkel",
+        "label-stack": "Stapelen",
+        "label-terminal": "Aansluiting"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "Dubbelklik om tekst in te stellen"
+    },
+    "text-item": {
+      "category-text": "Tekst",
+      "label": {
+        "bottom": "Onder",
+        "center": "Midden",
+        "left": "Links",
+        "middle": "Midden",
+        "right": "Rechts",
+        "top": "Boven"
+      },
+      "name-align-text": "Tekst uitlijnen",
+      "name-text": "Tekst",
+      "name-text-color": "Tekstkleur",
+      "name-text-size": "Tekstgrootte",
+      "name-vertical-align": "Verticaal uitlijnen",
+      "placeholder": {
+        "auto": "Automatisch"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "",
+      "name-tooltip-mode": "Tooltip-modus",
+      "tooltip-mode-options": {
+        "label-disabled": "Uitgeschakeld",
+        "label-enabled": "Ingeschakeld"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "Selectie wissen",
+      "frame-selection": "Frameselectie",
+      "label-add-item": "Artikelen toevoegen",
+      "missing-layer": "Ontbrekende laag?",
+      "no-settings": "Geen instellingen",
+      "switcher-icon": {
+        "title-node-icon": "Knooppuntpictogram"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "Dupliceren",
+      "title-remove": "Verwijderen",
+      "tooltip-duplicate": "Dupliceren",
+      "tooltip-remove": "Verwijderen"
+    },
+    "triangle-item": {
+      "category-triangle": "Driehoek",
+      "label": {
+        "bottom": "Onder",
+        "center": "Midden",
+        "left": "Links",
+        "middle": "Midden",
+        "right": "Rechts",
+        "top": "Boven"
+      },
+      "name-align-text": "Tekst uitlijnen",
+      "name-text": "Tekst",
+      "name-text-color": "Tekstkleur",
+      "name-text-size": "Tekstgrootte",
+      "name-vertical-align": "Verticaal uitlijnen",
+      "placeholder": {
+        "auto": "Automatisch"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "Windturbine",
+      "name-rpm": "TPM"
+    }
+  }
+}

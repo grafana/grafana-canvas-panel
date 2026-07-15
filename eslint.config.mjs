@@ -1,5 +1,7 @@
 import { defineConfig } from 'eslint/config';
 import baseConfig from './.config/eslint.config.mjs';
+import grafanaI18nPlugin from '@grafana/i18n/eslint-plugin';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 export default defineConfig([
   {
@@ -36,4 +38,18 @@ export default defineConfig([
     ],
   },
   ...baseConfig,
+  {
+    plugins: {
+      '@grafana/i18n': grafanaI18nPlugin,
+      'jsx-a11y': jsxA11y,
+      '@grafana': {
+        rules: {
+          'no-unreduced-motion': { create: () => ({}) },
+        },
+      },
+    },
+    rules: {
+      '@grafana/no-unreduced-motion': 'off',
+    },
+  },
 ]);

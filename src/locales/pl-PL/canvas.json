@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "Punkt końcowy",
+      "label-header-parameters": "Parametry nagłówka",
+      "label-method": "Metoda",
+      "label-payload": "Ładunek",
+      "label-query-parameters": "Parametry zapytania",
+      "label-successmessage": "Komunikat – powodzenie",
+      "render-test-apibutton": {
+        "test-api": "Testuj API",
+        "title-test-api": "Testuj API"
+      }
+    },
+    "button-item": {
+      "category-button": "Przycisk",
+      "label": {
+        "center": "Wyśrodkuj",
+        "left": "Po lewej",
+        "right": "Po prawej"
+      },
+      "name-align-text": "Wyrównaj tekst",
+      "name-api": "API",
+      "name-style": "Styl",
+      "name-text": "Tekst",
+      "name-text-color": "Kolor tekstu",
+      "name-text-size": "Rozmiar tekstu",
+      "placeholder": {
+        "auto": "Automatycznie"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "Wariant"
+    },
+    "canvas-context-menu": {
+      "close-editor": "Zamknij edytor",
+      "open-editor": "Otwórz edytor",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "Dodaj element"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "Edytuj"
+        },
+        "label-bring-to-front": "Przesuń na wierzch",
+        "label-delete": "Usuń",
+        "label-duplicate": "Duplikuj",
+        "label-send-to-back": "Przesuń na spód",
+        "set-background-menu-item": {
+          "label-set-background": "Ustaw tło"
+        }
+      }
+    },
+    "category-arrow-direction": "Kierunek",
+    "category-background": "Tło",
+    "category-border": "Obramowanie",
+    "category-canvas": "Kanwa",
+    "category-color": "Kolor",
+    "category-data-links": "Połączenia danych i działania",
+    "category-line-style": "Styl linii",
+    "category-metric-value": "Wartość metryczna",
+    "category-radius": "Promień",
+    "category-selected-connection": "Wybrane połączenie",
+    "category-selected-element": "Wybrany element ({{element}})",
+    "category-size": "Rozmiar",
+    "category-tooltip": "Podpowiedź",
+    "cloud-item": {
+      "category-cloud": "Cloud",
+      "label": {
+        "bottom": "Na dole",
+        "center": "Wyśrodkuj",
+        "left": "Po lewej",
+        "middle": "W połowie",
+        "right": "Po prawej",
+        "top": "U góry"
+      },
+      "name-align-text": "Wyrównaj tekst",
+      "name-text": "Tekst",
+      "name-text-color": "Kolor tekstu",
+      "name-text-size": "Rozmiar tekstu",
+      "name-vertical-align": "Wyrównanie w pionie",
+      "placeholder": {
+        "auto": "Automatycznie"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "Oba",
+        "label-forward": "Do przodu",
+        "label-none": "Brak",
+        "label-reverse": "Odwróć"
+      }
+    },
+    "description-experimental-types": "Włącz wybór eksperymentalnych typów elementów",
+    "description-inline-editing": "Włącz bezpośrednią edycję panelu",
+    "description-pan-zoom": "Włącz przesuwanie i powiększanie",
+    "drone-front-item": {
+      "category-drone-front": "Dron – przód",
+      "name-roll-angle": "Kąt wznoszenia"
+    },
+    "drone-side-item": {
+      "category-drone-side": "Dron – bok",
+      "name-pitch-angle": "Nachylenie łopat"
+    },
+    "drone-top-item": {
+      "category-drone-top": "Dron – góra",
+      "name-back-left-rotor-rpm": "Obroty tylnego lewego wirnika",
+      "name-back-right-rotor-rpm": "Obroty tylnego prawego wirnika",
+      "name-front-left-rotor-rpm": "Obroty przedniego lewego wirnika",
+      "name-front-right-rotor-rpm": "Obroty przedniego prawego wirnika",
+      "name-yaw-angle": "Kąt odchylenia"
+    },
+    "element-editor": {
+      "category-layout": "Układ",
+      "description-unsupported": "Wybrany typ elementu nie jest obsługiwany przez obecne ustawienia. Włącz zaawansowane typy elementów.",
+      "name-quick-placement": "Szybkie umiejscowienie"
+    },
+    "ellipse-item": {
+      "category-ellipse": "Elipsa",
+      "label": {
+        "bottom": "Na dole",
+        "center": "Wyśrodkuj",
+        "left": "Po lewej",
+        "middle": "W połowie",
+        "right": "Po prawej",
+        "top": "U góry"
+      },
+      "name-align-text": "Wyrównaj tekst",
+      "name-text": "Tekst",
+      "name-text-color": "Kolor tekstu",
+      "name-text-size": "Rozmiar tekstu",
+      "name-vertical-align": "Wyrównanie w pionie",
+      "placeholder": {
+        "auto": "Automatycznie"
+      }
+    },
+    "icon-item": {
+      "category-icon": "Ikona",
+      "name-fill-color": "Kolor wypełnienia",
+      "name-svg-path": "Ścieżka SVG"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Wbudowany edytor kanwy",
+      "tooltip-close-inline-editor": "Zamknij wbudowany edytor"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "Wybrany element ({{element}})",
+      "label-add-item": "Dodaj element",
+      "please-select-an-element": "Wybierz element"
+    },
+    "label-actions": "Działania",
+    "label-color": "Kolor",
+    "label-direction": "Kierunek",
+    "label-image": "Obraz",
+    "label-image-size": "Rozmiar obrazu",
+    "label-line-style": "Styl linii",
+    "label-links": "Linki",
+    "label-radius": "Promień",
+    "label-size": "Rozmiar",
+    "label-width": "Szerokość",
+    "layer-editor": {
+      "category-layer": "Warstwa",
+      "category-layout": "Układ",
+      "name-constraints": "Ograniczenia",
+      "name-elements": "Elementy"
+    },
+    "line-style-editor": {
+      "label-animate": "Animacja"
+    },
+    "line-style-options": {
+      "label-solid": "Stan stały"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "Na dole",
+        "center": "Wyśrodkuj",
+        "left": "Po lewej",
+        "middle": "W połowie",
+        "right": "Po prawej",
+        "top": "U góry"
+      },
+      "placeholder": {
+        "auto": "Automatycznie"
+      }
+    },
+    "name-align-text": "Wyrównaj tekst",
+    "name-color": "Kolor tekstu",
+    "name-experimental-types": "Eksperymentalne typy elementów",
+    "name-inline-editing": "Edycja bezpośrednia",
+    "name-pan-zoom": "Przesuwanie i powiększanie",
+    "name-text": "Tekst",
+    "name-text-size": "Rozmiar tekstu",
+    "name-vertical-align": "Wyrównanie w pionie",
+    "not-found-display": {
+      "not-found": "<0>Nie znaleziono: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + prawy przycisk myszy",
+      "middle-mouse": "Środkowy przycisk myszy",
+      "pan-title": "Przesuwanie:",
+      "reset-double-click": "Resetowanie: dwukrotne kliknięcie",
+      "title-pan-and-zoom-controls": "Elementy sterujące przesuwaniem i powiększaniem",
+      "zoom-scroll-wheel": "Powiększenie: kółko myszy"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "Równoległobok",
+      "label": {
+        "bottom": "Na dole",
+        "center": "Wyśrodkuj",
+        "left": "Po lewej",
+        "middle": "W połowie",
+        "right": "Po prawej",
+        "top": "U góry"
+      },
+      "name-align-text": "Wyrównaj tekst",
+      "name-text": "Tekst",
+      "name-text-color": "Kolor tekstu",
+      "name-text-size": "Rozmiar tekstu",
+      "name-vertical-align": "Wyrównanie w pionie",
+      "placeholder": {
+        "auto": "Automatycznie"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "Dodaj",
+      "aria-label-delete": "Usuń",
+      "placeholder-key": "Klucz",
+      "placeholder-value": "Wartość"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "Pośrodku",
+        "label-left": "Po lewej",
+        "label-left-and-right": "Lewa i prawa",
+        "label-right": "Po prawej",
+        "label-scale": "Skala"
+      },
+      "label-constraints": "Ograniczenia",
+      "label-position": "Pozycja",
+      "loading": "Ładowanie…",
+      "vertical-options": {
+        "label-bottom": "Na dole",
+        "label-center": "Pośrodku",
+        "label-scale": "Skala",
+        "label-top": "U góry",
+        "label-top-and-bottom": "Góra i dół"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "Wyrównaj do dołu",
+      "tooltip-align-horizontal-centers": "Wyrównaj do środka w poziomie",
+      "tooltip-align-left": "Wyrównaj do lewej",
+      "tooltip-align-right": "Wyrównaj do prawej",
+      "tooltip-align-top": "Wyrównaj do góry",
+      "tooltip-align-vertical-centers": "Wyrównaj do środka w pionie"
+    },
+    "rectangle-item": {
+      "category-rectangle": "Prostokąt",
+      "label": {
+        "bottom": "Na dole",
+        "center": "Wyśrodkuj",
+        "left": "Po lewej",
+        "middle": "W połowie",
+        "right": "Po prawej",
+        "top": "U góry"
+      },
+      "name-align-text": "Wyrównaj tekst",
+      "name-text": "Tekst",
+      "name-text-color": "Kolor tekstu",
+      "name-text-size": "Rozmiar tekstu",
+      "name-vertical-align": "Wyrównanie w pionie",
+      "placeholder": {
+        "auto": "Automatycznie"
+      }
+    },
+    "server-item": {
+      "category-server": "Serwer",
+      "name-blink-rate": "Częstotliwość migania [Hz] (0 = wyłączone)",
+      "name-bulb-color": "Kolor światła",
+      "name-status-color": "Kolor statusu",
+      "name-type": "Typ",
+      "type-options": {
+        "label-database": "Baza danych",
+        "label-single": "Pojedyncza",
+        "label-stack": "Stos",
+        "label-terminal": "Terminal"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "Kliknij dwukrotnie, aby ustawić tekst"
+    },
+    "text-item": {
+      "category-text": "Tekst",
+      "label": {
+        "bottom": "Na dole",
+        "center": "Wyśrodkuj",
+        "left": "Po lewej",
+        "middle": "W połowie",
+        "right": "Po prawej",
+        "top": "U góry"
+      },
+      "name-align-text": "Wyrównaj tekst",
+      "name-text": "Tekst",
+      "name-text-color": "Kolor tekstu",
+      "name-text-size": "Rozmiar tekstu",
+      "name-vertical-align": "Wyrównanie w pionie",
+      "placeholder": {
+        "auto": "Automatycznie"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "",
+      "name-tooltip-mode": "Tryb podpowiedzi",
+      "tooltip-mode-options": {
+        "label-disabled": "Wyłączono",
+        "label-enabled": "Włączony"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "Usuń zaznaczone",
+      "frame-selection": "Wybór ramki",
+      "label-add-item": "Dodaj element",
+      "missing-layer": "Brakuje warstwy?",
+      "no-settings": "Brak ustawień",
+      "switcher-icon": {
+        "title-node-icon": "Ikona węzła"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "Duplikuj",
+      "title-remove": "Usuń",
+      "tooltip-duplicate": "Duplikuj",
+      "tooltip-remove": "Usuń"
+    },
+    "triangle-item": {
+      "category-triangle": "Trójkąt",
+      "label": {
+        "bottom": "Na dole",
+        "center": "Wyśrodkuj",
+        "left": "Po lewej",
+        "middle": "W połowie",
+        "right": "Po prawej",
+        "top": "U góry"
+      },
+      "name-align-text": "Wyrównaj tekst",
+      "name-text": "Tekst",
+      "name-text-color": "Kolor tekstu",
+      "name-text-size": "Rozmiar tekstu",
+      "name-vertical-align": "Wyrównanie w pionie",
+      "placeholder": {
+        "auto": "Automatycznie"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "Turbina wiatrowa",
+      "name-rpm": "Obr./min"
+    }
+  }
+}

@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "Koncový bod",
+      "label-header-parameters": "Parametry záhlaví",
+      "label-method": "Metoda",
+      "label-payload": "Datový obsah",
+      "label-query-parameters": "Parametry dotazu",
+      "label-successmessage": "Zpráva o úspěchu",
+      "render-test-apibutton": {
+        "test-api": "Testovací API",
+        "title-test-api": "Testovací API"
+      }
+    },
+    "button-item": {
+      "category-button": "Tlačítko",
+      "label": {
+        "center": "Střed",
+        "left": "Vlevo",
+        "right": "Vpravo"
+      },
+      "name-align-text": "Zarovnat text",
+      "name-api": "API",
+      "name-style": "Styl",
+      "name-text": "Text",
+      "name-text-color": "Barva textu",
+      "name-text-size": "Velikost textu",
+      "placeholder": {
+        "auto": "Automaticky"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "Varianta"
+    },
+    "canvas-context-menu": {
+      "close-editor": "Zavřít editor",
+      "open-editor": "Otevřít editor",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "Přidat položku"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "Upravit"
+        },
+        "label-bring-to-front": "Přenést dopředu",
+        "label-delete": "Odstranit",
+        "label-duplicate": "Duplikovat",
+        "label-send-to-back": "Odsunout do pozadí",
+        "set-background-menu-item": {
+          "label-set-background": "Nastavit pozadí"
+        }
+      }
+    },
+    "category-arrow-direction": "Směr",
+    "category-background": "Pozadí",
+    "category-border": "Okraj",
+    "category-canvas": "Plátno",
+    "category-color": "Barva",
+    "category-data-links": "Propojení dat a akce",
+    "category-line-style": "Styl čáry",
+    "category-metric-value": "Metrická hodnota",
+    "category-radius": "Poloměr",
+    "category-selected-connection": "Vybrané připojení",
+    "category-selected-element": "Vybraný prvek ({{element}})",
+    "category-size": "Velikost",
+    "category-tooltip": "Popisek",
+    "cloud-item": {
+      "category-cloud": "Cloud",
+      "label": {
+        "bottom": "Spodní",
+        "center": "Střed",
+        "left": "Vlevo",
+        "middle": "Střed",
+        "right": "Vpravo",
+        "top": "Horní"
+      },
+      "name-align-text": "Zarovnat text",
+      "name-text": "Text",
+      "name-text-color": "Barva textu",
+      "name-text-size": "Velikost textu",
+      "name-vertical-align": "Vertikální zarovnání",
+      "placeholder": {
+        "auto": "Automaticky"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "Oba",
+        "label-forward": "Dopředu",
+        "label-none": "Žádné",
+        "label-reverse": "Dozadu"
+      }
+    },
+    "description-experimental-types": "Povolit výběr experimentálních typů prvků",
+    "description-inline-editing": "Povolit přímé úpravy panelu",
+    "description-pan-zoom": "Povolit posouvání a přiblížení",
+    "drone-front-item": {
+      "category-drone-front": "Přední strana dronu",
+      "name-roll-angle": "Úhel příčného sklonu"
+    },
+    "drone-side-item": {
+      "category-drone-side": "Boční strana dronu",
+      "name-pitch-angle": "Úhel rozteče"
+    },
+    "drone-top-item": {
+      "category-drone-top": "Horní strana dronu",
+      "name-back-left-rotor-rpm": "Otáčky levého zadního rotoru",
+      "name-back-right-rotor-rpm": "Otáčky pravého zadního rotoru",
+      "name-front-left-rotor-rpm": "Otáčky levého předního rotoru",
+      "name-front-right-rotor-rpm": "Otáčky pravého předního rotoru",
+      "name-yaw-angle": "Úhel natočení"
+    },
+    "element-editor": {
+      "category-layout": "Rozvržení",
+      "description-unsupported": "Vybraný typ prvku není aktuálním nastavením podporován. Povolte pokročilé typy prvků.",
+      "name-quick-placement": "Rychlé umístění"
+    },
+    "ellipse-item": {
+      "category-ellipse": "Elipsa",
+      "label": {
+        "bottom": "Spodní",
+        "center": "Střed",
+        "left": "Vlevo",
+        "middle": "Střed",
+        "right": "Vpravo",
+        "top": "Horní"
+      },
+      "name-align-text": "Zarovnat text",
+      "name-text": "Text",
+      "name-text-color": "Barva textu",
+      "name-text-size": "Velikost textu",
+      "name-vertical-align": "Vertikální zarovnání",
+      "placeholder": {
+        "auto": "Automaticky"
+      }
+    },
+    "icon-item": {
+      "category-icon": "Ikona",
+      "name-fill-color": "Barva výplně",
+      "name-svg-path": "Cesta SVG"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Vložený editor plátna",
+      "tooltip-close-inline-editor": "Zavřít vložený editor"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "Vybraný prvek ({{element}})",
+      "label-add-item": "Přidat položku",
+      "please-select-an-element": "Vyberte prvek"
+    },
+    "label-actions": "Akce",
+    "label-color": "Barva",
+    "label-direction": "Směr",
+    "label-image": "Obrázek",
+    "label-image-size": "Velikost obrázku",
+    "label-line-style": "Styl čáry",
+    "label-links": "Odkazy",
+    "label-radius": "Poloměr",
+    "label-size": "Velikost",
+    "label-width": "Šířka",
+    "layer-editor": {
+      "category-layer": "Vrstva",
+      "category-layout": "Rozvržení",
+      "name-constraints": "Omezení",
+      "name-elements": "Prvky"
+    },
+    "line-style-editor": {
+      "label-animate": "Animovat"
+    },
+    "line-style-options": {
+      "label-solid": "Pevný"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "Spodní",
+        "center": "Střed",
+        "left": "Vlevo",
+        "middle": "Střed",
+        "right": "Vpravo",
+        "top": "Horní"
+      },
+      "placeholder": {
+        "auto": "Automaticky"
+      }
+    },
+    "name-align-text": "Zarovnat text",
+    "name-color": "Barva textu",
+    "name-experimental-types": "Experimentální typy prvků",
+    "name-inline-editing": "Přímé upravování",
+    "name-pan-zoom": "Posouvání a přiblížení",
+    "name-text": "Text",
+    "name-text-size": "Velikost textu",
+    "name-vertical-align": "Vertikální zarovnání",
+    "not-found-display": {
+      "not-found": "<0>Nenalezeno: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + pravé tlačítko myši",
+      "middle-mouse": "Prostřední tlačítko myši",
+      "pan-title": "Posouvání:",
+      "reset-double-click": "Obnovit: Dvojklik",
+      "title-pan-and-zoom-controls": "Ovládací prvky posouvání a přiblížení",
+      "zoom-scroll-wheel": "Přiblížení: Rolovací kolečko"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "Rovnoběžník",
+      "label": {
+        "bottom": "Spodní",
+        "center": "Střed",
+        "left": "Vlevo",
+        "middle": "Střed",
+        "right": "Vpravo",
+        "top": "Horní"
+      },
+      "name-align-text": "Zarovnat text",
+      "name-text": "Text",
+      "name-text-color": "Barva textu",
+      "name-text-size": "Velikost textu",
+      "name-vertical-align": "Vertikální zarovnání",
+      "placeholder": {
+        "auto": "Automaticky"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "Přidat",
+      "aria-label-delete": "Odstranit",
+      "placeholder-key": "Klíč",
+      "placeholder-value": "Hodnota"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "Střed",
+        "label-left": "Vlevo",
+        "label-left-and-right": "Vlevo a vpravo",
+        "label-right": "Vpravo",
+        "label-scale": "Rozsah"
+      },
+      "label-constraints": "Omezení",
+      "label-position": "Poloha",
+      "loading": "Načítání…",
+      "vertical-options": {
+        "label-bottom": "Dolní",
+        "label-center": "Střed",
+        "label-scale": "Rozsah",
+        "label-top": "Horní",
+        "label-top-and-bottom": "Horní a dolní"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "Zarovnat dolů",
+      "tooltip-align-horizontal-centers": "Zarovnat vodorovné středy",
+      "tooltip-align-left": "Zarovnat vlevo",
+      "tooltip-align-right": "Zarovnat vpravo",
+      "tooltip-align-top": "Zarovnat nahoru",
+      "tooltip-align-vertical-centers": "Zarovnat svislé středy"
+    },
+    "rectangle-item": {
+      "category-rectangle": "Obdélník",
+      "label": {
+        "bottom": "Spodní",
+        "center": "Střed",
+        "left": "Vlevo",
+        "middle": "Střed",
+        "right": "Vpravo",
+        "top": "Horní"
+      },
+      "name-align-text": "Zarovnat text",
+      "name-text": "Text",
+      "name-text-color": "Barva textu",
+      "name-text-size": "Velikost textu",
+      "name-vertical-align": "Vertikální zarovnání",
+      "placeholder": {
+        "auto": "Automaticky"
+      }
+    },
+    "server-item": {
+      "category-server": "Server",
+      "name-blink-rate": "Rychlost blikání [hz] (0 = vypnuto)",
+      "name-bulb-color": "Barva žárovky",
+      "name-status-color": "Barva stavu",
+      "name-type": "Typ",
+      "type-options": {
+        "label-database": "Databáze",
+        "label-single": "Jednorázový",
+        "label-stack": "Stack",
+        "label-terminal": "Terminál"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "Dvojklikem nastavíte text"
+    },
+    "text-item": {
+      "category-text": "Text",
+      "label": {
+        "bottom": "Spodní",
+        "center": "Střed",
+        "left": "Vlevo",
+        "middle": "Střed",
+        "right": "Vpravo",
+        "top": "Horní"
+      },
+      "name-align-text": "Zarovnat text",
+      "name-text": "Text",
+      "name-text-color": "Barva textu",
+      "name-text-size": "Velikost textu",
+      "name-vertical-align": "Vertikální zarovnání",
+      "placeholder": {
+        "auto": "Automaticky"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "",
+      "name-tooltip-mode": "Režim popisku",
+      "tooltip-mode-options": {
+        "label-disabled": "Zakázáno",
+        "label-enabled": "Povoleno"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "Vymazat výběr",
+      "frame-selection": "Výběr snímku",
+      "label-add-item": "Přidat položku",
+      "missing-layer": "Chybí vrstva?",
+      "no-settings": "Žádné nastavení",
+      "switcher-icon": {
+        "title-node-icon": "Ikona uzlu"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "Duplikovat",
+      "title-remove": "Odebrat",
+      "tooltip-duplicate": "Duplikovat",
+      "tooltip-remove": "Odebrat"
+    },
+    "triangle-item": {
+      "category-triangle": "Trojúhelník",
+      "label": {
+        "bottom": "Spodní",
+        "center": "Střed",
+        "left": "Vlevo",
+        "middle": "Střed",
+        "right": "Vpravo",
+        "top": "Horní"
+      },
+      "name-align-text": "Zarovnat text",
+      "name-text": "Text",
+      "name-text-color": "Barva textu",
+      "name-text-size": "Velikost textu",
+      "name-vertical-align": "Vertikální zarovnání",
+      "placeholder": {
+        "auto": "Automaticky"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "Větrná turbína",
+      "name-rpm": "Otáčky za minutu"
+    }
+  }
+}

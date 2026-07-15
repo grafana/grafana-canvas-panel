@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "Конечная точка",
+      "label-header-parameters": "Параметры заголовка",
+      "label-method": "Метод",
+      "label-payload": "Полезные данные",
+      "label-query-parameters": "Параметры запроса",
+      "label-successmessage": "Сообщение об успешном выполнении",
+      "render-test-apibutton": {
+        "test-api": "Тест API",
+        "title-test-api": "Тест API"
+      }
+    },
+    "button-item": {
+      "category-button": "Кнопка",
+      "label": {
+        "center": "По центру",
+        "left": "Слева",
+        "right": "Справа"
+      },
+      "name-align-text": "Выровнять текст",
+      "name-api": "API",
+      "name-style": "Стиль",
+      "name-text": "Текст",
+      "name-text-color": "Цвет текста",
+      "name-text-size": "Размер текста",
+      "placeholder": {
+        "auto": "Авто"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "Вариант"
+    },
+    "canvas-context-menu": {
+      "close-editor": "Закрыть редактор",
+      "open-editor": "Открыть редактор",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "Добавить элемент"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "Редактировать"
+        },
+        "label-bring-to-front": "На передний план",
+        "label-delete": "Удалить",
+        "label-duplicate": "Дублировать",
+        "label-send-to-back": "На задний план",
+        "set-background-menu-item": {
+          "label-set-background": "Задать фон"
+        }
+      }
+    },
+    "category-arrow-direction": "Направление",
+    "category-background": "Фон",
+    "category-border": "Граница",
+    "category-canvas": "Холст",
+    "category-color": "Цвет",
+    "category-data-links": "Ссылки на данные и действия",
+    "category-line-style": "Стиль линии",
+    "category-metric-value": "Значение метрики",
+    "category-radius": "Радиус",
+    "category-selected-connection": "Выбранное соединение",
+    "category-selected-element": "Выбранный элемент ({{element}})",
+    "category-size": "Размер",
+    "category-tooltip": "Подсказка",
+    "cloud-item": {
+      "category-cloud": "Облако",
+      "label": {
+        "bottom": "Снизу",
+        "center": "По центру",
+        "left": "Слева",
+        "middle": "Посередине",
+        "right": "Справа",
+        "top": "Сверху"
+      },
+      "name-align-text": "Выровнять текст",
+      "name-text": "Текст",
+      "name-text-color": "Цвет текста",
+      "name-text-size": "Размер текста",
+      "name-vertical-align": "Выравнивание по вертикали",
+      "placeholder": {
+        "auto": "Авто"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "Оба",
+        "label-forward": "Вперед",
+        "label-none": "Нет",
+        "label-reverse": "Назад"
+      }
+    },
+    "description-experimental-types": "Включить выбор экспериментальных типов элементов",
+    "description-inline-editing": "Включить прямое редактирование панели",
+    "description-pan-zoom": "Включить панорамирование и масштабирование",
+    "drone-front-item": {
+      "category-drone-front": "Дрон, вид спереди",
+      "name-roll-angle": "Угол крена"
+    },
+    "drone-side-item": {
+      "category-drone-side": "Дрон, вид сбоку",
+      "name-pitch-angle": "Угол тангажа"
+    },
+    "drone-top-item": {
+      "category-drone-top": "Дрон, вид сверху",
+      "name-back-left-rotor-rpm": "Скорость вращения заднего левого ротора",
+      "name-back-right-rotor-rpm": "Скорость вращения заднего правого ротора",
+      "name-front-left-rotor-rpm": "Скорость вращения переднего левого ротора",
+      "name-front-right-rotor-rpm": "Скорость вращения переднего правого ротора",
+      "name-yaw-angle": "Угол рыскания"
+    },
+    "element-editor": {
+      "category-layout": "Макет",
+      "description-unsupported": "Выбранный тип элемента не поддерживается текущими настройками. Включите дополнительные типы элементов.",
+      "name-quick-placement": "Быстрое размещение"
+    },
+    "ellipse-item": {
+      "category-ellipse": "Эллипс",
+      "label": {
+        "bottom": "Снизу",
+        "center": "По центру",
+        "left": "Слева",
+        "middle": "Посередине",
+        "right": "Справа",
+        "top": "Сверху"
+      },
+      "name-align-text": "Выровнять текст",
+      "name-text": "Текст",
+      "name-text-color": "Цвет текста",
+      "name-text-size": "Размер текста",
+      "name-vertical-align": "Выравнивание по вертикали",
+      "placeholder": {
+        "auto": "Авто"
+      }
+    },
+    "icon-item": {
+      "category-icon": "Значок",
+      "name-fill-color": "Цвет заливки",
+      "name-svg-path": "Путь SVG"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Встроенный редактор холста",
+      "tooltip-close-inline-editor": "Закрыть встроенный редактор"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "Выбранный элемент ({{element}})",
+      "label-add-item": "Добавить элемент",
+      "please-select-an-element": "Выберите элемент"
+    },
+    "label-actions": "Действия",
+    "label-color": "Цвет",
+    "label-direction": "Направление",
+    "label-image": "Изображение",
+    "label-image-size": "Размер изображения",
+    "label-line-style": "Стиль линии",
+    "label-links": "Ссылки",
+    "label-radius": "Радиус",
+    "label-size": "Размер",
+    "label-width": "Ширина",
+    "layer-editor": {
+      "category-layer": "Слой",
+      "category-layout": "Макет",
+      "name-constraints": "Ограничения",
+      "name-elements": "Элементы"
+    },
+    "line-style-editor": {
+      "label-animate": "Анимировать"
+    },
+    "line-style-options": {
+      "label-solid": "Сплошная"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "Снизу",
+        "center": "По центру",
+        "left": "Слева",
+        "middle": "Посередине",
+        "right": "Справа",
+        "top": "Сверху"
+      },
+      "placeholder": {
+        "auto": "Авто"
+      }
+    },
+    "name-align-text": "Выровнять текст",
+    "name-color": "Цвет текста",
+    "name-experimental-types": "Экспериментальные типы элементов",
+    "name-inline-editing": "Прямое редактирование",
+    "name-pan-zoom": "Панорамирование и масштабирование",
+    "name-text": "Текст",
+    "name-text-size": "Размер текста",
+    "name-vertical-align": "Выравнивание по вертикали",
+    "not-found-display": {
+      "not-found": "<0>Не найдено: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + правая кнопка мыши",
+      "middle-mouse": "Средняя кнопка мыши",
+      "pan-title": "Панорамирование:",
+      "reset-double-click": "Сброс: двойное нажатие",
+      "title-pan-and-zoom-controls": "Элементы управления панорамированием и масштабом",
+      "zoom-scroll-wheel": "Масштаб: колесико прокрутки"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "Параллелограмм",
+      "label": {
+        "bottom": "Снизу",
+        "center": "По центру",
+        "left": "Слева",
+        "middle": "Посередине",
+        "right": "Справа",
+        "top": "Сверху"
+      },
+      "name-align-text": "Выровнять текст",
+      "name-text": "Текст",
+      "name-text-color": "Цвет текста",
+      "name-text-size": "Размер текста",
+      "name-vertical-align": "Выравнивание по вертикали",
+      "placeholder": {
+        "auto": "Авто"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "Добавить",
+      "aria-label-delete": "Удалить",
+      "placeholder-key": "Ключ",
+      "placeholder-value": "Значение"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "По центру",
+        "label-left": "Слева",
+        "label-left-and-right": "Слева и справа",
+        "label-right": "Справа",
+        "label-scale": "По масштабу"
+      },
+      "label-constraints": "Ограничения",
+      "label-position": "Положение",
+      "loading": "Загрузка…",
+      "vertical-options": {
+        "label-bottom": "Снизу",
+        "label-center": "По центру",
+        "label-scale": "По масштабу",
+        "label-top": "Сверху",
+        "label-top-and-bottom": "Сверху и снизу"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "Выровнять по нижнему краю",
+      "tooltip-align-horizontal-centers": "Выровнять по горизонтали",
+      "tooltip-align-left": "Выровнять по левому краю",
+      "tooltip-align-right": "Выровнять по правому краю",
+      "tooltip-align-top": "Выровнять по верхнему краю",
+      "tooltip-align-vertical-centers": "Выровнять по вертикали"
+    },
+    "rectangle-item": {
+      "category-rectangle": "Прямоугольник",
+      "label": {
+        "bottom": "Снизу",
+        "center": "По центру",
+        "left": "Слева",
+        "middle": "Посередине",
+        "right": "Справа",
+        "top": "Сверху"
+      },
+      "name-align-text": "Выровнять текст",
+      "name-text": "Текст",
+      "name-text-color": "Цвет текста",
+      "name-text-size": "Размер текста",
+      "name-vertical-align": "Выравнивание по вертикали",
+      "placeholder": {
+        "auto": "Авто"
+      }
+    },
+    "server-item": {
+      "category-server": "Сервер",
+      "name-blink-rate": "Частота мигания [Гц] (0 = выкл.)",
+      "name-bulb-color": "Цвет лампы",
+      "name-status-color": "Цвет статуса",
+      "name-type": "Тип",
+      "type-options": {
+        "label-database": "База данных",
+        "label-single": "Один",
+        "label-stack": "Стек",
+        "label-terminal": "Терминал"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "Дважды нажмите, чтобы установить текст"
+    },
+    "text-item": {
+      "category-text": "Текст",
+      "label": {
+        "bottom": "Снизу",
+        "center": "По центру",
+        "left": "Слева",
+        "middle": "Посередине",
+        "right": "Справа",
+        "top": "Сверху"
+      },
+      "name-align-text": "Выровнять текст",
+      "name-text": "Текст",
+      "name-text-color": "Цвет текста",
+      "name-text-size": "Размер текста",
+      "name-vertical-align": "Выравнивание по вертикали",
+      "placeholder": {
+        "auto": "Авто"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "Отключить для элементов с одним нажатием",
+      "name-tooltip-mode": "Режим подсказок",
+      "tooltip-mode-options": {
+        "label-disabled": "Отключены",
+        "label-enabled": "Включены"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "Очистить выбор",
+      "frame-selection": "Выбор фрейма",
+      "label-add-item": "Добавить элемент",
+      "missing-layer": "Отсутствует слой?",
+      "no-settings": "Нет настроек",
+      "switcher-icon": {
+        "title-node-icon": "Значок узла"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "Дублировать",
+      "title-remove": "Удалить",
+      "tooltip-duplicate": "Дублировать",
+      "tooltip-remove": "Удалить"
+    },
+    "triangle-item": {
+      "category-triangle": "Треугольник",
+      "label": {
+        "bottom": "Снизу",
+        "center": "По центру",
+        "left": "Слева",
+        "middle": "Посередине",
+        "right": "Справа",
+        "top": "Сверху"
+      },
+      "name-align-text": "Выровнять текст",
+      "name-text": "Текст",
+      "name-text-color": "Цвет текста",
+      "name-text-size": "Размер текста",
+      "name-vertical-align": "Выравнивание по вертикали",
+      "placeholder": {
+        "auto": "Авто"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "Ветрогенератор",
+      "name-rpm": "об/мин"
+    }
+  }
+}

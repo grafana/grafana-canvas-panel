@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "엔드포인트",
+      "label-header-parameters": "헤더 파라미터",
+      "label-method": "방법",
+      "label-payload": "페이로드",
+      "label-query-parameters": "쿼리 파라미터",
+      "label-successmessage": "성공 메시지",
+      "render-test-apibutton": {
+        "test-api": "테스트 API",
+        "title-test-api": "테스트 API"
+      }
+    },
+    "button-item": {
+      "category-button": "버튼",
+      "label": {
+        "center": "중앙",
+        "left": "왼쪽",
+        "right": "오른쪽"
+      },
+      "name-align-text": "텍스트 정렬",
+      "name-api": "API",
+      "name-style": "스타일",
+      "name-text": "텍스트",
+      "name-text-color": "텍스트 색상",
+      "name-text-size": "글자 크기",
+      "placeholder": {
+        "auto": "자동"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "변형"
+    },
+    "canvas-context-menu": {
+      "close-editor": "편집기 닫기",
+      "open-editor": "편집기 열기",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "항목 추가"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "편집"
+        },
+        "label-bring-to-front": "앞으로 가져오기",
+        "label-delete": "삭제",
+        "label-duplicate": "복제",
+        "label-send-to-back": "뒤로 보내기",
+        "set-background-menu-item": {
+          "label-set-background": "배경 설정"
+        }
+      }
+    },
+    "category-arrow-direction": "방향",
+    "category-background": "배경",
+    "category-border": "테두리",
+    "category-canvas": "캔버스",
+    "category-color": "색상",
+    "category-data-links": "데이터 링크 및 작업",
+    "category-line-style": "선 유형",
+    "category-metric-value": "메트릭 값",
+    "category-radius": "반경",
+    "category-selected-connection": "선택한 연결",
+    "category-selected-element": "선택한 요소({{element}}개)",
+    "category-size": "크기",
+    "category-tooltip": "툴팁",
+    "cloud-item": {
+      "category-cloud": "클라우드",
+      "label": {
+        "bottom": "하단",
+        "center": "중앙",
+        "left": "왼쪽",
+        "middle": "중앙",
+        "right": "오른쪽",
+        "top": "상단"
+      },
+      "name-align-text": "텍스트 정렬",
+      "name-text": "텍스트",
+      "name-text-color": "텍스트 색상",
+      "name-text-size": "글자 크기",
+      "name-vertical-align": "수직 정렬",
+      "placeholder": {
+        "auto": "자동"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "둘 다",
+        "label-forward": "앞으로",
+        "label-none": "없음",
+        "label-reverse": "되돌리기"
+      }
+    },
+    "description-experimental-types": "실험적 요소 유형 선택 활성화",
+    "description-inline-editing": "패널 직접 편집 활성화",
+    "description-pan-zoom": "이동 및 확대/축소 활성화",
+    "drone-front-item": {
+      "category-drone-front": "드론 전면",
+      "name-roll-angle": "롤 각도"
+    },
+    "drone-side-item": {
+      "category-drone-side": "드론 측면",
+      "name-pitch-angle": "피치 각도"
+    },
+    "drone-top-item": {
+      "category-drone-top": "드론 상단",
+      "name-back-left-rotor-rpm": "후면 왼쪽 회전체 RPM",
+      "name-back-right-rotor-rpm": "후면 오른쪽 회전체 RPM",
+      "name-front-left-rotor-rpm": "전면 왼쪽 회전체 RPM",
+      "name-front-right-rotor-rpm": "전면 오른쪽 회전체 RPM",
+      "name-yaw-angle": "요각"
+    },
+    "element-editor": {
+      "category-layout": "레이아웃",
+      "description-unsupported": "선택한 요소 유형은 현재 설정에서 지원되지 않습니다. 고급 요소 유형을 사용하도록 설정해 주세요.",
+      "name-quick-placement": "신속한 배치"
+    },
+    "ellipse-item": {
+      "category-ellipse": "타원",
+      "label": {
+        "bottom": "하단",
+        "center": "중앙",
+        "left": "왼쪽",
+        "middle": "중앙",
+        "right": "오른쪽",
+        "top": "상단"
+      },
+      "name-align-text": "텍스트 정렬",
+      "name-text": "텍스트",
+      "name-text-color": "텍스트 색상",
+      "name-text-size": "글자 크기",
+      "name-vertical-align": "수직 정렬",
+      "placeholder": {
+        "auto": "자동"
+      }
+    },
+    "icon-item": {
+      "category-icon": "아이콘",
+      "name-fill-color": "색상 채우기",
+      "name-svg-path": "SVG 경로"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "캔버스 인라인 편집기",
+      "tooltip-close-inline-editor": "인라인 편집기 닫기"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "선택한 요소({{element}}개)",
+      "label-add-item": "항목 추가",
+      "please-select-an-element": "요인을 선택해 주세요."
+    },
+    "label-actions": "작업",
+    "label-color": "색상",
+    "label-direction": "방향",
+    "label-image": "이미지",
+    "label-image-size": "이미지 크기",
+    "label-line-style": "선 유형",
+    "label-links": "링크",
+    "label-radius": "반경",
+    "label-size": "크기",
+    "label-width": "너비",
+    "layer-editor": {
+      "category-layer": "계층",
+      "category-layout": "레이아웃",
+      "name-constraints": "제약 사항",
+      "name-elements": "요소"
+    },
+    "line-style-editor": {
+      "label-animate": "애니메이션"
+    },
+    "line-style-options": {
+      "label-solid": "단색"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "하단",
+        "center": "중앙",
+        "left": "왼쪽",
+        "middle": "중앙",
+        "right": "오른쪽",
+        "top": "상단"
+      },
+      "placeholder": {
+        "auto": "자동"
+      }
+    },
+    "name-align-text": "텍스트 정렬",
+    "name-color": "텍스트 색상",
+    "name-experimental-types": "실험적 요소 유형",
+    "name-inline-editing": "인라인 편집",
+    "name-pan-zoom": "이동 및 확대/축소",
+    "name-text": "텍스트",
+    "name-text-size": "글자 크기",
+    "name-vertical-align": "수직 정렬",
+    "not-found-display": {
+      "not-found": "<0>찾을 수 없음: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + 마우스 오른쪽 버튼",
+      "middle-mouse": "마우스 가운데 버튼",
+      "pan-title": "이동:",
+      "reset-double-click": "재설정: 더블 클릭",
+      "title-pan-and-zoom-controls": "이동 및 확대/축소 제어",
+      "zoom-scroll-wheel": "확대/축소: 스크롤 휠"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "평행 사변형",
+      "label": {
+        "bottom": "하단",
+        "center": "중앙",
+        "left": "왼쪽",
+        "middle": "중앙",
+        "right": "오른쪽",
+        "top": "상단"
+      },
+      "name-align-text": "텍스트 정렬",
+      "name-text": "텍스트",
+      "name-text-color": "텍스트 색상",
+      "name-text-size": "글자 크기",
+      "name-vertical-align": "수직 정렬",
+      "placeholder": {
+        "auto": "자동"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "추가",
+      "aria-label-delete": "삭제",
+      "placeholder-key": "키",
+      "placeholder-value": "값"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "중앙",
+        "label-left": "왼쪽",
+        "label-left-and-right": "왼쪽 및 오른쪽",
+        "label-right": "오른쪽",
+        "label-scale": "스케일"
+      },
+      "label-constraints": "제약 사항",
+      "label-position": "위치",
+      "loading": "로딩 중...",
+      "vertical-options": {
+        "label-bottom": "하단",
+        "label-center": "중앙",
+        "label-scale": "스케일",
+        "label-top": "상단",
+        "label-top-and-bottom": "상단 및 하단"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "아래쪽 정렬",
+      "tooltip-align-horizontal-centers": "가로 중앙 정렬",
+      "tooltip-align-left": "왼쪽 정렬",
+      "tooltip-align-right": "오른쪽 정렬",
+      "tooltip-align-top": "상단 정렬",
+      "tooltip-align-vertical-centers": "수직 중앙 정렬"
+    },
+    "rectangle-item": {
+      "category-rectangle": "직사각형",
+      "label": {
+        "bottom": "하단",
+        "center": "중앙",
+        "left": "왼쪽",
+        "middle": "중앙",
+        "right": "오른쪽",
+        "top": "상단"
+      },
+      "name-align-text": "텍스트 정렬",
+      "name-text": "텍스트",
+      "name-text-color": "텍스트 색상",
+      "name-text-size": "글자 크기",
+      "name-vertical-align": "수직 정렬",
+      "placeholder": {
+        "auto": "자동"
+      }
+    },
+    "server-item": {
+      "category-server": "서버",
+      "name-blink-rate": "깜박임 속도[hz] (0 = 꺼짐)",
+      "name-bulb-color": "전구 색상",
+      "name-status-color": "상태 색상",
+      "name-type": "유형",
+      "type-options": {
+        "label-database": "데이터베이스",
+        "label-single": "단일",
+        "label-stack": "스택",
+        "label-terminal": "터미널"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "두 번 클릭하여 텍스트 설정"
+    },
+    "text-item": {
+      "category-text": "텍스트",
+      "label": {
+        "bottom": "하단",
+        "center": "중앙",
+        "left": "왼쪽",
+        "middle": "중앙",
+        "right": "오른쪽",
+        "top": "상단"
+      },
+      "name-align-text": "텍스트 정렬",
+      "name-text": "텍스트",
+      "name-text-color": "텍스트 색상",
+      "name-text-size": "글자 크기",
+      "name-vertical-align": "수직 정렬",
+      "placeholder": {
+        "auto": "자동"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "",
+      "name-tooltip-mode": "툴팁 모드",
+      "tooltip-mode-options": {
+        "label-disabled": "비활성화됨",
+        "label-enabled": "활성화됨"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "선택 초기화",
+      "frame-selection": "프레임 선택",
+      "label-add-item": "항목 추가",
+      "missing-layer": "누락된 레이어가 있나요?",
+      "no-settings": "설정 없음",
+      "switcher-icon": {
+        "title-node-icon": "노드 아이콘"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "복제",
+      "title-remove": "제거",
+      "tooltip-duplicate": "복제",
+      "tooltip-remove": "제거"
+    },
+    "triangle-item": {
+      "category-triangle": "삼각형",
+      "label": {
+        "bottom": "하단",
+        "center": "중앙",
+        "left": "왼쪽",
+        "middle": "중앙",
+        "right": "오른쪽",
+        "top": "상단"
+      },
+      "name-align-text": "텍스트 정렬",
+      "name-text": "텍스트",
+      "name-text-color": "텍스트 색상",
+      "name-text-size": "글자 크기",
+      "name-vertical-align": "수직 정렬",
+      "placeholder": {
+        "auto": "자동"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "풍력 터빈",
+      "name-rpm": "RPM"
+    }
+  }
+}

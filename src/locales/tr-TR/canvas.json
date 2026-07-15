@@ -1,0 +1,359 @@
+{
+  "canvas": {
+    "apieditor": {
+      "label-endpoint": "Uç nokta",
+      "label-header-parameters": "Başlık parametreleri",
+      "label-method": "Yöntem",
+      "label-payload": "Yük",
+      "label-query-parameters": "Sorgu parametreleri",
+      "label-successmessage": "Başarılı mesajı",
+      "render-test-apibutton": {
+        "test-api": "Test API'si",
+        "title-test-api": "Test API'si"
+      }
+    },
+    "button-item": {
+      "category-button": "Düğme",
+      "label": {
+        "center": "Merkez",
+        "left": "Sol",
+        "right": "Sağ"
+      },
+      "name-align-text": "Metni hizala",
+      "name-api": "API",
+      "name-style": "Stil",
+      "name-text": "Metin",
+      "name-text-color": "Metin rengi",
+      "name-text-size": "Metin boyutu",
+      "placeholder": {
+        "auto": "Otomatik"
+      }
+    },
+    "button-style-editor": {
+      "label-variant": "Değişken"
+    },
+    "canvas-context-menu": {
+      "close-editor": "Düzenleyiciyi kapat",
+      "open-editor": "Düzenleyiciyi aç",
+      "render-menu-items": {
+        "add-item-menu-item": {
+          "label-add-item": "Öge ekle"
+        },
+        "edit-element-menu-item": {
+          "label-edit": "Düzenle"
+        },
+        "label-bring-to-front": "Öne getir",
+        "label-delete": "Sil",
+        "label-duplicate": "Çoğalt",
+        "label-send-to-back": "Arkaya gönder",
+        "set-background-menu-item": {
+          "label-set-background": "Arka planı ayarla"
+        }
+      }
+    },
+    "category-arrow-direction": "Yön",
+    "category-background": "Arka Plan",
+    "category-border": "Kenarlık",
+    "category-canvas": "Tuval",
+    "category-color": "Renk",
+    "category-data-links": "Veri bağlantıları ve eylemler",
+    "category-line-style": "Çizgi stili",
+    "category-metric-value": "Metrik değeri",
+    "category-radius": "Çap",
+    "category-selected-connection": "Seçilen bağlantı",
+    "category-selected-element": "Seçilen öge ({{element}})",
+    "category-size": "Boyut",
+    "category-tooltip": "Araç ipucu",
+    "cloud-item": {
+      "category-cloud": "Bulut",
+      "label": {
+        "bottom": "Alt",
+        "center": "Merkez",
+        "left": "Sol",
+        "middle": "Orta",
+        "right": "Sağ",
+        "top": "Üst"
+      },
+      "name-align-text": "Metni hizala",
+      "name-text": "Metin",
+      "name-text-color": "Metin rengi",
+      "name-text-size": "Metin boyutu",
+      "name-vertical-align": "Dikey hizalama",
+      "placeholder": {
+        "auto": "Otomatik"
+      }
+    },
+    "connection": {
+      "direction-options": {
+        "label-both": "Her ikisi de",
+        "label-forward": "İleri",
+        "label-none": "Yok",
+        "label-reverse": "Geri döndür"
+      }
+    },
+    "description-experimental-types": "Deneysel öge türlerinin seçimini etkinleştir",
+    "description-inline-editing": "Paneli doğrudan düzenlemeyi etkinleştir",
+    "description-pan-zoom": "Kaydırma ve yakınlaştırmayı etkinleştir",
+    "drone-front-item": {
+      "category-drone-front": "Ön Drone",
+      "name-roll-angle": "Yuvarlanma Açısı"
+    },
+    "drone-side-item": {
+      "category-drone-side": "Yan Drone",
+      "name-pitch-angle": "Eğim Açısı"
+    },
+    "drone-top-item": {
+      "category-drone-top": "Üst Drone",
+      "name-back-left-rotor-rpm": "Sol Arka Rotor Devir Hızı",
+      "name-back-right-rotor-rpm": "Sağ Arka Rotor Devir Hızı",
+      "name-front-left-rotor-rpm": "Sol Ön Rotor Devir Hızı",
+      "name-front-right-rotor-rpm": "Sağ Ön Rotor Devir Hızı",
+      "name-yaw-angle": "Sapma Açısı"
+    },
+    "element-editor": {
+      "category-layout": "Düzen",
+      "description-unsupported": "Seçilen öge tipi mevcut ayarlar tarafından desteklenmiyor. Lütfen gelişmiş öge türlerini etkinleştirin.",
+      "name-quick-placement": "Hızlı yerleştirme"
+    },
+    "ellipse-item": {
+      "category-ellipse": "Elips",
+      "label": {
+        "bottom": "Alt",
+        "center": "Merkez",
+        "left": "Sol",
+        "middle": "Orta",
+        "right": "Sağ",
+        "top": "Üst"
+      },
+      "name-align-text": "Metni hizala",
+      "name-text": "Metin",
+      "name-text-color": "Metin rengi",
+      "name-text-size": "Metin boyutu",
+      "name-vertical-align": "Dikey hizalama",
+      "placeholder": {
+        "auto": "Otomatik"
+      }
+    },
+    "icon-item": {
+      "category-icon": "Simge",
+      "name-fill-color": "Dolgu rengi",
+      "name-svg-path": "SVG Yolu"
+    },
+    "inline-edit": {
+      "canvas-inline-editor": "Tuval Satır İçi Düzenleyici",
+      "tooltip-close-inline-editor": "Satır içi düzenleyiciyi kapat"
+    },
+    "inline-edit-body": {
+      "category-selected-element": "Seçilen öge ({{element}})",
+      "label-add-item": "Öge ekle",
+      "please-select-an-element": "Lütfen bir bileşen seçin"
+    },
+    "label-actions": "İşlemler",
+    "label-color": "Renk",
+    "label-direction": "Yön",
+    "label-image": "Görsel",
+    "label-image-size": "Resim boyutu",
+    "label-line-style": "Çizgi stili",
+    "label-links": "Bağlantılar",
+    "label-radius": "Çap",
+    "label-size": "Boyut",
+    "label-width": "Genişlik",
+    "layer-editor": {
+      "category-layer": "Katman",
+      "category-layout": "Düzen",
+      "name-constraints": "Kısıtlamalar",
+      "name-elements": "Ögeler"
+    },
+    "line-style-editor": {
+      "label-animate": "Animasyon"
+    },
+    "line-style-options": {
+      "label-solid": "Katı"
+    },
+    "metric-value-item": {
+      "label": {
+        "bottom": "Alt",
+        "center": "Merkez",
+        "left": "Sol",
+        "middle": "Orta",
+        "right": "Sağ",
+        "top": "Üst"
+      },
+      "placeholder": {
+        "auto": "Otomatik"
+      }
+    },
+    "name-align-text": "Metni hizala",
+    "name-color": "Metin rengi",
+    "name-experimental-types": "Deneysel öge türleri",
+    "name-inline-editing": "Satır içi düzenleme",
+    "name-pan-zoom": "Kaydırma ve yakınlaştırma",
+    "name-text": "Metin",
+    "name-text-size": "Metin boyutu",
+    "name-vertical-align": "Dikey hizalama",
+    "not-found-display": {
+      "not-found": "<0>Bulunamadı: </0><config />"
+    },
+    "pan-zoom-help": {
+      "ctrl-right-mouse": "CTRL + sağ fare",
+      "middle-mouse": "Orta fare",
+      "pan-title": "Kaydır:",
+      "reset-double-click": "Sıfırla: Çift tıklama",
+      "title-pan-and-zoom-controls": "Kaydırma ve yakınlaştırma kontrolleri",
+      "zoom-scroll-wheel": "Yakınlaştırma: Tekerleği kaydırma"
+    },
+    "parallelogram-item": {
+      "category-parallelogram": "Paralelkenar",
+      "label": {
+        "bottom": "Alt",
+        "center": "Merkez",
+        "left": "Sol",
+        "middle": "Orta",
+        "right": "Sağ",
+        "top": "Üst"
+      },
+      "name-align-text": "Metni hizala",
+      "name-text": "Metin",
+      "name-text-color": "Metin rengi",
+      "name-text-size": "Metin boyutu",
+      "name-vertical-align": "Dikey hizalama",
+      "placeholder": {
+        "auto": "Otomatik"
+      }
+    },
+    "params-editor": {
+      "aria-label-add": "Ekle",
+      "aria-label-delete": "Sil",
+      "placeholder-key": "Anahtar",
+      "placeholder-value": "Değer"
+    },
+    "placement-editor": {
+      "horizontal-options": {
+        "label-center": "Merkez",
+        "label-left": "Sol",
+        "label-left-and-right": "Sol ve sağ",
+        "label-right": "Sağ",
+        "label-scale": "Ölçek"
+      },
+      "label-constraints": "Kısıtlamalar",
+      "label-position": "Pozisyon",
+      "loading": "Yükleniyor...",
+      "vertical-options": {
+        "label-bottom": "Alt",
+        "label-center": "Merkez",
+        "label-scale": "Ölçek",
+        "label-top": "Üst",
+        "label-top-and-bottom": "Üst ve alt"
+      }
+    },
+    "quick-positioning": {
+      "tooltip-align-bottom": "Alta hizala",
+      "tooltip-align-horizontal-centers": "Yatay merkezleri hizala",
+      "tooltip-align-left": "Sola hizala",
+      "tooltip-align-right": "Sağa hizala",
+      "tooltip-align-top": "Üste hizala",
+      "tooltip-align-vertical-centers": "Dikey merkezleri hizala"
+    },
+    "rectangle-item": {
+      "category-rectangle": "Dikdörtgen",
+      "label": {
+        "bottom": "Alt",
+        "center": "Merkez",
+        "left": "Sol",
+        "middle": "Orta",
+        "right": "Sağ",
+        "top": "Üst"
+      },
+      "name-align-text": "Metni hizala",
+      "name-text": "Metin",
+      "name-text-color": "Metin rengi",
+      "name-text-size": "Metin boyutu",
+      "name-vertical-align": "Dikey hizalama",
+      "placeholder": {
+        "auto": "Otomatik"
+      }
+    },
+    "server-item": {
+      "category-server": "Sunucu",
+      "name-blink-rate": "Yanıp sönme hızı [hz] (0 = kapalı)",
+      "name-bulb-color": "Ampul rengi",
+      "name-status-color": "Durum rengi",
+      "name-type": "Tür",
+      "type-options": {
+        "label-database": "Veri tabanı",
+        "label-single": "Tek",
+        "label-stack": "Yığın",
+        "label-terminal": "Terminal"
+      }
+    },
+    "text-display": {
+      "double-click-to-set": "Metni ayarlamak için çift tıklayın"
+    },
+    "text-item": {
+      "category-text": "Metin",
+      "label": {
+        "bottom": "Alt",
+        "center": "Merkez",
+        "left": "Sol",
+        "middle": "Orta",
+        "right": "Sağ",
+        "top": "Üst"
+      },
+      "name-align-text": "Metni hizala",
+      "name-text": "Metin",
+      "name-text-color": "Metin rengi",
+      "name-text-size": "Metin boyutu",
+      "name-vertical-align": "Dikey hizalama",
+      "placeholder": {
+        "auto": "Otomatik"
+      }
+    },
+    "tooltip-options": {
+      "label-disable-one-click": "Tek tıklamalı ögeler için devre dışı bırak",
+      "name-tooltip-mode": "Araç ipucu modu",
+      "tooltip-mode-options": {
+        "label-disabled": "Devre dışı",
+        "label-enabled": "Etkin"
+      }
+    },
+    "tree-navigation-editor": {
+      "clear-selection": "Seçimi temizle",
+      "frame-selection": "Çerçeve seçimi",
+      "label-add-item": "Öge ekle",
+      "missing-layer": "Eksik katman mı var?",
+      "no-settings": "Ayar yok",
+      "switcher-icon": {
+        "title-node-icon": "Düğüm Simgesi"
+      }
+    },
+    "tree-node-title": {
+      "title-duplicate": "Çoğalt",
+      "title-remove": "Kaldır",
+      "tooltip-duplicate": "Çoğalt",
+      "tooltip-remove": "Kaldır"
+    },
+    "triangle-item": {
+      "category-triangle": "Üçgen",
+      "label": {
+        "bottom": "Alt",
+        "center": "Merkez",
+        "left": "Sol",
+        "middle": "Orta",
+        "right": "Sağ",
+        "top": "Üst"
+      },
+      "name-align-text": "Metni hizala",
+      "name-text": "Metin",
+      "name-text-color": "Metin rengi",
+      "name-text-size": "Metin boyutu",
+      "name-vertical-align": "Dikey hizalama",
+      "placeholder": {
+        "auto": "Otomatik"
+      }
+    },
+    "wind-turbine-item": {
+      "category-wind-turbine": "Rüzgâr Türbini",
+      "name-rpm": "RPM"
+    }
+  }
+}
