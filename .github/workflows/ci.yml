@@ -102,8 +102,6 @@ jobs:
       - name: Get plugin metadata
         id: metadata
         run: |
-          sudo apt-get install jq
-
           export GRAFANA_PLUGIN_ID=$(cat dist/plugin.json | jq -r .id)
           export GRAFANA_PLUGIN_VERSION=$(cat dist/plugin.json | jq -r .info.version)
           export GRAFANA_PLUGIN_ARTIFACT=${GRAFANA_PLUGIN_ID}-${GRAFANA_PLUGIN_VERSION}.zip
@@ -183,14 +181,14 @@ jobs:
         run: |
           chmod +x ./dist/gpx_*
 
+      # Node is only needed to run the `e2e` npm script, which shells out to
+      # docker compose. The Playwright tests (and their deps/browsers) run
+      # entirely inside the container from e2e/Dockerfile.playwright, so no
+      # host-side `npm ci` or `playwright install` is required.
       - name: Setup Node.js environment
         uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
           node-version: '24'
-          cache: 'npm'
-
-      - name: Install dev dependencies
-        run: npm ci
 
       - name: Start Grafana
         run: |
@@ -201,9 +199,6 @@ jobs:
         uses: grafana/plugin-actions/wait-for-grafana@4205a0824a13b71fdb9b9b49f28f5f72b754f81f # wait-for-grafana/v1.0.5
         with:
           url: http://localhost:3000/login
-
-      - name: Install Playwright Browsers
-        run: npm exec playwright install chromium --with-deps
 
       - name: Run Playwright tests
         id: run-tests
