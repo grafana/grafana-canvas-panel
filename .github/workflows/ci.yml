@@ -40,6 +40,19 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
+      - name: Verify Playwright container version is in sync
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').devDependencies['@playwright/test']")
+          DOCKERFILE_VERSION=$(sed -n 's/^ARG PLAYWRIGHT_VERSION=//p' e2e/Dockerfile.playwright | head -1)
+          COMPOSE_VERSION=$(sed -n 's/.*PLAYWRIGHT_VERSION:-\([0-9.]*\)}.*/\1/p' docker-compose.yaml | head -1)
+          echo "package.json:      $PKG_VERSION"
+          echo "Dockerfile ARG:    $DOCKERFILE_VERSION"
+          echo "compose default:   $COMPOSE_VERSION"
+          if [ "$PKG_VERSION" != "$DOCKERFILE_VERSION" ] || [ "$PKG_VERSION" != "$COMPOSE_VERSION" ]; then
+            echo "::error::Playwright version mismatch. Update the PLAYWRIGHT_VERSION fallback defaults in e2e/Dockerfile.playwright and docker-compose.yaml to match @playwright/test in package.json ($PKG_VERSION)."
+            exit 1
+          fi
+
       - name: Install dependencies
         run: npm ci
 
