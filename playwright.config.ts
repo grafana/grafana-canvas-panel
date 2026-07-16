@@ -24,7 +24,11 @@ export default defineConfig<PluginOptions>({
   /* Single worker to avoid concurrent new-dashboard navigation crashes in Docker */
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  /* In CI, stream readable per-test output (list) and GitHub annotations,
+   * plus a self-contained HTML report uploaded as a CI artifact. */
+  reporter: process.env.CI
+    ? [['list'], ['github'], ['html', { open: 'never' }]]
+    : 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
