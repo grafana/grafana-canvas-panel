@@ -9,6 +9,9 @@ on:
 # `contents: read and write`
 # `pull requests: read and write`
 # `workflows: read and write`
+# (the PR is created with GH_PAT_TOKEN below, so GITHUB_TOKEN stays minimal)
+
+permissions: {}
 
 jobs:
   release:
