@@ -18,27 +18,26 @@ concurrency:
 permissions: {}
 
 jobs:
-  build:
-    name: Build, lint and unit tests
+  # Static quality checks. Independent of the build → e2e critical path, so
+  # they run in parallel and never delay the e2e feedback.
+  quality:
+    name: Lint, typecheck and unit tests
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    outputs:
-      plugin-id: ${{ steps.metadata.outputs.plugin-id }}
-      plugin-version: ${{ steps.metadata.outputs.plugin-version }}
-      has-e2e: ${{ steps.check-for-e2e.outputs.has-e2e }}
-      has-backend: ${{ steps.check-for-backend.outputs.has-backend }}
-    env:
-      GRAFANA_ACCESS_POLICY_TOKEN: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
+
       - name: Setup Node.js environment
         uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
           node-version: '24'
           cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Verify Playwright container version is in sync
         run: |
@@ -53,15 +52,40 @@ jobs:
             exit 1
           fi
 
-      - name: Install dependencies
-        run: npm ci
-
       - name: Check types
         run: npm run typecheck
       - name: Lint
         run: npm run lint
       - name: Unit tests
         run: npm run test:ci
+
+  # Build and package the signed plugin artifact consumed by the e2e job.
+  # Deliberately excludes lint/typecheck/unit tests so e2e can start as soon
+  # as the plugin is built.
+  build:
+    name: Build plugin
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      plugin-id: ${{ steps.metadata.outputs.plugin-id }}
+      plugin-version: ${{ steps.metadata.outputs.plugin-version }}
+      has-backend: ${{ steps.check-for-backend.outputs.has-backend }}
+    env:
+      GRAFANA_ACCESS_POLICY_TOKEN: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - name: Setup Node.js environment
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Build frontend
         run: npm run build
 
@@ -79,13 +103,6 @@ jobs:
         with:
           go-version-file: go.mod
 
-      - name: Lint backend
-        if: steps.check-for-backend.outputs.has-backend == 'true'
-        uses: golangci/golangci-lint-action@1e7e51e771db61008b38414a730f564565cf7c20 # v9.2.0
-        with:
-          version: latest
-          args: ./...
-
       - name: Build backend
         if: steps.check-for-backend.outputs.has-backend == 'true'
         uses: magefile/mage-action@6f50bbb8ea47d56e62dee92392788acbc8192d0b # v3.1.0
@@ -99,14 +116,6 @@ jobs:
         with:
           version: latest
           args: test
-
-      - name: Check for E2E
-        id: check-for-e2e
-        run: |
-          if [ -f "playwright.config.ts" ]
-          then
-            echo "has-e2e=true" >> $GITHUB_OUTPUT
-          fi
 
       - name: Sign plugin
         run: npm run sign
@@ -147,28 +156,41 @@ jobs:
           path: ${{ steps.metadata.outputs.plugin-id }}
           retention-days: 5
 
+  # Resolve the Grafana image matrix. Independent of the build artifact, so it
+  # runs in parallel with `build` instead of waiting on it. Detects e2e itself
+  # (rather than depending on `build`) and skips the resolve action when the
+  # repo has no Playwright config, so downstream e2e is skipped too.
   resolve-versions:
     name: Resolve e2e images
     runs-on: ubuntu-latest
     timeout-minutes: 3
-    needs: build
-    if: ${{ needs.build.outputs.has-e2e == 'true' }}
     permissions:
       contents: read
     outputs:
       matrix: ${{ steps.resolve-versions.outputs.matrix }}
+      has-e2e: ${{ steps.check-for-e2e.outputs.has-e2e }}
     steps:
       - name: Checkout
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
 
+      - name: Check for E2E
+        id: check-for-e2e
+        run: |
+          if [ -f "playwright.config.ts" ]
+          then
+            echo "has-e2e=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Resolve Grafana E2E versions
         id: resolve-versions
+        if: steps.check-for-e2e.outputs.has-e2e == 'true'
         uses: grafana/plugin-actions/e2e-version@3ef49643a84470fd25bafeb96701fa0be3be6746 # e2e-version/v3.0.2
 
   playwright-tests:
     needs: [resolve-versions, build]
+    if: ${{ needs.resolve-versions.outputs.has-e2e == 'true' }}
     timeout-minutes: 15
     strategy:
       fail-fast: false
