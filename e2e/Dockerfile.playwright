@@ -1,7 +1,12 @@
-FROM mcr.microsoft.com/playwright:v1.56.1-noble
+# PLAYWRIGHT_VERSION is passed in from docker-compose and defaults to the
+# version pinned as @playwright/test in package.json (single source of truth).
+ARG PLAYWRIGHT_VERSION=1.56.1
+FROM mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble
 
 WORKDIR /app
 
-RUN npm install "@playwright/test@1.56.1" "@grafana/plugin-e2e"
+# Re-declare after FROM so the build arg is available to RUN.
+ARG PLAYWRIGHT_VERSION
+RUN npm install "@playwright/test@${PLAYWRIGHT_VERSION}" "@grafana/plugin-e2e"
 
 CMD ["sh", "-c", "npx playwright test -c playwright.config.ts ${PW_REPORTER:+--reporter=$PW_REPORTER} ${PW_WORKERS:+--workers=$PW_WORKERS}"]

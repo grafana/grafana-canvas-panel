@@ -13,7 +13,7 @@
     "lint": "eslint --cache .",
     "spellcheck": "cspell .",
     "lint:fix": "npm run lint -- --fix && prettier --write --list-different .",
-    "e2e": "docker compose --profile playwright run --rm playwright",
+    "e2e": "PLAYWRIGHT_VERSION=$(node -p \"require('./package.json').devDependencies['@playwright/test']\") docker compose --profile playwright run --rm playwright",
     "e2e:ui": "npx playwright test --ui",
     "server": "docker compose up --build",
     "sign": "sign-plugin"
