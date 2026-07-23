@@ -38,20 +38,23 @@ test.describe('Canvas Panel - Icon Mappings', () => {
       });
     });
 
+    const visibleSvgs = page.locator('[data-testid="data-testid panel content"] svg:not([aria-hidden="true"])');
+
     await test.step('Navigate to dashboard and wait for SVGs to load', async () => {
       await gotoDashboardPage({ uid: DASHBOARD_UID });
-      await page.waitForSelector('svg:not([aria-hidden="true"])', { timeout: 10000 });
-      await page.waitForLoadState('networkidle', { timeout: 10000 });
+      // Wait for the 5th icon (3 mapped + 2 fixed) to render. This web-first
+      // assertion auto-retries, so it deterministically waits for the icons to
+      // load. Avoid page.waitForLoadState('networkidle') — Grafana has
+      // continuous background traffic, so it never settles and flakes.
+      await expect(visibleSvgs.nth(4)).toBeVisible({ timeout: 15000 });
     });
 
     await test.step('Verify at least 5 visible SVG icons are rendered (3 mapped + 2 fixed)', async () => {
-      const visibleSvgs = page.locator('[data-testid="data-testid panel content"] svg:not([aria-hidden="true"])');
       const svgCount = await visibleSvgs.count();
       expect(svgCount).toBeGreaterThanOrEqual(5);
     });
 
     await test.step('Verify visible SVG icons have content', async () => {
-      const visibleSvgs = page.locator('[data-testid="data-testid panel content"] svg:not([aria-hidden="true"])');
       const count = await visibleSvgs.count();
 
       for (let i = 0; i < Math.min(count, 5); i++) {

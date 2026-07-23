@@ -402,7 +402,7 @@ export const ConnectionSVG = ({ setLineRef, setVertexPathRef, setVertexRef, setC
               {vertices?.length ? (
                 // Render path with vertices
                 <g>
-                  {/* heighlight line */}
+                  {/* highlight line */}
                   <path
                     id={`${CONNECTION_LINE_ID}_transparent`}
                     d={pathString}
@@ -478,7 +478,7 @@ export const ConnectionSVG = ({ setLineRef, setVertexPathRef, setVertexRef, setC
               ) : (
                 // Render line without vertices
                 <g>
-                  {/* heighlight line */}
+                  {/* highlight line */}
                   <line
                     id={`${CONNECTION_LINE_ID}_transparent`}
                     cursor={connectionCursorStyle}

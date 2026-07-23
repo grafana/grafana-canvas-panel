@@ -9,6 +9,9 @@ on:
 # `contents: read and write`
 # `pull requests: read and write`
 # `workflows: read and write`
+# (the PR is created with GH_PAT_TOKEN below, so GITHUB_TOKEN stays minimal)
+
+permissions: {}
 
 jobs:
   release:
@@ -16,7 +19,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: grafana/plugin-actions/create-plugin-update@create-plugin-update/v2.0.1
+      - uses: grafana/plugin-actions/create-plugin-update@b82357e85d512c678416146ca4e9f8672bd108da # create-plugin-update/v2.0.2
         with:
           # Make sure to save the token in your repository secrets as `GH_PAT_TOKEN`
           token: ${{ secrets.GH_PAT_TOKEN }}

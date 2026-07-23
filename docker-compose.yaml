@@ -11,6 +11,9 @@ services:
     build:
       dockerfile: ./e2e/Dockerfile.playwright
       context: .
+      args:
+        # Kept in sync with @playwright/test in package.json via the e2e npm script.
+        PLAYWRIGHT_VERSION: ${PLAYWRIGHT_VERSION:-1.56.1}
     volumes:
       - ./provisioning:/app/provisioning
       - ./e2e:/app/e2e

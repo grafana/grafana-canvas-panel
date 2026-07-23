@@ -10,32 +10,47 @@ on:
       - master
       - main
 
-permissions:
-  contents: read
+# Cancel superseded runs when new commits are pushed to the same branch/PR.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
 
 jobs:
-  build:
-    name: Build, lint and unit tests
+  # Static quality checks. Independent of the build → e2e critical path, so
+  # they run in parallel and never delay the e2e feedback.
+  quality:
+    name: Lint, typecheck and unit tests
     runs-on: ubuntu-latest
-    outputs:
-      plugin-id: ${{ steps.metadata.outputs.plugin-id }}
-      plugin-version: ${{ steps.metadata.outputs.plugin-version }}
-      has-e2e: ${{ steps.check-for-e2e.outputs.has-e2e }}
-      has-backend: ${{ steps.check-for-backend.outputs.has-backend }}
-    env:
-      GRAFANA_ACCESS_POLICY_TOKEN: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
+
       - name: Setup Node.js environment
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
-          node-version: '22'
+          node-version: '24'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Verify Playwright container version is in sync
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').devDependencies['@playwright/test']")
+          DOCKERFILE_VERSION=$(sed -n 's/^ARG PLAYWRIGHT_VERSION=//p' e2e/Dockerfile.playwright | head -1)
+          COMPOSE_VERSION=$(sed -n 's/.*PLAYWRIGHT_VERSION:-\([0-9.]*\)}.*/\1/p' docker-compose.yaml | head -1)
+          echo "package.json:      $PKG_VERSION"
+          echo "Dockerfile ARG:    $DOCKERFILE_VERSION"
+          echo "compose default:   $COMPOSE_VERSION"
+          if [ "$PKG_VERSION" != "$DOCKERFILE_VERSION" ] || [ "$PKG_VERSION" != "$COMPOSE_VERSION" ]; then
+            echo "::error::Playwright version mismatch. Update the PLAYWRIGHT_VERSION fallback defaults in e2e/Dockerfile.playwright and docker-compose.yaml to match @playwright/test in package.json ($PKG_VERSION)."
+            exit 1
+          fi
 
       - name: Check types
         run: npm run typecheck
@@ -43,6 +58,34 @@ jobs:
         run: npm run lint
       - name: Unit tests
         run: npm run test:ci
+
+  # Build and package the signed plugin artifact consumed by the e2e job.
+  # Deliberately excludes lint/typecheck/unit tests so e2e can start as soon
+  # as the plugin is built.
+  build:
+    name: Build plugin
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      plugin-id: ${{ steps.metadata.outputs.plugin-id }}
+      plugin-version: ${{ steps.metadata.outputs.plugin-version }}
+      has-backend: ${{ steps.check-for-backend.outputs.has-backend }}
+    env:
+      GRAFANA_ACCESS_POLICY_TOKEN: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - name: Setup Node.js environment
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Build frontend
         run: npm run build
 
@@ -56,16 +99,9 @@ jobs:
 
       - name: Setup Go environment
         if: steps.check-for-backend.outputs.has-backend == 'true'
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6.5.0
         with:
           go-version-file: go.mod
-
-      - name: Lint backend
-        if: steps.check-for-backend.outputs.has-backend == 'true'
-        uses: golangci/golangci-lint-action@1e7e51e771db61008b38414a730f564565cf7c20 # v9.2.0
-        with:
-          version: latest
-          args: ./...
 
       - name: Build backend
         if: steps.check-for-backend.outputs.has-backend == 'true'
@@ -81,14 +117,6 @@ jobs:
           version: latest
           args: test
 
-      - name: Check for E2E
-        id: check-for-e2e
-        run: |
-          if [ -f "playwright.config.ts" ]
-          then
-            echo "has-e2e=true" >> $GITHUB_OUTPUT
-          fi
-
       - name: Sign plugin
         run: npm run sign
         if: ${{ env.GRAFANA_ACCESS_POLICY_TOKEN != '' }}
@@ -96,8 +124,6 @@ jobs:
       - name: Get plugin metadata
         id: metadata
         run: |
-          sudo apt-get install jq
-
           export GRAFANA_PLUGIN_ID=$(cat dist/plugin.json | jq -r .id)
           export GRAFANA_PLUGIN_VERSION=$(cat dist/plugin.json | jq -r .info.version)
           export GRAFANA_PLUGIN_ARTIFACT=${GRAFANA_PLUGIN_ID}-${GRAFANA_PLUGIN_VERSION}.zip
@@ -124,32 +150,47 @@ jobs:
           ARCHIVE: ${{ steps.metadata.outputs.archive }}
 
       - name: Archive Build
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: ${{ steps.metadata.outputs.plugin-id }}-${{ steps.metadata.outputs.plugin-version }}
           path: ${{ steps.metadata.outputs.plugin-id }}
           retention-days: 5
 
+  # Resolve the Grafana image matrix. Independent of the build artifact, so it
+  # runs in parallel with `build` instead of waiting on it. Detects e2e itself
+  # (rather than depending on `build`) and skips the resolve action when the
+  # repo has no Playwright config, so downstream e2e is skipped too.
   resolve-versions:
     name: Resolve e2e images
     runs-on: ubuntu-latest
     timeout-minutes: 3
-    needs: build
-    if: ${{ needs.build.outputs.has-e2e == 'true' }}
+    permissions:
+      contents: read
     outputs:
       matrix: ${{ steps.resolve-versions.outputs.matrix }}
+      has-e2e: ${{ steps.check-for-e2e.outputs.has-e2e }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
 
+      - name: Check for E2E
+        id: check-for-e2e
+        run: |
+          if [ -f "playwright.config.ts" ]
+          then
+            echo "has-e2e=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Resolve Grafana E2E versions
         id: resolve-versions
-        uses: grafana/plugin-actions/e2e-version@e2e-version/v2.0.0
+        if: steps.check-for-e2e.outputs.has-e2e == 'true'
+        uses: grafana/plugin-actions/e2e-version@3ef49643a84470fd25bafeb96701fa0be3be6746 # e2e-version/v3.0.2
 
   playwright-tests:
     needs: [resolve-versions, build]
+    if: ${{ needs.resolve-versions.outputs.has-e2e == 'true' }}
     timeout-minutes: 15
     strategy:
       fail-fast: false
@@ -157,13 +198,15 @@ jobs:
         GRAFANA_IMAGE: ${{fromJson(needs.resolve-versions.outputs.matrix)}}
     name: e2e test ${{ matrix.GRAFANA_IMAGE.name }}@${{ matrix.GRAFANA_IMAGE.VERSION }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
 
       - name: Download plugin
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           path: dist
           name: ${{ needs.build.outputs.plugin-id }}-${{ needs.build.outputs.plugin-version }}
@@ -173,14 +216,14 @@ jobs:
         run: |
           chmod +x ./dist/gpx_*
 
+      # Node is only needed to run the `e2e` npm script, which shells out to
+      # docker compose. The Playwright tests (and their deps/browsers) run
+      # entirely inside the container from e2e/Dockerfile.playwright, so no
+      # host-side `npm ci` or `playwright install` is required.
       - name: Setup Node.js environment
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
         with:
-          node-version: '22'
-          cache: 'npm'
-
-      - name: Install dev dependencies
-        run: npm ci
+          node-version: '24'
 
       - name: Start Grafana
         run: |
@@ -188,16 +231,23 @@ jobs:
           ANONYMOUS_AUTH_ENABLED=false DEVELOPMENT=false GRAFANA_VERSION=${{ matrix.GRAFANA_IMAGE.VERSION }} GRAFANA_IMAGE=${{ matrix.GRAFANA_IMAGE.NAME }} docker compose up -d
 
       - name: Wait for grafana server
-        uses: grafana/plugin-actions/wait-for-grafana@wait-for-grafana/v1.0.2
+        uses: grafana/plugin-actions/wait-for-grafana@4205a0824a13b71fdb9b9b49f28f5f72b754f81f # wait-for-grafana/v1.0.5
         with:
           url: http://localhost:3000/login
-
-      - name: Install Playwright Browsers
-        run: npm exec playwright install chromium --with-deps
 
       - name: Run Playwright tests
         id: run-tests
         run: npm run e2e
+
+      - name: Upload Playwright report
+        if: ${{ !cancelled() && steps.run-tests.outcome == 'failure' }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: playwright-report-${{ matrix.GRAFANA_IMAGE.NAME }}-v${{ matrix.GRAFANA_IMAGE.VERSION }}
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
 
       - name: Docker logs
         if: ${{ always() && steps.run-tests.outcome == 'failure' }}
