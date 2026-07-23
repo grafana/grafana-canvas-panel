@@ -93,7 +93,7 @@
     "react-draggable": "4.5.0",
     "react-inlinesvg": "4.3.0",
     "react-moveable": "0.56.0",
-    "react-resizable": "3.0.5",
+    "react-resizable": "3.2.0",
     "react-virtualized-auto-sizer": "1.0.26",
     "react-window": "1.8.11",
     "selecto": "1.26.3"
