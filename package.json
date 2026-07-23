@@ -36,7 +36,7 @@
     "@types/node": "24.13.3",
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",
-    "@types/react-resizable": "3.0.8",
+    "@types/react-resizable": "4.0.0",
     "@types/react-window": "1.8.8",
     "@typescript-eslint/eslint-plugin": "8.64.0",
     "@typescript-eslint/parser": "8.64.0",
@@ -93,7 +93,7 @@
     "react-draggable": "4.5.0",
     "react-inlinesvg": "4.3.0",
     "react-moveable": "0.56.0",
-    "react-resizable": "3.0.5",
+    "react-resizable": "4.0.2",
     "react-virtualized-auto-sizer": "1.0.26",
     "react-window": "1.8.11",
     "selecto": "1.26.3"
