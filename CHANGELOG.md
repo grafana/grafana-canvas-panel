@@ -1,5 +1,5 @@
 # Changelog
 
-## 13.2.0 (Unreleased)
+## [13.2.0]
 
-Initial release.
+Initial release for externalized panel.
