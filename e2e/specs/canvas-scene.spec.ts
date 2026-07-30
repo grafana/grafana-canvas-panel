@@ -53,25 +53,32 @@ test.describe('Canvas Panel - Scene Tests', () => {
     await page.mouse.down({ button: 'middle' });
     await page.mouse.move(endX, endY);
     await page.mouse.up({ button: 'middle' });
-    expect(await isOutsideViewport(canvasElement, canvasSceneWrapper)).toBe(true);
+    await expect.poll(() => isOutsideViewport(canvasElement, canvasSceneWrapper)).toBe(true);
 
     // Test zoom reset with double-click
     await page.mouse.dblclick(startX, startY);
     // Verify canvas element is visible after pan/zoom operations
-    expect(await isOutsideViewport(canvasElement, canvasSceneWrapper)).toBe(false);
+    await expect.poll(() => isOutsideViewport(canvasElement, canvasSceneWrapper)).toBe(false);
 
-    // Test zoom functionality
-    await page.mouse.move(startX, startY);
+    // Test zoom functionality.
+    // Anchor the zoom near the viewer's corner (rather than startX/startY used for
+    // panning) so the fixed-point zoom transform (newPos = anchor + (oldPos - anchor)
+    // * scale) translates the element far enough to guarantee it lands fully outside
+    // the wrapper, regardless of the exact zoom scale factor a given Grafana version applies.
+    const zoomAnchorX = viewerBounds!.x + 20;
+    const zoomAnchorY = viewerBounds!.y + 20;
+    await page.mouse.move(zoomAnchorX, zoomAnchorY);
     await page.keyboard.down('Control');
     await page.mouse.wheel(0, -400); // Zoom in
     await page.keyboard.up('Control');
     // Check if canvas element is not visible after zoom operations
-    expect(await isOutsideViewport(canvasElement, canvasSceneWrapper)).toBe(true);
+    // Zoom transform applies asynchronously, so poll instead of checking immediately
+    await expect.poll(() => isOutsideViewport(canvasElement, canvasSceneWrapper)).toBe(true);
 
     // Test zoom reset with double-click
-    await page.mouse.dblclick(startX, startY);
+    await page.mouse.dblclick(zoomAnchorX, zoomAnchorY);
     // Verify canvas element is visible after pan/zoom operations
-    expect(await isOutsideViewport(canvasElement, canvasSceneWrapper)).toBe(false);
+    await expect.poll(() => isOutsideViewport(canvasElement, canvasSceneWrapper)).toBe(false);
   });
 });
 
