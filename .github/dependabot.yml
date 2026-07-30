@@ -14,6 +14,11 @@ updates:
     commit-message:
       prefix: 'chore'
       include: 'scope'
+    # Major bumps often need manual migration work; require them to be opened by hand.
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-major'
     groups:
       unit-test:
         patterns:
@@ -50,3 +55,8 @@ updates:
     commit-message:
       prefix: 'chore(ci)'
     open-pull-requests-limit: 5
+    # Major bumps often need manual migration work; require them to be opened by hand.
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-major'
