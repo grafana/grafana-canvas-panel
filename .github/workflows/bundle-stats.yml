@@ -19,6 +19,7 @@ permissions: {}
 jobs:
   compare:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: read # checkout
       pull-requests: write # post bundle-size comment
