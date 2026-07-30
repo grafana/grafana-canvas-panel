@@ -1,6 +1,6 @@
 # PLAYWRIGHT_VERSION is passed in from docker-compose and defaults to the
 # version pinned as @playwright/test in package.json (single source of truth).
-ARG PLAYWRIGHT_VERSION=1.56.1
+ARG PLAYWRIGHT_VERSION=1.62.0
 FROM mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble
 
 WORKDIR /app
