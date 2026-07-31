@@ -1,0 +1,195 @@
+{
+  "uid": "canvas-showcase-fleet",
+  "title": "Canvas showcase - Turbine and drone fleet monitor",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "refresh": "",
+  "time": { "from": "now-6h", "to": "now" },
+  "panels": [
+    {
+      "type": "canvas",
+      "id": 1,
+      "gridPos": { "h": 12, "w": 14, "x": 0, "y": 0 },
+      "title": "",
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+          "refId": "A",
+          "scenarioId": "csv_content",
+          "csvContent": "turbine1_rpm,turbine2_rpm,drone_roll,drone_battery\n18,2,25,76"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [{ "color": "text", "value": null }]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "turbine1_rpm" },
+            "properties": [
+              { "id": "unit", "value": "rotrpm" },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    { "color": "red", "value": null },
+                    { "color": "green", "value": 10 }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "turbine2_rpm" },
+            "properties": [
+              { "id": "unit", "value": "rotrpm" },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    { "color": "red", "value": null },
+                    { "color": "green", "value": 10 }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "drone_battery" },
+            "properties": [
+              { "id": "unit", "value": "percent" },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    { "color": "red", "value": null },
+                    { "color": "green", "value": 20 }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "inlineEditing": false,
+        "root": {
+          "type": "frame",
+          "name": "Canvas Root",
+          "placement": { "top": 0, "left": 0, "width": 100, "height": 100 },
+          "constraint": { "horizontal": "left", "vertical": "top" },
+          "background": { "color": { "fixed": "transparent" } },
+          "elements": [
+            {
+              "type": "windTurbine",
+              "name": "Turbine 1",
+              "placement": { "top": 10, "left": 30, "width": 90, "height": 140 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": { "rpm": { "field": "turbine1_rpm", "fixed": 10 } }
+            },
+            {
+              "type": "text",
+              "name": "Turbine 1 label",
+              "placement": { "top": 155, "left": 10, "width": 130, "height": 24 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": {
+                "text": { "fixed": "Turbine 1", "mode": "fixed" },
+                "color": { "fixed": "text" },
+                "size": 13,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "Turbine 1 rpm",
+              "placement": { "top": 180, "left": 10, "width": 130, "height": 30 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": {
+                "text": { "field": "turbine1_rpm", "mode": "field" },
+                "color": { "field": "turbine1_rpm", "fixed": "text" },
+                "size": 16,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "windTurbine",
+              "name": "Turbine 2",
+              "placement": { "top": 10, "left": 210, "width": 90, "height": 140 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": { "rpm": { "field": "turbine2_rpm", "fixed": 10 } }
+            },
+            {
+              "type": "text",
+              "name": "Turbine 2 label",
+              "placement": { "top": 155, "left": 190, "width": 130, "height": 24 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": {
+                "text": { "fixed": "Turbine 2", "mode": "fixed" },
+                "color": { "fixed": "text" },
+                "size": 13,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "Turbine 2 rpm",
+              "placement": { "top": 180, "left": 190, "width": 130, "height": 30 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": {
+                "text": { "field": "turbine2_rpm", "mode": "field" },
+                "color": { "field": "turbine2_rpm", "fixed": "text" },
+                "size": 16,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "droneTop",
+              "name": "Drone 1",
+              "placement": { "top": 20, "left": 410, "width": 110, "height": 110 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": { "rollAngle": { "field": "drone_roll", "fixed": 0 } }
+            },
+            {
+              "type": "text",
+              "name": "Drone 1 label",
+              "placement": { "top": 155, "left": 380, "width": 170, "height": 24 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": {
+                "text": { "fixed": "Drone 1", "mode": "fixed" },
+                "color": { "fixed": "text" },
+                "size": 13,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "Drone 1 battery",
+              "placement": { "top": 180, "left": 380, "width": 170, "height": 30 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": {
+                "text": { "field": "drone_battery", "mode": "field" },
+                "color": { "field": "drone_battery", "fixed": "text" },
+                "size": 16,
+                "align": "center",
+                "valign": "middle"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
