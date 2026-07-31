@@ -3,11 +3,13 @@
   "type": "panel",
   "name": "Canvas External",
   "id": "grafana-canvas-panel",
+  "suggestions": true,
   "info": {
     "keywords": ["canvas", "drawing"],
     "description": "Draw pictures with the Canvas visualization panel plugin, then paint by numbers with your Grafana metrics data!",
     "author": {
-      "name": "Grafana"
+      "name": "Grafana",
+      "url": "https://grafana.com"
     },
     "logos": {
       "small": "img/logo.svg",
@@ -15,16 +17,50 @@
     },
     "links": [
       {
+        "name": "Documentation",
+        "url": "https://grafana.com/docs/grafana/latest/visualizations/panels-visualizations/visualizations/canvas/"
+      },
+      {
         "name": "Repository",
         "url": "https://github.com/grafana/grafana-canvas-panel"
+      },
+      {
+        "name": "Examples",
+        "url": "https://github.com/grafana/grafana-canvas-panel/tree/main/provisioning/dashboards"
       }
     ],
-    "screenshots": [],
+    "screenshots": [
+      { "name": "Service status board", "path": "img/screenshots/status-board.png" },
+      { "name": "Floor plan sensor overlay", "path": "img/screenshots/floorplan.png" },
+      { "name": "Turbine and drone fleet monitor", "path": "img/screenshots/fleet-monitor.png" },
+      { "name": "Interactive action buttons", "path": "img/screenshots/action-buttons.png" }
+    ],
     "version": "%VERSION%",
     "updated": "%TODAY%"
   },
   "dependencies": {
     "grafanaDependency": ">=13.2.0",
     "plugins": []
-  }
+  },
+  "languages": [
+    "en-US",
+    "cs-CZ",
+    "de-DE",
+    "es-ES",
+    "fr-FR",
+    "hu-HU",
+    "id-ID",
+    "it-IT",
+    "ja-JP",
+    "ko-KR",
+    "nl-NL",
+    "pl-PL",
+    "pt-BR",
+    "pt-PT",
+    "ru-RU",
+    "sv-SE",
+    "tr-TR",
+    "zh-Hans",
+    "zh-Hant"
+  ]
 }

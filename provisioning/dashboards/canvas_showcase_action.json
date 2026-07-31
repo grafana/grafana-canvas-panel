@@ -1,0 +1,88 @@
+{
+  "uid": "canvas-showcase-action",
+  "title": "Canvas showcase - Interactive action button",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "refresh": "",
+  "time": { "from": "now-6h", "to": "now" },
+  "panels": [
+    {
+      "type": "canvas",
+      "id": 1,
+      "gridPos": { "h": 8, "w": 10, "x": 0, "y": 0 },
+      "title": "",
+      "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-testdata-datasource", "uid": "trlxrdZVk" },
+          "refId": "A",
+          "scenarioId": "csv_content",
+          "csvContent": "value\n1"
+        }
+      ],
+      "options": {
+        "inlineEditing": false,
+        "root": {
+          "type": "frame",
+          "name": "Canvas Root",
+          "placement": { "top": 0, "left": 0, "width": 100, "height": 100 },
+          "constraint": { "horizontal": "left", "vertical": "top" },
+          "background": { "color": { "fixed": "transparent" } },
+          "elements": [
+            {
+              "type": "text",
+              "name": "Header",
+              "placement": { "top": 20, "left": 30, "width": 320, "height": 30 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": {
+                "text": { "fixed": "Deployment controls", "mode": "fixed" },
+                "color": { "fixed": "text" },
+                "size": 16,
+                "align": "left",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "button",
+              "name": "Restart button",
+              "placement": { "top": 65, "left": 30, "width": 170, "height": 45 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": {
+                "text": { "fixed": "Restart service", "mode": "fixed" },
+                "style": { "variant": "destructive" },
+                "api": {
+                  "endpoint": "/api/health",
+                  "method": "GET",
+                  "data": "{}",
+                  "contentType": "application/json",
+                  "queryParams": [],
+                  "headerParams": [],
+                  "successMessage": "Service restarted successfully"
+                }
+              }
+            },
+            {
+              "type": "button",
+              "name": "Scale up button",
+              "placement": { "top": 65, "left": 220, "width": 170, "height": 45 },
+              "constraint": { "horizontal": "left", "vertical": "top" },
+              "config": {
+                "text": { "fixed": "Scale up", "mode": "fixed" },
+                "style": { "variant": "primary" },
+                "api": {
+                  "endpoint": "/api/health",
+                  "method": "GET",
+                  "data": "{}",
+                  "contentType": "application/json",
+                  "queryParams": [],
+                  "headerParams": [],
+                  "successMessage": "Scaled up successfully"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

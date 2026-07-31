@@ -1,0 +1,476 @@
+{
+  "uid": "canvas-showcase-status-board",
+  "title": "Canvas showcase - Service status board",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "refresh": "",
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "type": "canvas",
+      "id": 1,
+      "gridPos": {
+        "h": 9,
+        "w": 14,
+        "x": 0,
+        "y": 0
+      },
+      "title": "",
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "trlxrdZVk"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "trlxrdZVk"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content",
+          "csvContent": "api_status,db_status,cache_status,api_latency,db_latency,cache_latency\n1,1,2,42,118,6"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "api_status"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "1": {
+                        "color": "green",
+                        "index": 0
+                      },
+                      "2": {
+                        "color": "orange",
+                        "index": 1
+                      },
+                      "3": {
+                        "color": "red",
+                        "index": 2
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "db_status"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "1": {
+                        "color": "green",
+                        "index": 0
+                      },
+                      "2": {
+                        "color": "orange",
+                        "index": 1
+                      },
+                      "3": {
+                        "color": "red",
+                        "index": 2
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cache_status"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "1": {
+                        "color": "green",
+                        "index": 0
+                      },
+                      "2": {
+                        "color": "orange",
+                        "index": 1
+                      },
+                      "3": {
+                        "color": "red",
+                        "index": 2
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "inlineEditing": false,
+        "root": {
+          "type": "frame",
+          "name": "Canvas Root",
+          "placement": {
+            "top": 0,
+            "left": 0,
+            "width": 100,
+            "height": 100
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "background": {
+            "color": {
+              "fixed": "transparent"
+            }
+          },
+          "elements": [
+            {
+              "type": "text",
+              "name": "Header",
+              "placement": {
+                "top": 20,
+                "left": 40,
+                "width": 500,
+                "height": 40
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "fixed": "Service status board",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 20,
+                "align": "left",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "server",
+              "name": "API server",
+              "placement": {
+                "top": 100,
+                "left": 60,
+                "width": 90,
+                "height": 90
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "type": "Single",
+                "statusColor": {
+                  "field": "api_status",
+                  "fixed": "green"
+                },
+                "bulbColor": {
+                  "field": "api_status",
+                  "fixed": "green"
+                }
+              },
+              "connections": [
+                {
+                  "source": {
+                    "x": 1,
+                    "y": 0
+                  },
+                  "target": {
+                    "x": -1,
+                    "y": 0
+                  },
+                  "targetName": "Database server",
+                  "path": "straight",
+                  "color": {
+                    "fixed": "green"
+                  }
+                },
+                {
+                  "source": {
+                    "x": 1,
+                    "y": 0.5
+                  },
+                  "target": {
+                    "x": -1,
+                    "y": -0.5
+                  },
+                  "targetName": "Cache server",
+                  "path": "straight",
+                  "color": {
+                    "fixed": "green"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "name": "API label",
+              "placement": {
+                "top": 195,
+                "left": 60,
+                "width": 90,
+                "height": 24
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "fixed": "API",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 13,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "API latency",
+              "placement": {
+                "top": 220,
+                "left": 60,
+                "width": 90,
+                "height": 40
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "field": "api_latency",
+                  "mode": "field"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 16,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "server",
+              "name": "Database server",
+              "placement": {
+                "top": 100,
+                "left": 260,
+                "width": 90,
+                "height": 90
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "type": "Database",
+                "statusColor": {
+                  "field": "db_status",
+                  "fixed": "green"
+                },
+                "bulbColor": {
+                  "field": "db_status",
+                  "fixed": "green"
+                }
+              },
+              "connections": [
+                {
+                  "source": {
+                    "x": 1,
+                    "y": 0
+                  },
+                  "target": {
+                    "x": -1,
+                    "y": 0
+                  },
+                  "targetName": "Cache server",
+                  "path": "straight",
+                  "color": {
+                    "fixed": "orange"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "name": "Database label",
+              "placement": {
+                "top": 195,
+                "left": 260,
+                "width": 90,
+                "height": 24
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "fixed": "Database",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 13,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "Database latency",
+              "placement": {
+                "top": 220,
+                "left": 260,
+                "width": 90,
+                "height": 40
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "field": "db_latency",
+                  "mode": "field"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 16,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "server",
+              "name": "Cache server",
+              "placement": {
+                "top": 100,
+                "left": 460,
+                "width": 90,
+                "height": 90
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "type": "Stack",
+                "statusColor": {
+                  "field": "cache_status",
+                  "fixed": "green"
+                },
+                "bulbColor": {
+                  "field": "cache_status",
+                  "fixed": "green"
+                }
+              }
+            },
+            {
+              "type": "text",
+              "name": "Cache label",
+              "placement": {
+                "top": 195,
+                "left": 460,
+                "width": 90,
+                "height": 24
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "fixed": "Cache",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 13,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "Cache latency",
+              "placement": {
+                "top": 220,
+                "left": 460,
+                "width": 90,
+                "height": 40
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "field": "cache_latency",
+                  "mode": "field"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "size": 16,
+                "align": "center",
+                "valign": "middle"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

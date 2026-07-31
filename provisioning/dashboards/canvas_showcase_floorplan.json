@@ -1,0 +1,395 @@
+{
+  "uid": "canvas-showcase-floorplan",
+  "title": "Canvas showcase - Floor plan sensor overlay",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "refresh": "",
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "type": "canvas",
+      "id": 1,
+      "gridPos": {
+        "h": 11,
+        "w": 16,
+        "x": 0,
+        "y": 0
+      },
+      "title": "",
+      "datasource": {
+        "type": "grafana-testdata-datasource",
+        "uid": "trlxrdZVk"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-testdata-datasource",
+            "uid": "trlxrdZVk"
+          },
+          "refId": "A",
+          "scenarioId": "csv_content",
+          "csvContent": "office_temp,server_temp,warehouse_temp,wifi_clients\n22,68,18,42"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "celsius",
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 30
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "wifi_clients"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "text",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "inlineEditing": false,
+        "root": {
+          "type": "frame",
+          "name": "Canvas Root",
+          "placement": {
+            "top": 0,
+            "left": 0,
+            "width": 100,
+            "height": 100
+          },
+          "constraint": {
+            "horizontal": "left",
+            "vertical": "top"
+          },
+          "background": {
+            "color": {
+              "fixed": "transparent"
+            }
+          },
+          "elements": [
+            {
+              "type": "rectangle",
+              "name": "Office room",
+              "placement": {
+                "top": 20,
+                "left": 20,
+                "width": 180,
+                "height": 180
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "background": {
+                "color": {
+                  "fixed": "#2c3235"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4c5257"
+                },
+                "width": 2
+              },
+              "config": {
+                "text": {
+                  "fixed": "Office",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 14
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "Server room",
+              "placement": {
+                "top": 20,
+                "left": 220,
+                "width": 180,
+                "height": 180
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "background": {
+                "color": {
+                  "fixed": "#2c3235"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4c5257"
+                },
+                "width": 2
+              },
+              "config": {
+                "text": {
+                  "fixed": "Server room",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 14
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "Warehouse",
+              "placement": {
+                "top": 20,
+                "left": 420,
+                "width": 180,
+                "height": 180
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "background": {
+                "color": {
+                  "fixed": "#2c3235"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4c5257"
+                },
+                "width": 2
+              },
+              "config": {
+                "text": {
+                  "fixed": "Warehouse",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "text"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 14
+              }
+            },
+            {
+              "type": "icon",
+              "name": "Office temp icon",
+              "placement": {
+                "top": 70,
+                "left": 85,
+                "width": 50,
+                "height": 50
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "path": {
+                  "fixed": "img/icons/unicons/temperature.svg",
+                  "mode": "fixed"
+                },
+                "fill": {
+                  "field": "office_temp",
+                  "fixed": "green"
+                }
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "Office temp value",
+              "placement": {
+                "top": 130,
+                "left": 20,
+                "width": 180,
+                "height": 40
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "field": "office_temp",
+                  "mode": "field"
+                },
+                "color": {
+                  "field": "office_temp",
+                  "fixed": "text"
+                },
+                "size": 18,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "icon",
+              "name": "Server temp icon",
+              "placement": {
+                "top": 70,
+                "left": 285,
+                "width": 50,
+                "height": 50
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "path": {
+                  "fixed": "img/icons/unicons/temperature.svg",
+                  "mode": "fixed"
+                },
+                "fill": {
+                  "field": "server_temp",
+                  "fixed": "red"
+                }
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "Server temp value",
+              "placement": {
+                "top": 130,
+                "left": 220,
+                "width": 180,
+                "height": 40
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "field": "server_temp",
+                  "mode": "field"
+                },
+                "color": {
+                  "field": "server_temp",
+                  "fixed": "text"
+                },
+                "size": 18,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "icon",
+              "name": "Warehouse temp icon",
+              "placement": {
+                "top": 70,
+                "left": 485,
+                "width": 50,
+                "height": 50
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "path": {
+                  "fixed": "img/icons/unicons/temperature.svg",
+                  "mode": "fixed"
+                },
+                "fill": {
+                  "field": "warehouse_temp",
+                  "fixed": "green"
+                }
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "Warehouse temp value",
+              "placement": {
+                "top": 130,
+                "left": 420,
+                "width": 180,
+                "height": 40
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "text": {
+                  "field": "warehouse_temp",
+                  "mode": "field"
+                },
+                "color": {
+                  "field": "warehouse_temp",
+                  "fixed": "text"
+                },
+                "size": 18,
+                "align": "center",
+                "valign": "middle"
+              }
+            },
+            {
+              "type": "icon",
+              "name": "Wifi icon",
+              "placement": {
+                "top": 25,
+                "left": 355,
+                "width": 30,
+                "height": 30
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "config": {
+                "path": {
+                  "fixed": "img/icons/unicons/wifi-router.svg",
+                  "mode": "fixed"
+                },
+                "fill": {
+                  "fixed": "blue"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

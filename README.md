@@ -1,12 +1,46 @@
-# Grafana panel plugin template
+# Canvas panel plugin
 
-This template is a starting point for building a panel plugin for Grafana.
+[![Marketplace](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgrafana.com%2Fapi%2Fplugins%2Fgrafana-canvas-panel&label=Marketplace&query=%24.version&prefix=v&color=orange)](https://grafana.com/grafana/plugins/grafana-canvas-panel/)
+[![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgrafana.com%2Fapi%2Fplugins%2Fgrafana-canvas-panel&label=Downloads&query=%24.downloads&color=blue)](https://grafana.com/grafana/plugins/grafana-canvas-panel/)
+[![CI](https://github.com/grafana/grafana-canvas-panel/actions/workflows/push.yml/badge.svg)](https://github.com/grafana/grafana-canvas-panel/actions/workflows/push.yml)
+[![CD](https://github.com/grafana/grafana-canvas-panel/actions/workflows/publish.yml/badge.svg)](https://github.com/grafana/grafana-canvas-panel/actions/workflows/publish.yml)
+[![License](https://img.shields.io/github/license/grafana/grafana-canvas-panel)](https://github.com/grafana/grafana-canvas-panel/blob/main/LICENSE)
 
-## What are Grafana panel plugins?
+Draw pictures with the Canvas visualization panel plugin, then paint by numbers with your
+Grafana metrics data!
 
-Panel plugins allow you to add new types of visualizations to your dashboard, such as maps, clocks, pie charts, lists, and more.
+![A Canvas panel showing three service-status nodes (API, Database, Cache) connected by lines, each with a live-bound latency value](./docs/img/canvas-showcase.png)
 
-Use panel plugins when you want to do things like visualize data returned by data source queries, navigate between dashboards, or control external systems (such as smart home devices).
+This is the Canvas panel externalized from Grafana core into its own plugin repository. See
+[`CODE_MIGRATION_PLAN.md`](./CODE_MIGRATION_PLAN.md) for background on the externalization
+effort.
+
+## Showcase
+
+| | |
+|---|---|
+| ![Floor plan with sensor icons showing office (22°C), server room (68°C, alarm), and warehouse (18°C) temperatures](./docs/img/canvas-showcase-floorplan.png) | ![Two wind turbines and a drone with live-bound RPM and battery values](./docs/img/canvas-showcase-fleet.png) |
+| Floor plan sensor overlay — rooms as shapes, live data-bound status icons | Turbine and drone fleet monitor — custom elements bound to live data |
+| ![Two styled action buttons, "Restart service" and "Scale up", that call an API on click](./docs/img/canvas-showcase-action.png) | |
+| Interactive action buttons — Canvas elements can trigger API calls, not just display data | |
+
+The provisioned dashboards behind these screenshots live under
+[`provisioning/dashboards/`](./provisioning/dashboards/) (`canvas_showcase*.json`) — run
+`npm run server` to load them locally.
+
+## Documentation
+
+- [Canvas panel docs](https://grafana.com/docs/grafana/latest/visualizations/panels-visualizations/visualizations/canvas/) — user-facing documentation on grafana.com
+  (source: [`docs/sources/.../canvas/index.md`](https://github.com/grafana/grafana/blob/main/docs/sources/visualizations/panels-visualizations/visualizations/canvas/index.md) in `grafana/grafana`)
+- [`src/README.md`](./src/README.md) — the plugin's Grafana.com Catalog-facing README
+- [`RUN_EXTERNALIZED_PLUGIN_LOCALLY.md`](./RUN_EXTERNALIZED_PLUGIN_LOCALLY.md) — how to run this
+  plugin against a local Grafana core checkout
+- [`CODE_MIGRATION_PLAN.md`](./CODE_MIGRATION_PLAN.md) — background on the Canvas-from-core
+  externalization effort
+- [`provisioning/README.md`](./provisioning/README.md) — provisioning setup notes
+- [`CHANGELOG.md`](./CHANGELOG.md) — release history
+- [`.config/AGENTS/instructions.md`](./.config/AGENTS/instructions.md) — Grafana plugin-specific
+  AI agent guidance
 
 ## Getting started
 
@@ -69,13 +103,13 @@ Use panel plugins when you want to do things like visualize data returned by dat
    npm run lint:fix
    ```
 
-# Distributing your plugin
+## Distributing your plugin
 
 When distributing a Grafana plugin either within the community or privately the plugin must be signed so the Grafana application can verify its authenticity. This can be done with the `@grafana/sign-plugin` package.
 
 _Note: It's not necessary to sign a plugin during development. The docker development environment that is scaffolded with `@grafana/create-plugin` caters for running the plugin without a signature._
 
-## Initial steps
+### Initial steps
 
 Before signing a plugin please read the Grafana [plugin publishing and signing criteria](https://grafana.com/legal/plugins/#plugin-publishing-and-signing-criteria) documentation carefully.
 
@@ -89,24 +123,11 @@ Before signing a plugin for the first time please consult the Grafana [plugin si
 3. Create a Grafana Cloud API key with the `PluginPublisher` role.
 4. Keep a record of this API key as it will be required for signing a plugin
 
-## Signing a plugin
+### Signing a plugin
 
-### Using Github actions release workflow
-
-If the plugin is using the github actions supplied with `@grafana/create-plugin` signing a plugin is included out of the box. The [release workflow](./.github/workflows/release.yml) can prepare everything to make submitting your plugin to Grafana as easy as possible. Before being able to sign the plugin however a secret needs adding to the Github repository.
-
-1. Please navigate to "settings > secrets > actions" within your repo to create secrets.
-2. Click "New repository secret"
-3. Name the secret "GRAFANA_API_KEY"
-4. Paste your Grafana Cloud API key in the Secret field
-5. Click "Add secret"
-
-#### Push a version tag
-
-To trigger the workflow we need to push a version tag to github. This can be achieved with the following steps:
-
-1. Run `npm version <major|minor|patch>`
-2. Run `git push origin main --follow-tags`
+This repo publishes via the [`publish.yml`](./.github/workflows/publish.yml) workflow (see
+[`cd.yml`](https://github.com/grafana/plugin-ci-workflows) for details), which handles signing as
+part of the CD pipeline — there's no separate manual signing step or release-tag workflow to run.
 
 ## Learn more
 
