@@ -3,6 +3,12 @@ services:
     extends:
       file: .config/docker-compose-base.yaml
       service: grafana
+    build:
+      args:
+        # Always required for e2e (login-flow tests), regardless of what the
+        # caller sets ANONYMOUS_AUTH_ENABLED/DEVELOPMENT to (or doesn't).
+        development: false
+        anonymous_auth_enabled: false
     ports:
       - '3000:3000'
 
