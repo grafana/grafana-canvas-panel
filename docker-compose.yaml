@@ -5,9 +5,9 @@ services:
       service: grafana
     build:
       args:
-        # Always required for e2e (login-flow tests), regardless of what the
-        # caller sets ANONYMOUS_AUTH_ENABLED/DEVELOPMENT to (or doesn't).
-        development: false
+        # e2e logs in as admin and edits panels, so anonymous access must be
+        # off. The reusable e2e workflow doesn't set ANONYMOUS_AUTH_ENABLED,
+        # and the base compose file defaults it to true, so pin it here.
         anonymous_auth_enabled: false
     ports:
       - '3000:3000'
