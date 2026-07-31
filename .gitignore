@@ -44,5 +44,6 @@ ci/
 
 # Editor
 .idea
+.DS_Store
 
 .eslintcache
