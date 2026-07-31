@@ -6,18 +6,16 @@
 [![CD](https://github.com/grafana/grafana-canvas-panel/actions/workflows/publish.yml/badge.svg)](https://github.com/grafana/grafana-canvas-panel/actions/workflows/publish.yml)
 [![License](https://img.shields.io/github/license/grafana/grafana-canvas-panel)](https://github.com/grafana/grafana-canvas-panel/blob/main/LICENSE)
 
-Draw pictures with the Canvas visualization panel plugin, then paint by numbers with your
-Grafana metrics data!
+Draw pictures with the Canvas visualization panel plugin, then paint by numbers with your Grafana metrics data!
 
 ## Overview
 
-Canvas is a composable panel where you place and style elements — rectangles, text, icons,
-images, and more — freely on a grid, then bind their properties (position, color, text, visibility)
-to fields from your Grafana data. It's well suited to building custom infographics, floor plans,
-network diagrams, and other visualizations that don't fit a standard chart type.
+Canvas is a composable panel where you place and style elements — rectangles, text, icons, images, and more — freely on
+a grid, then bind their properties (position, color, text, visibility) to fields from your Grafana data. It's well
+suited to building custom infographics, floor plans, network diagrams, and other visualizations that don't fit a
+standard chart type.
 
-This plugin is the externalized version of the Canvas panel that previously shipped built into
-Grafana core.
+This plugin is the externalized version of the Canvas panel that was previously built into Grafana core.
 
 ## Showcase
 
@@ -28,9 +26,8 @@ Grafana core.
 | ![Two wind turbines and a drone with live-bound RPM and battery values](https://raw.githubusercontent.com/grafana/grafana-canvas-panel/main/src/img/screenshots/fleet-monitor.png) | ![Two styled action buttons, "Restart service" and "Scale up", that call an API on click](https://raw.githubusercontent.com/grafana/grafana-canvas-panel/main/src/img/screenshots/action-buttons.png) |
 | Turbine and drone fleet monitor — custom elements bound to live data | Interactive action buttons — Canvas elements can trigger API calls, not just display data |
 
-The provisioned dashboards behind these screenshots live under
-[`provisioning/dashboards/`](./provisioning/dashboards/) (`canvas_showcase*.json`) — run
-`npm run server` to load them locally.
+The provisioned dashboards behind these screenshots live under [`provisioning/dashboards/`](./provisioning/dashboards/)
+(`canvas_showcase*.json`) — run `npm run server` to load them locally.
 
 ## Documentation
 
