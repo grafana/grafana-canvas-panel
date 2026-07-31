@@ -1,0 +1,17 @@
+ignores:
+  - ".claude/**"
+  - ".codex/**"
+  - ".config/**"
+  - "AGENTS.md"
+  - "CLAUDE.md"
+  - "dist/**"
+  - "GEMINI.md"
+  - "node_modules/**"
+  - "provisioning/**"
+  - "RUN_EXTERNALIZED_PLUGIN_LOCALLY.md"
+  - "src/img/README.md"
+
+config:
+  MD013:
+    line_length: 120
+    tables: false
