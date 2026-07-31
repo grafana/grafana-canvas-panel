@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
+
+# Cancel superseded runs when new commits are pushed to the same branch/PR.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  # Independent of the reusable CI workflow below — just guards against the
+  # Playwright version drifting between package.json and the Docker e2e setup.
+  playwright-version-sync:
+    name: Verify Playwright version sync
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Verify Playwright container version is in sync
+        run: |
+          PKG_VERSION=$(jq -r '.devDependencies["@playwright/test"]' package.json)
+          DOCKERFILE_VERSION=$(sed -n 's/^ARG PLAYWRIGHT_VERSION=//p' e2e/Dockerfile.playwright | head -1)
+          COMPOSE_VERSION=$(sed -n 's/.*PLAYWRIGHT_VERSION:-\([0-9.]*\)}.*/\1/p' docker-compose.yaml | head -1)
+          echo "package.json:      $PKG_VERSION"
+          echo "Dockerfile ARG:    $DOCKERFILE_VERSION"
+          echo "compose default:   $COMPOSE_VERSION"
+          if [ "$PKG_VERSION" != "$DOCKERFILE_VERSION" ] || [ "$PKG_VERSION" != "$COMPOSE_VERSION" ]; then
+            echo "::error::Playwright version mismatch. Update the PLAYWRIGHT_VERSION fallback defaults in e2e/Dockerfile.playwright and docker-compose.yaml to match @playwright/test in package.json ($PKG_VERSION)."
+            exit 1
+          fi
+
+  ci:
+    name: CI
+    uses: grafana/plugin-ci-workflows/.github/workflows/ci.yml@ci-cd-workflows/v10.2.0
+    permissions:
+      contents: read
+      pull-requests: read
+      id-token: write
+      attestations: write
+    with:
+      plugin-version-suffix: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || '' }}
+      run-playwright: false
+      run-playwright-docker: true
+      playwright-docker-compose-file: docker-compose.yaml
+      run-playwright-with-grafana-dependency: '>=13.2.0'
+      upload-playwright-artifacts: true
+      # Anonymous auth is disabled for e2e, so "/" 302-redirects to the login
+      # page. The readiness check requires a 200, so point it at /login.
+      playwright-grafana-url: http://localhost:3000/login

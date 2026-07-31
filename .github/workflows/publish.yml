@@ -59,7 +59,7 @@ jobs:
   cd:
     name: CD
     needs: check-changelog
-    uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@a2290de7e267c41d47038e3b0677b6966e76c50e # ci-cd-workflows/v10.2.0
+    uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v10.2.0
     permissions:
       contents: write
       pull-requests: read

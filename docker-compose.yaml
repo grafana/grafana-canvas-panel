@@ -3,6 +3,12 @@ services:
     extends:
       file: .config/docker-compose-base.yaml
       service: grafana
+    build:
+      args:
+        # e2e logs in as admin and edits panels, so anonymous access must be
+        # off. The reusable e2e workflow doesn't set ANONYMOUS_AUTH_ENABLED,
+        # and the base compose file defaults it to true, so pin it here.
+        anonymous_auth_enabled: false
     ports:
       - '3000:3000'
 
