@@ -20,6 +20,10 @@ on:
         description: Only publish docs, do not publish the plugin
         default: false
         type: boolean
+      append-commit-suffix:
+        description: Append commit SHA to version (uncheck to publish the exact version, e.g. final validation before prod)
+        default: true
+        type: boolean
 
 permissions: {}
 
@@ -68,6 +72,11 @@ jobs:
     with:
       branch: ${{ github.event.inputs.branch }}
       environment: ${{ github.event.inputs.environment }}
+      plugin-version-suffix: >-
+        ${{
+          (github.event.inputs.environment != 'prod' && github.event.inputs.append-commit-suffix == 'true')
+          && github.sha || ''
+        }}
       docs-only: ${{ fromJSON(github.event.inputs.docs-only) }}
       attestation: true
       run-playwright: false
