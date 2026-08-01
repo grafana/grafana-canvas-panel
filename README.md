@@ -37,8 +37,9 @@ The provisioned dashboards behind these screenshots live under
 
 ## Changelog
 
-- [`CHANGELOG.md`](./CHANGELOG.md) — release history
+- [`CHANGELOG.md`](https://github.com/grafana/grafana-canvas-panel/blob/main/CHANGELOG.md) — release history
 
 ## Contributing
 
-- [`CONTRIBUTING.md`](./CONTRIBUTING.md) — development setup, building, testing, and linting
+- [`CONTRIBUTING.md`](https://github.com/grafana/grafana-canvas-panel/blob/main/CONTRIBUTING.md) — development
+  setup, building, testing, and linting
