@@ -2,10 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
   "name": "Canvas External",
-  "id": "grafana-canvas-panel",
+  "id": "canvas",
   "suggestions": true,
   "info": {
-    "keywords": ["canvas", "drawing"],
+    "keywords": [
+      "canvas",
+      "drawing"
+    ],
     "description": "Draw pictures with the Canvas visualization panel plugin, then paint by numbers with your Grafana metrics data!",
     "author": {
       "name": "Grafana",

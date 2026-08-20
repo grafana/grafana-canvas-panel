@@ -54,6 +54,12 @@ jobs:
       attestations: write
     with:
       plugin-version-suffix: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || '' }}
+      scopes: universal
+      grafana-cloud-deployment-type: provisioned
+      trigger-argo: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+      auto-merge-environments: dev
+      argo-workflow-slack-channel: "#grafana-dataviz-squad"
+      argo-workflow-slack-silent: true
       run-playwright: false
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.yaml
