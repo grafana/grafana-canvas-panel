@@ -80,7 +80,5 @@ jobs:
       docs-only: ${{ fromJSON(github.event.inputs.docs-only) }}
       scopes: universal
       grafana-cloud-deployment-type: provisioned
-      trigger-argo: ${{ github.event.inputs.environment != 'none' }}
-      argo-workflow-slack-channel: "#grafana-dataviz-squad"
       attestation: true
       run-playwright: false
