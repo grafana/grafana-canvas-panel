@@ -49,6 +49,11 @@ jobs:
     # cd.yml calls ci.yml internally and re-exposes every CI input. The Argo /
     # catalog inputs below only exist on cd.yml, not ci.yml.
     uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v10.2.0
+    # The container derives both its base image and its @playwright/test install
+    # from PLAYWRIGHT_VERSION, so drift from package.json is internally
+    # consistent and e2e won't fail on its own. Gate on the guard so a drifted
+    # commit can't publish and deploy having tested the wrong version.
+    needs: playwright-version-sync
     permissions:
       contents: write
       pull-requests: read
