@@ -1,4 +1,4 @@
-name: Plugins - CI / CD
+name: Plugins - CI
 
 on:
   push:
@@ -45,7 +45,7 @@ jobs:
           fi
 
   ci:
-    name: CI / CD
+    name: CD
     # cd.yml calls ci.yml internally and re-exposes every CI input. The Argo /
     # catalog inputs below only exist on cd.yml, not ci.yml.
     uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v10.2.0
