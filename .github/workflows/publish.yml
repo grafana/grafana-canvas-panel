@@ -79,7 +79,7 @@ jobs:
       auto-merge-environments: dev
       # Route prod and prod-canary deploys to their own channel. Quoted because
       # YAML would otherwise treat " #" as the start of a comment.
-      argo-workflow-slack-channel: "${{ startsWith(github.event.inputs.environment, 'prod') && '#dataviz-cd-alerts-prod' || '#dataviz-cd-alerts-dev-ops' }}"
+      argo-workflow-slack-channel: "${{ startsWith(github.event.inputs.environment, 'prod') && '#grafana-dataviz-feed-cd-prod' || '#grafana-dataviz-feed-cd-dev-ops' }}"
       grafana-cloud-deployment-type: provisioned
       attestation: true
       # Keep the e2e setup in sync with push.yml (CI): the CD run must gate on the
