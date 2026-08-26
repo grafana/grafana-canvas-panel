@@ -3,17 +3,17 @@ name: CI
 on:
   push:
     branches:
-      - master
       - main
   pull_request:
     branches:
-      - master
       - main
 
-# Cancel superseded runs when new commits are pushed to the same branch/PR.
+# Cancel superseded runs on PRs only. Pushes to main publish to the catalog and
+# trigger an Argo deployment, so cancelling one mid-flight can leave a published
+# version with no corresponding deployment.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions: {}
 
@@ -45,15 +45,27 @@ jobs:
           fi
 
   ci:
-    name: CI
-    uses: grafana/plugin-ci-workflows/.github/workflows/ci.yml@ci-cd-workflows/v10.2.0
+    name: CI / CD
+    # cd.yml calls ci.yml internally and re-exposes every CI input. The Argo /
+    # catalog inputs below only exist on cd.yml, not ci.yml.
+    uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v10.2.0
     permissions:
-      contents: read
+      contents: write
       pull-requests: read
       id-token: write
       attestations: write
     with:
-      plugin-version-suffix: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || '' }}
+      # Build the pushed branch, or the PR head for pull_request events.
+      branch: ${{ github.event_name == 'push' && github.ref_name || github.ref }}
+      # Pushes to main publish to the dev catalog and deploy via Argo.
+      # PRs use 'none', which runs CI only — no publish, no deploy.
+      environment: ${{ (github.event_name == 'push' && github.ref_name == 'main') && 'dev' || 'none' }}
+      plugin-version-suffix: ${{ github.event_name == 'push' && github.sha || github.event.pull_request.head.sha }}
+      scopes: universal
+      grafana-cloud-deployment-type: provisioned
+      auto-merge-environments: dev
+      argo-workflow-slack-channel: "#grafana-dataviz-squad"
+      argo-workflow-slack-silent: true
       run-playwright: false
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.yaml

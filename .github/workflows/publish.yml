@@ -20,10 +20,6 @@ on:
         description: Only publish docs, do not publish the plugin
         default: false
         type: boolean
-      append-commit-suffix:
-        description: Append commit SHA to version (uncheck to publish the exact version, e.g. final validation before prod)
-        default: true
-        type: boolean
 
 permissions: {}
 
@@ -72,13 +68,25 @@ jobs:
     with:
       branch: ${{ github.event.inputs.branch }}
       environment: ${{ github.event.inputs.environment }}
-      plugin-version-suffix: >-
-        ${{
-          (github.event.inputs.environment != 'prod' && github.event.inputs.append-commit-suffix == 'true')
-          && github.sha || ''
-        }}
+      # plugin-version-suffix is intentionally unset: cd.yml already appends the
+      # head commit SHA for non-release references and leaves release references
+      # (e.g. main at a tagged version) with the exact plugin.json version.
       docs-only: ${{ fromJSON(github.event.inputs.docs-only) }}
       scopes: universal
+      # Only fan out to Grafana Cloud from main. Dispatching a PR branch to dev
+      # publishes to the catalog for stack overrides without deploying it everywhere.
+      trigger-argo: ${{ github.event.inputs.branch == 'main' }}
+      auto-merge-environments: dev
+      argo-workflow-slack-channel: "#grafana-dataviz-squad"
       grafana-cloud-deployment-type: provisioned
       attestation: true
+      # Keep the e2e setup in sync with push.yml (CI): the CD run must gate on the
+      # same Playwright suite that gated the change into main.
       run-playwright: false
+      run-playwright-docker: true
+      playwright-docker-compose-file: docker-compose.yaml
+      run-playwright-with-grafana-dependency: '>=13.2.0'
+      upload-playwright-artifacts: true
+      # Anonymous auth is disabled for e2e, so "/" 302-redirects to the login
+      # page. The readiness check requires a 200, so point it at /login.
+      playwright-grafana-url: http://localhost:3000/login
