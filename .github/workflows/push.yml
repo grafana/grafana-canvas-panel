@@ -1,4 +1,4 @@
-name: CI
+name: Plugins - CI / CD
 
 on:
   push:
