@@ -44,28 +44,52 @@ jobs:
             exit 1
           fi
 
+  # Pull requests call ci.yml directly: they test and build, and publish nothing.
+  # Reporting them through cd.yml would prefix every check with the calling job's
+  # name, so a PR would read "CD / CI / Test and build plugin" despite deploying
+  # nothing. Keeping the two paths in separate jobs makes the check names honest.
   ci:
-    name: CD
-    # cd.yml calls ci.yml internally and re-exposes every CI input. The Argo /
-    # catalog inputs below only exist on cd.yml, not ci.yml.
-    uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v10.2.0
+    name: CI
+    if: github.event_name == 'pull_request'
     # The container derives both its base image and its @playwright/test install
     # from PLAYWRIGHT_VERSION, so drift from package.json is internally
     # consistent and e2e won't fail on its own. Gate on the guard so a drifted
-    # commit can't publish and deploy having tested the wrong version.
+    # commit can't merge having tested the wrong version.
     needs: playwright-version-sync
+    uses: grafana/plugin-ci-workflows/.github/workflows/ci.yml@ci-cd-workflows/v10.2.0
+    permissions:
+      contents: read
+      pull-requests: read
+      id-token: write
+      attestations: write
+    with:
+      plugin-version-suffix: ${{ github.event.pull_request.head.sha }}
+      run-playwright: false
+      run-playwright-docker: true
+      playwright-docker-compose-file: docker-compose.yaml
+      run-playwright-with-grafana-dependency: '>=13.2.0'
+      upload-playwright-artifacts: true
+      # Anonymous auth is disabled for e2e, so "/" 302-redirects to the login
+      # page. The readiness check requires a 200, so point it at /login.
+      playwright-grafana-url: http://localhost:3000/login
+
+  # Pushes to main publish to the dev catalog and deploy to Grafana Cloud via
+  # Argo. cd.yml calls ci.yml internally, so the build and e2e suite still run
+  # ahead of the publish. The Argo / catalog inputs exist only on cd.yml.
+  cd:
+    name: CD
+    if: github.event_name == 'push'
+    needs: playwright-version-sync
+    uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v10.2.0
     permissions:
       contents: write
       pull-requests: read
       id-token: write
       attestations: write
     with:
-      # Build the pushed branch, or the PR head for pull_request events.
-      branch: ${{ github.event_name == 'push' && github.ref_name || github.ref }}
-      # Pushes to main publish to the dev catalog and deploy via Argo.
-      # PRs use 'none', which runs CI only — no publish, no deploy.
-      environment: ${{ (github.event_name == 'push' && github.ref_name == 'main') && 'dev' || 'none' }}
-      plugin-version-suffix: ${{ github.event_name == 'push' && github.sha || github.event.pull_request.head.sha }}
+      branch: ${{ github.ref_name }}
+      environment: dev
+      plugin-version-suffix: ${{ github.sha }}
       scopes: universal
       grafana-cloud-deployment-type: provisioned
       auto-merge-environments: dev
@@ -76,6 +100,4 @@ jobs:
       playwright-docker-compose-file: docker-compose.yaml
       run-playwright-with-grafana-dependency: '>=13.2.0'
       upload-playwright-artifacts: true
-      # Anonymous auth is disabled for e2e, so "/" 302-redirects to the login
-      # page. The readiness check requires a 200, so point it at /login.
       playwright-grafana-url: http://localhost:3000/login
