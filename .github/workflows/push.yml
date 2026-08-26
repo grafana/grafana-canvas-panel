@@ -1,4 +1,4 @@
-name: Plugins - CI
+name: Plugins - CI / CD
 
 on:
   push:
@@ -77,7 +77,7 @@ jobs:
   # Argo. cd.yml calls ci.yml internally, so the build and e2e suite still run
   # ahead of the publish. The Argo / catalog inputs exist only on cd.yml.
   cd:
-    name: CD
+    name: CD (dev)
     if: github.event_name == 'push'
     needs: playwright-version-sync
     uses: grafana/plugin-ci-workflows/.github/workflows/cd.yml@ci-cd-workflows/v10.2.0
