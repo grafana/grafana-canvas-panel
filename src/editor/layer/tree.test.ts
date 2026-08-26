@@ -140,6 +140,26 @@ describe('tree', () => {
       expect(result[0].children![0].key).toBe(2);
     });
 
+    it('should insert before target when destPosition is -1', () => {
+      const treeData: TreeElement[] = [
+        createTreeElement(1, 'First'),
+        createTreeElement(2, 'Second'),
+        createTreeElement(3, 'Dragged'),
+      ];
+
+      const info = {
+        node: createMockDropNode(2, '0-1'),
+        dragNode: createMockDragNode(3),
+        dropPosition: 0,
+        dropToGap: true,
+      };
+
+      const result = onNodeDrop(info, treeData);
+
+      const keys = result.map((el) => el.key);
+      expect(keys.indexOf(3)).toBeLessThan(keys.indexOf(2));
+    });
+
     it('should not mutate original tree data', () => {
       const treeData: TreeElement[] = [createTreeElement(1, 'First'), createTreeElement(2, 'Second')];
 

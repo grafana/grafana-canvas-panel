@@ -145,4 +145,36 @@ describe('getResourceDimension', () => {
     expect(getResourceDimension(frame, cfg).get(0)).toEqual(`${FAKE_BASE_URL}/img/icons/ok.svg`);
     expect(getResourceDimension(frame, cfg).get(1)).toEqual(`${FAKE_BASE_URL}/img/icons/error.svg`);
   });
+
+  it('mapping mode resolves field string values through plugin baseUrl', () => {
+    const frame = createDataFrame({
+      fields: [{ name: 'img', values: ['icons/arrow.svg', 'https://external.com/icon.png'] }],
+    });
+    const cfg = { mode: ResourceDimensionMode.Mapping, field: 'img', fixed: '' };
+
+    expect(getResourceDimension(frame, cfg).get(0)).toBe(`${FAKE_BASE_URL}/icons/arrow.svg`);
+    expect(getResourceDimension(frame, cfg).get(1)).toBe('https://external.com/icon.png');
+    expect(getResourceDimension(frame, cfg).value()).toBe('https://external.com/icon.png');
+    expect(getResourceDimension(frame, cfg).field?.name).toBe('img');
+  });
+
+  it('returns an empty assumed dimension when field mode is used but the field is not in the frame', () => {
+    const frame = createDataFrame({
+      fields: [{ name: 'other', values: ['x'] }],
+    });
+    const cfg = { mode: ResourceDimensionMode.Field, field: 'missing', fixed: '' };
+
+    const dim = getResourceDimension(frame, cfg);
+    expect(dim.isAssumed).toBe(true);
+    expect(dim.value()).toBe('');
+    expect(dim.get(0)).toBe('');
+    expect(dim.field).toBeUndefined();
+  });
+
+  it('fixed mode .get() returns the same resolved URL as .value()', () => {
+    const cfg = { mode: ResourceDimensionMode.Fixed, fixed: 'img/icon.svg' };
+    const dim = getResourceDimension(undefined, cfg);
+    expect(dim.get(0)).toBe(`${FAKE_BASE_URL}/img/icon.svg`);
+    expect(dim.get(0)).toBe(dim.value());
+  });
 });

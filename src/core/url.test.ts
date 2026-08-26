@@ -78,4 +78,12 @@ describe('createAbsoluteUrl', () => {
       ])
     ).toBe('https://example.com/base/test?param1=value1&param2=value2');
   });
+
+  it('falls back to a relative URL when appUrl is not a valid base', () => {
+    const originalAppUrl = config.appUrl;
+    config.appUrl = 'not-a-valid-url';
+    const result = createAbsoluteUrl('/test', { p: 'v' });
+    config.appUrl = originalAppUrl;
+    expect(result).toBe('/base/test?p=v');
+  });
 });

@@ -10,7 +10,20 @@ const svgWithId = `<svg id="${ID}" xmlns="http://www.w3.org/2000/svg" viewBox="0
 const svgWithWrongIdInStyle =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><style type="text/css">#WRONG .st0{fill:green;}</style><circle cx="12" cy="12" r="10" class="st0"/></svg>';
 
+const svgNoStyle = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>';
+
 describe('SanitizedSVG', () => {
+  it('should add an id but leave code unchanged when there is no style block', () => {
+    const result = svgStyleCleanup(svgNoStyle);
+    const svgId = getSvgId(result);
+    const style = getSvgStyle(result);
+
+    expect(svgId).toBeDefined();
+    expect(style).toBeNull();
+    expect(result).toContain(`id="${svgId}"`);
+    expect(result).not.toContain('#');
+  });
+
   it('should cleanup the style and generate an ID', () => {
     const cleanStyle = svgStyleCleanup(svgNoId);
     const updatedStyle = getSvgStyle(cleanStyle);

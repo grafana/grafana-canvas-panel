@@ -1,5 +1,5 @@
 import { type ElementTransformAndDimensions } from './types';
-import { getElementTransformAndDimensions } from './utils';
+import { calculateCoordinates2, getElementTransformAndDimensions, getNormalizedRotatedOffset } from './utils';
 
 describe('canvas utils - DOM operations', () => {
   describe('getElementTransformAndDimensions', () => {
@@ -111,5 +111,106 @@ describe('canvas utils - DOM operations', () => {
       expect(result.width).toBeCloseTo(123.45, 2);
       expect(result.height).toBeCloseTo(67.89, 2);
     });
+  });
+});
+
+describe('getNormalizedRotatedOffset', () => {
+  const mockDivWithTransform = (
+    left: number,
+    top: number,
+    width: number,
+    height: number,
+    rotationDeg: number
+  ): HTMLDivElement => {
+    const div = document.createElement('div');
+    const rad = (rotationDeg * Math.PI) / 180;
+    const cos = Math.cos(rad);
+    const sin = Math.sin(rad);
+    const matrix = { m11: cos, m12: sin, m21: -sin, m22: cos, m41: left, m42: top };
+    jest.spyOn(window, 'getComputedStyle').mockReturnValue({
+      transform: `matrix(${matrix.m11},${matrix.m12},${matrix.m21},${matrix.m22},${matrix.m41},${matrix.m42})`,
+      width: `${width}px`,
+      height: `${height}px`,
+    } as CSSStyleDeclaration);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (global as any).DOMMatrix = jest.fn().mockImplementation(() => matrix);
+    return div;
+  };
+
+  afterEach(() => jest.restoreAllMocks());
+
+  it('returns 0,0 for a point at the center with no rotation', () => {
+    const div = mockDivWithTransform(100, 100, 100, 100, 0);
+    const result = getNormalizedRotatedOffset(div, 150, 150);
+    expect(result.x).toBeCloseTo(0);
+    expect(result.y).toBeCloseTo(0);
+  });
+
+  it('returns 1,0 for a point at the right edge center with no rotation', () => {
+    const div = mockDivWithTransform(0, 0, 100, 100, 0);
+    const result = getNormalizedRotatedOffset(div, 100, 50);
+    expect(result.x).toBeCloseTo(1);
+    expect(result.y).toBeCloseTo(0);
+  });
+
+  it('maps a top-center point to (0, 1) in canvas coords (y positive = up)', () => {
+    const div = mockDivWithTransform(0, 0, 100, 100, 0);
+    const result = getNormalizedRotatedOffset(div, 50, 0);
+    expect(result.x).toBeCloseTo(0);
+    expect(result.y).toBeCloseTo(1);
+  });
+});
+
+describe('calculateCoordinates2', () => {
+  afterEach(() => jest.restoreAllMocks());
+
+  it('computes absolute coordinates for a named target element', () => {
+    const sourceDiv = document.createElement('div') as HTMLDivElement;
+    const targetDiv = document.createElement('div') as HTMLDivElement;
+
+    let callCount = 0;
+    jest.spyOn(window, 'getComputedStyle').mockImplementation(() => {
+      callCount++;
+      if (callCount === 1) {
+        return { transform: 'matrix(1,0,0,1,0,0)', width: '100px', height: '100px' } as CSSStyleDeclaration;
+      }
+      return { transform: 'matrix(1,0,0,1,200,0)', width: '100px', height: '100px' } as CSSStyleDeclaration;
+    });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (global as any).DOMMatrix = jest.fn().mockImplementation((matStr: string) => {
+      const parts = matStr.replace('matrix(', '').replace(')', '').split(',').map(Number);
+      return { m11: parts[0], m12: parts[1], m21: parts[2], m22: parts[3], m41: parts[4], m42: parts[5] };
+    });
+
+    const source = { div: sourceDiv } as never;
+    const target = { div: targetDiv } as never;
+    const info = { source: { x: 0, y: 0 }, target: { x: 0, y: 0 }, targetName: 'target' } as never;
+
+    const result = calculateCoordinates2(source, target, info);
+
+    expect(result.x1).toBeCloseTo(50);
+    expect(result.y1).toBeCloseTo(50);
+    expect(result.x2).toBeCloseTo(250);
+    expect(result.y2).toBeCloseTo(50);
+  });
+
+  it('uses raw info.target coords when no targetName', () => {
+    const sourceDiv = document.createElement('div') as HTMLDivElement;
+    jest.spyOn(window, 'getComputedStyle').mockReturnValue({
+      transform: 'matrix(1,0,0,1,0,0)',
+      width: '100px',
+      height: '100px',
+    } as CSSStyleDeclaration);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (global as any).DOMMatrix = jest.fn().mockReturnValue({ m11: 1, m12: 0, m21: 0, m22: 1, m41: 0, m42: 0 });
+
+    const source = { div: sourceDiv } as never;
+    const target = { div: undefined } as never;
+    const info = { source: { x: 0, y: 0 }, target: { x: 0.5, y: -0.5 }, targetName: undefined } as never;
+
+    const result = calculateCoordinates2(source, target, info);
+
+    expect(result.x2).toBeCloseTo(0.5);
+    expect(result.y2).toBeCloseTo(-0.5);
   });
 });

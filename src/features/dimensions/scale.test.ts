@@ -39,6 +39,17 @@ describe('scale dimensions', () => {
     `);
   });
 
+  it('should clamp copy.max when it exceeds options.max', () => {
+    const out = validateScaleConfig({ min: 5, max: 20, fixed: 15 }, { min: 0, max: 10 });
+    expect(out.max).toBe(10);
+    expect(out.fixed).toBe(10);
+  });
+
+  it('should clamp copy.fixed to options.min when below range and no field configured', () => {
+    const out = validateScaleConfig({ min: 2, max: 8, fixed: -5 }, { min: 2, max: 8 });
+    expect(out.fixed).toBe(2);
+  });
+
   it('should support negative min values', () => {
     const values = [-20, -10, -5, 0, 5, 10, 20];
     const frame: DataFrame = {

@@ -21,6 +21,7 @@ describe('canvas utils - data transformations', () => {
   let getElementTypes: typeof UtilsModule.getElementTypes;
   let isConnectionSource: typeof UtilsModule.isConnectionSource;
   let isConnectionTarget: typeof UtilsModule.isConnectionTarget;
+  let getConnections: typeof UtilsModule.getConnections;
   let getElementFields: typeof UtilsModule.getElementFields;
 
   beforeAll(async () => {
@@ -29,6 +30,7 @@ describe('canvas utils - data transformations', () => {
     getElementTypes = utilsModule.getElementTypes;
     isConnectionSource = utilsModule.isConnectionSource;
     isConnectionTarget = utilsModule.isConnectionTarget;
+    getConnections = utilsModule.getConnections;
     getElementFields = utilsModule.getElementFields;
   });
 
@@ -98,6 +100,72 @@ describe('canvas utils - data transformations', () => {
       const values = result.options.map((o) => o.value);
       expect(values).toContain('stable');
       expect(values).not.toContain('alpha');
+    });
+
+    it('should include alpha elements with "(Alpha)" label when debug panel is alpha', () => {
+      const { config } = jest.requireMock('@grafana/runtime');
+      config.panels = { debug: { state: PluginState.alpha } };
+
+      const items: CanvasElementItem[] = [
+        { id: 'stable', name: 'Stable', description: 'stable', state: undefined } as CanvasElementItem,
+        { id: 'alpha', name: 'Alpha', description: 'alpha', state: PluginState.alpha } as CanvasElementItem,
+      ];
+
+      const result = getElementTypesOptions(items, undefined);
+      config.panels = {};
+
+      const alphaOpt = result.options.find((o) => o.value === 'alpha');
+      expect(alphaOpt).toBeDefined();
+      expect(alphaOpt?.label).toContain('(Alpha)');
+    });
+  });
+
+  describe('getConnections', () => {
+    it('migrates a legacy string color to an object', () => {
+      const element = {
+        options: {
+          connections: [{ targetName: 'b', color: '#ff0000' }],
+        },
+        parent: null,
+      } as unknown as ElementState;
+      const sceneByName = new Map<string, ElementState>([
+        ['a', element],
+        ['b', { options: {} } as unknown as ElementState],
+      ]);
+
+      const result = getConnections(sceneByName);
+
+      expect(result[0].info.color).toEqual({ fixed: '#ff0000' });
+    });
+
+    it('migrates a legacy numeric size to a scale object', () => {
+      const element = {
+        options: {
+          connections: [{ targetName: 'b', size: 5 }],
+        },
+        parent: null,
+      } as unknown as ElementState;
+      const sceneByName = new Map<string, ElementState>([
+        ['a', element],
+        ['b', { options: {} } as unknown as ElementState],
+      ]);
+
+      const result = getConnections(sceneByName);
+
+      expect(result[0].info.size).toEqual({ fixed: 2, min: 1, max: 10 });
+    });
+
+    it('falls back to parent when targetName is not set', () => {
+      const parent = { options: {} } as unknown as ElementState;
+      const element = {
+        options: { connections: [{ targetName: undefined }] },
+        parent,
+      } as unknown as ElementState;
+      const sceneByName = new Map<string, ElementState>([['a', element]]);
+
+      const result = getConnections(sceneByName);
+
+      expect(result[0].target).toBe(parent);
     });
   });
 

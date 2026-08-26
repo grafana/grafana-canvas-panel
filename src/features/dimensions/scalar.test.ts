@@ -4,6 +4,41 @@ import { ScalarDimensionMode } from '@grafana/schema';
 import { getScalarDimension } from './scalar';
 
 describe('scalar dimensions', () => {
+  it('returns the fixed value (assumed) when no field is configured', () => {
+    const dim = getScalarDimension(undefined, {
+      min: -360,
+      max: 360,
+      fixed: 45,
+      mode: ScalarDimensionMode.Clamped,
+    });
+    expect(dim.value()).toBe(45);
+    expect(dim.get(0)).toBe(45);
+    expect(dim.isAssumed).toBe(false);
+  });
+
+  it('is assumed when fixed is 0 (falsy) and no field configured', () => {
+    const dim = getScalarDimension(undefined, { min: -360, max: 360, fixed: 0, mode: ScalarDimensionMode.Clamped });
+    expect(dim.isAssumed).toBe(true);
+    expect(dim.value()).toBe(0);
+  });
+
+  it('returns .value() as the last non-null field value in mod mode', () => {
+    const values = [10, 20, 30];
+    const frame: DataFrame = {
+      name: 'a',
+      length: values.length,
+      fields: [{ name: 'test', type: FieldType.number, values, config: {} }],
+    };
+    const supplier = getScalarDimension(frame, {
+      min: -360,
+      max: 360,
+      field: 'test',
+      fixed: 0,
+      mode: ScalarDimensionMode.Mod,
+    });
+    expect(supplier.value()).toBe(30);
+  });
+
   it('handles string field', () => {
     const values = ['-720', '10', '540', '90', '-210'];
     const frame: DataFrame = {

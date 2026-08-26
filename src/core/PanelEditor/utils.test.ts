@@ -44,6 +44,7 @@ describe('updateDefaultFieldConfigValue', () => {
     ${'d'}   | ${true}  | ${undefined}                | ${{ a: 1, b: { c: 'nested default' }, custom: { e: { f: 'nested custom' } } }}
     ${'e'}   | ${true}  | ${undefined}                | ${{ a: 1, b: { c: 'nested default' }, custom: { d: 1 } }}
     ${'e.f'} | ${true}  | ${undefined}                | ${{ a: 1, b: { c: 'nested default' }, custom: { d: 1, e: {} } }}
+    ${'d'}   | ${true}  | ${99}                       | ${{ a: 1, b: { c: 'nested default' }, custom: { d: 99, e: { f: 'nested custom' } } }}
   `(
     'when updating property:$property (is custom: $isCustom) with $newValue',
     ({
@@ -75,6 +76,21 @@ describe('updateDefaultFieldConfigValue', () => {
       );
     }
   );
+});
+
+describe('updateDefaultFieldConfigValue - isCustom creates custom from scratch', () => {
+  it('creates the custom object when it does not exist yet', () => {
+    const cfg = { defaults: { a: 1 }, overrides: [] };
+    const result = updateDefaultFieldConfigValue(cfg as never, 'newProp', 42, true);
+    expect(result.defaults.custom).toEqual({ newProp: 42 });
+    expect((result.defaults as Record<string, unknown>).a).toBe(1);
+  });
+
+  it('does not create custom when value is being removed and custom does not exist', () => {
+    const cfg = { defaults: { a: 1 }, overrides: [] };
+    const result = updateDefaultFieldConfigValue(cfg as never, 'newProp', undefined, true);
+    expect(result.defaults.custom).toBeUndefined();
+  });
 });
 
 describe('setOptionImmutably', () => {

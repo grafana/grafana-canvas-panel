@@ -28,6 +28,32 @@ describe('LayerName', () => {
     expect(alert.textContent).toBe('An empty layer name is not allowed');
   });
 
+  it('Submits via Enter key', async () => {
+    const scenario = renderScenario({});
+    await userEvent.click(screen.getByTestId('layer-name-div'));
+
+    const input = screen.getByTestId('layer-name-input');
+    await userEvent.clear(input);
+    await userEvent.type(input, 'entered name{Enter}');
+
+    expect(jest.mocked(scenario.props.onChange).mock.calls[0][0]).toBe('entered name');
+  });
+
+  it('Discards edit and clears error when blurring while invalid', async () => {
+    const scenario = renderScenario({});
+    await userEvent.click(screen.getByTestId('layer-name-div'));
+
+    const input = screen.getByTestId('layer-name-input');
+    await userEvent.clear(input);
+    await screen.findByRole('alert');
+
+    await userEvent.click(document.body);
+
+    expect(scenario.props.onChange).not.toHaveBeenCalled();
+    expect(screen.queryByRole('alert')).toBeNull();
+    expect(screen.queryByTestId('layer-name-input')).toBeNull();
+  });
+
   it('Show error when other layer with same name exists', async () => {
     renderScenario({});
 

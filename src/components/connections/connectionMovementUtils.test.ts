@@ -336,6 +336,39 @@ describe('connectionMovementUtils', () => {
       expect(element1.options?.connections?.[1].targetOriginal).toEqual({ x: 40, y: 40 });
     });
 
+    it('should skip a connection whose own SVG overlay is in the selection', () => {
+      const sourceElement = createMockElement('source', [
+        createConnection({
+          sourceOriginal: { x: 50, y: 50 },
+          targetOriginal: { x: 150, y: 150 },
+        }),
+      ]);
+      const targetElement = createMockElement('target');
+
+      const connectionStates: ConnectionState[] = [
+        {
+          source: sourceElement,
+          target: targetElement,
+          info: createConnection(),
+          index: 0,
+          sourceOriginal: { x: 50, y: 50 },
+          targetOriginal: { x: 150, y: 150 },
+        },
+      ];
+
+      const svgOverlay = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      svgOverlay.setAttribute('data-connection-index', '0');
+      svgOverlay.setAttribute('data-connection-source', 'source');
+
+      const selectedTargets = [sourceElement.div!, targetElement.div!, svgOverlay];
+      const movedElements = [sourceElement, targetElement];
+
+      updateConnectionsAfterGroupMove(movedElements, selectedTargets, connectionStates, mockCalculateCoords);
+
+      expect(sourceElement.options?.connections?.[0].sourceOriginal).toEqual({ x: 50, y: 50 });
+      expect(sourceElement.options?.connections?.[0].targetOriginal).toEqual({ x: 150, y: 150 });
+    });
+
     it('should handle empty selection', () => {
       const sourceElement = createMockElement('source', [
         createConnection({

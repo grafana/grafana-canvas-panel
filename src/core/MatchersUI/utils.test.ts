@@ -1,9 +1,11 @@
 import { renderHook } from '@testing-library/react';
+import React from 'react';
 
 import { type DataFrame, type Field, FieldType, FieldNamePickerBaseNameMode, toDataFrame } from '@grafana/data';
 import { type MatcherScope } from '@grafana/schema';
 
 import {
+  closePopover,
   type FrameFieldsDisplayNames,
   frameHasName,
   getFrameFieldsDisplayNames,
@@ -174,6 +176,10 @@ describe('MatchersUI utils', () => {
         expect(getGroupDescriptionForScope(scope)).toBeDefined();
       });
     });
+
+    it('returns undefined description for an unknown scope', () => {
+      expect(getGroupDescriptionForScope('unknown' as MatcherScope)).toBeUndefined();
+    });
   });
 
   describe('useFieldDisplayNames', () => {
@@ -248,6 +254,12 @@ describe('MatchersUI utils', () => {
       const notFound = result.current.find((o) => o.value === 'MissingField');
       expect(notFound).toBeDefined();
       expect(notFound?.label).toContain('not found');
+    });
+
+    it('does not add (not found) option when currentName exists in names', () => {
+      const { result } = renderHook(() => useMatcherSelectOptions(displayNames, 'DisplayA'));
+      const notFound = result.current.find((o) => o.label?.includes('not found'));
+      expect(notFound).toBeUndefined();
     });
 
     it('filters by scope when scope is provided', () => {
@@ -339,4 +351,51 @@ describe('MatchersUI utils', () => {
       expect(scopes.has('nested')).toBe(true);
     });
   });
+});
+
+describe('closePopover', () => {
+  const makeEvent = (key: string, extras: Partial<React.KeyboardEvent> = {}): React.KeyboardEvent =>
+    ({
+      key,
+      altKey: false,
+      ctrlKey: false,
+      metaKey: false,
+      stopPropagation: jest.fn(),
+      ...extras,
+    }) as unknown as React.KeyboardEvent;
+
+  it('calls hidePopper when Escape is pressed', () => {
+    const hidePopper = jest.fn();
+    const event = makeEvent('Escape');
+    closePopover(event, hidePopper);
+    expect(hidePopper).toHaveBeenCalledTimes(1);
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not call hidePopper for non-Escape keys but still stops propagation', () => {
+    const hidePopper = jest.fn();
+    const event = makeEvent('a');
+    closePopover(event, hidePopper);
+    expect(hidePopper).not.toHaveBeenCalled();
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1);
+  });
+
+  it('returns early without stopping propagation for Tab', () => {
+    const hidePopper = jest.fn();
+    const event = makeEvent('Tab');
+    closePopover(event, hidePopper);
+    expect(hidePopper).not.toHaveBeenCalled();
+    expect(event.stopPropagation).not.toHaveBeenCalled();
+  });
+
+  it.each(['altKey', 'ctrlKey', 'metaKey'] as const)(
+    'returns early without stopping propagation when %s is held',
+    (modifier) => {
+      const hidePopper = jest.fn();
+      const event = makeEvent('Escape', { [modifier]: true });
+      closePopover(event, hidePopper);
+      expect(hidePopper).not.toHaveBeenCalled();
+      expect(event.stopPropagation).not.toHaveBeenCalled();
+    }
+  );
 });

@@ -41,6 +41,7 @@ describe('text dimension', () => {
       });
       expect(dim.get(0)).toBe('TEMPLATE[pre // a]');
       expect(dim.get(1)).toBe('TEMPLATE[pre // b]');
+      expect(dim.value()).toBe('TEMPLATE[pre // b]');
     });
 
     it('templates an empty value and is assumed when no field resolves', () => {
@@ -50,6 +51,7 @@ describe('text dimension', () => {
         field: '',
       });
       expect(dim.value()).toBe('TEMPLATE[pre // ]');
+      expect(dim.get(0)).toBe('TEMPLATE[pre // ]');
       expect(dim.isAssumed).toBe(true);
     });
   });
@@ -94,6 +96,7 @@ describe('text dimension', () => {
         field: '',
       } as TextDimensionConfig);
       expect(dim.value()).toBe('fallback');
+      expect(dim.get(0)).toBe('fallback');
       expect(dim.isAssumed).toBe(true);
     });
   });

@@ -1,7 +1,37 @@
-import { type DataFrame, type Field, FieldType, ReducerID, toDataFrame } from '@grafana/data';
-import { type ScaleDimensionConfig } from '@grafana/schema';
+import {
+  createTheme,
+  type DataFrame,
+  type Field,
+  FieldColorModeId,
+  FieldType,
+  ReducerID,
+  toDataFrame,
+} from '@grafana/data';
+import {
+  ConnectionDirection,
+  DirectionDimensionMode,
+  ResourceDimensionMode,
+  type ScaleDimensionConfig,
+  ScalarDimensionMode,
+  TextDimensionMode,
+} from '@grafana/schema';
 
-import { findField, findFieldIndex, getLastNotNullFieldValue, getScaleDimensionFromData } from './utils';
+jest.mock('@grafana/runtime', () => ({
+  ...jest.requireActual('@grafana/runtime'),
+  config: { theme2: createTheme(), panels: {} },
+}));
+
+import {
+  findField,
+  findFieldIndex,
+  getColorDimensionFromData,
+  getDirectionDimensionFromData,
+  getLastNotNullFieldValue,
+  getResourceDimensionFromData,
+  getScalarDimensionFromData,
+  getScaleDimensionFromData,
+  getTextDimensionFromData,
+} from './utils';
 
 function makeFrame(fields: Array<Partial<Field> & { name: string; values: unknown[] }>): DataFrame {
   return toDataFrame({ fields });
@@ -89,5 +119,132 @@ describe('getScaleDimensionFromData multi-series selection', () => {
     expect(dim.field).toBeUndefined();
     expect(dim.value()).toBe(0.5);
     expect(dim.get(0)).toBe(0.5);
+  });
+});
+
+describe('getColorDimensionFromData', () => {
+  const theme = createTheme();
+
+  it('picks the first frame where the field actually resolves', () => {
+    const without = makeFrame([{ name: 'other', type: FieldType.number, values: [1] }]);
+    const with_ = makeFrame([
+      {
+        name: 'c',
+        type: FieldType.number,
+        values: [0],
+        config: { color: { mode: FieldColorModeId.Fixed, fixedColor: 'green' } },
+      },
+    ]);
+    const dim = getColorDimensionFromData({ series: [without, with_] } as never, { fixed: '', field: 'c' });
+    expect(dim.field?.name).toBe('c');
+    expect(dim.value()).toBe(theme.visualization.getColorByName('green'));
+  });
+
+  it('falls back to fixed color when no data', () => {
+    const dim = getColorDimensionFromData(undefined, { fixed: 'red', field: '' });
+    expect(dim.value()).toBe(theme.visualization.getColorByName('red'));
+    expect(dim.field).toBeUndefined();
+  });
+});
+
+describe('getDirectionDimensionFromData', () => {
+  it('picks the first frame where the field resolves', () => {
+    const without = makeFrame([{ name: 'other', type: FieldType.number, values: [1] }]);
+    const with_ = makeFrame([{ name: 'dir', type: FieldType.number, values: [5] }]);
+    const dim = getDirectionDimensionFromData({ series: [without, with_] } as never, {
+      mode: DirectionDimensionMode.Field,
+      field: 'dir',
+      fixed: ConnectionDirection.Forward,
+    });
+    expect(dim.field?.name).toBe('dir');
+    expect(dim.get(0)).toBe(ConnectionDirection.Forward);
+  });
+
+  it('falls back to fixed when no data', () => {
+    const dim = getDirectionDimensionFromData(undefined, {
+      mode: DirectionDimensionMode.Fixed,
+      fixed: ConnectionDirection.Reverse,
+    } as never);
+    expect(dim.value()).toBe(ConnectionDirection.Reverse);
+  });
+});
+
+describe('getScalarDimensionFromData', () => {
+  it('picks the first frame where the field resolves', () => {
+    const without = makeFrame([{ name: 'other', type: FieldType.number, values: [1] }]);
+    const with_ = makeFrame([{ name: 's', type: FieldType.number, values: [90] }]);
+    const dim = getScalarDimensionFromData({ series: [without, with_] } as never, {
+      min: -360,
+      max: 360,
+      fixed: 0,
+      field: 's',
+      mode: ScalarDimensionMode.Clamped,
+    });
+    expect(dim.field?.name).toBe('s');
+    expect(dim.get(0)).toBe(90);
+  });
+
+  it('falls back to fixed when no data', () => {
+    const dim = getScalarDimensionFromData(undefined, {
+      min: -360,
+      max: 360,
+      fixed: 45,
+      mode: ScalarDimensionMode.Clamped,
+    });
+    expect(dim.value()).toBe(45);
+  });
+});
+
+describe('getResourceDimensionFromData', () => {
+  it('falls back to fixed URL when no field configured', () => {
+    const dim = getResourceDimensionFromData(undefined, {
+      mode: ResourceDimensionMode.Fixed,
+      fixed: 'https://example.com/icon.png',
+    });
+    expect(dim.value()).toBe('https://example.com/icon.png');
+  });
+
+  it('picks the first frame where the field resolves', () => {
+    const with_ = toDataFrame({
+      fields: [
+        {
+          name: 'img',
+          values: ['https://example.com/a.png'],
+          display: (v: unknown) => ({ text: String(v), numeric: NaN, icon: undefined }),
+        },
+      ],
+    });
+    const dim = getResourceDimensionFromData({ series: [with_] } as never, {
+      mode: ResourceDimensionMode.Field,
+      field: 'img',
+      fixed: '',
+    });
+    expect(dim.field?.name).toBe('img');
+    expect(dim.value()).toBe('https://example.com/a.png');
+  });
+});
+
+describe('getTextDimensionFromData', () => {
+  it('falls back to fixed text when no data', () => {
+    const dim = getTextDimensionFromData(undefined, {
+      mode: TextDimensionMode.Fixed,
+      fixed: 'hello',
+      field: '',
+    });
+    expect(dim.value()).toBe('hello');
+  });
+
+  it('picks the first frame where the field resolves', () => {
+    const without = makeFrame([{ name: 'other', type: FieldType.number, values: [1] }]);
+    const with_ = makeFrame([{ name: 'label', type: FieldType.string, values: ['world'] }]);
+    with_.fields[0].display = (v: unknown) => ({ text: String(v), numeric: NaN });
+
+    const dim = getTextDimensionFromData({ series: [without, with_] } as never, {
+      mode: TextDimensionMode.Field,
+      fixed: '',
+      field: 'label',
+    });
+    expect(dim.field?.name).toBe('label');
+    expect(dim.value()).toBe('world');
   });
 });

@@ -24,12 +24,14 @@ describe('color dimension', () => {
     it('resolves the fixed color by name and is not assumed', () => {
       const dim = getColorDimension(undefined, { fixed: 'red', field: '' } as ColorDimensionConfig, theme);
       expect(dim.value()).toBe(theme.visualization.getColorByName('red'));
+      expect(dim.get(0)).toBe(theme.visualization.getColorByName('red'));
       expect(dim.isAssumed).toBe(false);
     });
 
     it('defaults to grey and is assumed when no fixed color is set', () => {
       const dim = getColorDimension(undefined, { field: '' } as ColorDimensionConfig, theme);
       expect(dim.value()).toBe(theme.visualization.getColorByName('grey'));
+      expect(dim.get(0)).toBe(theme.visualization.getColorByName('grey'));
       expect(dim.isAssumed).toBe(true);
     });
 
@@ -50,6 +52,7 @@ describe('color dimension', () => {
       expect(dim.field?.name).toBe('v');
       expect(dim.get(0)).toBe(theme.visualization.getColorByName('blue'));
       expect(dim.get(1)).toBe(dim.get(0));
+      expect(dim.value()).toBe(theme.visualization.getColorByName('blue'));
     });
 
     it('maps each value through thresholds for a by-value field', () => {
@@ -69,6 +72,7 @@ describe('color dimension', () => {
       );
       expect(dim.get(0)).toBe(theme.visualization.getColorByName('green'));
       expect(dim.get(1)).toBe(theme.visualization.getColorByName('red'));
+      expect(dim.value()).toBe(theme.visualization.getColorByName('red'));
     });
   });
 });
