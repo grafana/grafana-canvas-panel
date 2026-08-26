@@ -77,7 +77,9 @@ jobs:
       # publishes to the catalog for stack overrides without deploying it everywhere.
       trigger-argo: ${{ github.event.inputs.branch == 'main' }}
       auto-merge-environments: dev
-      argo-workflow-slack-channel: "#grafana-dataviz-squad"
+      # Route prod and prod-canary deploys to their own channel. Quoted because
+      # YAML would otherwise treat " #" as the start of a comment.
+      argo-workflow-slack-channel: "${{ startsWith(github.event.inputs.environment, 'prod') && '#dataviz-cd-alerts-prod' || '#dataviz-cd-alerts-dev-ops' }}"
       grafana-cloud-deployment-type: provisioned
       attestation: true
       # Keep the e2e setup in sync with push.yml (CI): the CD run must gate on the

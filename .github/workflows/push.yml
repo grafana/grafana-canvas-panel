@@ -95,7 +95,8 @@ jobs:
       scopes: universal
       grafana-cloud-deployment-type: provisioned
       auto-merge-environments: dev
-      argo-workflow-slack-channel: "#grafana-dataviz-squad"
+      # This job only ever targets dev (see the environment input above).
+      argo-workflow-slack-channel: "#dataviz-cd-alerts-dev-ops"
       argo-workflow-slack-silent: true
       run-playwright: false
       run-playwright-docker: true
