@@ -47,3 +47,9 @@ ci/
 .DS_Store
 
 .eslintcache
+
+# Local tool versions (mise)
+mise.toml
+
+# Local scratch notes
+todo.md
