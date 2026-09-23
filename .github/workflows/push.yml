@@ -73,7 +73,7 @@ jobs:
       # page. The readiness check requires a 200, so point it at /login.
       playwright-grafana-url: http://localhost:3000/login
 
-  # Pushes to main publish to the dev catalog and deploy to Grafana Cloud via
+  # Pushes to main publish to the dev and ops catalogs and deploy to Grafana Cloud via
   # Argo. cd.yml calls ci.yml internally, so the build and e2e suite still run
   # ahead of the publish. The Argo / catalog inputs exist only on cd.yml.
   cd:
@@ -90,12 +90,13 @@ jobs:
       attestations: write
     with:
       branch: ${{ github.ref_name }}
-      environment: dev
+      environment: dev,ops
       plugin-version-suffix: ${{ github.sha }}
       scopes: universal
       grafana-cloud-deployment-type: provisioned
-      auto-merge-environments: dev
-      # This job only ever targets dev (see the environment input above).
+      auto-merge-environments: dev,ops
+      # This job only targets dev and ops (see the environment input above). Prod deploys
+      # stay manual through publish.yml.
       argo-workflow-slack-channel: "#grafana-dataviz-feed-cd-dev-ops"
       argo-workflow-slack-silent: true
       run-playwright: false
