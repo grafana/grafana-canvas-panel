@@ -7,19 +7,17 @@ test.use({
   featureToggles: {
     canvasPanelPanZoom: true,
     dashboardNewLayouts: false,
+    // On Grafana 12.4.x-13.0.x the viz picker of a new panel shows a "Back" button that shares the
+    // toggleVizPicker test id with the "Change" button. plugin-e2e's setVisualization() reads that as
+    // "picker closed" and clicks it, which closes the picker. With this toggle on, those versions hide
+    // "Back" for new panels, as 13.1+ always does. 13.1+ ignores the toggle here.
+    newVizSuggestions: true,
   },
 });
 test.describe('Canvas Panel - Scene Tests', () => {
-  test.beforeEach(async ({ page, gotoDashboardPage, selectors }) => {
+  test.beforeEach(async ({ page, gotoDashboardPage }) => {
     const dashboardPage = await gotoDashboardPage({});
     const panelEditPage = await dashboardPage.addPanel();
-    // Grafana 12.4 opens the viz picker for new panels while the editor is still initializing.
-    // setVisualization() checks for the picker without waiting and, if it is not there yet, clicks the
-    // toggle, which closes it. Give the picker time to appear first; later versions show it immediately.
-    await panelEditPage
-      .getByGrafanaSelector(selectors.components.Tab.title(selectors.constants.Tab.title))
-      .waitFor({ timeout: 5000 })
-      .catch(() => {});
     await panelEditPage.setVisualization('Canvas');
 
     // Wait for canvas panel to load
