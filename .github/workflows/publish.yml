@@ -87,7 +87,7 @@ jobs:
       run-playwright: false
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.yaml
-      run-playwright-with-grafana-dependency: '>=12.4.0'
+      run-playwright-with-grafana-dependency: '>=13.2.0'
       upload-playwright-artifacts: true
       # Anonymous auth is disabled for e2e, so "/" 302-redirects to the login
       # page. The readiness check requires a 200, so point it at /login.

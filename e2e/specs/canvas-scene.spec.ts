@@ -9,15 +9,11 @@ test.use({
     dashboardNewLayouts: false,
   },
 });
-// With [plugin.canvas] as_external (the docker-compose default), the picker shows
-// this repo's plugin.json name. CANVAS_AS_EXTERNAL=false falls back to core.
-const CANVAS_VISUALIZATION_NAME = process.env.CANVAS_AS_EXTERNAL === 'false' ? 'Canvas' : 'Canvas External';
-
 test.describe('Canvas Panel - Scene Tests', () => {
   test.beforeEach(async ({ page, gotoDashboardPage }) => {
     const dashboardPage = await gotoDashboardPage({});
     const panelEditPage = await dashboardPage.addPanel();
-    await panelEditPage.setVisualization(CANVAS_VISUALIZATION_NAME);
+    await panelEditPage.setVisualization('Canvas');
 
     // Wait for canvas panel to load
     await page.waitForSelector('[data-testid="canvas-scene-pan-zoom"]', { timeout: 10000 });
