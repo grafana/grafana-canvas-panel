@@ -57,9 +57,9 @@
    # Pass the same GRAFANA_PORT to `npm run e2e` to test against that instance.
    GRAFANA_VERSION=12.4.0 GRAFANA_PORT=3002 npm run server
 
-   # Load this repo's build instead of the core Canvas panel
-   # (sets [plugin.canvas] as_external = true)
-   CANVAS_AS_EXTERNAL=true npm run server
+   # By default Grafana loads this repo's build instead of the core Canvas
+   # panel ([plugin.canvas] as_external = true). To use the core panel:
+   CANVAS_AS_EXTERNAL=false npm run server
 
    # Starts the tests
    npm run e2e
