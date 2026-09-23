@@ -8,9 +8,7 @@ import { useObservable } from 'react-use';
 import {
   type DataFrame,
   type GrafanaTheme2,
-  type NestedValueAccess,
   type PanelOptionsEditorBuilder,
-  type PanelOptionsSupplier,
   type StandardEditorContext,
 } from '@grafana/data';
 import { Trans, t } from '@grafana/i18n';
@@ -32,6 +30,7 @@ import { getElementEditor } from '../element/elementEditor';
 import { getLayerEditor } from '../layer/layerEditor';
 
 import { TabsEditor } from './TabsEditor';
+import { type NestedValueAccess, type PanelOptionsSupplier } from '../../compat';
 
 export function InlineEditBody() {
   const activePanel = useObservable(activePanelSubject);

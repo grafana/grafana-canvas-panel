@@ -13,6 +13,8 @@ import { NumberInput } from '../../../core/OptionsUI/NumberInput';
 import { validateScaleOptions, validateScaleConfig } from '../scale';
 import { type ScaleDimensionOptions } from '../types';
 
+import { noOptionsMessageProps } from '../../../compat';
+
 export const ScaleDimensionEditor = (props: StandardEditorProps<ScaleDimensionConfig, ScaleDimensionOptions>) => {
   const { value, context, onChange, item, id } = props;
   const { settings } = item;
@@ -114,7 +116,9 @@ export const ScaleDimensionEditor = (props: StandardEditorProps<ScaleDimensionCo
           value={selectedOption}
           options={selectOptions}
           onChange={onSelectChange}
-          noOptionsMessage={t('dimensions.scale-dimension-editor.noOptionsMessage-no-fields-found', 'No fields found')}
+          {...noOptionsMessageProps(
+            t('dimensions.scale-dimension-editor.noOptionsMessage-no-fields-found', 'No fields found')
+          )}
         />
       </div>
       <div className={styles.range}>

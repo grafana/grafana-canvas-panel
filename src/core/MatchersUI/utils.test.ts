@@ -2,7 +2,6 @@ import { renderHook } from '@testing-library/react';
 import React from 'react';
 
 import { type DataFrame, type Field, FieldType, FieldNamePickerBaseNameMode, toDataFrame } from '@grafana/data';
-import { type MatcherScope } from '@grafana/schema';
 
 import {
   closePopover,
@@ -15,6 +14,7 @@ import {
   useFieldDisplayNames,
   useMatcherSelectOptions,
 } from './utils';
+import { type MatcherScope } from '../../compat';
 
 describe('MatchersUI utils', () => {
   describe('frameHasName', () => {

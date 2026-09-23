@@ -1,5 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/options.ts
-import { FieldType, type PanelOptionsSupplier } from '@grafana/data';
+import { FieldType } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { ConnectionDirection, DirectionDimensionMode } from '@grafana/schema';
 import { SVGElements } from '../features/canvas/runtime/element';
@@ -15,6 +15,7 @@ import { LineStyle } from '../types';
 import { LineStyleEditor } from './LineStyleEditor';
 import { ActionsEditor } from './element/ActionsEditor';
 import { DataLinksEditor } from './element/DataLinksEditor';
+import { type PanelOptionsSupplier } from '../compat';
 
 interface OptionSuppliers {
   addBackground: PanelOptionsSupplier<CanvasElementOptions>;

@@ -1,7 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/element/elementEditor.tsx
 import { get as lodashGet } from 'lodash';
 
-import { type NestedPanelOptions, type NestedValueAccess } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { type CanvasElementOptions } from '../../features/canvas/element';
 import {
@@ -18,6 +17,7 @@ import { getElementTypes } from '../../utils';
 import { optionBuilder } from '../options';
 
 import { PlacementEditor } from './PlacementEditor';
+import { type NestedPanelOptions, type NestedValueAccess } from '../../compat';
 
 export interface CanvasEditorOptions {
   element: ElementState;
@@ -73,7 +73,7 @@ export function getElementEditor(opts: CanvasEditorOptions): NestedPanelOptions<
 
       builder.addSelect({
         path: 'type',
-         
+
         name: undefined as any, // required, but hide space
         settings: {
           options: layerTypes,

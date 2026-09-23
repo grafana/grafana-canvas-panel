@@ -8,6 +8,8 @@ import { Field } from '@grafana/ui';
 
 import { type OptionsPaneCategoryDescriptor } from './OptionsPaneCategoryDescriptor';
 
+import { fieldsetProps } from '../../compat';
+
 export interface OptionsPaneItemInfo {
   title?: string;
   value?: any;
@@ -70,7 +72,7 @@ function OptionsPaneItem({ itemDescriptor }: OptionsPaneItemProps) {
       key={key}
       data-testid={selectors.components.PanelEditor.OptionsPane.fieldLabel(key)}
       htmlFor={id}
-      useFieldset={useFieldset}
+      {...fieldsetProps(useFieldset)}
     >
       {render(itemDescriptor)}
     </Field>

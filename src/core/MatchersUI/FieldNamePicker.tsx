@@ -10,6 +10,8 @@ import { Combobox } from '@grafana/ui';
 
 import { useFieldDisplayNames, useMatcherSelectOptions, frameHasName } from './utils';
 
+import { noOptionsMessageProps } from '../../compat';
+
 type Props = StandardEditorProps<string, FieldNamePickerConfigSettings>;
 
 // Pick a field name out of the fields
@@ -39,7 +41,7 @@ export const FieldNamePicker = ({ value, onChange, context, item, id }: Props) =
       placeholder={
         settings.placeholderText ?? t('grafana-ui.matchers-ui.field-name-picker.placeholder', 'Select field')
       }
-      noOptionsMessage={settings.noFieldsMessage}
+      {...noOptionsMessageProps(settings.noFieldsMessage)}
       width={settings.width}
       isClearable={settings.isClearable}
     />

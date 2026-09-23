@@ -2,16 +2,11 @@
 // TODO: Publish fillOptionsPaneItems from @grafana/ui and delete this duplicate file
 import * as React from 'react';
 
-import {
-  PanelOptionsEditorBuilder,
-  type PanelOptionsSupplier,
-  type NestedValueAccess,
-  isNestedPanelOptions,
-  type StandardEditorContext,
-} from '@grafana/data';
+import { PanelOptionsEditorBuilder, type StandardEditorContext } from '@grafana/data';
 
 import { OptionsPaneCategoryDescriptor } from './OptionsPaneCategoryDescriptor';
 import { OptionsPaneItemDescriptor } from './OptionsPaneItemDescriptor';
+import { getUseFieldset, isNestedPanelOptions, type NestedValueAccess, type PanelOptionsSupplier } from '../../compat';
 
 type categoryGetter = (categoryNames?: string[]) => OptionsPaneCategoryDescriptor;
 
@@ -56,7 +51,7 @@ export function fillOptionsPaneItems(
         title: pluginOption.name,
         id: htmlId,
         description: pluginOption.description,
-        useFieldset: pluginOption.useFieldset,
+        useFieldset: getUseFieldset(pluginOption),
         render: function renderEditor() {
           return React.createElement(Editor, {
             value: access.getValue(pluginOption.path),

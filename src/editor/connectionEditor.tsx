@@ -1,7 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/connectionEditor.tsx
 import { get as lodashGet } from 'lodash';
 
-import { type NestedPanelOptions, type NestedValueAccess } from '@grafana/data';
 import { type Scene } from '../features/canvas/runtime/scene';
 import { setOptionImmutably } from '../core/PanelEditor/utils';
 
@@ -9,6 +8,7 @@ import { type CanvasConnection } from '../panelcfg.gen';
 import { type ConnectionState } from '../types';
 
 import { optionBuilder } from './options';
+import { type NestedPanelOptions, type NestedValueAccess } from '../compat';
 
 export interface CanvasConnectionEditorOptions {
   connection: ConnectionState;
