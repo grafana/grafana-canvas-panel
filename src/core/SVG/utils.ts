@@ -1,6 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/core/components/SVG/utils.ts
 // TODO: Publish SanitizedSVG from @grafana/ui and delete this duplicate file
-import { generateUUID } from '@grafana/data';
+import { generateUUID } from '../../compat';
 
 const MATCH_ID_INDEX = 2;
 const SVG_ID_INSERT_POS = 5;

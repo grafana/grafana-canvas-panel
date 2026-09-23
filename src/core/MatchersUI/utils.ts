@@ -4,8 +4,9 @@ import { useMemo } from 'react';
 
 import { type DataFrame, type Field, getFieldDisplayName, FieldNamePickerBaseNameMode, FieldType } from '@grafana/data';
 import { t } from '@grafana/i18n';
-import { type MatcherScope } from '@grafana/schema';
 import { getFieldTypeIcon, type ComboboxOption } from '@grafana/ui';
+
+import { type ComboboxOptionIcon, type MatcherScope } from '../../compat';
 
 /**
  * @internal
@@ -164,7 +165,10 @@ export function useMatcherSelectOptions(
     const getGroup = (name: string) =>
       shouldShowScopes ? getGroupLabelForScope(displayNames.scopes.get(name)) : undefined;
     const optionFactory =
-      (getLabel: (name: string) => string, getExtraOptions?: (name: string) => Partial<ComboboxOption> | undefined) =>
+      (
+        getLabel: (name: string) => string,
+        getExtraOptions?: (name: string) => (Partial<ComboboxOption> & ComboboxOptionIcon) | undefined
+      ) =>
       (name: string) => ({
         value: name,
         label: getLabel(name),

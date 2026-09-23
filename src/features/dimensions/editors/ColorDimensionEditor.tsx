@@ -14,6 +14,8 @@ import { type ColorDimensionConfig } from '@grafana/schema';
 import { Combobox, ColorPicker, useStyles2 } from '@grafana/ui';
 import { useFieldDisplayNames, useMatcherSelectOptions } from '../../../core/MatchersUI/utils';
 
+import { noOptionsMessageProps } from '../../../compat';
+
 interface ColorDimensionSettings {
   isClearable?: boolean;
   baseNameMode?: FieldNamePickerBaseNameMode;
@@ -85,7 +87,9 @@ export const ColorDimensionEditor = (props: StandardEditorProps<ColorDimensionCo
           value={selectedOption}
           options={selectOptions}
           onChange={onSelectChange}
-          noOptionsMessage={t('dimensions.color-dimension-editor.noOptionsMessage-no-fields-found', 'No fields found')}
+          {...noOptionsMessageProps(
+            t('dimensions.color-dimension-editor.noOptionsMessage-no-fields-found', 'No fields found')
+          )}
           placeholder={item.settings?.placeholder}
           {...(item.settings?.isClearable ? { isClearable: true } : { isClearable: false })} // silly TS issue
         />

@@ -5,10 +5,7 @@
   "id": "canvas",
   "suggestions": true,
   "info": {
-    "keywords": [
-      "canvas",
-      "drawing"
-    ],
+    "keywords": ["canvas", "drawing"],
     "description": "Explicit element placement",
     "author": {
       "name": "Grafana",
@@ -42,7 +39,7 @@
     "updated": "%TODAY%"
   },
   "dependencies": {
-    "grafanaDependency": ">=13.3.0-0",
+    "grafanaDependency": ">=12.4.0-0",
     "plugins": []
   },
   "languages": [

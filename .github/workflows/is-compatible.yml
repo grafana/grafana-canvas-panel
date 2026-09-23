@@ -42,4 +42,17 @@ jobs:
         with:
           module: ${{ steps.find-module-ts.outputs.modulets }}
           comment-pr: 'no'
-          fail-if-incompatible: 'yes'
+          # Levitate flags every type change in an API we use, even harmless ones. We build against the
+          # oldest supported Grafana (see grafanaDependency), so those pile up with each release. Only fail
+          # when an API we use was removed; see the next step.
+          fail-if-incompatible: 'no'
+
+      # The action above leaves levitate's report in .levitate_output, one "N) Removed|Changed `name`
+      # used in `file`" line per finding.
+      - name: Fail if a Grafana API we use was removed
+        run: |
+          if grep -E '^[0-9]+\) Removed ' .levitate_output; then
+            echo "::error::Grafana removed an API this plugin uses. See the Compatibility check step for details."
+            exit 1
+          fi
+          echo "No removed APIs. Changed APIs, if any, are listed in the Compatibility check step."

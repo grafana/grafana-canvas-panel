@@ -16,23 +16,13 @@ import {
   type ValueLinkConfig,
   type ActionModel,
 } from '@grafana/data';
-import {
-  Portal,
-  useStyles2,
-  useTheme2,
-  VizTooltipContainer,
-  usePanelContext,
-  VizTooltipContent,
-  VizTooltipFooter,
-  VizTooltipHeader,
-  type VizTooltipItem,
-  CloseButton,
-} from '@grafana/ui';
+import { Portal, useStyles2, useTheme2, VizTooltipContainer, usePanelContext } from '@grafana/ui';
 import { getActions, getActionsDefaultField } from '../features/actions/utils';
 import { type Scene } from '../features/canvas/runtime/scene';
 
 import { getDataLinks } from '../core/statusHistoryUtils';
 import { getElementFields, getRowIndex } from '../utils';
+import { CloseButton, VizTooltipContent, VizTooltipFooter, VizTooltipHeader, type VizTooltipItem } from '../compat';
 
 interface Props {
   scene: Scene;
@@ -139,7 +129,6 @@ export const CanvasTooltip = ({ scene }: Props) => {
     );
 
     actionsModel.forEach((action, i) => {
-       
       const key = `${action.title}/${i}`;
       if (!actionLookup.has(key)) {
         actions.push(action);

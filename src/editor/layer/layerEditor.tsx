@@ -1,7 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/editor/layer/layerEditor.tsx
 import { get as lodashGet } from 'lodash';
 
-import { type NestedPanelOptions, type NestedValueAccess } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { type ElementState } from '../../features/canvas/runtime/element';
 import { FrameState } from '../../features/canvas/runtime/frame';
@@ -13,6 +12,7 @@ import { PlacementEditor } from '../element/PlacementEditor';
 import { optionBuilder } from '../options';
 
 import { TreeNavigationEditor } from './TreeNavigationEditor';
+import { type NestedPanelOptions, type NestedValueAccess } from '../../compat';
 
 export interface LayerEditorProps {
   scene: Scene;
@@ -79,9 +79,9 @@ export function getLayerEditor(opts: InstanceState): NestedPanelOptions<LayerEdi
       });
 
       const ctx = { ...context, options };
-       
+
       optionBuilder.addBackground(builder as any, ctx);
-       
+
       optionBuilder.addBorder(builder as any, ctx);
 
       if (currentLayer && !currentLayer.isRoot()) {

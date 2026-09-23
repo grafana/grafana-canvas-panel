@@ -12,6 +12,8 @@ import { NumberInput } from '../../../core/OptionsUI/NumberInput';
 
 import { type ScalarDimensionOptions } from '../types';
 
+import { noOptionsMessageProps } from '../../../compat';
+
 type Props = StandardEditorProps<ScalarDimensionConfig, ScalarDimensionOptions>;
 
 export const ScalarDimensionEditor = ({ value, context, onChange, item }: Props) => {
@@ -115,7 +117,9 @@ export const ScalarDimensionEditor = ({ value, context, onChange, item }: Props)
           value={selectedOption}
           options={selectOptions}
           onChange={onSelectChange}
-          noOptionsMessage={t('dimensions.scalar-dimension-editor.noOptionsMessage-no-fields-found', 'No fields found')}
+          {...noOptionsMessageProps(
+            t('dimensions.scalar-dimension-editor.noOptionsMessage-no-fields-found', 'No fields found')
+          )}
         />
       </div>
       <div className={styles.range}>
