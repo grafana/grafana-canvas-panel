@@ -14,9 +14,9 @@
     "lint:md": "markdownlint-cli2 \"**/*.md\"",
     "spellcheck": "cspell .",
     "lint:fix": "npm run lint -- --fix && prettier --write --list-different .",
-    "e2e": "PLAYWRIGHT_VERSION=$(node -p \"require('./package.json').devDependencies['@playwright/test']\") docker compose --profile playwright run --rm playwright",
+    "e2e": "PLAYWRIGHT_VERSION=$(node -p \"require('./package.json').devDependencies['@playwright/test']\") COMPOSE_PROJECT_NAME=${GRAFANA_CONTAINER_NAME:-grafana-canvas-panel${GRAFANA_PORT:+-$GRAFANA_PORT}} docker compose --profile playwright run --rm playwright",
     "e2e:ui": "npx playwright test --ui",
-    "server": "docker compose up --build",
+    "server": "COMPOSE_PROJECT_NAME=${GRAFANA_CONTAINER_NAME:-grafana-canvas-panel${GRAFANA_PORT:+-$GRAFANA_PORT}} docker compose up --build",
     "sign": "sign-plugin"
   },
   "author": "Grafana",

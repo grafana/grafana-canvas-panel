@@ -9,8 +9,31 @@ services:
         # off. The reusable e2e workflow doesn't set ANONYMOUS_AUTH_ENABLED,
         # and the base compose file defaults it to true, so pin it here.
         anonymous_auth_enabled: false
-    ports:
-      - '3000:3000'
+    # Override the base container_name so multiple instances don't clash.
+    # Setting only GRAFANA_PORT is enough; with neither set the name stays
+    # grafana-canvas-panel.
+    container_name: ${GRAFANA_CONTAINER_NAME:-grafana-canvas-panel${GRAFANA_PORT:+-$GRAFANA_PORT}}
+    # Grafana only maps GF_* env vars onto ini sections that already exist, and
+    # [plugin.canvas] isn't in defaults.ini, so GF_PLUGIN_CANVAS_AS_EXTERNAL is
+    # ignored. Instead, copy the image's grafana.ini, append the section at
+    # startup, and point Grafana at the copy.
+    environment:
+      CANVAS_AS_EXTERNAL: ${CANVAS_AS_EXTERNAL:-false}
+      GF_PATHS_CONFIG: /tmp/custom.ini
+      # Browsers scope cookies by host, not port, so instances on localhost
+      # would overwrite each other's session cookie. Name it per port.
+      GF_AUTH_LOGIN_COOKIE_NAME: grafana_session_${GRAFANA_PORT:-3000}
+      # Pass through from the shell, e.g. GF_FEATURE_TOGGLES_ENABLE=foo npm run server
+      GF_FEATURE_TOGGLES_ENABLE: ${GF_FEATURE_TOGGLES_ENABLE:-}
+    entrypoint:
+      - sh
+      - -c
+      - |
+        cp /etc/grafana/grafana.ini /tmp/custom.ini
+        printf '\n[plugin.canvas]\nas_external = %s\n' "$$CANVAS_AS_EXTERNAL" >> /tmp/custom.ini
+        exec /entrypoint.sh
+    ports: !override
+      - ${GRAFANA_PORT:-3000}:3000/tcp
 
   playwright:
     container_name: playwright-e2e
@@ -40,4 +63,5 @@ services:
 
 networks:
   default:
-    name: grafana-canvas-panel_default
+    # Scoped per compose project so parallel instances get separate networks.
+    name: ${COMPOSE_PROJECT_NAME:-grafana-canvas-panel}_default
