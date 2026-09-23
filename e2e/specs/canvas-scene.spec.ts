@@ -10,9 +10,16 @@ test.use({
   },
 });
 test.describe('Canvas Panel - Scene Tests', () => {
-  test.beforeEach(async ({ page, gotoDashboardPage }) => {
+  test.beforeEach(async ({ page, gotoDashboardPage, selectors }) => {
     const dashboardPage = await gotoDashboardPage({});
     const panelEditPage = await dashboardPage.addPanel();
+    // Grafana 12.4 opens the viz picker for new panels while the editor is still initializing.
+    // setVisualization() checks for the picker without waiting and, if it is not there yet, clicks the
+    // toggle, which closes it. Give the picker time to appear first; later versions show it immediately.
+    await panelEditPage
+      .getByGrafanaSelector(selectors.components.Tab.title(selectors.constants.Tab.title))
+      .waitFor({ timeout: 5000 })
+      .catch(() => {});
     await panelEditPage.setVisualization('Canvas');
 
     // Wait for canvas panel to load
