@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
-  "name": "Canvas External",
+  "name": "Canvas",
   "id": "canvas",
   "suggestions": true,
   "info": {
@@ -9,7 +9,7 @@
       "canvas",
       "drawing"
     ],
-    "description": "Draw pictures with the Canvas visualization panel plugin, then paint by numbers with your Grafana metrics data!",
+    "description": "Explicit element placement",
     "author": {
       "name": "Grafana",
       "url": "https://grafana.com"
@@ -42,7 +42,7 @@
     "updated": "%TODAY%"
   },
   "dependencies": {
-    "grafanaDependency": ">=13.2.0-0",
+    "grafanaDependency": ">=13.3.0-0",
     "plugins": []
   },
   "languages": [
