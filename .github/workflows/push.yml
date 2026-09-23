@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - main
+  # Any base branch, so stacked PRs (targeting another feature branch) get CI too.
   pull_request:
-    branches:
-      - main
+    # Defaults plus ready_for_review, so CI starts when a draft is marked ready.
+    types: [opened, synchronize, reopened, ready_for_review]
 
 # Cancel superseded runs on PRs only. Pushes to main publish to the catalog and
 # trigger an Argo deployment, so cancelling one mid-flight can leave a published
@@ -50,7 +51,8 @@ jobs:
   # nothing. Keeping the two paths in separate jobs makes the check names honest.
   ci:
     name: CI
-    if: github.event_name == 'pull_request'
+    # Draft PRs skip CI (including e2e) to save runners; it runs once the PR is ready for review.
+    if: github.event_name == 'pull_request' && !github.event.pull_request.draft
     # The container derives both its base image and its @playwright/test install
     # from PLAYWRIGHT_VERSION, so drift from package.json is internally
     # consistent and e2e won't fail on its own. Gate on the guard so a drifted
