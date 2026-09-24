@@ -52,6 +52,15 @@
    # If you wish to start a certain Grafana version. If not specified will use latest by default
    GRAFANA_VERSION=13.2.0 npm run server
 
+   # Run several instances side by side on different ports and versions.
+   # Each port gets its own compose project, container and network.
+   # Pass the same GRAFANA_PORT to `npm run e2e` to test against that instance.
+   GRAFANA_VERSION=12.4.0 GRAFANA_PORT=3002 npm run server
+
+   # By default Grafana loads this repo's build instead of the core Canvas
+   # panel ([plugin.canvas] as_external = true). To use the core panel:
+   CANVAS_AS_EXTERNAL=false npm run server
+
    # Starts the tests
    npm run e2e
    ```
