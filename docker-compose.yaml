@@ -49,6 +49,7 @@ services:
     volumes:
       - ./provisioning:/app/provisioning
       - ./e2e:/app/e2e
+      - ./tests:/app/tests
       - ./test-results:/app/test-results
       - ./playwright:/app/playwright
       - ./playwright-report:/app/playwright-report

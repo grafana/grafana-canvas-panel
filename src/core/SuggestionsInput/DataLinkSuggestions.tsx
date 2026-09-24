@@ -11,7 +11,7 @@ import { type VariableSuggestion, type GrafanaTheme2 } from '@grafana/data';
 import { useStyles2, List } from '@grafana/ui';
 
 interface DataLinkSuggestionsProps {
-  activeRef?: React.RefObject<HTMLDivElement>;
+  activeRef?: React.Ref<HTMLDivElement>;
   suggestions: VariableSuggestion[];
   activeIndex: number;
   onSuggestionSelect: (suggestion: VariableSuggestion) => void;
@@ -104,7 +104,7 @@ DataLinkSuggestions.displayName = 'DataLinkSuggestions';
 interface DataLinkSuggestionsListProps extends DataLinkSuggestionsProps {
   label: string;
   activeIndexOffset: number;
-  activeRef?: React.RefObject<HTMLDivElement>;
+  activeRef?: React.Ref<HTMLDivElement>;
 }
 
 const DataLinkSuggestionsList = React.memo(

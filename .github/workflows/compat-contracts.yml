@@ -1,0 +1,48 @@
+name: Grafana compatibility contracts
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - grafana: '13.1.0'
+            react: '18'
+          - grafana: '13.1.1'
+            react: '18'
+          - grafana: 'latest'
+            react: '19'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.1
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      # This job changes only its disposable install, not the plugin's locked
+      # 12.4 build baseline. Required contracts detect removed AND changed APIs.
+      - name: Install host SDK for contract validation
+        env:
+          GRAFANA_SDK_VERSION: ${{ matrix.grafana }}
+          REACT_VERSION: ${{ matrix.react }}
+        run: >-
+          npm install --no-save --package-lock=false --ignore-scripts
+          "@grafana/data@$GRAFANA_SDK_VERSION"
+          "@grafana/ui@$GRAFANA_SDK_VERSION"
+          "@grafana/runtime@$GRAFANA_SDK_VERSION"
+          "@grafana/schema@$GRAFANA_SDK_VERSION"
+          "@grafana/i18n@$GRAFANA_SDK_VERSION"
+          "react@$REACT_VERSION" "react-dom@$REACT_VERSION"
+          "@types/react@$REACT_VERSION" "@types/react-dom@$REACT_VERSION"
+      - run: npx tsc --noEmit -p contracts/tsconfig.json

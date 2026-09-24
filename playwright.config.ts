@@ -57,5 +57,15 @@ export default defineConfig<PluginOptions>({
       },
       dependencies: ['auth'],
     },
+    {
+      name: 'chromium-compat',
+      testDir: './tests',
+      testMatch: '**/*.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/admin.json',
+      },
+      dependencies: ['auth'],
+    },
   ],
 });
