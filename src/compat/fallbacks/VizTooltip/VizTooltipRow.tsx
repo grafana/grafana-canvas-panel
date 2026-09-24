@@ -1,6 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/v13.1.1/packages/grafana-ui/src/components/VizTooltip/VizTooltipRow.tsx
-// Copied because @grafana/ui only exports this publicly from 13.1.0 (or not at all).
-// See src/compat/index.ts before changing.
+// Private fallback helper. See src/compat/README.md.
 // Upstream code copied as-is; this repo's stricter React Compiler lint rules flag it.
 /* eslint-disable react-hooks/immutability, react-hooks/refs */
 import { css } from '@emotion/css';

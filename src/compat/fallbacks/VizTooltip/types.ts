@@ -1,6 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/v13.1.1/packages/grafana-ui/src/components/VizTooltip/types.ts
-// Copied because @grafana/ui only exports this publicly from 13.1.0 (or not at all).
-// See src/compat/index.ts before changing.
+// Structural types for the fallback and host adapter. See src/compat/README.md.
 import { type LineStyle } from '@grafana/schema';
 
 /** @alpha */

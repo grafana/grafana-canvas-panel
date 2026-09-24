@@ -1,6 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/v13.1.1/packages/grafana-ui/src/components/VizTooltip/utils.ts
-// Copied because @grafana/ui only exports this publicly from 13.1.0 (or not at all).
-// See src/compat/index.ts before changing.
+// Private fallback helper. See src/compat/README.md.
 // Trimmed to the one helper the copied tooltip components use.
 import { type ColorIndicatorStyles } from './VizTooltipColorIndicator';
 import { VizTooltipColorIndicator } from './types';

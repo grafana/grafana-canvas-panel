@@ -1,6 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/v13.1.1/packages/grafana-ui/src/components/Actions/ActionButton.tsx
-// Copied because @grafana/ui only exports this publicly from 13.1.0 (or not at all).
-// See src/compat/index.ts before changing.
+// Private fallback helper; not a public @grafana/ui export in 13.1.1.
 import * as React from 'react';
 import { useState } from 'react';
 

@@ -1,6 +1,5 @@
 // SOURCE: https://github.com/grafana/grafana/blob/v13.1.1/packages/grafana-ui/src/components/uPlot/plugins/CloseButton.tsx
-// Copied because @grafana/ui only exports this publicly from 13.1.0 (or not at all).
-// See src/compat/index.ts before changing.
+// Fallback for hosts without the public export. See src/compat/README.md.
 // mostly copy/pasted from: public/app/core/components/CloseButton/CloseButton.tsx
 import { css } from '@emotion/css';
 import * as React from 'react';
