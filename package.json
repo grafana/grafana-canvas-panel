@@ -102,5 +102,5 @@
     "react-window": "1.8.11",
     "selecto": "1.26.3"
   },
-  "packageManager": "npm@11.6.1"
+  "packageManager": "npm@11.20.0"
 }
