@@ -20,9 +20,6 @@ allow_loading_unsigned_plugins = grafana-canvas-panel
 
 [plugin.canvas]
 as_external = true
-
-[plugin.grafana-canvas-panel]
-alias_ids = canvas
 ```
 
 > **Note:** `[paths] plugins` must point to the **parent** directory of `dist/` — i.e. the root of this repo, not `dist/` itself. Grafana scans one level of subdirectories for `plugin.json`.
