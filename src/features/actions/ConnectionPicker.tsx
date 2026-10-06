@@ -1,10 +1,11 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/features/actions/ConnectionPicker.tsx
 import * as React from 'react';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-import { ActionType, type DataSourceInstanceSettings } from '@grafana/data';
+import { ActionType, type DataSourcePluginMeta } from '@grafana/data';
 import { t } from '@grafana/i18n';
-import { config, getDataSourceSrv } from '@grafana/runtime';
+import { getDataSourceInstanceList } from '@grafana/plugin-compat/datasources';
+import { config } from '@grafana/runtime';
 import { Select } from '@grafana/ui';
 
 import { INFINITY_DATASOURCE_TYPE } from './utils';
@@ -20,21 +21,45 @@ interface ConnectionOption {
 interface ConnectionPickerProps {
   actionType: ActionType;
   datasourceUid?: string;
-  onChange: (connectionType: 'direct' | DataSourceInstanceSettings) => void;
+  onChange: (connectionType: 'direct' | DataSourceListItem) => void;
   id?: string;
 }
 
 const DIRECT_OPTION_VALUE = 'direct';
 
-const getSupportedDataSources = () => {
-  const dataSourceSrv = getDataSourceSrv();
+// Slim list item returned by getDataSourceInstanceList; the type isn't exported by @grafana/data 13.1
+export interface DataSourceListItem {
+  uid: string;
+  name: string;
+  type: string;
+  meta: DataSourcePluginMeta;
+}
 
-  return dataSourceSrv.getList({
-    filter: (ds) => ds.type === INFINITY_DATASOURCE_TYPE,
+const getSupportedDataSources = (): Promise<DataSourceListItem[]> =>
+  getDataSourceInstanceList({
+    filter: (ds: DataSourceListItem) => ds.type === INFINITY_DATASOURCE_TYPE,
   });
-};
 
 export const ConnectionPicker = ({ actionType, datasourceUid, onChange, id }: ConnectionPickerProps) => {
+  const [supportedDataSources, setSupportedDataSources] = useState<DataSourceListItem[]>([]);
+
+  useEffect(() => {
+    if (!config.featureToggles.vizActionsAuth) {
+      return;
+    }
+    let cancelled = false;
+    getSupportedDataSources()
+      .then((list) => {
+        if (!cancelled) {
+          setSupportedDataSources(list);
+        }
+      })
+      .catch((err) => console.error('ConnectionPicker: Failed to load datasources', err));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const connectionOptions: ConnectionOption[] = useMemo(() => {
     const options: ConnectionOption[] = [
       {
@@ -48,20 +73,16 @@ export const ConnectionPicker = ({ actionType, datasourceUid, onChange, id }: Co
       },
     ];
 
-    if (config.featureToggles.vizActionsAuth) {
-      const supportedDataSources = getSupportedDataSources();
-
-      supportedDataSources.forEach((ds) => {
-        options.push({
-          label: ds.name,
-          value: ds.uid,
-          imgUrl: ds.meta.info.logos.small,
-        });
+    supportedDataSources.forEach((ds) => {
+      options.push({
+        label: ds.name,
+        value: ds.uid,
+        imgUrl: ds.meta.info.logos.small,
       });
-    }
+    });
 
     return options;
-  }, []);
+  }, [supportedDataSources]);
 
   const getCurrentValue = () => {
     if (actionType === ActionType.Fetch) {
@@ -76,7 +97,6 @@ export const ConnectionPicker = ({ actionType, datasourceUid, onChange, id }: Co
     if (selectedValue === DIRECT_OPTION_VALUE) {
       onChange(DIRECT_OPTION_VALUE);
     } else {
-      const supportedDataSources = getSupportedDataSources();
       const selectedDatasource = supportedDataSources.find((ds) => ds.uid === selectedValue);
       if (selectedDatasource) {
         onChange(selectedDatasource);
