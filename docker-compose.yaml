@@ -9,6 +9,9 @@ services:
         # off. The reusable e2e workflow doesn't set ANONYMOUS_AUTH_ENABLED,
         # and the base compose file defaults it to true, so pin it here.
         anonymous_auth_enabled: false
+        # The base compose file's default is older than grafanaDependency in
+        # plugin.json (>=13.2.0), so pin a supported version here.
+        grafana_version: ${GRAFANA_VERSION:-13.2.3}
     # Override the base container_name so multiple instances don't clash.
     # Setting only GRAFANA_PORT is enough; with neither set the name stays
     # grafana-canvas-panel.
