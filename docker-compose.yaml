@@ -27,7 +27,10 @@ services:
       # would overwrite each other's session cookie. Name it per port.
       GF_AUTH_LOGIN_COOKIE_NAME: grafana_session_${GRAFANA_PORT:-3000}
       # Pass through from the shell, e.g. GF_FEATURE_TOGGLES_ENABLE=foo npm run server
-      GF_FEATURE_TOGGLES_ENABLE: ${GF_FEATURE_TOGGLES_ENABLE:-}
+      # vizActionsAuth lets action editors pick an Infinity datasource as the connection.
+      GF_FEATURE_TOGGLES_ENABLE: ${GF_FEATURE_TOGGLES_ENABLE:-vizActionsAuth}
+      # Infinity backs the action ConnectionPicker e2e test.
+      GF_PLUGINS_PREINSTALL_SYNC: yesoreyeram-infinity-datasource
     entrypoint:
       - sh
       - -c

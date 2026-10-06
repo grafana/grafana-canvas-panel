@@ -5,3 +5,6 @@ datasources:
     type: testdata
     uid: trlxrdZVk
     isDefault: true
+  - name: Infinity
+    type: yesoreyeram-infinity-datasource
+    uid: infinity-e2e
