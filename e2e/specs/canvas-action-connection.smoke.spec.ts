@@ -13,13 +13,17 @@ test.describe('Canvas Panel - Action connection picker', () => {
     const dashboard = await readProvisionedDashboard({ fileName: 'canvas_showcase_action.json' });
     expect(dashboard.uid).toBe(DASHBOARD_UID);
     const panelEditPage = await gotoPanelEditPage({ dashboard, id: '1' });
-    const optionsPane = panelEditPage.getByGrafanaSelector(selectors.components.PanelEditor.OptionsPane.content);
-    const modal = panelEditPage.ctx.page.getByRole('dialog', { name: 'Add action' });
+    const page = panelEditPage.ctx.page;
+    const modal = page.getByRole('dialog', { name: 'Add action' });
     const connection = modal.getByRole('combobox', { name: 'Connection' });
 
     await test.step('Open the add action modal for an element', async () => {
-      await optionsPane.getByText('Scale up button', { exact: true }).click();
-      await optionsPane.getByRole('button', { name: 'Add action' }).click();
+      await page
+        .getByRole('tree')
+        .getByRole('treeitem', { name: /^Scale up button/ })
+        .getByRole('button', { name: 'Scale up button', exact: true })
+        .click();
+      await page.getByRole('button', { name: 'Add action' }).click();
       await expect(modal).toBeVisible();
     });
 
