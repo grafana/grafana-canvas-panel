@@ -63,6 +63,12 @@
 
    # Starts the tests
    npm run e2e
+
+   # Check for flaky tests: runs each test 10 times
+   npm run e2e:10x
+
+   # Run one spec file 10 times
+   npm run e2e:10x -- e2e/specs/canvas-action-connection.smoke.spec.ts
    ```
 
 7. Run the linter

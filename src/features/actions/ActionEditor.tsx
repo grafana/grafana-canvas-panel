@@ -6,7 +6,6 @@ import { memo, useId } from 'react';
 import {
   type Action,
   ActionType,
-  type DataSourceInstanceSettings,
   type GrafanaTheme2,
   httpMethodOptions,
   HttpRequestMethod,
@@ -32,7 +31,7 @@ import {
 import { HTMLElementType, SuggestionsInput } from '../../core/SuggestionsInput/SuggestionsInput';
 
 import { ActionVariablesEditor } from './ActionVariablesEditor';
-import { ConnectionPicker } from './ConnectionPicker';
+import { ConnectionPicker, type DataSourceListItem } from './ConnectionPicker';
 import { ParamsEditor } from './ParamsEditor';
 
 interface ActionEditorProps {
@@ -138,7 +137,7 @@ export const ActionEditor = memo(({ index, value, onChange, suggestions, showOne
     });
   };
 
-  const onConnectionChange = (connectionType: string | DataSourceInstanceSettings) => {
+  const onConnectionChange = (connectionType: string | DataSourceListItem) => {
     const baseAction = {
       title: value.title,
       confirmation: value.confirmation,
