@@ -81,6 +81,14 @@ describe('ConnectionPicker', () => {
     expect(onChange).toHaveBeenCalledWith('direct');
   });
 
+  it('shows the saved datasource UID when it is not in the loaded list', async () => {
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+    jest.mocked(getDataSourceInstanceList).mockRejectedValue(new Error('boom'));
+    renderPicker({ actionType: ActionType.Infinity, datasourceUid: 'deleted-uid' });
+
+    expect(await screen.findByText('deleted-uid')).toBeInTheDocument();
+  });
+
   it('does not fetch datasources when vizActionsAuth is off', async () => {
     config.featureToggles.vizActionsAuth = false;
     renderPicker();

@@ -42,6 +42,7 @@ const getSupportedDataSources = (): Promise<DataSourceListItem[]> =>
 
 export const ConnectionPicker = ({ actionType, datasourceUid, onChange, id }: ConnectionPickerProps) => {
   const [supportedDataSources, setSupportedDataSources] = useState<DataSourceListItem[]>([]);
+  const [isLoading, setIsLoading] = useState(Boolean(config.featureToggles.vizActionsAuth));
 
   useEffect(() => {
     if (!config.featureToggles.vizActionsAuth) {
@@ -54,7 +55,12 @@ export const ConnectionPicker = ({ actionType, datasourceUid, onChange, id }: Co
           setSupportedDataSources(list);
         }
       })
-      .catch((err) => console.error('ConnectionPicker: Failed to load datasources', err));
+      .catch((err) => console.error('ConnectionPicker: Failed to load datasources', err))
+      .finally(() => {
+        if (!cancelled) {
+          setIsLoading(false);
+        }
+      });
     return () => {
       cancelled = true;
     };
@@ -81,8 +87,23 @@ export const ConnectionPicker = ({ actionType, datasourceUid, onChange, id }: Co
       });
     });
 
+    // Keep a saved connection visible even if its datasource is missing or the list failed to load
+    if (
+      !isLoading &&
+      actionType === ActionType.Infinity &&
+      datasourceUid &&
+      !supportedDataSources.some((ds) => ds.uid === datasourceUid)
+    ) {
+      options.push({
+        label: datasourceUid,
+        value: datasourceUid,
+        description: t('grafana-ui.action-editor.modal.connection-unknown-description', 'Datasource not found'),
+        icon: 'exclamation-triangle',
+      });
+    }
+
     return options;
-  }, [supportedDataSources]);
+  }, [supportedDataSources, isLoading, actionType, datasourceUid]);
 
   const getCurrentValue = () => {
     if (actionType === ActionType.Fetch) {
@@ -111,6 +132,7 @@ export const ConnectionPicker = ({ actionType, datasourceUid, onChange, id }: Co
   return (
     <Select
       inputId={id}
+      isLoading={isLoading}
       value={currentValue}
       options={connectionOptions}
       onChange={(selected) => handleConnectionChange(selected.value!)}
