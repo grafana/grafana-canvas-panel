@@ -21,7 +21,7 @@ on:
         default: false
         type: boolean
       trigger-argo:
-        description: Deploy to Grafana Cloud via Argo after publish (main only). Uncheck to publish to the catalog only; the next checked run syncs deployment_tools
+        description: Trigger Argo deploy after publish (main only). Uncheck for catalog-only.
         default: true
         type: boolean
 
