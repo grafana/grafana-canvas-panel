@@ -20,6 +20,10 @@ on:
         description: Only publish docs, do not publish the plugin
         default: false
         type: boolean
+      trigger-argo:
+        description: Trigger Argo deploy after publish (main only). Uncheck for catalog-only.
+        default: true
+        type: boolean
 
 permissions: {}
 
@@ -75,7 +79,9 @@ jobs:
       scopes: universal
       # Only fan out to Grafana Cloud from main. Dispatching a PR branch to dev
       # publishes to the catalog for stack overrides without deploying it everywhere.
-      trigger-argo: ${{ github.event.inputs.branch == 'main' }}
+      # Unchecking trigger-argo publishes main to the catalog without deploying,
+      # e.g. a first prod publish before deployment_tools has prod config.
+      trigger-argo: ${{ fromJSON(github.event.inputs.trigger-argo) && github.event.inputs.branch == 'main' }}
       auto-merge-environments: dev
       # Route prod and prod-canary deploys to their own channel. Quoted because
       # YAML would otherwise treat " #" as the start of a comment.
