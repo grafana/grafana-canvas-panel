@@ -2,6 +2,7 @@ import { createTheme } from '@grafana/data';
 import { config } from '@grafana/runtime';
 import { ConnectionDirection } from '@grafana/schema';
 
+import { isPanZoomEnabled } from './featureFlags';
 import { type ElementState } from './features/canvas/runtime/element';
 import { type Scene } from './features/canvas/runtime/scene';
 import { type ConnectionState, LineStyle } from './types';
@@ -19,6 +20,11 @@ import {
   removeStyles,
   updateConnectionsForSource,
 } from './utils';
+
+jest.mock('./featureFlags', () => ({
+  ...jest.requireActual('./featureFlags'),
+  isPanZoomEnabled: jest.fn(),
+}));
 
 describe('utils geometry helpers', () => {
   describe('calculateMidpoint', () => {
@@ -280,14 +286,18 @@ describe('getRowIndex', () => {
 describe('getParentBoundingClientRect', () => {
   const mockRect = { left: 10, top: 20, width: 800, height: 600 } as DOMRect;
 
+  afterEach(() => {
+    jest.mocked(isPanZoomEnabled).mockReset();
+  });
+
   it('returns scene.div rect when canvasPanelPanZoom is off', () => {
-    config.featureToggles = { canvasPanelPanZoom: false } as never;
+    jest.mocked(isPanZoomEnabled).mockReturnValue(false);
     const scene = { div: { getBoundingClientRect: () => mockRect } } as never;
     expect(getParentBoundingClientRect(scene)).toBe(mockRect);
   });
 
   it('returns scene.viewportDiv rect when canvasPanelPanZoom is on', () => {
-    config.featureToggles = { canvasPanelPanZoom: true } as never;
+    jest.mocked(isPanZoomEnabled).mockReturnValue(true);
     const viewportRect = { left: 0, top: 0, width: 1024, height: 768 } as DOMRect;
     const scene = { viewportDiv: { getBoundingClientRect: () => viewportRect } } as never;
     expect(getParentBoundingClientRect(scene)).toBe(viewportRect);

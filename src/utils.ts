@@ -20,6 +20,7 @@ import { advancedElementItems, canvasElementRegistry, defaultElementItems } from
 import { ElementState } from './features/canvas/runtime/element';
 import { FrameState } from './features/canvas/runtime/frame';
 import { type Scene, type SelectionParams } from './features/canvas/runtime/scene';
+import { isPanZoomEnabled } from './featureFlags';
 
 import {
   type AnchorPoint,
@@ -381,7 +382,7 @@ const getLineStyle = (lineStyle?: LineStyle) => {
 };
 
 export const getParentBoundingClientRect = (scene: Scene) => {
-  if (config.featureToggles.canvasPanelPanZoom) {
+  if (isPanZoomEnabled()) {
     return scene.viewportDiv?.getBoundingClientRect();
   }
 

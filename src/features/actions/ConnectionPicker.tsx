@@ -5,9 +5,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { ActionType, type DataSourcePluginMeta } from '@grafana/data';
 import { t } from '@grafana/i18n';
 import { getDataSourceInstanceList } from '@grafana/plugin-compat/datasources';
-import { config } from '@grafana/runtime';
 import { Select } from '@grafana/ui';
 
+import { isActionsAuthEnabled } from '../../featureFlags';
 import { INFINITY_DATASOURCE_TYPE } from './utils';
 
 interface ConnectionOption {
@@ -42,10 +42,10 @@ const getSupportedDataSources = (): Promise<DataSourceListItem[]> =>
 
 export const ConnectionPicker = ({ actionType, datasourceUid, onChange, id }: ConnectionPickerProps) => {
   const [supportedDataSources, setSupportedDataSources] = useState<DataSourceListItem[]>([]);
-  const [isLoading, setIsLoading] = useState(Boolean(config.featureToggles.vizActionsAuth));
+  const [isLoading, setIsLoading] = useState(isActionsAuthEnabled);
 
   useEffect(() => {
-    if (!config.featureToggles.vizActionsAuth) {
+    if (!isActionsAuthEnabled()) {
       return;
     }
     let cancelled = false;

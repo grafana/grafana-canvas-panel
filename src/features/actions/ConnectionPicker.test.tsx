@@ -4,13 +4,17 @@ import React from 'react';
 
 import { ActionType } from '@grafana/data';
 import { getDataSourceInstanceList } from '@grafana/plugin-compat/datasources';
-import { config } from '@grafana/runtime';
-
+import { isActionsAuthEnabled } from '../../featureFlags';
 import { ConnectionPicker, type DataSourceListItem } from './ConnectionPicker';
 import { INFINITY_DATASOURCE_TYPE } from './utils';
 
 jest.mock('@grafana/plugin-compat/datasources', () => ({
   getDataSourceInstanceList: jest.fn(),
+}));
+
+jest.mock('../../featureFlags', () => ({
+  ...jest.requireActual('../../featureFlags'),
+  isActionsAuthEnabled: jest.fn(),
 }));
 
 const infinity = {
@@ -21,8 +25,6 @@ const infinity = {
 } as DataSourceListItem;
 
 describe('ConnectionPicker', () => {
-  const originalToggle = config.featureToggles.vizActionsAuth;
-
   beforeAll(() => {
     // Select's menu uses IntersectionObserver, which jsdom doesn't provide
     global.IntersectionObserver = jest.fn(() => ({
@@ -34,11 +36,10 @@ describe('ConnectionPicker', () => {
 
   beforeEach(() => {
     jest.mocked(getDataSourceInstanceList).mockResolvedValue([infinity] as never);
-    config.featureToggles.vizActionsAuth = true;
+    jest.mocked(isActionsAuthEnabled).mockReturnValue(true);
   });
 
   afterEach(() => {
-    config.featureToggles.vizActionsAuth = originalToggle;
     jest.clearAllMocks();
   });
 
@@ -90,7 +91,7 @@ describe('ConnectionPicker', () => {
   });
 
   it('does not fetch datasources when vizActionsAuth is off', async () => {
-    config.featureToggles.vizActionsAuth = false;
+    jest.mocked(isActionsAuthEnabled).mockReturnValue(false);
     renderPicker();
     await openSelect();
 

@@ -21,6 +21,7 @@ import {
 } from '@grafana/data';
 import { type BackendSrvRequest, config as grafanaConfig, getBackendSrv, getAppEvents } from '@grafana/runtime';
 
+import { isActionsAuthEnabled } from '../../featureFlags';
 import { HttpRequestMethod } from '../../panelcfg.gen';
 import { createAbsoluteUrl, type RelativeUrl } from '../../core/url';
 
@@ -28,7 +29,7 @@ import { reportActionTrigger } from './analytics';
 
 /** @internal */
 export const isInfinityActionWithAuth = (action: Action): boolean => {
-  return (grafanaConfig.featureToggles.vizActionsAuth ?? false) && action.type === ActionType.Infinity;
+  return isActionsAuthEnabled() && action.type === ActionType.Infinity;
 };
 
 /** @internal */

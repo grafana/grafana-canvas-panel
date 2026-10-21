@@ -6,7 +6,6 @@ import { first } from 'rxjs/operators';
 
 import { type SelectableValue } from '@grafana/data';
 import { t } from '@grafana/i18n';
-import { config } from '@grafana/runtime';
 import { ContextMenu, MenuItem, type MenuItemProps } from '@grafana/ui';
 import { type ElementState } from '../features/canvas/runtime/element';
 import { type FrameState } from '../features/canvas/runtime/frame';
@@ -14,6 +13,7 @@ import { type Scene } from '../features/canvas/runtime/scene';
 import { findElementByTarget } from '../features/canvas/runtime/sceneElementManagement';
 
 import { type CanvasPanel } from '../CanvasPanel';
+import { isPanZoomEnabled } from '../featureFlags';
 import { type AnchorPoint, LayerActionID } from '../types';
 import { getElementTypes, onAddItem } from '../utils';
 
@@ -34,7 +34,7 @@ export const CanvasContextMenu = ({ scene, panel, onVisibilityChange }: Props) =
   const rootLayer: FrameState | undefined = panel.context?.instanceState?.layer;
 
   useEffect(() => {
-    if (config.featureToggles.canvasPanelPanZoom) {
+    if (isPanZoomEnabled()) {
       const sceneRef = scene;
       // eslint-disable-next-line react-hooks/immutability
       sceneRef.openContextMenu = (position: AnchorPoint) => {
@@ -58,7 +58,7 @@ export const CanvasContextMenu = ({ scene, panel, onVisibilityChange }: Props) =
       event.preventDefault();
       panel.setActivePanel();
 
-      const shouldSelectElement = config.featureToggles.canvasPanelPanZoom
+      const shouldSelectElement = isPanZoomEnabled()
         ? event.currentTarget !== scene.viewportDiv
         : event.currentTarget !== scene.div;
       if (

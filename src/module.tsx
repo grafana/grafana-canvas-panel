@@ -1,7 +1,6 @@
 // SOURCE: https://github.com/grafana/grafana/blob/main/public/app/plugins/panel/canvas/module.tsx
 import { FieldConfigProperty, type PanelOptionsEditorBuilder, PanelPlugin } from '@grafana/data';
 import { initPluginTranslations, t } from '@grafana/i18n';
-import { config } from '@grafana/runtime';
 import { TooltipDisplayMode } from '@grafana/schema';
 import { FrameState } from './features/canvas/runtime/frame';
 
@@ -10,8 +9,11 @@ import { getConnectionEditor } from './editor/connectionEditor';
 import { getElementEditor } from './editor/element/elementEditor';
 import { getLayerEditor } from './editor/layer/layerEditor';
 import { PanZoomHelp } from './editor/panZoomHelp';
+import { initFeatureFlags, isPanZoomEnabled } from './featureFlags';
 import { canvasMigrationHandler } from './migrations';
 import { type Options } from './panelcfg.gen';
+
+initFeatureFlags();
 
 if (process.env.NODE_ENV !== 'test') {
   await initPluginTranslations('canvas', [
@@ -43,7 +45,7 @@ export const addStandardCanvasEditorOptions = (builder: PanelOptionsEditorBuilde
     category,
     description: t('canvas.description-pan-zoom', 'Enable pan and zoom'),
     defaultValue: false,
-    showIf: () => config.featureToggles.canvasPanelPanZoom,
+    showIf: () => isPanZoomEnabled(),
   });
   builder.addCustomEditor({
     id: 'panZoomHelp',
@@ -51,14 +53,14 @@ export const addStandardCanvasEditorOptions = (builder: PanelOptionsEditorBuilde
     name: '',
     category,
     editor: PanZoomHelp,
-    showIf: (opts) => config.featureToggles.canvasPanelPanZoom && opts.panZoom,
+    showIf: (opts) => isPanZoomEnabled() && opts.panZoom,
   });
   builder.addBooleanSwitch({
     path: 'zoomToContent',
     name: 'Zoom to content',
     description: 'Automatically zoom to fit content',
     defaultValue: false,
-    showIf: () => config.featureToggles.canvasPanelPanZoom,
+    showIf: () => isPanZoomEnabled(),
   });
 
   category = [t('canvas.category-tooltip', 'Tooltip')];
