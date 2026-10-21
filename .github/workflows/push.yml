@@ -105,58 +105,6 @@ jobs:
       upload-playwright-artifacts: true
       playwright-grafana-url: http://localhost:3000/login
 
-  # TEMPORARY: remove once ci-nightly passes. The reusable e2e workflow never
-  # prints container logs, so this starts the same OSS nightly stack on the
-  # same runner type and dumps them.
-  debug-oss-nightly:
-    name: Debug OSS nightly startup
-    if: github.event_name == 'pull_request'
-    needs: ci
-    runs-on: ubuntu-x64-large
-    timeout-minutes: 15
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-        with:
-          persist-credentials: false
-
-      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
-        with:
-          name: dist-artifacts
-          path: /tmp/dist-artifacts
-
-      - name: Unpack dist
-        run: |
-          ls -la /tmp/dist-artifacts
-          zip=$(ls /tmp/dist-artifacts/*.zip | grep -vE 'linux|darwin|windows|any' | head -1)
-          unzip -q "$zip" -d /tmp/out
-          mkdir -p dist
-          mv /tmp/out/*/* dist/
-          ls dist | head
-
-      - name: Start Grafana
-        run: |
-          docker compose version
-          GRAFANA_VERSION=nightly GRAFANA_IMAGE=grafana-enterprise docker compose -f docker-compose.oss.yaml up -d
-
-      - name: Poll /login
-        run: |
-          for i in $(seq 1 120); do
-            code=$(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/login || true)
-            echo "t=${i}s status=${code}"
-            [ "$code" = 200 ] && exit 0
-            sleep 1
-          done
-          exit 1
-
-      - name: Dump container state
-        if: always()
-        run: |
-          docker compose -f docker-compose.oss.yaml ps -a
-          docker inspect grafana-canvas-panel --format 'status={{.State.Status}} exit={{.State.ExitCode}} oom={{.State.OOMKilled}} restarts={{.RestartCount}} ports={{json .NetworkSettings.Ports}}'
-          docker compose -f docker-compose.oss.yaml logs --no-color grafana | grep -vE 'level=debug' | tail -300
-
   # Pushes to main publish to the dev and ops catalogs and deploy to Grafana Cloud via
   # Argo. cd.yml calls ci.yml internally, so the build and e2e suite still run
   # ahead of the publish. The Argo / catalog inputs exist only on cd.yml.

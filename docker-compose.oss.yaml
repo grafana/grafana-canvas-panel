@@ -9,6 +9,10 @@ services:
     build:
       args:
         grafana_image: grafana
+    # Restated because Compose v2.38 (on CI runners) drops the parent's
+    # `ports: !override` through extends, leaving 3000 unpublished.
+    ports: !override
+      - ${GRAFANA_PORT:-3000}:3000/tcp
 
   playwright:
     extends:
