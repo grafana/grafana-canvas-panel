@@ -1,0 +1,23 @@
+# Used by the ci-nightly job in push.yml. The reusable e2e workflow hardcodes
+# GRAFANA_IMAGE=grafana-enterprise in its version matrix, and
+# grafana-enterprise:nightly is no longer updated, so force the OSS image.
+services:
+  grafana:
+    extends:
+      file: docker-compose.yaml
+      service: grafana
+    build:
+      args:
+        grafana_image: grafana
+
+  playwright:
+    extends:
+      file: docker-compose.yaml
+      service: playwright
+    depends_on:
+      grafana:
+        condition: service_healthy
+
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME:-grafana-canvas-panel}_default

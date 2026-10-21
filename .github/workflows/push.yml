@@ -68,9 +68,35 @@ jobs:
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.yaml
       run-playwright-with-grafana-dependency: '>=13.2.0'
+      # Nightly runs on OSS in the ci-nightly job below.
+      run-playwright-with-skip-grafana-nightly-image: true
       upload-playwright-artifacts: true
       # Anonymous auth is disabled for e2e, so "/" 302-redirects to the login
       # page. The readiness check requires a 200, so point it at /login.
+      playwright-grafana-url: http://localhost:3000/login
+
+  # The reusable workflow's version matrix always uses grafana-enterprise
+  # images, and grafana-enterprise:nightly is no longer updated. This job runs
+  # only the nightly entry, through a compose file that forces the OSS image.
+  # The impossible dependency range matches no stable version, leaving only
+  # nightly in the matrix.
+  ci-nightly:
+    name: CI (OSS nightly)
+    if: github.event_name == 'pull_request'
+    needs: playwright-version-sync
+    uses: grafana/plugin-ci-workflows/.github/workflows/ci.yml@ci-cd-workflows/v10.2.0
+    permissions:
+      contents: read
+      pull-requests: read
+      id-token: write
+      attestations: write
+    with:
+      plugin-version-suffix: ${{ github.event.pull_request.head.sha }}
+      run-playwright: false
+      run-playwright-docker: true
+      playwright-docker-compose-file: docker-compose.oss.yaml
+      run-playwright-with-grafana-dependency: '>=99.0.0'
+      upload-playwright-artifacts: true
       playwright-grafana-url: http://localhost:3000/login
 
   # Pushes to main publish to the dev and ops catalogs and deploy to Grafana Cloud via
@@ -103,5 +129,7 @@ jobs:
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.yaml
       run-playwright-with-grafana-dependency: '>=13.2.0'
+      # Nightly runs on OSS in the ci-nightly job below.
+      run-playwright-with-skip-grafana-nightly-image: true
       upload-playwright-artifacts: true
       playwright-grafana-url: http://localhost:3000/login

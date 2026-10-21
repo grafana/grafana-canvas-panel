@@ -12,11 +12,6 @@ services:
         # The base compose file's default is older than grafanaDependency in
         # plugin.json (>=13.2.0), so pin a supported version here.
         grafana_version: ${GRAFANA_VERSION:-13.2.3}
-        # The reusable e2e workflow hardcodes GRAFANA_IMAGE=grafana-enterprise
-        # in its version matrix, and grafana-enterprise:nightly is no longer
-        # updated. Ignore GRAFANA_IMAGE and test against OSS images instead.
-        # Set E2E_GRAFANA_IMAGE=grafana-enterprise to run enterprise locally.
-        grafana_image: ${E2E_GRAFANA_IMAGE:-grafana}
     # Override the base container_name so multiple instances don't clash.
     # Setting only GRAFANA_PORT is enough; with neither set the name stays
     # grafana-canvas-panel.
