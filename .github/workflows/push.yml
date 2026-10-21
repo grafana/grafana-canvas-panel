@@ -83,7 +83,11 @@ jobs:
   ci-nightly:
     name: CI (OSS nightly)
     if: github.event_name == 'pull_request'
-    needs: playwright-version-sync
+    # ci.yml's concurrency group is keyed only on plugin-directory and the PR
+    # branch, with cancel-in-progress, so two parallel calls cancel each other.
+    # Running after ci also guarantees its dist-artifacts upload exists: the
+    # Dockerized e2e job always downloads "dist-artifacts" by that fixed name.
+    needs: [playwright-version-sync, ci]
     uses: grafana/plugin-ci-workflows/.github/workflows/ci.yml@ci-cd-workflows/v10.2.0
     permissions:
       contents: read
@@ -95,6 +99,8 @@ jobs:
       run-playwright: false
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.oss.yaml
+      # This job's own build would otherwise clash with ci's artifact name.
+      dist-artifacts-prefix: oss-nightly-
       run-playwright-with-grafana-dependency: '>=99.0.0'
       upload-playwright-artifacts: true
       playwright-grafana-url: http://localhost:3000/login
