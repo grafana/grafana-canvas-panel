@@ -5,7 +5,6 @@ import { test, expect } from '@grafana/plugin-e2e';
 
 test.use({
   featureToggles: {
-    canvasPanelPanZoom: true,
     dashboardNewLayouts: false,
   },
   // Grafana 13.3+ serves flags through OpenFeature only, so set them here too.

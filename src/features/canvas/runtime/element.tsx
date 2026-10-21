@@ -15,10 +15,10 @@ import {
   ActionType,
 } from '@grafana/data';
 import { t } from '@grafana/i18n';
-import { config } from '@grafana/runtime';
 import { TooltipDisplayMode } from '@grafana/schema';
 import { ConfirmModal, VariablesInputModal } from '@grafana/ui';
 import { type LayerElement } from '../../../core/Layers/types';
+import { isPanZoomEnabled } from '../../../featureFlags';
 import { notFoundItem } from '../elements/notFound';
 import { type DimensionContext } from '../../dimensions/context';
 import {
@@ -124,7 +124,7 @@ export class ElementState implements LayerElement {
 
   /** Use the configured options to update CSS style properties directly on the wrapper div **/
   applyLayoutStylesToDiv(disablePointerEvents?: boolean) {
-    if (config.featureToggles.canvasPanelPanZoom) {
+    if (isPanZoomEnabled()) {
       this.applyLayoutStylesToDiv2(disablePointerEvents);
       return;
     }
@@ -394,7 +394,7 @@ export class ElementState implements LayerElement {
   }
 
   setPlacementFromConstraint(elementContainer?: DOMRect, parentContainer?: DOMRect, transformScale = 1) {
-    if (config.featureToggles.canvasPanelPanZoom) {
+    if (isPanZoomEnabled()) {
       this.setPlacementFromConstraint2(elementContainer, parentContainer, transformScale);
       return;
     }
@@ -851,7 +851,7 @@ export class ElementState implements LayerElement {
     } else if (dirLR === -1) {
       placement.left! -= deltaX;
       placement.width = event.width;
-      if (config.featureToggles.canvasPanelPanZoom) {
+      if (isPanZoomEnabled()) {
         style.transform = `translate(${placement.left}px, ${placement.top}px) rotate(${placement.rotation ?? 0}deg)`;
       } else {
         style.left = `${placement.left}px`;
@@ -862,7 +862,7 @@ export class ElementState implements LayerElement {
     if (dirTB === -1) {
       placement.top! -= deltaY;
       placement.height = event.height;
-      if (config.featureToggles.canvasPanelPanZoom) {
+      if (isPanZoomEnabled()) {
         style.transform = `translate(${placement.left}px, ${placement.top}px) rotate(${placement.rotation ?? 0}deg)`;
       } else {
         style.top = `${placement.top}px`;

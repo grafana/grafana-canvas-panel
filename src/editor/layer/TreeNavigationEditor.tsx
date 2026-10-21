@@ -7,11 +7,11 @@ import { type Key, useEffect, useMemo, useState } from 'react';
 
 import { type GrafanaTheme2, type StandardEditorProps } from '@grafana/data';
 import { Trans, t } from '@grafana/i18n';
-import { config } from '@grafana/runtime';
 import { Button, Icon, Stack, useStyles2, useTheme2 } from '@grafana/ui';
 import { AddLayerButton } from '../../core/Layers/AddLayerButton';
 import { type ElementState } from '../../features/canvas/runtime/element';
 import { frameSelection, reorderElements } from '../../features/canvas/runtime/sceneElementManagement';
+import { isNestingEnabled } from '../../featureFlags';
 
 import { getGlobalStyles } from '../../globalStyles';
 import { type Options } from '../../panelcfg.gen';
@@ -176,7 +176,7 @@ export const TreeNavigationEditor = ({ item }: StandardEditorProps<unknown, Tree
             <Trans i18nKey="canvas.tree-navigation-editor.clear-selection">Clear selection</Trans>
           </Button>
         )}
-        {selection.length > 1 && config.featureToggles.canvasPanelNesting && (
+        {selection.length > 1 && isNestingEnabled() && (
           <Button size="sm" variant="secondary" onClick={onFrameSelection}>
             <Trans i18nKey="canvas.tree-navigation-editor.frame-selection">Frame selection</Trans>
           </Button>
