@@ -8,6 +8,14 @@ test.use({
     canvasPanelPanZoom: true,
     dashboardNewLayouts: false,
   },
+  // Grafana 13.3+ serves flags through OpenFeature only, so set them here too.
+  // Without this, the UI renders the new sidebar layout and addPanel() times out.
+  openFeature: {
+    flags: {
+      canvasPanelPanZoom: true,
+      dashboardNewLayouts: false,
+    },
+  },
 });
 test.describe('Canvas Panel - Scene Tests', () => {
   test.beforeEach(async ({ page, gotoDashboardPage }) => {
