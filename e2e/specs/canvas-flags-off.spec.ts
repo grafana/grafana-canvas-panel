@@ -7,7 +7,9 @@ import { FLOORPLAN_DASHBOARD, getTreeEditorButton, selectOfficeAndServerRoom } f
 // flag combination needs its own spec file.
 test.use({
   featureToggles: { dashboardNewLayouts: false },
-  openFeature: { flags: { canvasPanelPanZoom: false, canvasPanelNesting: false } },
+  // dashboardNewLayouts is repeated here because Grafana 13.3+ serves it only
+  // through OpenFeature, and addPanel() expects the old layout.
+  openFeature: { flags: { canvasPanelPanZoom: false, canvasPanelNesting: false, dashboardNewLayouts: false } },
 });
 
 test.describe('Canvas Panel - flags off', () => {
