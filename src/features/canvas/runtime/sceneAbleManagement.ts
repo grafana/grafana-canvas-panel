@@ -4,10 +4,7 @@ import Moveable from 'moveable';
 import Selecto from 'selecto';
 
 import { CONNECTION_ANCHOR_DIV_ID } from '../../../components/connections/ConnectionAnchors';
-import {
-  CONNECTION_VERTEX_ID,
-  CONNECTION_VERTEX_ADD_ID,
-} from '../../../components/connections/Connections';
+import { CONNECTION_VERTEX_ID, CONNECTION_VERTEX_ADD_ID } from '../../../components/connections/Connections';
 import { isPanZoomEnabled } from '../../../featureFlags';
 import { VerticalConstraint, HorizontalConstraint } from '../../../panelcfg.gen';
 
@@ -475,7 +472,7 @@ export const initMoveable = (destroySelecto = false, allowChanges = true, scene:
     /******************/
     /* infiniteViewer */
     /******************/
-    // Scene reloads reuse the container, so remove the previous viewer's listeners
+    // Scene reloads reuse the container, so remove the previous infiniteViewer listeners
     scene.infiniteViewer?.destroy();
     scene.infiniteViewer = new InfiniteViewer(scene.viewerDiv!, scene.viewportDiv!, {
       preventWheelClick: false,
