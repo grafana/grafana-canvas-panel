@@ -1,5 +1,9 @@
 # Changelog
 
+## [13.4.1]
+
+- Fix mouse wheel scrolling over a canvas panel when pan and zoom is disabled.
+
 ## [13.4.0]
 
 - Upgrade to React 19 and @grafana/* 13.2.0.
