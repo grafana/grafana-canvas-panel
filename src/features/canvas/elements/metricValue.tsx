@@ -30,7 +30,6 @@ import {
 import { type ElementState } from '../runtime/element';
 import { Align, type TextConfig, type TextData, VAlign } from '../types';
 
- 
 const dummyFieldSettings: StandardEditorsRegistryItem<string, FieldNamePickerConfigSettings> = {
   settings: {},
 } as StandardEditorsRegistryItem<string, FieldNamePickerConfigSettings>;
@@ -82,8 +81,7 @@ const MetricValueEdit = (props: CanvasElementProps<TextConfig, TextData>) => {
 
   const onFieldChange = useCallback(
     (field: string | undefined) => {
-      let selectedElement: ElementState;
-      selectedElement = context.instanceState?.selected[0];
+      const selectedElement: ElementState | undefined = context.instanceState?.selected?.[0];
       if (selectedElement) {
         const options = selectedElement.options;
         selectedElement.onChange({

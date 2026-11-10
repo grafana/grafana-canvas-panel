@@ -74,9 +74,23 @@ export class CanvasPanel extends Component<Props, State> {
     this.scene.tooltipCallback = this.tooltipCallback;
     this.scene.moveableActionCallback = this.moveableActionCallback;
     this.scene.actionConfirmationCallback = this.actionConfirmationCallback;
+  }
+
+  componentDidMount() {
+    if (this.subs.closed) {
+      this.subs = new Subscription();
+    }
+    if (this.scene.subscription.closed) {
+      this.scene.subscription = this.scene.subscribeEditMode();
+    }
+
+    activeCanvasPanel = this;
+    activePanelSubject.next({ panel: this });
+
+    this.panelContext = this.context;
 
     this.subs.add(
-      this.props.eventBus.subscribe(PanelEditEnteredEvent, (evt: PanelEditEnteredEvent) => {
+      this.props.eventBus.subscribe(PanelEditEnteredEvent, () => {
         // Remove current selection when entering edit mode for any panel in dashboard
         this.scene.clearCurrentSelection();
         this.closeInlineEdit();
@@ -91,20 +105,13 @@ export class CanvasPanel extends Component<Props, State> {
         }
       })
     );
-  }
-
-  componentDidMount() {
-    activeCanvasPanel = this;
-    activePanelSubject.next({ panel: this });
-
-    this.panelContext = this.context;
 
     if (this.scene.data) {
       this.scene.updateData(this.scene.data);
     }
 
     if (this.panelContext.onInstanceStateChange) {
-      this.panelContext.onInstanceStateChange({ scene: this.scene, layer: this.scene.root });
+      this.panelContext.onInstanceStateChange({ scene: this.scene, selected: [], layer: this.scene.root });
 
       this.subs.add(
         this.scene.selection.subscribe({
@@ -135,7 +142,7 @@ export class CanvasPanel extends Component<Props, State> {
 
             this.panelContext?.onInstanceStateChange!({
               scene: this.scene,
-              selected: this.context.instanceState.selected,
+              selected: this.context.instanceState.selected ?? [],
               selectedConnection: v,
               layer: this.scene.root,
             });
