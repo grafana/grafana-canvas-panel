@@ -67,7 +67,7 @@ jobs:
       run-playwright: false
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.yaml
-      run-playwright-with-grafana-dependency: '>=13.3.0'
+      run-playwright-with-grafana-dependency: '>=13.2.0'
       # Nightly runs on OSS in the ci-nightly job below.
       run-playwright-with-skip-grafana-nightly-image: true
       upload-playwright-artifacts: true
@@ -134,7 +134,7 @@ jobs:
       run-playwright: false
       run-playwright-docker: true
       playwright-docker-compose-file: docker-compose.yaml
-      run-playwright-with-grafana-dependency: '>=13.3.0'
+      run-playwright-with-grafana-dependency: '>=13.2.0'
       # Nightly runs on OSS in the ci-nightly job below.
       run-playwright-with-skip-grafana-nightly-image: true
       upload-playwright-artifacts: true
