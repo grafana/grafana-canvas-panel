@@ -50,7 +50,7 @@
    npm run server
 
    # If you wish to start a certain Grafana version. If not specified will use latest by default
-   GRAFANA_VERSION=13.2.0 npm run server
+   GRAFANA_VERSION=13.3.0 npm run server
 
    # Run several instances side by side on different ports and versions.
    # Each port gets its own compose project, container and network.
