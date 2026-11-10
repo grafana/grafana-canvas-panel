@@ -52,8 +52,7 @@ const TextEdit = (props: CanvasElementProps<TextConfig, TextData>) => {
 
   const saveText = useCallback(
     (textValue: string) => {
-      let selectedElement: ElementState;
-      selectedElement = context.instanceState?.selected[0];
+      const selectedElement: ElementState | undefined = context.instanceState?.selected?.[0];
       if (selectedElement) {
         const options = selectedElement.options;
         selectedElement.onChange({

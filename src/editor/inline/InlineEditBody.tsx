@@ -109,7 +109,7 @@ export function InlineEditBody() {
   const noElementSelected =
     instanceState &&
     activeTab === InlineEditTabs.SelectedElement &&
-    instanceState.selected.length === 0 &&
+    !instanceState.selected?.length &&
     instanceState.selectedConnection === undefined;
 
   return (

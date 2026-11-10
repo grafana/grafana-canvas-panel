@@ -121,15 +121,19 @@ export class Scene {
 
     this.root = this.load(options, enableEditing);
 
-    this.subscription = this.editModeEnabled.subscribe((open) => {
+    this.subscription = this.subscribeEditMode();
+
+    this.panel = panel;
+    this.connections = isPanZoomEnabled() ? new Connections2(this) : new Connections(this);
+  }
+
+  subscribeEditMode(): Subscription {
+    return this.editModeEnabled.subscribe((open) => {
       if (!this.moveable || !this.isEditingEnabled) {
         return;
       }
       this.moveable.draggable = !open;
     });
-
-    this.panel = panel;
-    this.connections = isPanZoomEnabled() ? new Connections2(this) : new Connections(this);
   }
 
   getNextElementName = (isFrame = false) => {
