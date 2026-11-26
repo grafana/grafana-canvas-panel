@@ -76,14 +76,12 @@ export const TreeNodeTitle = ({ settings, nodeData, setAllowSelection }: Props) 
           <IconButton
             name="copy"
             title={t('canvas.tree-node-title.title-duplicate', 'Duplicate')}
-            className={styles.actionIcon}
             onClick={() => onDuplicate(element)}
             tooltip={t('canvas.tree-node-title.tooltip-duplicate', 'Duplicate')}
           />
           <IconButton
             name="trash-alt"
             title={t('canvas.tree-node-title.title-remove', 'Remove')}
-            className={styles.actionIcon}
             onClick={() => onDelete(element)}
             tooltip={t('canvas.tree-node-title.tooltip-remove', 'Remove')}
           />
@@ -97,13 +95,6 @@ const getStyles = (theme: GrafanaTheme2) => ({
   actionButtonsWrapper: css({
     display: 'flex',
     alignItems: 'flex-end',
-  }),
-  actionIcon: css({
-    color: theme.colors.text.secondary,
-    cursor: 'pointer',
-    '&:hover': {
-      color: theme.colors.text.primary,
-    },
   }),
   textWrapper: css({
     display: 'flex',
